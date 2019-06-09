@@ -1,7 +1,7 @@
 {
     "name": "MiHNDbot",
     "version": "1.0.0",
-    "description": "Help people improve their mental fitness",
+    "description": "Help people manage their mental fitness",
     "author": "Generated using Microsoft Bot Builder Yeoman generator v4.4.0",
     "license": "MIT",
     "main": "index.js",
@@ -16,8 +16,13 @@
         "url": "https://github.com"
     },
     "dependencies": {
+        "@microsoft/recognizers-text-data-types-timex-expression": "1.1.4",
         "botbuilder": "~4.4.0",
+        "botbuilder-ai": "~4.4.0",
+        "botbuilder-dialogs": "~4.4.0",
+        "botdispatch": "^1.4.7",
         "dotenv": "^7.0.0",
+        "replace": "~1.1.0",
         "restify": "~8.2.0"
     },
     "devDependencies": {

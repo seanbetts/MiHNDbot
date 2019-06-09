@@ -1,0 +1,10 @@
+Utterance	Intents
+bonjour	MiHNDbot, MiHNDbot-KB
+sup	MiHNDbot, MiHNDbot-KB
+bye	Book_Flight, MiHNDbot-KB
+good day	MiHNDbot, MiHNDbot-KB
+greetings	MiHNDbot, MiHNDbot-KB
+yo	MiHNDbot, MiHNDbot-KB
+welcome	MiHNDbot, MiHNDbot-KB
+hello	MiHNDbot, MiHNDbot-KB
+hi	MiHNDbot, MiHNDbot-KB

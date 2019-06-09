@@ -1,10 +1,21 @@
 # MiHNDbot
 
-Help people improve their mental fitness
+Help people manage their mental fitness
 
-This bot has been created using [Bot Framework](https://dev.botframework.com), it shows how to create a simple bot that accepts input from the user and echoes it back.
+This bot has been created using [Bot Framework](https://dev.botframework.com), it shows how to:
+
+- Use [LUIS](https://www.luis.ai) to implement core AI capabilities
+- Implement a multi-turn conversation using Dialogs
+- Handle user interruptions for such things as `Help` or `Cancel`
+- Prompt for and validate requests for information from the user
 
 ## Prerequisites
+
+This sample **requires** prerequisites in order to run.
+
+### Overview
+
+This bot uses [LUIS](https://www.luis.ai), an AI based cognitive service, to implement language understanding.
 
 - [Node.js](https://nodejs.org) version 10.14.1 or higher
 
@@ -13,20 +24,26 @@ This bot has been created using [Bot Framework](https://dev.botframework.com), i
     node --version
     ```
 
-## To run the bot
+### Create a LUIS Application to enable language understanding
+
+LUIS language model setup, training, and application configuration steps can be found [here](https://docs.microsoft.com/en-us/azure/bot-service/bot-builder-howto-v4-luis?view=azure-bot-service-4.0).
+
+# To run the bot
 
 - Install modules
 
     ```bash
     npm install
     ```
+- Setup LUIS
+
+The prerequisite outlined above contain the steps necessary to provision a language understanding model on www.luis.ai.  Refer to _Create a LUIS Application to enable language understanding_ above for directions to setup and configure LUIS.
 
 - Start the bot
 
     ```bash
     npm start
     ```
-
 ## Testing the bot using Bot Framework Emulator
 
 [Bot Framework Emulator](https://github.com/microsoft/botframework-emulator) is a desktop application that allows bot developers to test and debug their bots on localhost or running remotely through a tunnel.

@@ -1,0 +1,29 @@
+{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "type": "AdaptiveCard",
+    "version": "1.0",
+    "body": [
+      {
+        "type": "Image",
+        "url": "https://raw.githubusercontent.com/mihnd/MiHNDbot/master/MiHND-graphic-logo-black-circle-inverted-rounded.jpg",
+        "size": "stretch"
+      },
+      {
+        "type": "TextBlock",
+        "spacing": "medium",
+        "size": "default",
+        "weight": "bolder",
+        "text": "Welcome to MiHNDbot!",
+        "wrap": true,
+        "maxLines": 0
+      },
+      {
+        "type": "TextBlock",
+        "size": "default",
+        "isSubtle": "yes",
+        "text": "I am a chatbot designed to help people manage their mental fitness. Use the buttons below to find out more or you can chat to me like any other messaging service",
+        "wrap": true,
+        "maxLines": 0
+      }
+    ]
+  }

@@ -1,0 +1,2 @@
+Utterance	Intents
+welcome	MiHNDbot, MiHNDbot-KB
