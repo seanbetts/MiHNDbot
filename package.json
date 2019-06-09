@@ -20,6 +20,7 @@
         "botbuilder": "~4.4.0",
         "botbuilder-ai": "~4.4.0",
         "botbuilder-dialogs": "~4.4.0",
+        "botbuilder-teams": "^0.2.6",
         "botdispatch": "^1.4.7",
         "dotenv": "^7.0.0",
         "querystringify": "^2.1.1",
