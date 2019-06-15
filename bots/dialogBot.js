@@ -1,7 +1,24 @@
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
 
-const { ActivityHandler } = require('botbuilder');
+const { ActivityHandler, MemoryStorage } = require('botbuilder');
+const restify = require('restify');
+const { CosmosDbStorage } = require("botbuilder-azure");
+
+// initialized to access values in .env file.
+var dotenv = require('dotenv');
+dotenv.config();
+
+// Add memory storage.
+// var storage = new MemoryStorage();
+
+// Create access to CosmosDb Storage - this replaces local Memory Storage.
+var storage = new CosmosDbStorage({
+    serviceEndpoint: process.env.DB_SERVICE_ENDPOINT,
+    authKey: process.env.AUTH_KEY,
+    databaseId: process.env.DATABASE,
+    collectionId: process.env.COLLECTION
+})
 
 class DialogBot extends ActivityHandler {
     /**
