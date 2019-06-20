@@ -5,7 +5,7 @@
     "body": [
       {
         "type": "Image",
-        "url": "https://raw.githubusercontent.com/mihnd/MiHNDbot/master/MiHND-graphic-logo-black-circle-inverted-rounded.jpg",
+        "url": "https://raw.githubusercontent.com/mihnd/MiHNDbot/master/resources/MiHND-graphic-logo-black-circle-inverted-rounded.jpg",
         "size": "stretch"
       },
       {
@@ -21,9 +21,26 @@
         "type": "TextBlock",
         "size": "default",
         "isSubtle": "yes",
-        "text": "I am a chatbot designed to help people manage their mental fitness. Use the buttons below to find out more or you can chat to me like any other messaging service",
+        "text": "I am a chatbot designed to help people understand more about Mental Health and NeuroDiversity. Use the buttons below to find out more or you can chat to me like any other messaging service",
         "wrap": true,
         "maxLines": 0
+      }
+    ],
+    "actions": [
+      {
+        "type": "Action.Submit",
+        "title": "Find Out More About Mental Health",
+        "data": "What Is Mental Health?"
+      },
+      {
+        "type": "Action.Submit",
+        "title": "Find Out More About NeuroDiversity",
+        "data": "What Is NeuroDiversity?"
+      },
+      {
+        "type": "Action.Submit",
+        "title": "Get Help",
+        "data": "Help Me"
       }
     ]
   }

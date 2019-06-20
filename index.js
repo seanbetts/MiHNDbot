@@ -1,6 +1,3 @@
-// Copyright (c) Microsoft Corporation. All rights reserved.
-// Licensed under the MIT License.
-
 // index.js is used to setup and configure your bot
 
 // Import required pckages
@@ -11,8 +8,8 @@ const restify = require('restify');
 const { BotFrameworkAdapter, MemoryStorage, ConversationState, UserState } = require('botbuilder');
 
 // This bot's main dialog.
-const { WelcomeBot } = require('./bots/WelcomeBot');
-const { UserProfileDialog } = require('./dialogs/userProfileDialog');
+const { DialogBot } = require('./bots/dialogBot');
+// const { UserProfileDialog } = require('./dialogs/userProfileDialog');
 
 // Note: Ensure you have a .env file and include LuisAppId, LuisAPIKey and LuisAPIHostName.
 const ENV_FILE = path.join(__dirname, '.env');
@@ -63,8 +60,8 @@ const userState = new UserState(memoryStorage);
 const logger = console;
 
 // Create the main dialog.
-const dialog = new UserProfileDialog(userState, logger);
-const bot = new WelcomeBot(conversationState, userState, dialog, logger);
+// const dialog = new UserProfileDialog(userState, logger);
+const bot = new DialogBot(conversationState, userState, logger); // dialog
 
 // Create HTTP server
 let server = restify.createServer();
