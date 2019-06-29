@@ -152,20 +152,18 @@ class DialogBot extends ActivityHandler {
                     if (prompts.length) {
 
                       const quickReply = {
-                        channelData: {
-                            "messaging_type":"RESPONSE",
-                            "message":{
-                              "text":"test1", //answer,
-                              "quick_replies":[
-                                {
-                                  "content_type":"text",
-                                  "title":"test2",//prompts.map({ displayText }),
-                                  "payload":"test3",//prompts.map({ displayText })
-                                }
-                              ]
-                            }
+                          "messaging_type":"RESPONSE",
+                          "message":{
+                            "text":"test1", //answer,
+                            "quick_replies":[
+                              {
+                                "content_type":"text",
+                                "title":"test2",//prompts.map({ displayText }),
+                                "payload":"test3",//prompts.map({ displayText })
+                              }
+                            ]
+                          }
                         }
-                      }
 
                         reply = quickReply;
                       } else {
