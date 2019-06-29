@@ -152,6 +152,7 @@ class DialogBot extends ActivityHandler {
                     if (prompts.length) {
 
                       const quickReply = {
+                        channelData: {
                           "messaging_type":"RESPONSE",
                           "message":{
                             "text":"test1", //answer,
@@ -164,6 +165,7 @@ class DialogBot extends ActivityHandler {
                             ]
                           }
                         }
+                      }
 
                         reply = quickReply;
                       } else {
