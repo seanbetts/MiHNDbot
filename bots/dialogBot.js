@@ -145,10 +145,41 @@ class DialogBot extends ActivityHandler {
             const qnaResults = await this.qnaMaker.getAnswers(context);
 
             // Show choices if the Facebook Payload from ChannelData is not handled
-            // if (!await this.processFacebookPayload(context, context.activity.channelData)) {
-                // if (context.activity.channelId !== 'facebook') {
-                    // await context.sendActivity('This sample is intended to be used with a Facebook bot.');
-                // } else {
+            if (!await this.processFacebookPayload(context, context.activity.channelData)) {
+                if (context.activity.channelId == 'facebook') {
+                  if (qnaResults[0]) {
+                    const { answer, context: { prompts }} = qnaResults[0];
+
+                    let reply;
+                    if (prompts.length) {
+
+                      const quickReply = {
+                        "messaging_type":"RESPONSE",
+                        "message":{
+                          "text":answer,
+                          "quick_replies":[
+                            {
+                              "content_type":"text",
+                              "title":answer,
+                              "payload":answer
+                            }
+                          ]
+                        }
+                      }
+
+                        reply = await context.sendActivity(quickReply);
+                      } else {
+                        reply = answer;
+                      }
+
+                      await context.sendActivity(reply);
+
+                  // If no answers were returned from QnA Maker, reply with help.
+                  } else {
+                      await context.sendActivity('I\'m sorry, I don\'t have an answer for that. Please ask me something else, such as: \n\n "What Is Mental Health?" \n\n "What Is NeuroDiversity" \n\n "Help"');
+                  }
+
+                } else {
 
                 // If an answer was received from QnA Maker, send the answer back to the user.
                 if (qnaResults[0]) {
@@ -182,9 +213,9 @@ class DialogBot extends ActivityHandler {
                 } else {
                     await context.sendActivity('I\'m sorry, I don\'t have an answer for that. Please ask me something else, such as: \n\n "What Is Mental Health?" \n\n "What Is NeuroDiversity" \n\n "Help"');
                 }
-                // }
+                }
 
-            // }
+            }
 
             // By calling next() you ensure that the next BotHandler is run.
             await next();
