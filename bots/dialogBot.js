@@ -82,8 +82,6 @@ class DialogBot extends ActivityHandler {
                 const membersAdded = context.activity.membersAdded;
                 for (let cnt = 0; cnt < membersAdded.length; cnt++) {
                     if (membersAdded[cnt].id !== context.activity.recipient.id) {
-                        const welcomeCard = CardFactory.adaptiveCard(WelcomeCard);
-                        // await context.sendActivity('This sample is intended to be used with a Facebook bot.');
                         await context.sendActivity({
                               channelData: {
                                 "attachment":{
@@ -160,8 +158,8 @@ class DialogBot extends ActivityHandler {
                           "quick_replies":[
                             {
                               "content_type":"text",
-                              "title":answer,
-                              "payload":answer
+                              "title":prompts.map({ displayText }),
+                              "payload":prompts.map({ displayText })
                             }
                           ]
                         }
