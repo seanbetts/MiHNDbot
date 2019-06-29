@@ -2,8 +2,12 @@ const { ActivityHandler, MemoryStorage } = require('botbuilder');
 const { CardFactory } = require('botbuilder-core');
 const { CosmosDbStorage } = require("botbuilder-azure");
 const { QnAMaker } = require('botbuilder-ai');
+const { FacebookAdapter } = require('botbuilder-adapter-facebook');
 const restify = require('restify');
 const WelcomeCard = require('../resources/welcomeCard.json');
+const facebookPageIdOption = 'Facebook Page Id';
+const quickRepliesOption = 'Quick Replies';
+const postBackOption = 'PostBack';
 
 // initialized to access values in .env file.
 var dotenv = require('dotenv');
@@ -19,6 +23,22 @@ var storage = new CosmosDbStorage({
     databaseId: process.env.DATABASE,
     collectionId: process.env.COLLECTION
 })
+
+// initialise Facebook Adapter
+const adapter = new FacebookAdapter({
+     verify_token: process.env.FACEBOOK_VERIFY_TOKEN,
+     app_secret: process.env.FACEBOOK_APP_SECRET,
+     access_token: process.env.FACEBOOK_ACCESS_TOKEN
+});
+
+const server = restify.createServer();
+server.use(restify.plugins.bodyParser());
+
+server.post('/api/messages', (req, res) => {
+     adapter.processActivity(req, res, async(context) => {
+         // do your bot logic here!
+     });
+});
 
 class DialogBot extends ActivityHandler {
     /**
@@ -70,24 +90,37 @@ class DialogBot extends ActivityHandler {
 
         // When a user sends a message, perform a call to the QnA Maker service to retrieve matching Question and Answer pairs.
         this.onMessage(async (context, next) => {
-            this.logger.log('Running dialog');
+            this.logger.log('Processing a Message Activity');
 
             const qnaResults = await this.qnaMaker.getAnswers(context);
 
-            // If an answer was received from QnA Maker, send the answer back to the user.
-            if (qnaResults[0]) {
-                await context.sendActivity(qnaResults[0].answer);
+            // Show choices if the Facebook Payload from ChannelData is not handled
+            if (!await this.processFacebookPayload(context, context.activity.channelData)) {
+                if (context.activity.channelId !== 'facebook') {
+                    await context.sendActivity('This sample is intended to be used with a Facebook bot.');
+                }
 
-            // If no answers were returned from QnA Maker, reply with help.
-            } else {
-                await context.sendActivity('No QnA Maker answers were found.');
+                // If an answer was received from QnA Maker, send the answer back to the user.
+                if (qnaResults[0]) {
+                    await context.sendActivity(qnaResults[0].answer
+                    );
+
+                // If no answers were returned from QnA Maker, reply with help.
+                } else {
+                    await context.sendActivity('I\'m sorry, I don\'t have an answer for that. Please ask me something else.');
+                }
+
             }
-
-            // Run the Dialog with the new message Activity.
-            // await this.dialog.run(context, this.dialogState);
 
             // By calling next() you ensure that the next BotHandler is run.
             await next();
+        });
+
+        this.onEvent(async (turnContext) => {
+            this.logger.log('Processing an Event Activity.');
+
+            // Analyze Facebook payload from EventActivity.Value
+            await this.processFacebookPayload(turnContext, turnContext.activity.value);
         });
 
         this.onDialog(async (context, next) => {
@@ -97,6 +130,138 @@ class DialogBot extends ActivityHandler {
             await next();
         });
     }
+
+    /**
+     * Process a Facebook payload from channel data, to handle optin events, postbacks and quick replies.
+     * NOTE: This is a simplification of the Facebook object model. There are many more events and payloads
+     * that could be captured here. We only show some key features that are commonly used. The sample
+     * can be extended to account for more Facebook-specific events according to developers' needs.
+     * @param {Object} turnContext
+     * @param {Object} data
+     */
+    async processFacebookPayload(turnContext, data) {
+        // At this point we know we are on Facebook channel, and can consume the Facebook custom payload present in channelData.
+        const facebookPayload = data;
+        if (facebookPayload) {
+            if (facebookPayload.postback) {
+                // Postback
+                await this.onFacebookPostback(turnContext, facebookPayload.postback);
+                return true;
+            } else if (facebookPayload.optin) {
+                // Optin
+                await this.onFacebookOptin(turnContext, facebookPayload.optin);
+                return true;
+            } else if (facebookPayload.message && facebookPayload.message.quick_reply) {
+                // Quick Reply
+                await this.onFacebookQuickReply(turnContext, facebookPayload.message.quick_reply);
+                return true;
+            } else if (facebookPayload.message && facebookPayload.message.is_echo) {
+                // Echo
+                await this.onFacebookEcho(turnContext, facebookPayload.message);
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /**
+     * Called when receiving a Facebook messaging_postback event.
+     * Facebook Developer Reference: Postback
+     * https://developers.facebook.com/docs/messenger-platform/reference/webhook-events/messaging_postbacks/
+     * @param {Object} postback JSON object for postback payload.
+     * @param {Object} turnContext
+     */
+    async onFacebookPostback(turnContext, postback) {
+        this.logger.log('Postback message received.');
+        // TODO: Your postBack handling logic here...
+
+        // Answer the postback and show choices
+        await turnContext.sendActivity('Are you sure?');
+        await this.showChoices(turnContext);
+    }
+
+    /**
+     * Called when a message has been sent by your Facebook page.
+     * Facebook Developer Reference: Echoes
+     * https://developers.facebook.com/docs/messenger-platform/reference/webhook-events/message-echoes/
+     * @param {Object} facebookMessage
+     * @param {Object} turnContext
+     */
+    async onFacebookEcho(turnContext, facebookMessage) {
+        this.logger.log('Echo message received.');
+    }
+
+    /**
+     * Called when receiving a Facebook messaging_optin event.
+     * Facebook Developer Reference: Optin
+     * https://developers.facebook.com/docs/messenger-platform/reference/webhook-events/messaging_optins/
+     * @param {Object} optin
+     * @param {Object} turnContext
+     */
+    async onFacebookOptin(turnContext, optin) {
+        this.logger.log('Optin message received.');
+        // TODO: Your optin handling logic here...
+    }
+
+    /**
+     * Called when receiving a Facebook quick reply.
+     * Facebook Developer Reference: Quick reply
+     * https://developers.facebook.com/docs/messenger-platform/send-messages/quick-replies/
+     * @param {Object} quickReply
+     * @param {Object} turnContext
+     */
+    async onFacebookQuickReply(turnContext, quickReply) {
+        this.logger.log('QuickReply message received.');
+        // TODO: Your QuickReply handling logic here...
+
+        // Process the message by checking the Activity.Text.  The FacebookQuickReply could also contain a json payload.
+
+        // Initially the bot offers to showcase 3 Facebook features: Quick replies, PostBack and getting the Facebook Page Name.
+        switch (turnContext.activity.text) {
+        // Here we showcase how to obtain the Facebook page id.
+        // This can be useful for the Facebook multi-page support provided by the Bot Framework.
+        // The Facebook page id from which the message comes from is in turnContext.Activity.Recipient.Id.
+        case facebookPageIdOption:
+
+            await turnContext.sendActivity(`This message comes from the following Facebook Page: ${ turnContext.activity.recipient.id }`);
+            await this.showChoices(turnContext);
+            break;
+        // Here we send a HeroCard with 2 options that will trigger a Facebook PostBack.
+        case postBackOption:
+            var card = CardFactory.heroCard(
+                'Is 42 the answer to the ultimate question of Life, the Universe, and Everything?',
+                null,
+                CardFactory.actions([
+                    {
+                        type: ActionTypes.PostBack,
+                        title: 'Yes',
+                        value: 'Yes'
+                    },
+
+                    {
+                        type: ActionTypes.PostBack,
+                        title: 'No',
+                        value: 'No'
+                    }
+                ])
+            );
+
+            var reply = {
+                attachments: [
+                    card
+                ]
+            };
+            await turnContext.sendActivity(reply);
+            break;
+
+        // By default we offer the users different actions that the bot supports, through quick replies.
+        case quickRepliesOption:
+        default:
+            await this.showChoices(turnContext);
+            break;
+        }
+    }
+
 }
 
 module.exports.DialogBot = DialogBot;
