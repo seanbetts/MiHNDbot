@@ -154,12 +154,12 @@ class DialogBot extends ActivityHandler {
                       const quickReply = {
                         "messaging_type":"RESPONSE",
                         "message":{
-                          "text":answer,
+                          "text":"test1", //answer,
                           "quick_replies":[
                             {
                               "content_type":"text",
-                              "title":prompts.map({ displayText }),
-                              "payload":prompts.map({ displayText })
+                              "title":"test2",//prompts.map({ displayText }),
+                              "payload":"test3",//prompts.map({ displayText })
                             }
                           ]
                         }
