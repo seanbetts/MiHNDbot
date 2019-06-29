@@ -205,7 +205,7 @@ class DialogBot extends ActivityHandler {
         });
     }
 
-    /*
+    /**
      * Process a Facebook payload from channel data, to handle optin events, postbacks and quick replies.
      * NOTE: This is a simplification of the Facebook object model. There are many more events and payloads
      * that could be captured here. We only show some key features that are commonly used. The sample
@@ -255,16 +255,16 @@ class DialogBot extends ActivityHandler {
         await this.showChoices(turnContext);
     } */
 
-    /*
+    /**
      * Called when a message has been sent by your Facebook page.
      * Facebook Developer Reference: Echoes
      * https://developers.facebook.com/docs/messenger-platform/reference/webhook-events/message-echoes/
      * @param {Object} facebookMessage
      * @param {Object} turnContext
      */
-    /* async onFacebookEcho(turnContext, facebookMessage) {
+    async onFacebookEcho(turnContext, facebookMessage) {
         this.logger.log('Echo message received.');
-    } */
+    }
 
     /**
      * Called when receiving a Facebook messaging_optin event.
@@ -278,64 +278,20 @@ class DialogBot extends ActivityHandler {
         // TODO: Your optin handling logic here...
     } */
 
-    /*
+    /**
      * Called when receiving a Facebook quick reply.
      * Facebook Developer Reference: Quick reply
      * https://developers.facebook.com/docs/messenger-platform/send-messages/quick-replies/
      * @param {Object} quickReply
      * @param {Object} turnContext
      */
-    /* async onFacebookQuickReply(turnContext, quickReply) {
+    async onFacebookQuickReply(turnContext, quickReply) {
         this.logger.log('QuickReply message received.');
         // TODO: Your QuickReply handling logic here...
 
         // Process the message by checking the Activity.Text.  The FacebookQuickReply could also contain a json payload.
 
-        // Initially the bot offers to showcase 3 Facebook features: Quick replies, PostBack and getting the Facebook Page Name.
-        switch (turnContext.activity.text) {
-        // Here we showcase how to obtain the Facebook page id.
-        // This can be useful for the Facebook multi-page support provided by the Bot Framework.
-        // The Facebook page id from which the message comes from is in turnContext.Activity.Recipient.Id.
-        case facebookPageIdOption:
-
-            await turnContext.sendActivity(`This message comes from the following Facebook Page: ${ turnContext.activity.recipient.id }`);
-            await this.showChoices(turnContext);
-            break;
-        // Here we send a HeroCard with 2 options that will trigger a Facebook PostBack.
-        case postBackOption:
-            var card = CardFactory.heroCard(
-                'Is 42 the answer to the ultimate question of Life, the Universe, and Everything?',
-                null,
-                CardFactory.actions([
-                    {
-                        type: ActionTypes.PostBack,
-                        title: 'Yes',
-                        value: 'Yes'
-                    },
-
-                    {
-                        type: ActionTypes.PostBack,
-                        title: 'No',
-                        value: 'No'
-                    }
-                ])
-            );
-
-            var reply = {
-                attachments: [
-                    card
-                ]
-            };
-            await turnContext.sendActivity(reply);
-            break;
-
-        // By default we offer the users different actions that the bot supports, through quick replies.
-        case quickRepliesOption:
-        default:
-            await context.sendActivity(context);
-            break;
-        }
-    } */
+    }
 
 }
 
