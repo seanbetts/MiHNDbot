@@ -2,12 +2,12 @@ const { ActivityHandler, MemoryStorage } = require('botbuilder');
 const { CardFactory } = require('botbuilder-core');
 const { CosmosDbStorage } = require("botbuilder-azure");
 const { QnAMaker } = require('botbuilder-ai');
-const { FacebookAdapter } = require('botbuilder-adapter-facebook');
+// const { FacebookAdapter } = require('botbuilder-adapter-facebook');
 const restify = require('restify');
 const WelcomeCard = require('../resources/welcomeCard.json');
-const facebookPageIdOption = 'Facebook Page Id';
-const quickRepliesOption = 'Quick Replies';
-const postBackOption = 'PostBack';
+// const facebookPageIdOption = 'Facebook Page Id';
+// const quickRepliesOption = 'Quick Replies';
+// const postBackOption = 'PostBack';
 
 // initialized to access values in .env file.
 var dotenv = require('dotenv');
@@ -24,7 +24,7 @@ var storage = new CosmosDbStorage({
     collectionId: process.env.COLLECTION
 })
 
-// initialise Facebook Adapter
+/* initialise Facebook Adapter
 const adapter = new FacebookAdapter({
      verify_token: process.env.FACEBOOK_VERIFY_TOKEN,
      app_secret: process.env.FACEBOOK_APP_SECRET,
@@ -38,7 +38,7 @@ server.post('/api/messages', (req, res) => {
      adapter.processActivity(req, res, async(context) => {
          // do your bot logic here!
      });
-});
+}); */
 
 class DialogBot extends ActivityHandler {
     /**
@@ -140,12 +140,12 @@ class DialogBot extends ActivityHandler {
             await next();
         });
 
-        this.onEvent(async (turnContext) => {
+        /* this.onEvent(async (turnContext) => {
             this.logger.log('Processing an Event Activity.');
 
             // Analyze Facebook payload from EventActivity.Value
             await this.processFacebookPayload(turnContext, turnContext.activity.value);
-        });
+        }); */
 
         this.onDialog(async (context, next) => {
             // Save any state changes. The load happened during the execution of the Dialog.
@@ -155,7 +155,7 @@ class DialogBot extends ActivityHandler {
         });
     }
 
-    /**
+    /*
      * Process a Facebook payload from channel data, to handle optin events, postbacks and quick replies.
      * NOTE: This is a simplification of the Facebook object model. There are many more events and payloads
      * that could be captured here. We only show some key features that are commonly used. The sample
@@ -163,7 +163,7 @@ class DialogBot extends ActivityHandler {
      * @param {Object} turnContext
      * @param {Object} data
      */
-    async processFacebookPayload(turnContext, data) {
+    /* async processFacebookPayload(turnContext, data) {
         // At this point we know we are on Facebook channel, and can consume the Facebook custom payload present in channelData.
         const facebookPayload = data;
         if (facebookPayload) {
@@ -186,34 +186,34 @@ class DialogBot extends ActivityHandler {
             }
         }
         return false;
-    }
+    } */
 
-    /**
+    /*
      * Called when receiving a Facebook messaging_postback event.
      * Facebook Developer Reference: Postback
      * https://developers.facebook.com/docs/messenger-platform/reference/webhook-events/messaging_postbacks/
      * @param {Object} postback JSON object for postback payload.
      * @param {Object} turnContext
      */
-    async onFacebookPostback(turnContext, postback) {
+    /* async onFacebookPostback(turnContext, postback) {
         this.logger.log('Postback message received.');
         // TODO: Your postBack handling logic here...
 
         // Answer the postback and show choices
         await turnContext.sendActivity('Are you sure?');
         await this.showChoices(turnContext);
-    }
+    } */
 
-    /**
+    /*
      * Called when a message has been sent by your Facebook page.
      * Facebook Developer Reference: Echoes
      * https://developers.facebook.com/docs/messenger-platform/reference/webhook-events/message-echoes/
      * @param {Object} facebookMessage
      * @param {Object} turnContext
      */
-    async onFacebookEcho(turnContext, facebookMessage) {
+    /* async onFacebookEcho(turnContext, facebookMessage) {
         this.logger.log('Echo message received.');
-    }
+    } */
 
     /**
      * Called when receiving a Facebook messaging_optin event.
@@ -222,19 +222,19 @@ class DialogBot extends ActivityHandler {
      * @param {Object} optin
      * @param {Object} turnContext
      */
-    async onFacebookOptin(turnContext, optin) {
+    /* async onFacebookOptin(turnContext, optin) {
         this.logger.log('Optin message received.');
         // TODO: Your optin handling logic here...
-    }
+    } */
 
-    /**
+    /*
      * Called when receiving a Facebook quick reply.
      * Facebook Developer Reference: Quick reply
      * https://developers.facebook.com/docs/messenger-platform/send-messages/quick-replies/
      * @param {Object} quickReply
      * @param {Object} turnContext
      */
-    async onFacebookQuickReply(turnContext, quickReply) {
+    /* async onFacebookQuickReply(turnContext, quickReply) {
         this.logger.log('QuickReply message received.');
         // TODO: Your QuickReply handling logic here...
 
@@ -284,7 +284,7 @@ class DialogBot extends ActivityHandler {
             await context.sendActivity(context);
             break;
         }
-    }
+    } */
 
 }
 
