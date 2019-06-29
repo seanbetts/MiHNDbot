@@ -95,22 +95,46 @@ class DialogBot extends ActivityHandler {
             const qnaResults = await this.qnaMaker.getAnswers(context);
 
             // Show choices if the Facebook Payload from ChannelData is not handled
-            if (!await this.processFacebookPayload(context, context.activity.channelData)) {
-                if (context.activity.channelId !== 'facebook') {
-                    await context.sendActivity('This sample is intended to be used with a Facebook bot.');
-                }
+            // if (!await this.processFacebookPayload(context, context.activity.channelData)) {
+                // if (context.activity.channelId !== 'facebook') {
+                    // await context.sendActivity('This sample is intended to be used with a Facebook bot.');
+                // } else {
 
                 // If an answer was received from QnA Maker, send the answer back to the user.
                 if (qnaResults[0]) {
-                    await context.sendActivity(qnaResults[0].answer
-                    );
+                  const { answer, context: { prompts }} = qnaResults[0];
+
+                  let reply;
+                  if (prompts.length) {
+
+                    const card = {
+                      "type": "AdaptiveCard",
+                      "body": [
+                        {
+                          "type": "TextBlock",
+                          "text": answer,
+                          wrap: true
+                        }
+                    ],
+                    "actions": prompts.map(({ displayText }) => ({ type: "Action.Submit", title: displayText, data: displayText })),
+                    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+                    "version": "1.1"
+                    }
+
+                      reply = { attachments: [CardFactory.adaptiveCard(card)] };
+                    } else {
+                      reply = answer;
+                    }
+
+                    await context.sendActivity(reply);
 
                 // If no answers were returned from QnA Maker, reply with help.
                 } else {
                     await context.sendActivity('I\'m sorry, I don\'t have an answer for that. Please ask me something else.');
                 }
+                // }
 
-            }
+            // }
 
             // By calling next() you ensure that the next BotHandler is run.
             await next();
@@ -257,7 +281,7 @@ class DialogBot extends ActivityHandler {
         // By default we offer the users different actions that the bot supports, through quick replies.
         case quickRepliesOption:
         default:
-            await this.showChoices(turnContext);
+            await context.sendActivity(context);
             break;
         }
     }
