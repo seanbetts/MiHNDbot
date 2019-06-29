@@ -6,7 +6,7 @@ const { QnAMaker } = require('botbuilder-ai');
 const restify = require('restify');
 const WelcomeCard = require('../resources/welcomeCard.json');
 // const facebookPageIdOption = 'Facebook Page Id';
-// const quickRepliesOption = 'Quick Replies';
+const quickRepliesOption = 'Quick Replies';
 // const postBackOption = 'PostBack';
 
 // initialized to access values in .env file.
