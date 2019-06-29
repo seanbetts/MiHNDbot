@@ -180,7 +180,7 @@ class DialogBot extends ActivityHandler {
 
                 // If no answers were returned from QnA Maker, reply with help.
                 } else {
-                    await context.sendActivity('I\'m sorry, I don\'t have an answer for that. Please ask me something else.');
+                    await context.sendActivity('I\'m sorry, I don\'t have an answer for that. Please ask me something else, such as: \n\n "What Is Mental Health?" \n\n "What Is NeuroDiversity" \n\n "Help"');
                 }
                 // }
 
