@@ -167,7 +167,7 @@ class DialogBot extends ActivityHandler {
                         }
                       }
 
-                        reply = await context.sendActivity(quickReply);
+                        reply = quickReply;
                       } else {
                         reply = answer;
                       }
