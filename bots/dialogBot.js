@@ -41,13 +41,14 @@ server.post('/api/messages', (req, res) => {
 }); */
 
 class DialogBot extends ActivityHandler {
+
     /**
-     *
      * @param {ConversationState} conversationState
      * @param {UserState} userState
      * @param {Dialog} dialog
      * @param {any} logger object for logging events, defaults to console if none is provided
      */
+
     constructor(conversationState, userState, dialog, logger) {
         super();
         if (!conversationState) throw new Error('[DialogBot]: Missing parameter. conversationState is required');
@@ -76,12 +77,61 @@ class DialogBot extends ActivityHandler {
 
         // If a new user is added to the conversation, send them a greeting message
         this.onMembersAdded(async (context, next) => {
-            const membersAdded = context.activity.membersAdded;
-            for (let cnt = 0; cnt < membersAdded.length; cnt++) {
-                if (membersAdded[cnt].id !== context.activity.recipient.id) {
-                    const welcomeCard = CardFactory.adaptiveCard(WelcomeCard);
-                    await context.sendActivity({ attachments: [welcomeCard] });
+          if (!await this.processFacebookPayload(context, context.activity.channelData)) {
+              if (context.activity.channelId == 'facebook') {
+                const membersAdded = context.activity.membersAdded;
+                for (let cnt = 0; cnt < membersAdded.length; cnt++) {
+                    if (membersAdded[cnt].id !== context.activity.recipient.id) {
+                        const welcomeCard = CardFactory.adaptiveCard(WelcomeCard);
+                        // await context.sendActivity('This sample is intended to be used with a Facebook bot.');
+                        await context.sendActivity({
+                              channelData: {
+                                "attachment":{
+                                  "type":"template",
+                                  "payload": {
+                                    "template_type":"generic",
+                                    "elements": [
+                                      {
+                                        "title":"Welcome!",
+                                        "image_url":"https://mihndbotblob.blob.core.windows.net/resources/MiHND-graphic-logo-black-circle-inverted-rounded.jpg",
+                                        "subtitle":"I'm a chatbot designed to help people understand more about Mental Health and NeuroDiversity.",
+                                        "default_action": {
+                                          "type": "web_url",
+                                          "url": "https://www.mihnd.co.uk",
+                                          "webview_height_ratio": "tall",
+                                        },
+                                        "buttons": [
+                                          {
+                                            "type":"postback",
+                                            "title":"Find out more about Mental Health",
+                                            "payload":"What is Mental Health?"
+                                          },{
+                                            "type":"postback",
+                                            "title":"Find out more about NeuroDiversity",
+                                            "payload":"What is NeuroDiversity?"
+                                          },{
+                                            "type":"postback",
+                                            "title":"Get Help",
+                                            "payload":"Help"
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  }
+                                }
+                              }
+                        });
+                    }
                 }
+              } else {
+                const membersAdded = context.activity.membersAdded;
+                for (let cnt = 0; cnt < membersAdded.length; cnt++) {
+                    if (membersAdded[cnt].id !== context.activity.recipient.id) {
+                        const welcomeCard = CardFactory.adaptiveCard(WelcomeCard);
+                        await context.sendActivity({ attachments: [welcomeCard] });
+                    }
+                }
+              }
             }
 
             // By calling next() you ensure that the next BotHandler is run.
@@ -163,7 +213,8 @@ class DialogBot extends ActivityHandler {
      * @param {Object} turnContext
      * @param {Object} data
      */
-    /* async processFacebookPayload(turnContext, data) {
+
+    async processFacebookPayload(turnContext, data) {
         // At this point we know we are on Facebook channel, and can consume the Facebook custom payload present in channelData.
         const facebookPayload = data;
         if (facebookPayload) {
@@ -186,7 +237,7 @@ class DialogBot extends ActivityHandler {
             }
         }
         return false;
-    } */
+    }
 
     /*
      * Called when receiving a Facebook messaging_postback event.

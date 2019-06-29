@@ -21,7 +21,7 @@
         "type": "TextBlock",
         "size": "default",
         "isSubtle": "yes",
-        "text": "I am a chatbot designed to help people understand more about Mental Health and NeuroDiversity. Use the buttons below to find out more or you can chat to me like any other messaging service",
+        "text": "I'm a chatbot designed to help people understand more about Mental Health and NeuroDiversity. Use the buttons below to find out more or you can chat to me like any other messaging service",
         "wrap": true,
         "maxLines": 0
       }
