@@ -226,12 +226,12 @@ class DialogBot extends ActivityHandler {
             await next();
         });
 
-        /* this.onEvent(async (turnContext) => {
+        this.onEvent(async (turnContext) => {
             this.logger.log('Processing an Event Activity.');
 
             // Analyze Facebook payload from EventActivity.Value
             await this.processFacebookPayload(turnContext, turnContext.activity.value);
-        }); */
+        });
 
         this.onDialog(async (context, next) => {
             // Save any state changes. The load happened during the execution of the Dialog.
@@ -282,14 +282,14 @@ class DialogBot extends ActivityHandler {
      * @param {Object} postback JSON object for postback payload.
      * @param {Object} turnContext
      */
-    /* async onFacebookPostback(turnContext, postback) {
+    async onFacebookPostback(turnContext, postback) {
         this.logger.log('Postback message received.');
         // TODO: Your postBack handling logic here...
 
         // Answer the postback and show choices
         await turnContext.sendActivity('Are you sure?');
         await this.showChoices(turnContext);
-    } */
+    }
 
     /**
      * Called when a message has been sent by your Facebook page.
@@ -298,9 +298,9 @@ class DialogBot extends ActivityHandler {
      * @param {Object} facebookMessage
      * @param {Object} turnContext
      */
-    async onFacebookEcho(turnContext, facebookMessage) {
-        this.logger.log('Echo message received.');
-    }
+    // async onFacebookEcho(turnContext, facebookMessage) {
+    //     this.logger.log('Echo message received.');
+    // }
 
     /**
      * Called when receiving a Facebook messaging_optin event.
