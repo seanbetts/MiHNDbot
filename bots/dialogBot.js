@@ -151,7 +151,7 @@ class DialogBot extends ActivityHandler {
                     let reply;
                     if (prompts.length) {
 
-                      // const quickReply = {
+                      const quickReply = 'message + prompts go here'
                       //   channelData: {
                       //     "messaging_type":"RESPONSE",
                       //     "message":{
@@ -167,7 +167,7 @@ class DialogBot extends ActivityHandler {
                       //   }
                       // }
 
-                        reply = {channelData: {"message":{"text":"hello, world!"}}};
+                        reply = quickReply;
                       } else {
                         reply = answer;
                       }
