@@ -84,33 +84,33 @@ class DialogBot extends ActivityHandler {
                     if (membersAdded[cnt].id !== context.activity.recipient.id) {
                         await context.sendActivity({
                               channelData: {
-                                "attachment":{
-                                  "type":"template",
-                                  "payload": {
-                                    "template_type":"generic",
-                                    "elements": [
+                                attachment:{
+                                  type:"template",
+                                  payload: {
+                                    template_type:"generic",
+                                    elements: [
                                       {
-                                        "title":"Welcome!",
-                                        "image_url":"https://mihndbotblob.blob.core.windows.net/resources/MiHND-graphic-logo-black-circle-inverted-rounded.jpg",
-                                        "subtitle":"I'm a chatbot designed to help people understand more about Mental Health and NeuroDiversity.",
-                                        "default_action": {
-                                          "type": "web_url",
-                                          "url": "https://www.mihnd.co.uk",
-                                          "webview_height_ratio": "tall",
+                                        title:"Welcome!",
+                                        image_url:"https://mihndbotblob.blob.core.windows.net/resources/MiHND-graphic-logo-black-circle-inverted-rounded.jpg",
+                                        subtitle:"I'm a chatbot designed to help people understand more about Mental Health and NeuroDiversity.",
+                                        default_action: {
+                                          type: "web_url",
+                                          url: "https://www.mihnd.co.uk",
+                                          webview_height_ratio: "tall",
                                         },
-                                        "buttons": [
+                                        buttons: [
                                           {
-                                            "type":"postback",
-                                            "title":"Find out more about Mental Health",
-                                            "payload":"What is Mental Health?"
+                                            type:"postback",
+                                            title:"Find out more about Mental Health",
+                                            payload:"What is Mental Health?"
                                           },{
-                                            "type":"postback",
-                                            "title":"Find out more about NeuroDiversity",
-                                            "payload":"What is NeuroDiversity?"
+                                            type:"postback",
+                                            title:"Find out more about NeuroDiversity",
+                                            payload:"What is NeuroDiversity?"
                                           },{
-                                            "type":"postback",
-                                            "title":"Get Help",
-                                            "payload":"Help"
+                                            type:"postback",
+                                            title:"Get Help",
+                                            payload:"Help"
                                           }
                                         ]
                                       }
