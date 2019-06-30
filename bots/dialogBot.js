@@ -158,7 +158,7 @@ class DialogBot extends ActivityHandler {
                               {
                                 content_type: "text",
                                 title: prompts.map({ displayText }),
-                                payload: prompts.map({ displayText })
+                                payload: "Real Prompt Test"
                               },{
                                 content_type: "text",
                                 title: "Prompt 2",
