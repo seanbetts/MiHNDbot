@@ -1,0 +1,37 @@
+//Persistent Menu Delete
+curl -X DELETE -H "Content-Type: application/json" -d '{
+  "setting_type":"call_to_actions",
+  "thread_state":"existing_thread"
+}' "https://graph.facebook.com/v2.6/me/thread_settings?access_token=REMOVED_SECRET"
+
+
+//Persistent Menu Config
+curl -X POST -H "Content-Type: application/json" -d '{
+  "setting_type" : "call_to_actions",
+  "thread_state" : "existing_thread",
+  "call_to_actions":[
+    {
+      "type":"postback",
+      "title":"Get Help",
+      "payload":"Help"
+    },
+    {
+      "type":"postback",
+      "title":"Learn About Mental Health",
+      "payload":"What Is Mental Health?"
+    },
+    {
+      "type":"postback",
+      "title":"Learn About NeuroDiversity",
+      "payload":"What Is NeuroDiversity?"
+    },
+  ]
+}' "https://graph.facebook.com/v2.6/me/thread_settings?access_token=REMOVED_SECRET"
+
+
+//Get Started Button Config
+curl -X POST -H "Content-Type: application/json" -d '{
+  "get_started":{
+    "payload":"GET_STARTED"
+  }
+}' "https://graph.facebook.com/v2.6/me/messenger_profile?access_token=REMOVED_SECRET"
