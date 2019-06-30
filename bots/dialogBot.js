@@ -153,15 +153,15 @@ class DialogBot extends ActivityHandler {
 
                       const quickReply = {
                         text: answer,
-                        // channelData: {
-                        //     "quick_replies":[
-                        //         {
-                        //             "content_type": "text",
-                        //             "text": "prompt 1",
-                        //             "payload": "prompt 1"
-                        //         }
-                        //     ]
-                        // }
+                        channelData: {
+                            quick_replies:[
+                                {
+                                    content_type: "text",
+                                    text: "prompt 1",
+                                    payload: "prompt 1"
+                                }
+                            ]
+                        }
                       }
 
 
