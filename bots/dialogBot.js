@@ -172,29 +172,7 @@ class DialogBot extends ActivityHandler {
                       } else {
                         reply = {
                           channelData: {
-                            // text: answer,
-                            attachment:{
-                              type:"template",
-                              payload: {
-                                template_type:"button",
-                                text:answer,
-                                    buttons: [
-                                      {
-                                        type:"postback",
-                                        title:"Find out more about Mental Health",
-                                        payload:"What is Mental Health?"
-                                      },{
-                                        type:"postback",
-                                        title:"Find out more about NeuroDiversity",
-                                        payload:"What is NeuroDiversity?"
-                                      },{
-                                        type:"postback",
-                                        title:"Get Help",
-                                        payload:"Help"
-                                      }
-                                    ]
-                              }
-                            }
+                            text: answer,
                           }
                         }
                       }
