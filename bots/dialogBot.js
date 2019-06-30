@@ -285,6 +285,7 @@ class DialogBot extends ActivityHandler {
     async onFacebookPostback(turnContext, postback) {
         this.logger.log('Postback message received.');
         // TODO: Your postBack handling logic here...
+        var postBack = message.ChannelData != null ? message.ChannelData.postback.payload.ToString() : "";
         if (postBack == "GET_STARTED") {
           await turnContext.sendActivity('Let\'s Start');
         } else {
