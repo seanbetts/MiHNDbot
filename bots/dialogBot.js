@@ -152,7 +152,7 @@ class DialogBot extends ActivityHandler {
                     if (prompts.length) {
 
                       const quickReply = {
-                        text: 'message + prompts go here',
+                        text: answer,
                         // channelData: {
                         //     "quick_replies":[
                         //         {
