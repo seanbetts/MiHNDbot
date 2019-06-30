@@ -153,7 +153,6 @@ class DialogBot extends ActivityHandler {
 
                       const quickReply = {
                         channelData: {
-                          "messaging_type": "RESPONSE",
                           "message":{
                             "text": answer,
                             "quick_replies":[
