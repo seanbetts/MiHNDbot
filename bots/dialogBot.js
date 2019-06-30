@@ -181,7 +181,7 @@ class DialogBot extends ActivityHandler {
                                   {
                                     title:"questions",
                                     image_url:"https://mihndbotblob.blob.core.windows.net/resources/MiHND-graphic-logo-black-circle-inverted-rounded.jpg",
-                                    subtitle:"answer",
+                                    subtitle:answer,
                                     default_action: {
                                       type: "web_url",
                                       url: "https://www.mihnd.co.uk",
