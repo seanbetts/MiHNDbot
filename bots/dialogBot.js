@@ -157,8 +157,8 @@ class DialogBot extends ActivityHandler {
                             "quick_replies":[
                                 {
                                     "content_type": "text",
-                                    "text": "prompt 1",
-                                    "payload": "prompt 1"
+                                    "text": 'prompt 1',
+                                    "payload": 'prompt 1'
                                 }
                             ]
                         }
