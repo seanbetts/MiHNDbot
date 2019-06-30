@@ -151,7 +151,26 @@ class DialogBot extends ActivityHandler {
                     let reply;
                     if (prompts.length) {
 
-                      const quickReply = 'message + prompts go here'
+                      const quickReply = { // 'message + prompts go here'
+                        "messaging_type": "RESPONSE",
+                        "message":{
+                          "text": "Pick a color:",
+                          "quick_replies":[
+                            {
+                              "content_type":"text",
+                              "title":"Red",
+                              "payload":"Red"
+                            },{
+                              "content_type":"text",
+                              "title":"Green",
+                              "payload":"Green"
+                            }
+                          ]
+                        }
+                      }
+
+
+
                       //   channelData: {
                       //     "messaging_type":"RESPONSE",
                       //     "message":{
