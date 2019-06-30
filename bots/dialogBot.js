@@ -154,6 +154,17 @@ class DialogBot extends ActivityHandler {
                       const quickReply = {
                         channelData: {
                             text: answer,
+                            quick_replies: [
+                              {
+                                content_type: "text",
+                                title: "Prompt 1",
+                                payload: "Prompt 1"
+                              },{
+                                content_type: "text",
+                                title: "Prompt 2",
+                                payload: "Prompt 2"
+                              }
+                            ]
                         }
                       }
 
