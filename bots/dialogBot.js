@@ -170,7 +170,11 @@ class DialogBot extends ActivityHandler {
 
                         reply = quickReply;
                       } else {
-                        reply = answer;
+                        reply = {
+                          channelData: {
+                            text: answer,
+                          }
+                        }
                       }
 
                       await context.sendActivity(reply);
