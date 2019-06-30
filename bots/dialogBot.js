@@ -179,7 +179,7 @@ class DialogBot extends ActivityHandler {
                                 template_type:"generic",
                                 elements: [
                                   {
-                                    title:question,
+                                    title:questions[0],
                                     image_url:"https://mihndbotblob.blob.core.windows.net/resources/MiHND-graphic-logo-black-circle-inverted-rounded.jpg",
                                     subtitle:answer,
                                     default_action: {
