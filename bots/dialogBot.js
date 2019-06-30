@@ -288,7 +288,6 @@ class DialogBot extends ActivityHandler {
 
         // Answer the postback and show choices
         await turnContext.sendActivity('Are you sure?');
-        await this.showChoices(turnContext);
     }
 
     /**
