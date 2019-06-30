@@ -176,17 +176,8 @@ class DialogBot extends ActivityHandler {
                             attachment:{
                               type:"template",
                               payload: {
-                                template_type:"generic",
-                                elements: [
-                                  {
-                                    title:questions[0],
-                                    image_url:"https://mihndbotblob.blob.core.windows.net/resources/MiHND-graphic-logo-black-circle-inverted-rounded.jpg",
-                                    subtitle:answer,
-                                    default_action: {
-                                      type: "web_url",
-                                      url: "https://www.mihnd.co.uk",
-                                      webview_height_ratio: "tall",
-                                    },
+                                template_type:"button",
+                                text:answer,
                                     buttons: [
                                       {
                                         type:"postback",
@@ -202,8 +193,6 @@ class DialogBot extends ActivityHandler {
                                         payload:"Help"
                                       }
                                     ]
-                                  }
-                                ]
                               }
                             }
                           }
