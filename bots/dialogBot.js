@@ -287,7 +287,7 @@ class DialogBot extends ActivityHandler {
         //postBack handling logic
         if (postback.payload == "GET_STARTED") {
           await turnContext.sendActivity('Let\'s Get Started');
-          await context.sendActivity({
+          await turnContext.sendActivity({
                 channelData: {
                   attachment:{
                     type:"template",
