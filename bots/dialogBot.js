@@ -326,12 +326,52 @@ class DialogBot extends ActivityHandler {
           }
         }
 
+        const helpCardFB = {
+          channelData: {
+            attachment:{
+              type:"template",
+              payload: {
+                template_type:"generic",
+                sharable: true,
+                image_aspect_ratio: "square",
+                elements: [
+                  {
+                    title:"Everyone deserves help",
+                    image_url:"https://mihndbotblob.blob.core.windows.net/resources/MiHND-graphic-logo-black-circle-inverted-rounded.jpg",
+                    subtitle:"Being in a crisis can be very frightening, please get some help & support ASAP",
+                    default_action: {
+                      type: "web_url",
+                      url: "https://www.mihnd.co.uk/crisis",
+                      webview_height_ratio: "tall",
+                    },
+                    buttons: [
+                      {
+                        type:"postback",
+                        title:"Text Shout",
+                        payload:"TEXT_SHOUT"
+                      },{
+                        type:"postback",
+                        title:"Call the NHS",
+                        payload:"CALL_THE_NHS"
+                      },{
+                        type:"postback",
+                        title:"Call The Samaritans",
+                        payload:"CALL_THE_SAMARITANS"
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+          }
+        }
+
         if (postback.payload == "GET_STARTED") {
           await turnContext.sendActivity(welcomeCardFB);
         } else {
         if (postback.payload == "GET_HELP") {
           await turnContext.sendActivity('Let\'s Get You Some Help');
-          //await turnContext.sendActivity(helpCardFB);
+          await turnContext.sendActivity(helpCardFB);
         } else {
           await turnContext.sendActivity('Are you sure?');
         }
