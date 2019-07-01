@@ -484,7 +484,7 @@ class DialogBot extends ActivityHandler {
           // await turnContext.sendActivity("TO-DO: Forward on 'What Is Mental Health?' to Bot Handler");
           // qnaMaker.getAnswers doesn't accept string input, so we need to adjust our turnContext
           // to match what it expects, which is a string in Activity.Text
-          turnContext.activity.text = postback.message.quick_reply.payload;
+          turnContext.activity.text = postback.payload;
           const qnaResults = await this.qnaMaker.getAnswers(turnContext);
 
           // If an answer was received from QnA Maker, send the answer back to the user.
