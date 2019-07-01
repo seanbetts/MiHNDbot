@@ -336,6 +336,7 @@ class DialogBot extends ActivityHandler {
         } else {
           await turnContext.sendActivity('Are you sure?');
         }
+        }
     }
 
     /**
