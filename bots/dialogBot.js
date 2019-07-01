@@ -295,8 +295,10 @@ class DialogBot extends ActivityHandler {
                 elements: [
                   {
                     title:"Welcome!",
+                    shareable: true,
                     image_url:"https://mihndbotblob.blob.core.windows.net/resources/MiHND-graphic-logo-black-circle-inverted-rounded.jpg",
-                    subtitle:"I'm a chatbot designed to help people understand more about Mental Health and NeuroDiversity.",
+                    image_aspect_ratio: "square",
+                    subtitle:"I'm designed to help people learn about Mental Health and NeuroDiversity",
                     default_action: {
                       type: "web_url",
                       url: "https://www.mihnd.co.uk",
@@ -305,16 +307,16 @@ class DialogBot extends ActivityHandler {
                     buttons: [
                       {
                         type:"postback",
-                        title:"Find out more about Mental Health",
-                        payload:"What is Mental Health?"
+                        title:"Learn about Mental Health",
+                        payload:"WHAT_IS_MENTAL_HEALTH"
                       },{
                         type:"postback",
-                        title:"Find out more about NeuroDiversity",
-                        payload:"What is NeuroDiversity?"
+                        title:"Learn about NeuroDiversity",
+                        payload:"WHAT_IS_NEURODIVERSITY"
                       },{
                         type:"postback",
                         title:"Get Help",
-                        payload:"Help"
+                        payload:"GET_HELP"
                       }
                     ]
                   }
