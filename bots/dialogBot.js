@@ -285,45 +285,48 @@ class DialogBot extends ActivityHandler {
     async onFacebookPostback(turnContext, postback) {
         this.logger.log('Postback message received.');
         //postBack handling logic
+
+        const welcomeCardFB = {
+          channelData: {
+            attachment:{
+              type:"template",
+              payload: {
+                template_type:"generic",
+                elements: [
+                  {
+                    title:"Welcome!",
+                    image_url:"https://mihndbotblob.blob.core.windows.net/resources/MiHND-graphic-logo-black-circle-inverted-rounded.jpg",
+                    subtitle:"I'm a chatbot designed to help people understand more about Mental Health and NeuroDiversity.",
+                    default_action: {
+                      type: "web_url",
+                      url: "https://www.mihnd.co.uk",
+                      webview_height_ratio: "tall",
+                    },
+                    buttons: [
+                      {
+                        type:"postback",
+                        title:"Find out more about Mental Health",
+                        payload:"What is Mental Health?"
+                      },{
+                        type:"postback",
+                        title:"Find out more about NeuroDiversity",
+                        payload:"What is NeuroDiversity?"
+                      },{
+                        type:"postback",
+                        title:"Get Help",
+                        payload:"Help"
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+          }
+        }
+
         if (postback.payload == "GET_STARTED") {
           await turnContext.sendActivity('Let\'s Get Started');
-          await turnContext.sendActivity({
-                channelData: {
-                  attachment:{
-                    type:"template",
-                    payload: {
-                      template_type:"generic",
-                      elements: [
-                        {
-                          title:"Welcome!",
-                          image_url:"https://mihndbotblob.blob.core.windows.net/resources/MiHND-graphic-logo-black-circle-inverted-rounded.jpg",
-                          subtitle:"I'm a chatbot designed to help people understand more about Mental Health and NeuroDiversity.",
-                          default_action: {
-                            type: "web_url",
-                            url: "https://www.mihnd.co.uk",
-                            webview_height_ratio: "tall",
-                          },
-                          buttons: [
-                            {
-                              type:"postback",
-                              title:"Find out more about Mental Health",
-                              payload:"What is Mental Health?"
-                            },{
-                              type:"postback",
-                              title:"Find out more about NeuroDiversity",
-                              payload:"What is NeuroDiversity?"
-                            },{
-                              type:"postback",
-                              title:"Get Help",
-                              payload:"Help"
-                            }
-                          ]
-                        }
-                      ]
-                    }
-                  }
-                }
-          });
+          await turnContext.sendActivity(welcomeCardFB);
         } else {
           await turnContext.sendActivity('Are you sure?');
         }
