@@ -482,11 +482,11 @@ class DialogBot extends ActivityHandler {
         } else {
         if (postback.payload == "WHAT_IS_MENTAL_HEALTH") {
           await turnContext.sendActivity("TO-DO: Forward on 'What Is Mental Health?' to Bot Handler");
-          ActionTypes.postBack("What Is Mental Health?");
+          turnContext.activity.text = postback.payload;
         } else {
         if (postback.payload == "WHAT_IS_NEURODIVERSITY") {
           await turnContext.sendActivity("TO-DO: Forward on 'What Is NeuroDiversity?' to Bot Handler");
-          ActionTypes.postBack("What Is NeuroDiversity?");
+          turnContext.activity.text = postback.payload;
         } else {
         if (postback.payload == "TEXT_SHOUT") {
           await turnContext.sendActivity(shoutCardFB);
