@@ -413,7 +413,7 @@ class DialogBot extends ActivityHandler {
                 elements: [
                   {
                     title:"NHS 111",
-                    image_url:"https://mihndbotblob.blob.core.windows.net/resources/111-service-mental-health.jpg",
+                    image_url:"https://mihndbotblob.blob.core.windows.net/resources/111-service-mental-health.png",
                     subtitle:"NHS 111 can help if you have a mental health problem and not sure what to do.",
                     default_action: {
                       type: "web_url",
