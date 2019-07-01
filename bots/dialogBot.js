@@ -295,9 +295,9 @@ class DialogBot extends ActivityHandler {
                 elements: [
                   {
                     title:"Welcome!",
-                    shareable: true,
+                    //shareable: true,
                     image_url:"https://mihndbotblob.blob.core.windows.net/resources/MiHND-graphic-logo-black-circle-inverted-rounded.jpg",
-                    image_aspect_ratio: "square",
+                    //image_aspect_ratio: "square",
                     subtitle:"I'm designed to help people learn about Mental Health and NeuroDiversity",
                     default_action: {
                       type: "web_url",
