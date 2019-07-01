@@ -414,7 +414,7 @@ class DialogBot extends ActivityHandler {
                   {
                     title:"NHS 111",
                     image_url:"https://mihndbotblob.blob.core.windows.net/resources/111-service-mental-health.jpg",
-                    subtitle:"NHS 111 can help if you have an urgent mental health problem and you\’re not sure what to do.",
+                    subtitle:"NHS 111 can help if you have a mental health problem and not sure what to do.",
                     default_action: {
                       type: "web_url",
                       url: "https://www.nhs.uk/using-the-nhs/nhs-services/urgent-and-emergency-care/nhs-111/",
