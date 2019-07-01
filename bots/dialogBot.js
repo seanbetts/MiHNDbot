@@ -498,7 +498,7 @@ class DialogBot extends ActivityHandler {
         if (postback.payload == "CALL_THE_SAMARITANS") {
           await turnContext.sendActivity(samaritansCardFB);
         } else {
-          await turnContext.sendActivity('PostBack not defined');
+          await turnContext.sendActivity('PostBack not defined...YET!');
         }}}}}}}}
     }
 
