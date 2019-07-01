@@ -482,13 +482,37 @@ class DialogBot extends ActivityHandler {
         } else {
         if (postback.payload == "WHAT_IS_MENTAL_HEALTH") {
           // await turnContext.sendActivity("TO-DO: Forward on 'What Is Mental Health?' to Bot Handler");
+          // qnaMaker.getAnswers doesn't accept string input, so we need to adjust our turnContext
+          // to match what it expects, which is a string in Activity.Text
           turnContext.activity.text = postback.message.quick_reply.payload;
           const qnaResults = await this.qnaMaker.getAnswers(turnContext);
+
+          // If an answer was received from QnA Maker, send the answer back to the user.
+          if (qnaResults[0]) {
+            await turnContext.sendActivity(qnaResults[0].answer);
+
+          // If no answers were returned from QnA Maker, reply with help.
+          } else {
+            await turnContext.sendActivity('No QnA Maker answers were found.');
+          }
+
         } else {
         if (postback.payload == "WHAT_IS_NEURODIVERSITY") {
           // await turnContext.sendActivity("TO-DO: Forward on 'What Is NeuroDiversity?' to Bot Handler");
+          // qnaMaker.getAnswers doesn't accept string input, so we need to adjust our turnContext
+          // to match what it expects, which is a string in Activity.Text
           turnContext.activity.text = postback.message.quick_reply.payload;
           const qnaResults = await this.qnaMaker.getAnswers(turnContext);
+
+          // If an answer was received from QnA Maker, send the answer back to the user.
+          if (qnaResults[0]) {
+            await turnContext.sendActivity(qnaResults[0].answer);
+
+          // If no answers were returned from QnA Maker, reply with help.
+          } else {
+            await turnContext.sendActivity('No QnA Maker answers were found.');
+          }
+
         } else {
         if (postback.payload == "TEXT_SHOUT") {
           await turnContext.sendActivity(shoutCardFB);
