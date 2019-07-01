@@ -366,16 +366,140 @@ class DialogBot extends ActivityHandler {
           }
         }
 
+        const shoutCardFB = {
+          channelData: {
+            attachment:{
+              type:"template",
+              payload: {
+                template_type:"generic",
+                sharable: true,
+                image_aspect_ratio: "horizontal",
+                elements: [
+                  {
+                    title:"SHOUT",
+                    image_url:"https://mihndbotblob.blob.core.windows.net/resources/SHOUT-how-it-works.jpg",
+                    subtitle:"Shout is the UK’s first free 24/7 text service for anyone in crisis anytime, anywhere",
+                    default_action: {
+                      type: "web_url",
+                      url: "https://www.giveusashout.org",
+                      webview_height_ratio: "tall",
+                    },
+                    buttons: [
+                      {
+                        type:"web_url",
+                        url: "https://www.giveusashout.org/get-help/",
+                        title:"More Info"
+                      },{
+                        type:"postback",
+                        title:"Text Shout",
+                        payload:"TEXT_SHOUT_NOW"
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+          }
+        }
+
+        const nhsCardFB = {
+          channelData: {
+            attachment:{
+              type:"template",
+              payload: {
+                template_type:"generic",
+                sharable: true,
+                image_aspect_ratio: "horizontal",
+                elements: [
+                  {
+                    title:"NHS 111",
+                    image_url:"https://mihndbotblob.blob.core.windows.net/resources/111-service-mental-health.jpg",
+                    subtitle:"",
+                    default_action: {
+                      type: "web_url",
+                      url: "https://www.nhs.uk/using-the-nhs/nhs-services/urgent-and-emergency-care/nhs-111/",
+                      webview_height_ratio: "tall",
+                    },
+                    buttons: [
+                      {
+                        type:"web_url",
+                        url: "",
+                        title:"More Info"
+                      },{
+                        type:"phone_number",
+                        title:"Call NHS 111 Now",
+                        payload:"+44111"
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+          }
+        }
+
+        const samaritansCardFB = {
+          channelData: {
+            attachment:{
+              type:"template",
+              payload: {
+                template_type:"generic",
+                sharable: true,
+                image_aspect_ratio: "horizontal",
+                elements: [
+                  {
+                    title:"The Samaritans",
+                    image_url:"https://mihndbotblob.blob.core.windows.net/resources/samaritans.jpg",
+                    subtitle:"",
+                    default_action: {
+                      type: "web_url",
+                      url: "",
+                      webview_height_ratio: "tall",
+                    },
+                    buttons: [
+                      {
+                        type:"web_url",
+                        url: "https://www.samaritans.org/how-we-can-help/contact-samaritan/talk-us-phone/",
+                        title:"More Info"
+                      },{
+                        type:"phone_number",
+                        title:"Call The Samaritans Now",
+                        payload:"+44116123"
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+          }
+        }
+
         if (postback.payload == "GET_STARTED") {
           await turnContext.sendActivity(welcomeCardFB);
         } else {
         if (postback.payload == "GET_HELP") {
-          await turnContext.sendActivity('Let\'s Get You Some Help');
           await turnContext.sendActivity(helpCardFB);
         } else {
-          await turnContext.sendActivity('Are you sure?');
-        }
-        }
+        if (postback.payload == "WHAT_IS_MENTAL_HEALTH") {
+          await turnContext.sendActivity("TO-DO: Forward on 'What Is Mental Health?' to Bot Handler");
+        } else {
+        if (postback.payload == "WHAT_IS_NEURODIVERSITY") {
+          await turnContext.sendActivity("TO-DO: Forward on 'What Is NeuroDiversity?' to Bot Handler");
+        } else {
+        if (postback.payload == "TEXT_SHOUT") {
+          await turnContext.sendActivity(shoutCardFB);
+        } else {
+        if (postback.payload == "TEXT_SHOUT_NOW") {
+          await turnContext.sendActivity("To get help from SHOUT please text SHOUT to 85258");
+        } else {
+        if (postback.payload == "CALL_THE_NHS") {
+          await turnContext.sendActivity(nhsCardFB);
+        } else {
+        if (postback.payload == "CALL_THE_SAMARITANS") {
+          await turnContext.sendActivity(samaritansCardFB);
+        } else {
+          await turnContext.sendActivity('PostBack not defined');
+        }}}}}}}}
     }
 
     /**
