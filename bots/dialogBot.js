@@ -514,7 +514,7 @@ class DialogBot extends ActivityHandler {
                   }
                 }
               }
-              await context.sendActivity(reply);
+              await turnContext.sendActivity(reply);
 
           // If no answers were returned from QnA Maker, reply with help.
           } else {
