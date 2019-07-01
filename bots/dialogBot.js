@@ -157,7 +157,7 @@ class DialogBot extends ActivityHandler {
                             quick_replies: [
                               {
                                 content_type: "text",
-                                title: context.prompts.displayText,
+                                title: "Prompt 1",
                                 payload: "Prompt 1"
                               },{
                                 content_type: "text",
@@ -285,7 +285,7 @@ class DialogBot extends ActivityHandler {
     async onFacebookPostback(turnContext, postback) {
         this.logger.log('Postback message received.');
         // TODO: Your postBack handling logic here...
-        var postBack = message.postback.payload;
+        var postBack = facebookPayload.postback.payload;
         if (postBack == "GET_STARTED") {
           await turnContext.sendActivity('Let\'s Start');
         } else {
