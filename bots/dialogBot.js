@@ -292,13 +292,13 @@ class DialogBot extends ActivityHandler {
               type:"template",
               payload: {
                 template_type:"generic",
-                shareable: true,
-                image_aspect_ratio: "square",
+                // shareable: true,
+                // image_aspect_ratio: "square",
                 elements: [
                   {
                     title:"Welcome!",
                     image_url:"https://mihndbotblob.blob.core.windows.net/resources/MiHND-graphic-logo-black-circle-inverted-rounded.jpg",
-                    subtitle:"I'm designed to help people learn about Mental Health and NeuroDiversity",
+                    subtitle:"I\'m designed to help people learn about Mental Health and NeuroDiversity",
                     default_action: {
                       type: "web_url",
                       url: "https://www.mihnd.co.uk",
@@ -329,6 +329,10 @@ class DialogBot extends ActivityHandler {
         if (postback.payload == "GET_STARTED") {
           await turnContext.sendActivity('Let\'s Get Started');
           await turnContext.sendActivity(welcomeCardFB);
+        } else {
+        if (postback.payload == "GET_HELP") {
+          await turnContext.sendActivity('Let\'s Get You Some Help');
+          //await turnContext.sendActivity(helpCardFB);
         } else {
           await turnContext.sendActivity('Are you sure?');
         }
