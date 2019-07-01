@@ -428,7 +428,7 @@ class DialogBot extends ActivityHandler {
                       },{
                         type:"phone_number",
                         title:"Call NHS 111...",
-                        payload:"+44111"
+                        payload:"111"
                       }
                     ]
                   }
@@ -464,7 +464,7 @@ class DialogBot extends ActivityHandler {
                       },{
                         type:"phone_number",
                         title:"Call The Samaritans...",
-                        payload:"+44116123"
+                        payload:"116123"
                       }
                     ]
                   }
