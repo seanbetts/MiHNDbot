@@ -292,7 +292,7 @@ class DialogBot extends ActivityHandler {
               type:"template",
               payload: {
                 template_type:"generic",
-                shareable: true,
+                sharable: true,
                 image_aspect_ratio: "square",
                 elements: [
                   {
@@ -307,11 +307,11 @@ class DialogBot extends ActivityHandler {
                     buttons: [
                       {
                         type:"postback",
-                        title:"Learn about Mental Health",
+                        title:"Mental Health",
                         payload:"WHAT_IS_MENTAL_HEALTH"
                       },{
                         type:"postback",
-                        title:"Learn about NeuroDiversity",
+                        title:"NeuroDiversity",
                         payload:"WHAT_IS_NEURODIVERSITY"
                       },{
                         type:"postback",
@@ -327,7 +327,6 @@ class DialogBot extends ActivityHandler {
         }
 
         if (postback.payload == "GET_STARTED") {
-          await turnContext.sendActivity('Let\'s Get Started');
           await turnContext.sendActivity(welcomeCardFB);
         } else {
         if (postback.payload == "GET_HELP") {
