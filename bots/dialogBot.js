@@ -391,7 +391,7 @@ class DialogBot extends ActivityHandler {
                         title:"More Info"
                       },{
                         type:"postback",
-                        title:"Text Shout",
+                        title:"Text Shout Now",
                         payload:"TEXT_SHOUT_NOW"
                       }
                     ]
@@ -414,7 +414,7 @@ class DialogBot extends ActivityHandler {
                   {
                     title:"NHS 111",
                     image_url:"https://mihndbotblob.blob.core.windows.net/resources/111-service-mental-health.jpg",
-                    subtitle:"",
+                    subtitle:"NHS 111 can help if you have an urgent mental health problem and you\’re not sure what to do.",
                     default_action: {
                       type: "web_url",
                       url: "https://www.nhs.uk/using-the-nhs/nhs-services/urgent-and-emergency-care/nhs-111/",
@@ -423,7 +423,7 @@ class DialogBot extends ActivityHandler {
                     buttons: [
                       {
                         type:"web_url",
-                        url: "",
+                        url: "https://www.nhs.uk/using-the-nhs/nhs-services/urgent-and-emergency-care/nhs-111/",
                         title:"More Info"
                       },{
                         type:"phone_number",
@@ -450,10 +450,10 @@ class DialogBot extends ActivityHandler {
                   {
                     title:"The Samaritans",
                     image_url:"https://mihndbotblob.blob.core.windows.net/resources/samaritans.jpg",
-                    subtitle:"",
+                    subtitle:"Whatever you're going through, call us free any time, from any phone",
                     default_action: {
                       type: "web_url",
-                      url: "",
+                      url: "https://www.samaritans.org/how-we-can-help/contact-samaritan/talk-us-phone/",
                       webview_height_ratio: "tall",
                     },
                     buttons: [
@@ -490,7 +490,7 @@ class DialogBot extends ActivityHandler {
           await turnContext.sendActivity(shoutCardFB);
         } else {
         if (postback.payload == "TEXT_SHOUT_NOW") {
-          await turnContext.sendActivity("To get help from SHOUT please text SHOUT to 85258");
+          await turnContext.sendActivity("To get help from Shout please text SHOUT to 85258");
         } else {
         if (postback.payload == "CALL_THE_NHS") {
           await turnContext.sendActivity(nhsCardFB);
