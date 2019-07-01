@@ -292,7 +292,7 @@ class DialogBot extends ActivityHandler {
               type:"template",
               payload: {
                 template_type:"generic",
-                // shareable: true,
+                shareable: true,
                 image_aspect_ratio: "square",
                 elements: [
                   {
