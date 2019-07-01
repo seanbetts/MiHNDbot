@@ -286,8 +286,8 @@ class DialogBot extends ActivityHandler {
         this.logger.log('Postback message received.');
         // TODO: Your postBack handling logic here...
         // var postBack = facebookPayload.postback;
-        if (postback.payload !== null) {
-          await turnContext.sendActivity('Postback message received.');
+        if (postback.payload == "GET_STARTED") {
+          await turnContext.sendActivity('Let\'s Get Started');
         } else {
           await turnContext.sendActivity('Are you sure?');
         }
