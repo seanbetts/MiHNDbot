@@ -529,7 +529,34 @@ class DialogBot extends ActivityHandler {
 
           // If an answer was received from QnA Maker, send the answer back to the user.
           if (qnaResults[0]) {
-            await turnContext.sendActivity(qnaResults[0].answer);
+            const { answer, context: { prompts }} = qnaResults[0];
+            let reply;
+            if (prompts.length) {
+              const quickReply = {
+                channelData: {
+                    text: answer,
+                    quick_replies: [
+                      {
+                        content_type: "text",
+                        title: "Prompt 1",
+                        payload: "Prompt 1"
+                      },{
+                        content_type: "text",
+                        title: "Prompt 2",
+                        payload: "Prompt 2"
+                      }
+                    ]
+                }
+              }
+                reply = quickReply;
+              } else {
+                reply = {
+                  channelData: {
+                    text: answer,
+                  }
+                }
+              }
+              await turnContext.sendActivity(reply);
 
           // If no answers were returned from QnA Maker, reply with help.
           } else {
