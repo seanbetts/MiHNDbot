@@ -409,7 +409,7 @@ class DialogBot extends ActivityHandler {
               payload: {
                 template_type:"generic",
                 sharable: true,
-                image_aspect_ratio: "horizontal",
+                image_aspect_ratio: "square",
                 elements: [
                   {
                     title:"NHS 111",
@@ -427,7 +427,7 @@ class DialogBot extends ActivityHandler {
                         title:"More Info"
                       },{
                         type:"phone_number",
-                        title:"Call NHS 111 Now",
+                        title:"Call NHS 111...",
                         payload:"+44111"
                       }
                     ]
@@ -445,7 +445,7 @@ class DialogBot extends ActivityHandler {
               payload: {
                 template_type:"generic",
                 sharable: true,
-                image_aspect_ratio: "horizontal",
+                image_aspect_ratio: "square",
                 elements: [
                   {
                     title:"The Samaritans",
@@ -463,7 +463,7 @@ class DialogBot extends ActivityHandler {
                         title:"More Info"
                       },{
                         type:"phone_number",
-                        title:"Call The Samaritans Now",
+                        title:"Call The Samaritans...",
                         payload:"+44116123"
                       }
                     ]
