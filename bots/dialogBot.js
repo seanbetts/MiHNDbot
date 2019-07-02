@@ -129,7 +129,7 @@ class DialogBot extends ActivityHandler {
                         await context.sendActivity({ attachments: [welcomeCard] });
                     }
                 }
-              }
+              // }
 //             }
 
             // By calling next() you ensure that the next BotHandler is run.
@@ -147,7 +147,7 @@ class DialogBot extends ActivityHandler {
                 if (context.activity.channelId == 'facebook') {
                   if (qnaResults[0]) {
                     const { answer, context: { prompts }} = qnaResults[0];
-										
+
 										// set a variable for the prompts from QnA
 										var qnaPrompts = qnaResults[0].Context.Prompts;
 
