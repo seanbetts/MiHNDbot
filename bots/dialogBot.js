@@ -149,10 +149,10 @@ class DialogBot extends ActivityHandler {
                     const { answer, context: { prompts }} = qnaResults[0];
 
 										// set a variable for the prompts from QnA
-										var qnaPrompts = null;
-										if(qnaResult[0].context != null){
-												qnaPrompts = qnaResult[0].context.prompts;
-										}
+										// var qnaPrompts = null;
+										// if(qnaResult[0].context != null){
+										// 		qnaPrompts = qnaResult[0].context.prompts;
+										// }
 
                     let reply;
                     if (prompts.length) {
