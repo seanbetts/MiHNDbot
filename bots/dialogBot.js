@@ -129,7 +129,7 @@ class DialogBot extends ActivityHandler {
                         await context.sendActivity({ attachments: [welcomeCard] });
                     }
                 }
-              // }
+//              }
 //             }
 
             // By calling next() you ensure that the next BotHandler is run.
@@ -149,7 +149,10 @@ class DialogBot extends ActivityHandler {
                     const { answer, context: { prompts }} = qnaResults[0];
 
 										// set a variable for the prompts from QnA
-										var qnaPrompts = qnaResults[0].Context.Prompts;
+										var qnaPrompts = null;
+										if(qnaResult[0].context != null){
+												qnaPrompts = qnaResult[0].context.prompts;
+										}
 
                     let reply;
                     if (prompts.length) {
