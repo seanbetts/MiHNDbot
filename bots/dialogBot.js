@@ -93,7 +93,8 @@ class DialogBot extends ActivityHandler {
         this.onMessage(async (context, next) => {
             this.logger.log('Processing a Message Activity');
 
-            const qnaResults = await this.qnaMaker.getAnswers(context);
+            // const qnaResults = await this.qnaMaker.getAnswers(context);
+            var qnaResult = await QnAServiceHelper.queryQnAService(query, oldState);
 
             // Show choices if the Facebook Payload from ChannelData is not handled
             if (!await this.processFacebookPayload(context, context.activity.channelData)) {
