@@ -105,7 +105,7 @@ class DialogBot extends ActivityHandler {
 										// set a variable for the prompts from QnA
 										var qnaPrompts = null;
 										if(qnaResults[0].context != null){
-												qnaPrompts = qnaResults[0].context.prompts;
+												qnaPrompts = qnaResults[0].context.prompts.displayText;
 										}
 
                     let reply;
@@ -117,7 +117,7 @@ class DialogBot extends ActivityHandler {
                             quick_replies: [
                               {
                                 content_type: "text",
-                                title: qnaPrompts.displayText,
+                                title: qnaPrompts,
                                 payload: "Prompt 1"
                               },{
                                 content_type: "text",
