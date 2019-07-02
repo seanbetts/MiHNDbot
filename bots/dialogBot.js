@@ -77,60 +77,13 @@ class DialogBot extends ActivityHandler {
 
         // If a new user is added to the conversation, send them a greeting message
         this.onMembersAdded(async (context, next) => {
-//           if (!await this.processFacebookPayload(context, context.activity.channelData)) {
-//               if (context.activity.channelId == 'facebook') {
-//                 const membersAdded = context.activity.membersAdded;
-//                 for (let cnt = 0; cnt < membersAdded.length; cnt++) {
-//                     if (membersAdded[cnt].id !== context.activity.recipient.id) {
-//                         await context.sendActivity({
-//                               channelData: {
-//                                 attachment:{
-//                                   type:"template",
-//                                   payload: {
-//                                     template_type:"generic",
-//                                     elements: [
-//                                       {
-//                                         title:"Welcome!",
-//                                         image_url:"https://mihndbotblob.blob.core.windows.net/resources/MiHND-graphic-logo-black-circle-inverted-rounded.jpg",
-//                                         subtitle:"I'm a chatbot designed to help people understand more about Mental Health and NeuroDiversity.",
-//                                         default_action: {
-//                                           type: "web_url",
-//                                           url: "https://www.mihnd.co.uk",
-//                                           webview_height_ratio: "tall",
-//                                         },
-//                                         buttons: [
-//                                           {
-//                                             type:"postback",
-//                                             title:"Find out more about Mental Health",
-//                                             payload:"What is Mental Health?"
-//                                           },{
-//                                             type:"postback",
-//                                             title:"Find out more about NeuroDiversity",
-//                                             payload:"What is NeuroDiversity?"
-//                                           },{
-//                                             type:"postback",
-//                                             title:"Get Help",
-//                                             payload:"Help"
-//                                           }
-//                                         ]
-//                                       }
-//                                     ]
-//                                   }
-//                                 }
-//                               }
-//                         });
-//                     }
-//                 }
-//               } else {
-                const membersAdded = context.activity.membersAdded;
-                for (let cnt = 0; cnt < membersAdded.length; cnt++) {
-                    if (membersAdded[cnt].id !== context.activity.recipient.id) {
-                        const welcomeCard = CardFactory.adaptiveCard(WelcomeCard);
-                        await context.sendActivity({ attachments: [welcomeCard] });
-                    }
+            const membersAdded = context.activity.membersAdded;
+            for (let cnt = 0; cnt < membersAdded.length; cnt++) {
+                if (membersAdded[cnt].id !== context.activity.recipient.id) {
+                    const welcomeCard = CardFactory.adaptiveCard(WelcomeCard);
+                    await context.sendActivity({ attachments: [welcomeCard] });
                 }
-//              }
-//             }
+            }
 
             // By calling next() you ensure that the next BotHandler is run.
             await next();
@@ -149,7 +102,7 @@ class DialogBot extends ActivityHandler {
                     const { answer, context: { prompts }} = qnaResults[0];
 
 										// set a variable for the prompts from QnA
-										// var qnaPrompts = null;
+										var qnaPrompts = null;
 										// if(qnaResult[0].context != null){
 										// 		qnaPrompts = qnaResult[0].context.prompts;
 										// }
