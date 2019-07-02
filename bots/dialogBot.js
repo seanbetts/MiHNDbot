@@ -94,7 +94,7 @@ class DialogBot extends ActivityHandler {
             this.logger.log('Processing a Message Activity');
 
             const qnaResults = await this.qnaMaker.getAnswers(context);
-            var qnaResult = await QnAServiceHelper.queryQnAService(query, oldState);
+            // var qnaResult = await QnAServiceHelper.queryQnAService(query, oldState);
 
             // Show choices if the Facebook Payload from ChannelData is not handled
             if (!await this.processFacebookPayload(context, context.activity.channelData)) {
@@ -104,9 +104,9 @@ class DialogBot extends ActivityHandler {
 
 										// set a variable for the prompts from QnA
 										var qnaPrompts = null;
-										if(qnaResult[0].context != null){
-												qnaPrompts = qnaResult[0].context.prompts;
-										}
+										// if(qnaResult[0].context != null){
+										// 		qnaPrompts = qnaResult[0].context.prompts;
+										// }
 
                     let reply;
                     if (prompts.length) {
