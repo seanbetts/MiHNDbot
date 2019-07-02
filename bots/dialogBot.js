@@ -103,9 +103,19 @@ class DialogBot extends ActivityHandler {
                     const { answer, context: { prompts }} = qnaResults[0];
 
 										// set a variable for the prompts from QnA
-										var qnaPrompts = null;
+										var qnaPrompts0 = null;
 										if(qnaResults[0].context != null){
-												qnaPrompts = qnaResults[0].context.prompts[0].displayText;
+												qnaPrompts0 = qnaResults[0].context.prompts[0].displayText;
+										}
+
+                    var qnaPrompts1 = null;
+										if(qnaResults[0].context != null){
+												qnaPrompts1 = qnaResults[0].context.prompts[1].displayText;
+										}
+
+                    var qnaPrompts2 = null;
+										if(qnaResults[0].context != null){
+												qnaPrompts2 = qnaResults[0].context.prompts[2].displayText;
 										}
 
                     let reply;
@@ -117,28 +127,16 @@ class DialogBot extends ActivityHandler {
                             quick_replies: [
                               {
                                 content_type: "text",
-                                title: qnaPrompts,
+                                title: qnaPrompts0,
                                 payload: "Prompt 1"
                               },{
                                 content_type: "text",
-                                title: "Prompt 2",
+                                title: qnaPrompts1,
                                 payload: "Prompt 2"
                               },{
                                 content_type: "text",
-                                title: "Prompt 3",
+                                title: qnaPrompts2,
                                 payload: "Prompt 3"
-                              },{
-                                content_type: "text",
-                                title: "Prompt 4",
-                                payload: "Prompt 4"
-                              },{
-                                content_type: "text",
-                                title: "Prompt 5",
-                                payload: "Prompt 5"
-                              },{
-                                content_type: "text",
-                                title: "Prompt 6",
-                                payload: "Prompt 6"
                               }
                             ]
                         }
