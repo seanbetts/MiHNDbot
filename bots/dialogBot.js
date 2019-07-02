@@ -77,51 +77,51 @@ class DialogBot extends ActivityHandler {
 
         // If a new user is added to the conversation, send them a greeting message
         this.onMembersAdded(async (context, next) => {
-          if (!await this.processFacebookPayload(context, context.activity.channelData)) {
-              if (context.activity.channelId == 'facebook') {
-                const membersAdded = context.activity.membersAdded;
-                for (let cnt = 0; cnt < membersAdded.length; cnt++) {
-                    if (membersAdded[cnt].id !== context.activity.recipient.id) {
-                        await context.sendActivity({
-                              channelData: {
-                                attachment:{
-                                  type:"template",
-                                  payload: {
-                                    template_type:"generic",
-                                    elements: [
-                                      {
-                                        title:"Welcome!",
-                                        image_url:"https://mihndbotblob.blob.core.windows.net/resources/MiHND-graphic-logo-black-circle-inverted-rounded.jpg",
-                                        subtitle:"I'm a chatbot designed to help people understand more about Mental Health and NeuroDiversity.",
-                                        default_action: {
-                                          type: "web_url",
-                                          url: "https://www.mihnd.co.uk",
-                                          webview_height_ratio: "tall",
-                                        },
-                                        buttons: [
-                                          {
-                                            type:"postback",
-                                            title:"Find out more about Mental Health",
-                                            payload:"What is Mental Health?"
-                                          },{
-                                            type:"postback",
-                                            title:"Find out more about NeuroDiversity",
-                                            payload:"What is NeuroDiversity?"
-                                          },{
-                                            type:"postback",
-                                            title:"Get Help",
-                                            payload:"Help"
-                                          }
-                                        ]
-                                      }
-                                    ]
-                                  }
-                                }
-                              }
-                        });
-                    }
-                }
-              } else {
+//           if (!await this.processFacebookPayload(context, context.activity.channelData)) {
+//               if (context.activity.channelId == 'facebook') {
+//                 const membersAdded = context.activity.membersAdded;
+//                 for (let cnt = 0; cnt < membersAdded.length; cnt++) {
+//                     if (membersAdded[cnt].id !== context.activity.recipient.id) {
+//                         await context.sendActivity({
+//                               channelData: {
+//                                 attachment:{
+//                                   type:"template",
+//                                   payload: {
+//                                     template_type:"generic",
+//                                     elements: [
+//                                       {
+//                                         title:"Welcome!",
+//                                         image_url:"https://mihndbotblob.blob.core.windows.net/resources/MiHND-graphic-logo-black-circle-inverted-rounded.jpg",
+//                                         subtitle:"I'm a chatbot designed to help people understand more about Mental Health and NeuroDiversity.",
+//                                         default_action: {
+//                                           type: "web_url",
+//                                           url: "https://www.mihnd.co.uk",
+//                                           webview_height_ratio: "tall",
+//                                         },
+//                                         buttons: [
+//                                           {
+//                                             type:"postback",
+//                                             title:"Find out more about Mental Health",
+//                                             payload:"What is Mental Health?"
+//                                           },{
+//                                             type:"postback",
+//                                             title:"Find out more about NeuroDiversity",
+//                                             payload:"What is NeuroDiversity?"
+//                                           },{
+//                                             type:"postback",
+//                                             title:"Get Help",
+//                                             payload:"Help"
+//                                           }
+//                                         ]
+//                                       }
+//                                     ]
+//                                   }
+//                                 }
+//                               }
+//                         });
+//                     }
+//                 }
+//               } else {
                 const membersAdded = context.activity.membersAdded;
                 for (let cnt = 0; cnt < membersAdded.length; cnt++) {
                     if (membersAdded[cnt].id !== context.activity.recipient.id) {
@@ -130,7 +130,7 @@ class DialogBot extends ActivityHandler {
                     }
                 }
               }
-            }
+//             }
 
             // By calling next() you ensure that the next BotHandler is run.
             await next();
@@ -147,6 +147,9 @@ class DialogBot extends ActivityHandler {
                 if (context.activity.channelId == 'facebook') {
                   if (qnaResults[0]) {
                     const { answer, context: { prompts }} = qnaResults[0];
+										
+										// set a variable for the prompts from QnA
+										var qnaPrompts = qnaResults[0].Context.Prompts;
 
                     let reply;
                     if (prompts.length) {
@@ -163,6 +166,22 @@ class DialogBot extends ActivityHandler {
                                 content_type: "text",
                                 title: "Prompt 2",
                                 payload: "Prompt 2"
+                              },{
+                                content_type: "text",
+                                title: "Prompt 3",
+                                payload: "Prompt 3"
+                              },{
+                                content_type: "text",
+                                title: "Prompt 4",
+                                payload: "Prompt 4"
+                              },{
+                                content_type: "text",
+                                title: "Prompt 5",
+                                payload: "Prompt 5"
+                              },{
+                                content_type: "text",
+                                title: "Prompt 6",
+                                payload: "Prompt 6"
                               }
                             ]
                         }
