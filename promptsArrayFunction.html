@@ -8,6 +8,7 @@
 
 <script>
 var promptsArray = ["Prompt 1","Prompt 2","Prompt 3","Prompt 4","Prompt 5","Prompt 6"];
+promptsArray.forEach(writeArray);
 
 var promptsLength = promptsArray.length
 
@@ -17,8 +18,9 @@ function promptsArrayFunction (promptsLength) {
 
 var qnaPrompts = promptsArrayFunction
 
-function writeArray (item,index) {
-	document.getElementById("array").innerHTML += index + ":" + item + "<br>" + "<br>";
+function writeArray (item) {
+	document.getElementById("array").innerHTML += "{" + "<br>" + "content_type: \"text\"," + "<br>" + "title: " + item + "," + "<br>" + "payload: " + item + "<br>" + "},"
+	item + "<br>" + "<br>";
 }
 
 const quickReply = {
@@ -33,7 +35,6 @@ const quickReply = {
 			]
 	}
 }
-
 </script>
 </body>
 </html>
