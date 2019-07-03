@@ -91,14 +91,13 @@ class DialogBot extends ActivityHandler {
 										}
 
 										// create function to translate the prompt displayText to insert it into activity.text as a string for the QnA
-										function qnaTranslate(displayText) {
+										function qnaFollowUp(displayText) {
 											context.activity.text = obj.displayText;
-                      const reply = this.qnaMaker.getAnswers(context);
 										}
 
                     // map the prompts to the required format for quick_replies channelData
                     var qnaPromptsArray = qnaPrompts.map(obj =>{
-                      return {content_type: "text", title: obj.displayText, payload: qnaTranslate(displayText)}
+                      return {content_type: "text", title: obj.displayText, payload: qnaFollowUp(displayText)}
                     });
 
                     let reply;
@@ -120,6 +119,9 @@ class DialogBot extends ActivityHandler {
                       }
 
                       await context.sendActivity(reply);
+
+                      // call QnA
+                      const qnaResults = await this.qnaMaker.getAnswers(context);
 
                   // If no answers were returned from QnA Maker, reply with help.
                   } else {
