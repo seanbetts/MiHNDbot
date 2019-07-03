@@ -96,7 +96,7 @@ class DialogBot extends ActivityHandler {
 											turnContext.activity.text = displayText;
 
 	                    // call the QnA
-											// const qnaResults = await this.qnaMaker.getAnswers(turnContext);
+											const qnaResults = this.qnaMaker.getAnswers(turnContext);
 										}
 
                     // map the prompts to the required format for quick_replies channelData
