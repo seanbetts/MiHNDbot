@@ -92,8 +92,8 @@ class DialogBot extends ActivityHandler {
 										}
 
 										// create function to translate the prompt displayText to insert it into activity.text as a string for the QnA
-										function qnaTranslate (obj.displayText) {
-											return turnContext.activity.text = obj.displayText;
+										function qnaTranslate (displayText) {
+											return turnContext.activity.text = displayText;
 										}
 
                     // map the prompts to the required format for quick_replies channelData
