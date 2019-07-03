@@ -108,9 +108,11 @@ class DialogBot extends ActivityHandler {
 												qnaPrompts = [qnaResults[0].context.prompts[0].displayText];
 										}
 
-                    function writeArray () {
-                    	return [{content_type: "text", title: "item", payload: "item"},];
-                    }
+                    // function writeArray () {
+                    // 	return [{content_type: "text", title: "item", payload: "item"},];
+                    // }
+
+                    var qnaPromptsArray = [{content_type: "text", title: "item", payload: "item"},];
 
                     let reply;
                     if (prompts.length) {
