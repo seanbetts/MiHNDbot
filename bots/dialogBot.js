@@ -121,10 +121,7 @@ class DialogBot extends ActivityHandler {
                       const quickReply = {
                         channelData: {
                             text: answer,
-                            quick_replies: [
-                              // qnaPromptsArray.forEach()
-                              qnaPromptsArray.values()
-                            ]
+                            quick_replies: qnaPromptsArray    
                         }
                       }
                         reply = quickReply;
