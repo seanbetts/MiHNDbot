@@ -76,7 +76,6 @@ class DialogBot extends ActivityHandler {
             this.logger.log('Processing a Message Activity');
 
             const qnaResults = await this.qnaMaker.getAnswers(context);
-            // var qnaResult = await QnAServiceHelper.queryQnAService(query, oldState);
 
             // Show choices if the Facebook Payload from ChannelData is not handled
             if (!await this.processFacebookPayload(context, context.activity.channelData)) {
@@ -94,7 +93,7 @@ class DialogBot extends ActivityHandler {
 										// create function to translate the prompt displayText to insert it into activity.text as a string for the QnA
 										function qnaTranslate(displayText) {
 											context.activity.text = obj.displayText;
-                      const qnaResults = this.qnaMaker.getAnswers(context);
+                      const reply = this.qnaMaker.getAnswers(context);
 										}
 
                     // map the prompts to the required format for quick_replies channelData
@@ -156,14 +155,7 @@ class DialogBot extends ActivityHandler {
 																			type:"postback",
 																			title:"Get Help",
 																			payload:"GET_HELP"
-																		}
-																	]
-																}
-															]
-														}
-													}
-												}
-											}
+											}]}]}}}}
 
 											await turnContext.sendActivity(errorCardFB);
                   }
@@ -298,14 +290,7 @@ class DialogBot extends ActivityHandler {
                         type:"postback",
                         title:"Get Help",
                         payload:"GET_HELP"
-                      }
-                    ]
-                  }
-                ]
-              }
-            }
-          }
-        }
+        }]}]}}}}
 
         const helpCardFB = {
           channelData: {
@@ -338,14 +323,7 @@ class DialogBot extends ActivityHandler {
                         type:"postback",
                         title:"Call The Samaritans",
                         payload:"CALL_THE_SAMARITANS"
-                      }
-                    ]
-                  }
-                ]
-              }
-            }
-          }
-        }
+        }]}]}}}}
 
         const shoutCardFB = {
           channelData: {
@@ -374,14 +352,7 @@ class DialogBot extends ActivityHandler {
                         type:"postback",
                         title:"Text Shout Now",
                         payload:"TEXT_SHOUT_NOW"
-                      }
-                    ]
-                  }
-                ]
-              }
-            }
-          }
-        }
+        }]}]}}}}
 
         const nhsCardFB = {
           channelData: {
@@ -410,14 +381,7 @@ class DialogBot extends ActivityHandler {
                         type:"phone_number",
                         title:"Call NHS 111...",
                         payload:"111"
-                      }
-                    ]
-                  }
-                ]
-              }
-            }
-          }
-        }
+          }]}]}}}}
 
         const samaritansCardFB = {
           channelData: {
@@ -446,14 +410,7 @@ class DialogBot extends ActivityHandler {
                         type:"phone_number",
                         title:"Call The Samaritans...",
                         payload:"116123"
-                      }
-                    ]
-                  }
-                ]
-              }
-            }
-          }
-        }
+        }]}]}}}}
 
         if (postback.payload == "GET_STARTED") {
           await turnContext.sendActivity(welcomeCardFB);
