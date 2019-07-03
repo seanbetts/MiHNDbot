@@ -105,7 +105,7 @@ class DialogBot extends ActivityHandler {
 										// set a variable for the prompts from QnA
 										var qnaPrompts = null;
 										if(qnaResults[0].context != null){
-												qnaPrompts = qnaResults[0].context.prompts.displayText;
+												qnaPrompts = qnaResults[0].context.prompts[0].displayText;
 										}
 
                     function writeArray (item) {
@@ -119,7 +119,8 @@ class DialogBot extends ActivityHandler {
                         channelData: {
                             text: answer,
                             quick_replies: [
-                              qnaPrompts.forEach(writeArray)
+                              {content_type: "text", title: qnaPrompts, payload: qnaPrompts},
+                              {content_type: "text", title: qnaPrompts, payload: qnaPrompts}
                             ]
                         }
                       }
