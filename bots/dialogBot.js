@@ -109,7 +109,7 @@ class DialogBot extends ActivityHandler {
 										}
 
                     function writeArray (item) {
-                    	document.getElementById("array").innerHTML += "{content_type: \"text\", title: " + item + ", payload: " + item + "}, " + "<br>";
+                    	return "{content_type: \"text\", title: " + item + ", payload: " + item + "}, " + "<br>";
                     }
 
                     let reply;
