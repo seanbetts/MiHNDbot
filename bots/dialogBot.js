@@ -120,7 +120,7 @@ class DialogBot extends ActivityHandler {
                               {
                                 content_type: "text",
                                 title: qnaPrompts,
-                                payload: "Prompt 1"
+                                payload: qnaPrompts
                               }
                             ]
                         }
