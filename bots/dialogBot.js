@@ -113,6 +113,7 @@ class DialogBot extends ActivityHandler {
                     // }
 
                     var qnaPromptsArray = [{content_type: "text", title: "Prompt 1", payload: "Prompt 1"},{content_type: "text", title: "Prompt 2", payload: "Prompt 2"},];
+                    var promptsIterator = qnaPromptsArray.values();
 
                     let reply;
                     if (prompts.length) {
@@ -121,7 +122,8 @@ class DialogBot extends ActivityHandler {
                         channelData: {
                             text: answer,
                             quick_replies: [
-                              qnaPromptsArray.forEach()
+                              // qnaPromptsArray.forEach()
+                              promptsIterator
                             ]
                         }
                       }
