@@ -102,10 +102,10 @@ class DialogBot extends ActivityHandler {
                   if (qnaResults[0]) {
                     const { answer, context: { prompts }} = qnaResults[0];
 
-										// set a variable for the prompts from QnA
+										// set a variable for the prompts array from QnA
 										var qnaPrompts = null;
 										if(qnaResults[0].context != null){
-												qnaPrompts = qnaResults[0].context.prompts[0].displayText;
+												qnaPrompts = [qnaResults[0].context.prompts[0].displayText];
 										}
 
                     function writeArray (item) {
@@ -119,7 +119,7 @@ class DialogBot extends ActivityHandler {
                         channelData: {
                             text: answer,
                             quick_replies: [
-                              writeArray.call(qnaPrompts[0])
+                              writeArray.call(qnaPrompts)
                             ]
                         }
                       }
