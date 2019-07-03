@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<p>List all promptArray items:</p>
+
+<p id="array"></p>
+
+<script>
+var promptsArray = ["Prompt 1","Prompt 2","Prompt 3","Prompt 4","Prompt 5","Prompt 6"];
+
+var promptsLength = promptsArray.length
+
+function promptsArrayFunction (promptsLength) {
+	promptsArray.forEach();
+}
+
+var qnaPrompts = promptsArrayFunction
+
+function writeArray (item,index) {
+	document.getElementById("array").innerHTML += index + ":" + item + "<br>" + "<br>";
+}
+
+const quickReply = {
+	channelData: {
+			text: answer,
+			quick_replies: [
+				{
+					content_type: "text",
+					title: promptsLength,
+					payload: "Prompt 1"
+				}
+			]
+	}
+}
+
+</script>
+</body>
+</html>
