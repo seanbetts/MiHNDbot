@@ -105,15 +105,14 @@ class DialogBot extends ActivityHandler {
 										// set a variable for the prompts array from QnA
 										var qnaPrompts = null;
 										if(qnaResults[0].context != null){
-												qnaPrompts = [qnaResults[0].context.prompts[0].displayText];
+												qnaPrompts = [qnaResults[0].context.prompts.displayText];
 										}
 
-                    // function writeArray () {
-                    // 	return [{content_type: "text", title: "item", payload: "item"},];
-                    // }
+                    var qnaPromptsArray = qnaPrompts.map(textPrompt =>{
+                      return {content_type: "text", title: textPrompt, payload: textPrompt}
+                    });
 
-                    var qnaPromptsArray = [{content_type: "text", title: "Prompt 1", payload: "Prompt 1"},{content_type: "text", title: "Prompt 2", payload: "Prompt 2"},];
-                    var promptsIterator = qnaPromptsArray.values();
+                    // var qnaPromptsArray = [{content_type: "text", title: "Prompt 1", payload: "Prompt 1"},{content_type: "text", title: "Prompt 2", payload: "Prompt 2"},];
 
                     let reply;
                     if (prompts.length) {
@@ -121,7 +120,7 @@ class DialogBot extends ActivityHandler {
                       const quickReply = {
                         channelData: {
                             text: answer,
-                            quick_replies: qnaPromptsArray    
+                            quick_replies: qnaPromptsArray
                         }
                       }
                         reply = quickReply;
