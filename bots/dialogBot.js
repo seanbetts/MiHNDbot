@@ -2,10 +2,8 @@ const { ActivityHandler, MemoryStorage } = require('botbuilder');
 const { CardFactory } = require('botbuilder-core');
 const { CosmosDbStorage } = require("botbuilder-azure");
 const { QnAMaker } = require('botbuilder-ai');
-// const { FacebookAdapter } = require('botbuilder-adapter-facebook');
 const restify = require('restify');
 const WelcomeCard = require('../resources/welcomeCard.json');
-// const facebookPageIdOption = 'Facebook Page Id';
 const quickRepliesOption = 'Quick Replies';
 // const postBackOption = 'PostBack';
 
@@ -23,22 +21,6 @@ var storage = new CosmosDbStorage({
     databaseId: process.env.DATABASE,
     collectionId: process.env.COLLECTION
 })
-
-/* initialise Facebook Adapter
-const adapter = new FacebookAdapter({
-     verify_token: process.env.FACEBOOK_VERIFY_TOKEN,
-     app_secret: process.env.FACEBOOK_APP_SECRET,
-     access_token: process.env.FACEBOOK_ACCESS_TOKEN
-});
-
-const server = restify.createServer();
-server.use(restify.plugins.bodyParser());
-
-server.post('/api/messages', (req, res) => {
-     adapter.processActivity(req, res, async(context) => {
-         // do your bot logic here!
-     });
-}); */
 
 class DialogBot extends ActivityHandler {
 
@@ -98,6 +80,7 @@ class DialogBot extends ActivityHandler {
 
             // Show choices if the Facebook Payload from ChannelData is not handled
             if (!await this.processFacebookPayload(context, context.activity.channelData)) {
+								// detect if Facebook Messenger is the channel being used
                 if (context.activity.channelId == 'facebook') {
                   if (qnaResults[0]) {
                     const { answer, context: { prompts }} = qnaResults[0];
@@ -108,7 +91,13 @@ class DialogBot extends ActivityHandler {
 												qnaPrompts = qnaResults[0].context.prompts;
 										}
 
-                    var promptsTest = ["Prompt 1", "Prompt 2", "Prompt 3"];
+										// create function to translate the prompt displayText to insert it into activity.text as a string for the QnA
+										function qnaTranslate (displayText) {
+											turnContext.activity.text = displayText;
+
+	                    // call the QnA
+											// const qnaResults = await this.qnaMaker.getAnswers(turnContext);
+										}
 
                     // map the prompts to the required format for quick_replies channelData
                     var qnaPromptsArray = qnaPrompts.map(obj =>{
@@ -137,11 +126,52 @@ class DialogBot extends ActivityHandler {
 
                   // If no answers were returned from QnA Maker, reply with help.
                   } else {
-                      await context.sendActivity('I\'m sorry, I don\'t have an answer for that. Please ask me something else, such as: \n\n "What Is Mental Health?" \n\n "What Is NeuroDiversity" \n\n "Help"');
+
+											const errorCardFB = {
+												channelData: {
+													attachment:{
+														type:"template",
+														payload: {
+															template_type:"generic",
+															sharable: true,
+															image_aspect_ratio: "square",
+															elements: [
+																{
+																	title:"I'm sorry!",
+																	image_url:"https://mihndbotblob.blob.core.windows.net/resources/MiHND-graphic-logo-black-circle-inverted-rounded.jpg",
+																	subtitle:"I don\'t have an asnwer for that. Please ask me about something else, such as:",
+																	default_action: {
+																		type: "web_url",
+																		url: "https://www.mihnd.co.uk",
+																		webview_height_ratio: "tall",
+																	},
+																	buttons: [
+																		{
+																			type:"postback",
+																			title:"Mental Health",
+																			payload:"WHAT_IS_MENTAL_HEALTH"
+																		},{
+																			type:"postback",
+																			title:"NeuroDiversity",
+																			payload:"WHAT_IS_NEURODIVERSITY"
+																		},{
+																			type:"postback",
+																			title:"Get Help",
+																			payload:"GET_HELP"
+																		}
+																	]
+																}
+															]
+														}
+													}
+												}
+											}
+
+											await turnContext.sendActivity(errorCardFB);
                   }
 
                 } else {
-
+								// default to WebChat channel
                 // If an answer was received from QnA Maker, send the answer back to the user.
                 if (qnaResults[0]) {
                   const { answer, context: { prompts }} = qnaResults[0];
@@ -199,9 +229,6 @@ class DialogBot extends ActivityHandler {
 
     /**
      * Process a Facebook payload from channel data, to handle optin events, postbacks and quick replies.
-     * NOTE: This is a simplification of the Facebook object model. There are many more events and payloads
-     * that could be captured here. We only show some key features that are commonly used. The sample
-     * can be extended to account for more Facebook-specific events according to developers' needs.
      * @param {Object} turnContext
      * @param {Object} data
      */
@@ -440,27 +467,31 @@ class DialogBot extends ActivityHandler {
           // qnaMaker.getAnswers doesn't accept string input, so we need to adjust our turnContext
           // to match what it expects, which is a string in Activity.Text
           turnContext.activity.text = postback.payload;
+          // call the QnA
           const qnaResults = await this.qnaMaker.getAnswers(turnContext);
 
           // If an answer was received from QnA Maker, send the answer back to the user.
           if (qnaResults[0]) {
             const { answer, context: { prompts }} = qnaResults[0];
-            let reply;
+
+					// set a variable for the prompts array from QnA
+					var qnaPrompts = null;
+					if(qnaResults[0].context != null){
+							qnaPrompts = qnaResults[0].context.prompts;
+					}
+
+					// map the prompts to the required format for quick_replies channelData
+					var qnaPromptsArray = qnaPrompts.map(obj =>{
+						return {content_type: "text", title: obj.displayText, payload: obj.displayText}
+					});
+
+
+						let reply;
             if (prompts.length) {
               const quickReply = {
                 channelData: {
                     text: answer,
-                    quick_replies: [
-                      {
-                        content_type: "text",
-                        title: "Prompt 1",
-                        payload: "Prompt 1"
-                      },{
-                        content_type: "text",
-                        title: "Prompt 2",
-                        payload: "Prompt 2"
-                      }
-                    ]
+                    quick_replies: qnaPromptsArray
                 }
               }
                 reply = quickReply;
@@ -487,22 +518,24 @@ class DialogBot extends ActivityHandler {
           // If an answer was received from QnA Maker, send the answer back to the user.
           if (qnaResults[0]) {
             const { answer, context: { prompts }} = qnaResults[0];
+
+						// set a variable for the prompts array from QnA
+						var qnaPrompts = null;
+						if(qnaResults[0].context != null){
+								qnaPrompts = qnaResults[0].context.prompts;
+						}
+
+						// map the prompts to the required format for quick_replies channelData
+						var qnaPromptsArray = qnaPrompts.map(obj =>{
+							return {content_type: "text", title: obj.displayText, payload: obj.displayText}
+						});
+
             let reply;
             if (prompts.length) {
               const quickReply = {
                 channelData: {
                     text: answer,
-                    quick_replies: [
-                      {
-                        content_type: "text",
-                        title: "Prompt 1",
-                        payload: "Prompt 1"
-                      },{
-                        content_type: "text",
-                        title: "Prompt 2",
-                        payload: "Prompt 2"
-                      }
-                    ]
+                    quick_replies: qnaPromptsArray
                 }
               }
                 reply = quickReply;
@@ -536,17 +569,6 @@ class DialogBot extends ActivityHandler {
           await turnContext.sendActivity('PostBack not defined...YET!');
         }}}}}}}}
     }
-
-    /**
-     * Called when a message has been sent by your Facebook page.
-     * Facebook Developer Reference: Echoes
-     * https://developers.facebook.com/docs/messenger-platform/reference/webhook-events/message-echoes/
-     * @param {Object} facebookMessage
-     * @param {Object} turnContext
-     */
-    // async onFacebookEcho(turnContext, facebookMessage) {
-    //     this.logger.log('Echo message received.');
-    // }
 
     /**
      * Called when receiving a Facebook messaging_optin event.
