@@ -8,7 +8,8 @@
 
 <script>
 var promptsArray = ["Prompt 1","Prompt 2","Prompt 3","Prompt 4","Prompt 5","Prompt 6", "Prompt 7"];
-promptsArray.forEach(writeArray);
+// promptsArray.forEach](writeArray);
+writeArray.call(promptsArray[0]);
 
 function writeArray (item) {
 	document.getElementById("array").innerHTML += "{content_type: \"text\", title: " + item + ", payload: " + item + "}, " + "<br>";
