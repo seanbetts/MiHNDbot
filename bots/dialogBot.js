@@ -93,10 +93,7 @@ class DialogBot extends ActivityHandler {
 
 										// create function to translate the prompt displayText to insert it into activity.text as a string for the QnA
 										function qnaTranslate (displayText) {
-											turnContext.activity.text = displayText;
-
-	                    // call the QnA
-											const qnaResults = this.qnaMaker.getAnswers(turnContext);
+											return turnContext.activity.text = displayText;
 										}
 
                     // map the prompts to the required format for quick_replies channelData
@@ -122,6 +119,8 @@ class DialogBot extends ActivityHandler {
                         }
                       }
 
+                      // call the QnA
+                      const qnaResults = await this.qnaMaker.getAnswers(turnContext);
                       await context.sendActivity(reply);
 
                   // If no answers were returned from QnA Maker, reply with help.
