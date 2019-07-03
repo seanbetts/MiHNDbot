@@ -102,20 +102,12 @@ class DialogBot extends ActivityHandler {
                   if (qnaResults[0]) {
                     const { answer, context: { prompts }} = qnaResults[0];
 
+										var promptsLength = qnaResults[0].context.prompts.length;
+
 										// set a variable for the prompts from QnA
-										var qnaPrompts0 = null;
+										var qnaPrompts = null;
 										if(qnaResults[0].context != null){
-												qnaPrompts0 = qnaResults[0].context.prompts[0].displayText;
-										}
-
-                    var qnaPrompts1 = null;
-										if(qnaResults[0].context != null){
-												qnaPrompts1 = qnaResults[0].context.prompts[1].displayText;
-										}
-
-                    var qnaPrompts2 = null;
-										if(qnaResults[0].context != null){
-												qnaPrompts2 = qnaResults[0].context.prompts[2].displayText;
+												qnaPrompts = qnaResults[0].context.prompts[0].displayText;
 										}
 
                     let reply;
@@ -127,16 +119,8 @@ class DialogBot extends ActivityHandler {
                             quick_replies: [
                               {
                                 content_type: "text",
-                                title: qnaPrompts0,
+                                title: qnaPrompts,
                                 payload: "Prompt 1"
-                              },{
-                                content_type: "text",
-                                title: qnaPrompts1,
-                                payload: "Prompt 2"
-                              },{
-                                content_type: "text",
-                                title: qnaPrompts2,
-                                payload: "Prompt 3"
                               }
                             ]
                         }
