@@ -101,7 +101,7 @@ class DialogBot extends ActivityHandler {
 
                     // map the prompts to the required format for quick_replies channelData
                     var qnaPromptsArray = qnaPrompts.map(obj =>{
-                      return {content_type: "text", title: obj.displayText, payload: obj.qnaTranslate(displayText)}
+                      return {content_type: "text", title: obj.displayText, payload: qnaTranslate(displayText)}
                     });
 
                     let reply;
