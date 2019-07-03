@@ -121,7 +121,7 @@ class DialogBot extends ActivityHandler {
                         channelData: {
                             text: answer,
                             quick_replies: [
-                              qnaPromptsArray[1]
+                              qnaPromptsArray.forEach()
                             ]
                         }
                       }
