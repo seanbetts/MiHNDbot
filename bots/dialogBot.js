@@ -93,13 +93,13 @@ class DialogBot extends ActivityHandler {
 
 										// create function to translate the prompt displayText to insert it into activity.text as a string for the QnA
 										function qnaTranslate(displayText) {
-											context.activity.text = displayText;
+											context.activity.text = obj.displayText;
                       const qnaResults = this.qnaMaker.getAnswers(context);
 										}
 
                     // map the prompts to the required format for quick_replies channelData
                     var qnaPromptsArray = qnaPrompts.map(obj =>{
-                      return {content_type: "text", title: obj.displayText, payload: qnaTranslate(obj.displayText)}
+                      return {content_type: "text", title: obj.displayText, payload: qnaTranslate(displayText)}
                     });
 
                     let reply;
