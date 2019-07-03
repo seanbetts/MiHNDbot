@@ -102,13 +102,15 @@ class DialogBot extends ActivityHandler {
                   if (qnaResults[0]) {
                     const { answer, context: { prompts }} = qnaResults[0];
 
-										var promptsLength = qnaResults[0].context.prompts.length;
-
 										// set a variable for the prompts from QnA
 										var qnaPrompts = null;
 										if(qnaResults[0].context != null){
-												qnaPrompts = qnaResults[0].context.prompts[0].displayText;
+												qnaPrompts = qnaResults[0].context.prompts.displayText;
 										}
+
+                    function writeArray (item) {
+                    	document.getElementById("array").innerHTML += "{content_type: \"text\", title: " + item + ", payload: " + item + "}, " + "<br>";
+                    }
 
                     let reply;
                     if (prompts.length) {
@@ -117,7 +119,7 @@ class DialogBot extends ActivityHandler {
                         channelData: {
                             text: answer,
                             quick_replies: [
-                              {content_type: "text", title: qnaPrompts, payload: qnaPrompts}
+                              qnaPrompts.forEach(writeArray)
                             ]
                         }
                       }
