@@ -109,7 +109,7 @@ class DialogBot extends ActivityHandler {
 										}
 
                     function writeArray (item) {
-                    	return [{content_type: "text", title: item, payload: item},];
+                    	return [{content_type: "text", title: "item", payload: "item"},];
                     }
 
                     let reply;
@@ -119,7 +119,7 @@ class DialogBot extends ActivityHandler {
                         channelData: {
                             text: answer,
                             quick_replies: [
-                              writeArray.call(qnaPrompts)
+                              writeArray.call()
                             ]
                         }
                       }
