@@ -123,7 +123,7 @@ class DialogBot extends ActivityHandler {
                             text: answer,
                             quick_replies: [
                               // qnaPromptsArray.forEach()
-                              promptsIterator.next().value
+                              qnaPromptsArray.values()
                             ]
                         }
                       }
