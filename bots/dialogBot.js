@@ -120,8 +120,6 @@ class DialogBot extends ActivityHandler {
                         }
                       }
 
-                      // call the QnA
-                      const qnaResults = await this.qnaMaker.getAnswers(turnContext);
                       await context.sendActivity(reply);
 
                   // If no answers were returned from QnA Maker, reply with help.
