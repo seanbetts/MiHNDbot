@@ -92,7 +92,7 @@ class DialogBot extends ActivityHandler {
 
                     // map the prompts to the required format for quick_replies channelData
                     var qnaPromptsArray = qnaPrompts.map(obj =>{
-                      return {content_type: "text", title: obj.displayText, payload: obj.displayText}
+                      return {content_type: "text", title: obj.displayText, payload: {turnContext: {activity: {text: obj.displayText}}}}
                     });
 
                     let reply;
@@ -113,6 +113,9 @@ class DialogBot extends ActivityHandler {
                           }
                         }
                       }
+
+                      // call the QnA
+                      const qnaResults = await this.qnaMaker.getAnswers(turnContext);
 
                       await context.sendActivity(reply);
 
