@@ -95,13 +95,9 @@ class DialogBot extends ActivityHandler {
 											return context.activity.text = obj.displayText;
 										}
 
-                    function testPayload() {
-                      return "test";
-                    }
-
                     // map the prompts to the required format for quick_replies channelData
                     var qnaPromptsArray = qnaPrompts.map(obj =>{
-                      return {content_type: "text", title: obj.displayText, payload: testPayload()}
+                      return {content_type: "text", title: obj.displayText, payload: obj.displayText}
                     });
 
                     let reply;
@@ -114,6 +110,12 @@ class DialogBot extends ActivityHandler {
                         }
                       }
                         reply = quickReply;
+
+												context.activity.text = obj.displayText;
+
+												// call QnA
+	                      const qnaResults = await this.qnaMaker.getAnswers(context);
+
                       } else {
                         reply = {
                           channelData: {
@@ -123,9 +125,6 @@ class DialogBot extends ActivityHandler {
                       }
 
                       await context.sendActivity(reply);
-
-                      // call QnA
-                      const qnaResults = await this.qnaMaker.getAnswers(context);
 
                   // If no answers were returned from QnA Maker, reply with help.
                   } else {
@@ -428,6 +427,7 @@ class DialogBot extends ActivityHandler {
           // qnaMaker.getAnswers doesn't accept string input, so we need to adjust our turnContext
           // to match what it expects, which is a string in Activity.Text
           turnContext.activity.text = postback.payload;
+
           // call the QnA
           const qnaResults = await this.qnaMaker.getAnswers(turnContext);
 
