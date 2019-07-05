@@ -137,7 +137,7 @@ class DialogBot extends ActivityHandler {
 																{
 																	title:"I'm sorry!",
 																	image_url:"https://mihndbotblob.blob.core.windows.net/resources/MiHND-graphic-logo-black-circle-inverted-rounded.jpg",
-																	subtitle:"I don\'t have an asnwer for that. Please ask me about something else, such as:",
+																	subtitle:"I don\'t have an answer for that. Please ask me about something else, such as:",
 																	default_action: {
 																		type: "web_url",
 																		url: "https://www.mihnd.co.uk",
@@ -158,7 +158,7 @@ class DialogBot extends ActivityHandler {
 																			payload:"GET_HELP"
 											}]}]}}}}
 
-											await turnContext.sendActivity(errorCardFB);
+											await context.sendActivity(errorCardFB);
                   }
 
                 } else {
@@ -240,10 +240,6 @@ class DialogBot extends ActivityHandler {
                 // Quick Reply
                 await this.onFacebookQuickReply(turnContext, facebookPayload.message.quick_reply);
                 return true;
-            } else if (facebookPayload.message && facebookPayload.message.is_echo) {
-                // Echo
-                await this.onFacebookEcho(turnContext, facebookPayload.message);
-                return true;
             }
         }
         return false;
@@ -257,7 +253,7 @@ class DialogBot extends ActivityHandler {
      * @param {Object} turnContext
      */
     async onFacebookPostback(turnContext, postback) {
-        this.logger.log('Postback message received.');
+        this.logger.log('Facebook Postback message received.');
         //postBack handling logic
 
         const welcomeCardFB = {
@@ -470,6 +466,8 @@ class DialogBot extends ActivityHandler {
           // qnaMaker.getAnswers doesn't accept string input, so we need to adjust our turnContext
           // to match what it expects, which is a string in Activity.Text
           turnContext.activity.text = postback.payload;
+
+          // call the QnA
           const qnaResults = await this.qnaMaker.getAnswers(turnContext);
 
           // If an answer was received from QnA Maker, send the answer back to the user.
@@ -523,7 +521,7 @@ class DialogBot extends ActivityHandler {
         if (postback.payload == "CALL_THE_SAMARITANS") {
           await turnContext.sendActivity(samaritansCardFB);
         } else {
-          await turnContext.sendActivity('PostBack not defined...YET!');
+          await turnContext.sendActivity('Facebook PostBack not defined...YET!');
         }}}}}}}}
     }
 
@@ -547,8 +545,15 @@ class DialogBot extends ActivityHandler {
      * @param {Object} turnContext
      */
     async onFacebookQuickReply(turnContext, quickReply) {
-        this.logger.log('QuickReply message received.');
+        this.logger.log('Facebook QuickReply message received.');
         // TODO: Your QuickReply handling logic here...
+
+        // qnaMaker.getAnswers doesn't accept string input, so we need to adjust our turnContext
+        // to match what it expects, which is a string in Activity.Text
+        turnContext.activity.text = quickReply;
+
+        // call the QnA
+        const qnaResults = await this.qnaMaker.getAnswers(turnContext);
 
         // Process the message by checking the Activity.Text.  The FacebookQuickReply could also contain a json payload.
 
