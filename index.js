@@ -47,7 +47,8 @@ const userState = new UserState(memoryStorage);
 
 // Add botbuilder-azure when using any Azure services.
 // const { BlobStorage } = require('botbuilder-azure');
-// // Get service configuration
+
+// Get service configuration
 // const blobStorageConfig = botConfig.findServiceByNameOrId(STORAGE_CONFIGURATION_ID);
 // const blobStorage = new BlobStorage({
 //     containerName: (blobStorageConfig.container || DEFAULT_BOT_CONTAINER),
