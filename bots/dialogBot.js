@@ -5,192 +5,193 @@ const { QnAMaker } = require('botbuilder-ai');
 const restify = require('restify');
 const WelcomeCard = require('../resources/welcomeCard.json');
 const quickRepliesOption = 'Quick Replies';
+const fbCards = require('../resources/fbCards.js');
 
-const welcomeCardFB = {
-  channelData: {
-    attachment:{
-      type:"template",
-      payload: {
-        template_type:"generic",
-        sharable: true,
-        image_aspect_ratio: "square",
-        elements: [
-          {
-            title:"Welcome!",
-            image_url:"https://mihndbotblob.blob.core.windows.net/resources/MiHND-graphic-logo-black-circle-inverted-rounded.jpg",
-            subtitle:"I\'m designed to help people learn about Mental Health and NeuroDiversity",
-            default_action: {
-              type: "web_url",
-              url: "https://www.mihnd.co.uk",
-              webview_height_ratio: "tall",
-            },
-            buttons: [
-              {
-                type:"postback",
-                title:"Mental Health",
-                payload:"WHAT_IS_MENTAL_HEALTH"
-              },{
-                type:"postback",
-                title:"NeuroDiversity",
-                payload:"WHAT_IS_NEURODIVERSITY"
-              },{
-                type:"postback",
-                title:"Get Help",
-                payload:"GET_HELP"
-}]}]}}}}
+// const welcomeCardFB = {
+//   channelData: {
+//     attachment:{
+//       type:"template",
+//       payload: {
+//         template_type:"generic",
+//         sharable: true,
+//         image_aspect_ratio: "square",
+//         elements: [
+//           {
+//             title:"Welcome!",
+//             image_url:"https://mihndbotblob.blob.core.windows.net/resources/MiHND-graphic-logo-black-circle-inverted-rounded.jpg",
+//             subtitle:"I\'m designed to help people learn about Mental Health and NeuroDiversity",
+//             default_action: {
+//               type: "web_url",
+//               url: "https://www.mihnd.co.uk",
+//               webview_height_ratio: "tall",
+//             },
+//             buttons: [
+//               {
+//                 type:"postback",
+//                 title:"Mental Health",
+//                 payload:"WHAT_IS_MENTAL_HEALTH"
+//               },{
+//                 type:"postback",
+//                 title:"NeuroDiversity",
+//                 payload:"WHAT_IS_NEURODIVERSITY"
+//               },{
+//                 type:"postback",
+//                 title:"Get Help",
+//                 payload:"GET_HELP"
+// }]}]}}}}
 
-const helpCardFB = {
-  channelData: {
-    attachment:{
-      type:"template",
-      payload: {
-        template_type:"generic",
-        sharable: true,
-        image_aspect_ratio: "square",
-        elements: [
-          {
-            title:"Everyone deserves help",
-            image_url:"https://mihndbotblob.blob.core.windows.net/resources/MiHND-chat-logo-black-circle-inverted-rounded.jpg",
-            subtitle:"Being in a crisis can be very frightening, please get some help & support ASAP",
-            default_action: {
-              type: "web_url",
-              url: "https://www.mihnd.co.uk/crisis",
-              webview_height_ratio: "tall",
-            },
-            buttons: [
-              {
-                type:"postback",
-                title:"Text Shout",
-                payload:"TEXT_SHOUT"
-              },{
-                type:"postback",
-                title:"Call the NHS",
-                payload:"CALL_THE_NHS"
-              },{
-                type:"postback",
-                title:"Call The Samaritans",
-                payload:"CALL_THE_SAMARITANS"
-}]}]}}}}
+// const helpCardFB = {
+//   channelData: {
+//     attachment:{
+//       type:"template",
+//       payload: {
+//         template_type:"generic",
+//         sharable: true,
+//         image_aspect_ratio: "square",
+//         elements: [
+//           {
+//             title:"Everyone deserves help",
+//             image_url:"https://mihndbotblob.blob.core.windows.net/resources/MiHND-chat-logo-black-circle-inverted-rounded.jpg",
+//             subtitle:"Being in a crisis can be very frightening, please get some help & support ASAP",
+//             default_action: {
+//               type: "web_url",
+//               url: "https://www.mihnd.co.uk/crisis",
+//               webview_height_ratio: "tall",
+//             },
+//             buttons: [
+//               {
+//                 type:"postback",
+//                 title:"Text Shout",
+//                 payload:"TEXT_SHOUT"
+//               },{
+//                 type:"postback",
+//                 title:"Call the NHS",
+//                 payload:"CALL_THE_NHS"
+//               },{
+//                 type:"postback",
+//                 title:"Call The Samaritans",
+//                 payload:"CALL_THE_SAMARITANS"
+// }]}]}}}}
 
-const shoutCardFB = {
-  channelData: {
-    attachment:{
-      type:"template",
-      payload: {
-        template_type:"generic",
-        sharable: true,
-        image_aspect_ratio: "horizontal",
-        elements: [
-          {
-            title:"SHOUT",
-            image_url:"https://mihndbotblob.blob.core.windows.net/resources/SHOUT-how-it-works.jpg",
-            subtitle:"Shout is the UK’s first free 24/7 text service for anyone in crisis anytime, anywhere",
-            default_action: {
-              type: "web_url",
-              url: "https://www.giveusashout.org",
-              webview_height_ratio: "tall",
-            },
-            buttons: [
-              {
-                type:"web_url",
-                url: "https://www.giveusashout.org/get-help/",
-                title:"More Info"
-              },{
-                type:"postback",
-                title:"Text Shout Now",
-                payload:"TEXT_SHOUT_NOW"
-}]}]}}}}
+// const shoutCardFB = {
+//   channelData: {
+//     attachment:{
+//       type:"template",
+//       payload: {
+//         template_type:"generic",
+//         sharable: true,
+//         image_aspect_ratio: "horizontal",
+//         elements: [
+//           {
+//             title:"SHOUT",
+//             image_url:"https://mihndbotblob.blob.core.windows.net/resources/SHOUT-how-it-works.jpg",
+//             subtitle:"Shout is the UK’s first free 24/7 text service for anyone in crisis anytime, anywhere",
+//             default_action: {
+//               type: "web_url",
+//               url: "https://www.giveusashout.org",
+//               webview_height_ratio: "tall",
+//             },
+//             buttons: [
+//               {
+//                 type:"web_url",
+//                 url: "https://www.giveusashout.org/get-help/",
+//                 title:"More Info"
+//               },{
+//                 type:"postback",
+//                 title:"Text Shout Now",
+//                 payload:"TEXT_SHOUT_NOW"
+// }]}]}}}}
 
-const nhsCardFB = {
-  channelData: {
-    attachment:{
-      type:"template",
-      payload: {
-        template_type:"generic",
-        sharable: true,
-        image_aspect_ratio: "square",
-        elements: [
-          {
-            title:"NHS 111",
-            image_url:"https://mihndbotblob.blob.core.windows.net/resources/111-service-mental-health.png",
-            subtitle:"NHS 111 can help if you have a mental health problem and not sure what to do.",
-            default_action: {
-              type: "web_url",
-              url: "https://www.nhs.uk/using-the-nhs/nhs-services/urgent-and-emergency-care/nhs-111/",
-              webview_height_ratio: "tall",
-            },
-            buttons: [
-              {
-                type:"web_url",
-                url: "https://www.nhs.uk/using-the-nhs/nhs-services/urgent-and-emergency-care/nhs-111/",
-                title:"More Info"
-              },{
-                type:"phone_number",
-                title:"Call NHS 111...",
-                payload:"111"
-  }]}]}}}}
+// const nhsCardFB = {
+//   channelData: {
+//     attachment:{
+//       type:"template",
+//       payload: {
+//         template_type:"generic",
+//         sharable: true,
+//         image_aspect_ratio: "square",
+//         elements: [
+//           {
+//             title:"NHS 111",
+//             image_url:"https://mihndbotblob.blob.core.windows.net/resources/111-service-mental-health.png",
+//             subtitle:"NHS 111 can help if you have a mental health problem and not sure what to do.",
+//             default_action: {
+//               type: "web_url",
+//               url: "https://www.nhs.uk/using-the-nhs/nhs-services/urgent-and-emergency-care/nhs-111/",
+//               webview_height_ratio: "tall",
+//             },
+//             buttons: [
+//               {
+//                 type:"web_url",
+//                 url: "https://www.nhs.uk/using-the-nhs/nhs-services/urgent-and-emergency-care/nhs-111/",
+//                 title:"More Info"
+//               },{
+//                 type:"phone_number",
+//                 title:"Call NHS 111...",
+//                 payload:"111"
+//   }]}]}}}}
 
-const samaritansCardFB = {
-  channelData: {
-    attachment:{
-      type:"template",
-      payload: {
-        template_type:"generic",
-        sharable: true,
-        image_aspect_ratio: "square",
-        elements: [
-          {
-            title:"The Samaritans",
-            image_url:"https://mihndbotblob.blob.core.windows.net/resources/samaritans.jpg",
-            subtitle:"Whatever you're going through, call us free any time, from any phone",
-            default_action: {
-              type: "web_url",
-              url: "https://www.samaritans.org/how-we-can-help/contact-samaritan/talk-us-phone/",
-              webview_height_ratio: "tall",
-            },
-            buttons: [
-              {
-                type:"web_url",
-                url: "https://www.samaritans.org/how-we-can-help/contact-samaritan/talk-us-phone/",
-                title:"More Info"
-              },{
-                type:"phone_number",
-                title:"Call The Samaritans...",
-                payload:"116123"
-}]}]}}}}
+// const samaritansCardFB = {
+//   channelData: {
+//     attachment:{
+//       type:"template",
+//       payload: {
+//         template_type:"generic",
+//         sharable: true,
+//         image_aspect_ratio: "square",
+//         elements: [
+//           {
+//             title:"The Samaritans",
+//             image_url:"https://mihndbotblob.blob.core.windows.net/resources/samaritans.jpg",
+//             subtitle:"Whatever you're going through, call us free any time, from any phone",
+//             default_action: {
+//               type: "web_url",
+//               url: "https://www.samaritans.org/how-we-can-help/contact-samaritan/talk-us-phone/",
+//               webview_height_ratio: "tall",
+//             },
+//             buttons: [
+//               {
+//                 type:"web_url",
+//                 url: "https://www.samaritans.org/how-we-can-help/contact-samaritan/talk-us-phone/",
+//                 title:"More Info"
+//               },{
+//                 type:"phone_number",
+//                 title:"Call The Samaritans...",
+//                 payload:"116123"
+// }]}]}}}}
 
-const errorCardFB = {
-  channelData: {
-    attachment:{
-      type:"template",
-      payload: {
-        template_type:"generic",
-        sharable: true,
-        image_aspect_ratio: "square",
-        elements: [
-          {
-            title:"I'm sorry!",
-            image_url:"https://mihndbotblob.blob.core.windows.net/resources/MiHND-question-logo-black-circle-inverted-rounded.jpg",
-            subtitle:"I don\'t have an answer for that. Please ask me about something else, such as:",
-            default_action: {
-              type: "web_url",
-              url: "https://www.mihnd.co.uk",
-              webview_height_ratio: "tall",
-            },
-            buttons: [
-              {
-                type:"postback",
-                title:"Mental Health",
-                payload:"WHAT_IS_MENTAL_HEALTH"
-              },{
-                type:"postback",
-                title:"NeuroDiversity",
-                payload:"WHAT_IS_NEURODIVERSITY"
-              },{
-                type:"postback",
-                title:"Get Help",
-                payload:"GET_HELP"
-}]}]}}}}
+// const errorCardFB = {
+//   channelData: {
+//     attachment:{
+//       type:"template",
+//       payload: {
+//         template_type:"generic",
+//         sharable: true,
+//         image_aspect_ratio: "square",
+//         elements: [
+//           {
+//             title:"I'm sorry!",
+//             image_url:"https://mihndbotblob.blob.core.windows.net/resources/MiHND-question-logo-black-circle-inverted-rounded.jpg",
+//             subtitle:"I don\'t have an answer for that. Please ask me about something else, such as:",
+//             default_action: {
+//               type: "web_url",
+//               url: "https://www.mihnd.co.uk",
+//               webview_height_ratio: "tall",
+//             },
+//             buttons: [
+//               {
+//                 type:"postback",
+//                 title:"Mental Health",
+//                 payload:"WHAT_IS_MENTAL_HEALTH"
+//               },{
+//                 type:"postback",
+//                 title:"NeuroDiversity",
+//                 payload:"WHAT_IS_NEURODIVERSITY"
+//               },{
+//                 type:"postback",
+//                 title:"Get Help",
+//                 payload:"GET_HELP"
+// }]}]}}}}
 
 // initialized to access values in .env file.
 var dotenv = require('dotenv');
@@ -310,7 +311,7 @@ class DialogBot extends ActivityHandler {
                   // If no answers were returned from QnA Maker, reply with help.
                   } else {
 
-											await context.sendActivity(errorCardFB);
+											await context.sendActivity(fbCards.errorCardFB);
                   }
 
                 } else {
@@ -409,10 +410,10 @@ class DialogBot extends ActivityHandler {
         //postBack handling logic
 
         if (postback.payload == "GET_STARTED") {
-          await turnContext.sendActivity(welcomeCardFB);
+          await turnContext.sendActivity(fbCards.welcomeCardFB);
         } else {
         if (postback.payload == "GET_HELP") {
-          await turnContext.sendActivity(helpCardFB);
+          await turnContext.sendActivity(fbCards.helpCardFB);
         } else {
         if (postback.payload == "WHAT_IS_MENTAL_HEALTH") {
           // qnaMaker.getAnswers doesn't accept string input, so we need to adjust our turnContext
@@ -504,21 +505,21 @@ class DialogBot extends ActivityHandler {
 
           // If no answers were returned from QnA Maker, reply with help.
           } else {
-            await turnContext.sendActivity(errorCardFB);
+            await turnContext.sendActivity(fbCards.errorCardFB);
           }
 
         } else {
         if (postback.payload == "TEXT_SHOUT") {
-          await turnContext.sendActivity(shoutCardFB);
+          await turnContext.sendActivity(fbCards.shoutCardFB);
         } else {
         if (postback.payload == "TEXT_SHOUT_NOW") {
           await turnContext.sendActivity("To get help from Shout please text SHOUT to 85258");
         } else {
         if (postback.payload == "CALL_THE_NHS") {
-          await turnContext.sendActivity(nhsCardFB);
+          await turnContext.sendActivity(fbCards.nhsCardFB);
         } else {
         if (postback.payload == "CALL_THE_SAMARITANS") {
-          await turnContext.sendActivity(samaritansCardFB);
+          await turnContext.sendActivity(fbCards.samaritansCardFB);
         } else {
           await turnContext.sendActivity('Facebook PostBack not defined...YET!');
         }}}}}}}}
@@ -590,7 +591,7 @@ class DialogBot extends ActivityHandler {
               await turnContext.sendActivity(reply);
 
         } else {
-          await turnContext.sendActivity(errorCardFB);
+          await turnContext.sendActivity(fbCards.errorCardFB);
         }
     }
 }
