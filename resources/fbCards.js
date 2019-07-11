@@ -181,18 +181,7 @@ module.exports = {
 									payload:"GET_HELP"
 						}]}
 					]
-		}}}},
-
-	errorCardFB: {
-		channelData: {
-			attachment:{
-				type:"template",
-				payload: {
-					template_type:"generic",
-					sharable: true,
-					image_aspect_ratio: "square",
-					elements: [
-						]}}}}
+		}}}}
 
     // Get Facebook First Name
     // fbFirstName: function() {
