@@ -155,31 +155,31 @@ module.exports = {
 									type:"postback",
 									title:"Get Help",
 									payload:"GET_HELP"
-						}]},
-				
-						{
-							title:"I'm sorry 2!",
-							image_url:"https://mihndbotblob.blob.core.windows.net/resources/MiHND-question-logo-black-circle-inverted-rounded.jpg",
-							subtitle:"I don\'t have an answer for that. Please explore our other content or ask me about something else, such as:",
-							default_action: {
-								type: "web_url",
-								url: "https://www.mihnd.co.uk",
-								webview_height_ratio: "tall",
-							},
-							buttons: [
-								{
-									type:"postback",
-									title:"Mental Health",
-									payload:"WHAT_IS_MENTAL_HEALTH"
-								},{
-									type:"postback",
-									title:"NeuroDiversity",
-									payload:"WHAT_IS_NEURODIVERSITY"
-								},{
-									type:"postback",
-									title:"Get Help",
-									payload:"GET_HELP"
 						}]}
+				
+						// {
+						// 	title:"I'm sorry 2!",
+						// 	image_url:"https://mihndbotblob.blob.core.windows.net/resources/MiHND-question-logo-black-circle-inverted-rounded.jpg",
+						// 	subtitle:"I don\'t have an answer for that. Please explore our other content or ask me about something else, such as:",
+						// 	default_action: {
+						// 		type: "web_url",
+						// 		url: "https://www.mihnd.co.uk",
+						// 		webview_height_ratio: "tall",
+						// 	},
+						// 	buttons: [
+						// 		{
+						// 			type:"postback",
+						// 			title:"Mental Health",
+						// 			payload:"WHAT_IS_MENTAL_HEALTH"
+						// 		},{
+						// 			type:"postback",
+						// 			title:"NeuroDiversity",
+						// 			payload:"WHAT_IS_NEURODIVERSITY"
+						// 		},{
+						// 			type:"postback",
+						// 			title:"Get Help",
+						// 			payload:"GET_HELP"
+						// }]}
 					]
 		}}}}
 

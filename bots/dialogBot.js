@@ -221,12 +221,15 @@ class DialogBot extends ActivityHandler {
         //postBack handling logic
 
         if (postback.payload == "GET_STARTED") {
+          this.logger.log('GET_STARTED received');
           await turnContext.sendActivity(fbCards.welcomeCardFB);
         } else {
         if (postback.payload == "GET_HELP") {
+          this.logger.log('GET_HELP received');
           await turnContext.sendActivity(fbCards.helpCardFB);
         } else {
         if (postback.payload == "WHAT_IS_MENTAL_HEALTH") {
+          this.logger.log('WHAT_IS_MENTAL_HEALTH received');
           // qnaMaker.getAnswers doesn't accept string input, so we need to adjust our turnContext
           // to match what it expects, which is a string in Activity.Text
           turnContext.activity.text = postback.payload;
@@ -274,6 +277,7 @@ class DialogBot extends ActivityHandler {
           }
         } else {
         if (postback.payload == "WHAT_IS_NEURODIVERSITY") {
+          this.logger.log('WHAT_IS_NEURODIVERSITY received');
           // qnaMaker.getAnswers doesn't accept string input, so we need to adjust our turnContext
           // to match what it expects, which is a string in Activity.Text
           turnContext.activity.text = postback.payload;
@@ -321,15 +325,19 @@ class DialogBot extends ActivityHandler {
 
         } else {
         if (postback.payload == "TEXT_SHOUT") {
+          this.logger.log('TEXT_SHOUT received');
           await turnContext.sendActivity(fbCards.shoutCardFB);
         } else {
         if (postback.payload == "TEXT_SHOUT_NOW") {
+          this.logger.log('TEXT_SHOUT_NOW received');
           await turnContext.sendActivity("To get help from Shout please text SHOUT to 85258");
         } else {
         if (postback.payload == "CALL_THE_NHS") {
+          this.logger.log('CALL_THE_NHS received');
           await turnContext.sendActivity(fbCards.nhsCardFB);
         } else {
         if (postback.payload == "CALL_THE_SAMARITANS") {
+          this.logger.log('CALL_THE_SAMARITANS received');
           await turnContext.sendActivity(fbCards.samaritansCardFB);
         } else {
           await turnContext.sendActivity('Facebook PostBack not defined...YET!');
