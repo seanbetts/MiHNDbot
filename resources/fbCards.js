@@ -124,38 +124,94 @@ module.exports = {
 									payload:"111"
 		}]}]}}}},
 
-	samaritansCardFB: {
-		channelData: {
-			attachment:{
+		samaritansCardFB: {
+			channelData: {
+			  attachment:{
 				type:"template",
 				payload: {
-					template_type:"generic",
-					sharable: true,
-					image_aspect_ratio: "square",
-					elements: [
+				  template_type:"generic",
+				  sharable: true,
+				  image_aspect_ratio: "square",
+				  elements: [
+					{
+					  title:"The Samaritans",
+					  image_url:"https://mihndbotblob.blob.core.windows.net/resources/samaritans.jpg",
+					  subtitle:"Whatever you're going through, call us free any time, from any phone",
+					  default_action: {
+						type: "web_url",
+						url: "https://www.samaritans.org/how-we-can-help/contact-samaritan/talk-us-phone/",
+						webview_height_ratio: "tall",
+					  },
+					  buttons: [
 						{
-							title:"I'm sorry!",
-							image_url:"https://mihndbotblob.blob.core.windows.net/resources/MiHND-question-logo-black-circle-inverted-rounded.jpg",
-							subtitle:"I don\'t have an answer for that. Please explore our other content or ask me about something else, such as:",
-							default_action: {
-								type: "web_url",
-								url: "https://www.mihnd.co.uk",
-								webview_height_ratio: "tall",
-							},
-							buttons: [
-								{
-									type:"postback",
-									title:"Mental Health",
-									payload:"WHAT_IS_MENTAL_HEALTH"
-								},{
-									type:"postback",
-									title:"NeuroDiversity",
-									payload:"WHAT_IS_NEURODIVERSITY"
-								},{
-									type:"postback",
-									title:"Get Help",
-									payload:"GET_HELP"
-						}]}
+						  type:"web_url",
+						  url: "https://www.samaritans.org/how-we-can-help/contact-samaritan/talk-us-phone/",
+						  title:"More Info"
+						},{
+						  type:"phone_number",
+						  title:"Call The Samaritans...",
+						  payload:"116123"
+		  }]}]}}}},
+
+		  errorCardFB: {
+			channelData: {
+			  attachment:{
+				type:"template",
+				payload: {
+				  template_type:"generic",
+				  sharable: true,
+				  image_aspect_ratio: "square",
+				  elements: [
+					{
+					  title:"I'm sorry!",
+					  image_url:"https://mihndbotblob.blob.core.windows.net/resources/MiHND-question-logo-black-circle-inverted-rounded.jpg",
+					  subtitle:"I don\'t have an answer for that. Please ask me about something else, such as:",
+					  default_action: {
+						type: "web_url",
+						url: "https://www.mihnd.co.uk",
+						webview_height_ratio: "tall",
+					  },
+					  buttons: [
+						{
+						  type:"postback",
+						  title:"Mental Health",
+						  payload:"WHAT_IS_MENTAL_HEALTH"
+						},{
+						  type:"postback",
+						  title:"NeuroDiversity",
+						  payload:"WHAT_IS_NEURODIVERSITY"
+						},{
+						  type:"postback",
+						  title:"Get Help",
+						  payload:"GET_HELP"
+		  }]},
+			
+		  			{
+					title:"I'm sorry 2!",
+					image_url:"https://mihndbotblob.blob.core.windows.net/resources/MiHND-question-logo-black-circle-inverted-rounded.jpg",
+					subtitle:"I don\'t have an answer for that. Please explore our other content or ask me about something else, such as:",
+					default_action: {
+						type: "web_url",
+						url: "https://www.mihnd.co.uk",
+						webview_height_ratio: "tall",
+					},
+					buttons: [
+						{
+							type:"postback",
+							title:"Mental Health",
+							payload:"WHAT_IS_MENTAL_HEALTH"
+						},{
+							type:"postback",
+							title:"NeuroDiversity",
+							payload:"WHAT_IS_NEURODIVERSITY"
+						},{
+							type:"postback",
+							title:"Get Help",
+							payload:"GET_HELP"
+				}]}
+				]
+			
+			}}}}
 				
 						// {
 						// 	title:"I'm sorry 2!",
@@ -180,8 +236,6 @@ module.exports = {
 						// 			title:"Get Help",
 						// 			payload:"GET_HELP"
 						// }]}
-					]
-		}}}}
 
     // Get Facebook First Name
     // fbFirstName: function() {
