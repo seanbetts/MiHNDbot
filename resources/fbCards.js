@@ -164,7 +164,7 @@ module.exports = {
 				elements: [
 				{
 					title:"I'm sorry <name>!",
-					image_url:"https://mihndbotblob.blob.core.windows.net/resources/MiHND-question-logo-black-circle-inverted-rounded.jpg",
+					image_url:"https://mihndbotblob.blob.core.windows.net/resources/MiHND-question-logo-black-circle-inverted-rounded.png",
 					subtitle:"I can\'t answer that. Check out our other content -> or ask me about:",
 					default_action: {
 					type: "web_url",
