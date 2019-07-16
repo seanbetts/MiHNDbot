@@ -10,7 +10,7 @@ module.exports = {
 					image_aspect_ratio: "square",
 					elements: [
 						{
-							title:"Welcome!",
+							title:"Welcome <name>!",
 							image_url:"https://mihndbotblob.blob.core.windows.net/resources/MiHND-graphic-logo-black-circle-inverted-rounded.jpg",
 							subtitle:"I\'m designed to help people learn about Mental Health and NeuroDiversity",
 							default_action: {
@@ -124,121 +124,171 @@ module.exports = {
 									payload:"111"
 		}]}]}}}},
 
-		samaritansCardFB: {
-			channelData: {
-			  attachment:{
-				type:"template",
-				payload: {
-				  template_type:"generic",
-				  sharable: true,
-				  image_aspect_ratio: "square",
-				  elements: [
+	samaritansCardFB: {
+		channelData: {
+			attachment:{
+			type:"template",
+			payload: {
+				template_type:"generic",
+				sharable: true,
+				image_aspect_ratio: "square",
+				elements: [
+				{
+					title:"The Samaritans",
+					image_url:"https://mihndbotblob.blob.core.windows.net/resources/samaritans.jpg",
+					subtitle:"Whatever you're going through, call us free any time, from any phone",
+					default_action: {
+					type: "web_url",
+					url: "https://www.samaritans.org/how-we-can-help/contact-samaritan/talk-us-phone/",
+					webview_height_ratio: "tall",
+					},
+					buttons: [
 					{
-					  title:"The Samaritans",
-					  image_url:"https://mihndbotblob.blob.core.windows.net/resources/samaritans.jpg",
-					  subtitle:"Whatever you're going through, call us free any time, from any phone",
-					  default_action: {
-						type: "web_url",
+						type:"web_url",
 						url: "https://www.samaritans.org/how-we-can-help/contact-samaritan/talk-us-phone/",
-						webview_height_ratio: "tall",
-					  },
-					  buttons: [
-						{
-						  type:"web_url",
-						  url: "https://www.samaritans.org/how-we-can-help/contact-samaritan/talk-us-phone/",
-						  title:"More Info"
-						},{
-						  type:"phone_number",
-						  title:"Call The Samaritans...",
-						  payload:"116123"
-		  }]}]}}}},
+						title:"More Info"
+					},{
+						type:"phone_number",
+						title:"Call The Samaritans...",
+						payload:"116123"
+		}]}]}}}},
 
-		  errorCardFB: {
-			channelData: {
-			  attachment:{
-				type:"template",
-				payload: {
-				  template_type:"generic",
-				  sharable: true,
-				  image_aspect_ratio: "square",
-				  elements: [
-					{
-					  title:"I'm sorry!",
-					  image_url:"https://mihndbotblob.blob.core.windows.net/resources/MiHND-question-logo-black-circle-inverted-rounded.jpg",
-					  subtitle:"I don\'t have an answer for that. Please ask me about something else, such as:",
-					  default_action: {
-						type: "web_url",
-						url: "https://www.mihnd.co.uk",
-						webview_height_ratio: "tall",
-					  },
-					  buttons: [
-						{
-						  type:"postback",
-						  title:"Mental Health",
-						  payload:"WHAT_IS_MENTAL_HEALTH"
-						},{
-						  type:"postback",
-						  title:"NeuroDiversity",
-						  payload:"WHAT_IS_NEURODIVERSITY"
-						},{
-						  type:"postback",
-						  title:"Get Help",
-						  payload:"GET_HELP"
-		  }]},
-			
-		  			{
-					title:"I'm sorry 2!",
+		errorCardFB: {
+		channelData: {
+			attachment:{
+			type:"template",
+			payload: {
+				template_type:"generic",
+				sharable: true,
+				image_aspect_ratio: "square",
+				elements: [
+				{
+					title:"I'm sorry <name>!",
 					image_url:"https://mihndbotblob.blob.core.windows.net/resources/MiHND-question-logo-black-circle-inverted-rounded.jpg",
-					subtitle:"I don\'t have an answer for that. Please explore our other content or ask me about something else, such as:",
+					subtitle:"I don\'t have an answer for that. Please check out our other content or ask me about something else, such as:",
+					default_action: {
+					type: "web_url",
+					url: "https://www.mihnd.co.uk",
+					webview_height_ratio: "tall",
+					},
+					buttons: [
+					{
+						type:"postback",
+						title:"Mental Health",
+						payload:"WHAT_IS_MENTAL_HEALTH"
+					},{
+						type:"postback",
+						title:"NeuroDiversity",
+						payload:"WHAT_IS_NEURODIVERSITY"
+					},{
+						type:"postback",
+						title:"Get Help",
+						payload:"GET_HELP"
+				}]},
+			
+				{
+					title:"Books",
+					image_url:"https://mihndbotblob.blob.core.windows.net/resources/MiHND-question-logo-black-circle-inverted-rounded.jpg",
+					subtitle:"There are so many great books to help people better understand Mental Health and NeuroDiversity. Below are our favourites:",
 					default_action: {
 						type: "web_url",
-						url: "https://www.mihnd.co.uk",
+						url: "https://www.mihnd.co.uk/books",
 						webview_height_ratio: "tall",
 					},
 					buttons: [
-						{
-							type:"postback",
-							title:"Mental Health",
-							payload:"WHAT_IS_MENTAL_HEALTH"
-						},{
-							type:"postback",
-							title:"NeuroDiversity",
-							payload:"WHAT_IS_NEURODIVERSITY"
-						},{
-							type:"postback",
-							title:"Get Help",
-							payload:"GET_HELP"
-				}]}
-				]
-			
-			}}}}
+					{
+						type:"web_url",
+						url: "https://geo.itunes.apple.com/gb/book/reasons-to-stay-alive/id914514684?mt=11&ls=1",
+						title:"Reasons To Stay Alive"
+					},{
+						type:"web_url",
+						url: "https://geo.itunes.apple.com/gb/book/depressive-illness-the-curse-of-the-strong/id622733043?mt=11&ls=1",
+						title:"The Curse Of The Strong"
+					},{
+						type:"web_url",
+						url: "https://www.mihnd.co.uk/books",
+						title:"See More"
+				}]},
 				
-						// {
-						// 	title:"I'm sorry 2!",
-						// 	image_url:"https://mihndbotblob.blob.core.windows.net/resources/MiHND-question-logo-black-circle-inverted-rounded.jpg",
-						// 	subtitle:"I don\'t have an answer for that. Please explore our other content or ask me about something else, such as:",
-						// 	default_action: {
-						// 		type: "web_url",
-						// 		url: "https://www.mihnd.co.uk",
-						// 		webview_height_ratio: "tall",
-						// 	},
-						// 	buttons: [
-						// 		{
-						// 			type:"postback",
-						// 			title:"Mental Health",
-						// 			payload:"WHAT_IS_MENTAL_HEALTH"
-						// 		},{
-						// 			type:"postback",
-						// 			title:"NeuroDiversity",
-						// 			payload:"WHAT_IS_NEURODIVERSITY"
-						// 		},{
-						// 			type:"postback",
-						// 			title:"Get Help",
-						// 			payload:"GET_HELP"
-						// }]}
+				{
+					title:"Podcasts",
+					image_url:"https://mihndbotblob.blob.core.windows.net/resources/MiHND-question-logo-black-circle-inverted-rounded.jpg",
+					subtitle:"There are some fantastic Podcasts that explore Mental Health and NeuroDiversity. Check them out below:",
+					default_action: {
+						type: "web_url",
+						url: "https://www.mihnd.co.uk/podcasts",
+						webview_height_ratio: "tall",
+					},
+					buttons: [
+					{
+						type:"web_url",
+						url: "https://itunes.apple.com/gb/podcast/bryony-gordons-mad-world/id1224672811?mt=2&app=podcast",
+						title:"Mad World"
+					},{
+						type:"web_url",
+						url: "https://itunes.apple.com/gb/podcast/happy-place/id1353058891?mt=2&app=podcast",
+						title:"Happy Place"
+					},{
+						type:"web_url",
+						url: "https://www.mihnd.co.uk/podcasts",
+						title:"See More"
+				}]},
+				
+				{
+					title:"Videos",
+					image_url:"https://mihndbotblob.blob.core.windows.net/resources/MiHND-question-logo-black-circle-inverted-rounded.jpg",
+					subtitle:"These are some inspiring videos we've seen about Mental Health and NeuroDiversity:",
+					default_action: {
+						type: "web_url",
+						url: "https://www.mihnd.co.uk/videos",
+						webview_height_ratio: "tall",
+					},
+					buttons: [
+					{
+						type:"web_url",
+						url: "https://www.ted.com/talks/temple_grandin_the_world_needs_all_kinds_of_minds?language=en&referrer=playlist-the_autism_spectrum&utm_campaign=tedspread&utm_medium=referral&utm_source=tedcomshare",
+						title:"Temple Grandin"
+					},{
+						type:"web_url",
+						url: "https://www.ted.com/talks/brene_brown_on_vulnerability?language=en&utm_campaign=tedspread&utm_medium=referral&utm_source=tedcomshare",
+						title:"Power Of Vulnerability"
+					},{
+						type:"web_url",
+						url: "https://www.mihnd.co.uk/videos",
+						title:"See More"
+				}]},
+				
+				{
+					title:"Apps",
+					image_url:"https://mihndbotblob.blob.core.windows.net/resources/MiHND-question-logo-black-circle-inverted-rounded.jpg",
+					subtitle:"Here are some great apps we've come across that can help with Mental Health and NeuroDiversity:",
+					default_action: {
+						type: "web_url",
+						url: "https://www.mihnd.co.uk/apps",
+						webview_height_ratio: "tall",
+					},
+					buttons: [
+					{
+						type:"web_url",
+						url: "https://www.headspace.com/",
+						title:"Headspace"
+					},{
+						type:"web_url",
+						url: "https://www.happyfeed.co/",
+						title:"Happyfeed"
+					},{
+						type:"web_url",
+						url: "https://www.mihnd.co.uk/apps",
+						title:"See More"
+				}]}
 
-    // Get Facebook First Name
-    // fbFirstName: function() {
+			]
+
+		}}}}
+				
+
+	// Get Facebook First Name
+	// fbFirstName: function() {
 	// 	var user_id = session.user.id
 	// 	let fb_page_access_token = dotenv.FACEBOOK_ACCESS_TOKEN
   
