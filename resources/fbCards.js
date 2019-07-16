@@ -165,7 +165,7 @@ module.exports = {
 				{
 					title:"I'm sorry <name>!",
 					image_url:"https://mihndbotblob.blob.core.windows.net/resources/MiHND-question-logo-black-circle-inverted-rounded.jpg",
-					subtitle:"I don\'t have an answer for that. Please check out our other content or ask me about something else, such as:",
+					subtitle:"I can\'t answer that. Check out our other content -> or ask me about:",
 					default_action: {
 					type: "web_url",
 					url: "https://www.mihnd.co.uk",
@@ -187,9 +187,33 @@ module.exports = {
 				}]},
 			
 				{
+					title:"Blog",
+					image_url:"https://mihndbotblob.blob.core.windows.net/resources/MiHND-blog-logo.png",
+					subtitle:"Here are our most popular blog posts about Mental Health and NeuroDiversity:",
+					default_action: {
+						type: "web_url",
+						url: "https://www.mihnd.co.uk/blog",
+						webview_height_ratio: "tall",
+					},
+					buttons: [
+					{
+						type:"web_url",
+						url: "https://www.mihnd.co.uk/supporter-stories",
+						title:"Supporter Stories"
+					},{
+						type:"web_url",
+						url: "https://www.mihnd.co.uk/featured-posts",
+						title:"Featured Posts"
+					},{
+						type:"web_url",
+						url: "https://www.mihnd.co.uk/blog",
+						title:"See More"
+				}]},
+				
+				{
 					title:"Books",
-					image_url:"https://mihndbotblob.blob.core.windows.net/resources/MiHND-question-logo-black-circle-inverted-rounded.jpg",
-					subtitle:"There are so many great books to help people better understand Mental Health and NeuroDiversity. Below are our favourites:",
+					image_url:"https://mihndbotblob.blob.core.windows.net/resources/MiHND-app-logo.png",
+					subtitle:"Here are our favourite books about Mental Health and NeuroDiversity:",
 					default_action: {
 						type: "web_url",
 						url: "https://www.mihnd.co.uk/books",
@@ -212,8 +236,8 @@ module.exports = {
 				
 				{
 					title:"Podcasts",
-					image_url:"https://mihndbotblob.blob.core.windows.net/resources/MiHND-question-logo-black-circle-inverted-rounded.jpg",
-					subtitle:"There are some fantastic Podcasts that explore Mental Health and NeuroDiversity. Check them out below:",
+					image_url:"https://mihndbotblob.blob.core.windows.net/resources/MiHND-podcast-logo.png",
+					subtitle:"Lots of fantastic Podcasts exploring Mental Health and NeuroDiversity below:",
 					default_action: {
 						type: "web_url",
 						url: "https://www.mihnd.co.uk/podcasts",
@@ -236,8 +260,8 @@ module.exports = {
 				
 				{
 					title:"Videos",
-					image_url:"https://mihndbotblob.blob.core.windows.net/resources/MiHND-question-logo-black-circle-inverted-rounded.jpg",
-					subtitle:"These are some inspiring videos we've seen about Mental Health and NeuroDiversity:",
+					image_url:"https://mihndbotblob.blob.core.windows.net/resources/MiHND-video-logo.png",
+					subtitle:"Inspiring videos we've seen about Mental Health and NeuroDiversity:",
 					default_action: {
 						type: "web_url",
 						url: "https://www.mihnd.co.uk/videos",
@@ -260,8 +284,8 @@ module.exports = {
 				
 				{
 					title:"Apps",
-					image_url:"https://mihndbotblob.blob.core.windows.net/resources/MiHND-question-logo-black-circle-inverted-rounded.jpg",
-					subtitle:"Here are some great apps we've come across that can help with Mental Health and NeuroDiversity:",
+					image_url:"https://mihndbotblob.blob.core.windows.net/resources/MiHND-app-logo.png",
+					subtitle:"Great apps we've found that help with Mental Health and NeuroDiversity:",
 					default_action: {
 						type: "web_url",
 						url: "https://www.mihnd.co.uk/apps",
