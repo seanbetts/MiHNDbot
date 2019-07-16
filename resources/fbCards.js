@@ -10,7 +10,7 @@ module.exports = {
 					image_aspect_ratio: "square",
 					elements: [
 						{
-							title:"Welcome <name>!",
+							title:"Welcome " + this.fbFirstName + "!",
 							image_url:"https://mihndbotblob.blob.core.windows.net/resources/MiHND-graphic-logo-black-circle-inverted-rounded.jpg",
 							subtitle:"I\'m designed to help people learn about Mental Health and NeuroDiversity",
 							default_action: {
@@ -164,8 +164,8 @@ module.exports = {
 				elements: [
 				{
 					title:"I'm sorry <name>!",
-					image_url:"https://mihndbotblob.blob.core.windows.net/resources/MiHND-question-logo-black-circle-inverted-rounded.png",
-					subtitle:"I can\'t answer that. Check out our other content -> or ask me about:",
+					image_url:"https://mihndbotblob.blob.core.windows.net/resources/MiHND-question-logo-black-circle-inverted-rounded.jpg",
+					subtitle:"I'm sorry, I can\'t answer that. Please check out our other content -> -> ->",
 					default_action: {
 					type: "web_url",
 					url: "https://www.mihnd.co.uk",
@@ -188,7 +188,7 @@ module.exports = {
 			
 				{
 					title:"Blog",
-					image_url:"https://mihndbotblob.blob.core.windows.net/resources/MiHND-blog-logo.png",
+					image_url:"https://mihndbotblob.blob.core.windows.net/resources/MiHND-blog-logo.jpg",
 					subtitle:"Here are our most popular blog posts about Mental Health and NeuroDiversity:",
 					default_action: {
 						type: "web_url",
@@ -212,7 +212,7 @@ module.exports = {
 				
 				{
 					title:"Books",
-					image_url:"https://mihndbotblob.blob.core.windows.net/resources/MiHND-book-logo.png",
+					image_url:"https://mihndbotblob.blob.core.windows.net/resources/MiHND-book-logo.jpg",
 					subtitle:"Here are our favourite books about Mental Health and NeuroDiversity:",
 					default_action: {
 						type: "web_url",
@@ -236,7 +236,7 @@ module.exports = {
 				
 				{
 					title:"Podcasts",
-					image_url:"https://mihndbotblob.blob.core.windows.net/resources/MiHND-podcast-logo.png",
+					image_url:"https://mihndbotblob.blob.core.windows.net/resources/MiHND-podcast-logo.jpg",
 					subtitle:"Lots of fantastic Podcasts exploring Mental Health and NeuroDiversity below:",
 					default_action: {
 						type: "web_url",
@@ -260,7 +260,7 @@ module.exports = {
 				
 				{
 					title:"Videos",
-					image_url:"https://mihndbotblob.blob.core.windows.net/resources/MiHND-video-logo.png",
+					image_url:"https://mihndbotblob.blob.core.windows.net/resources/MiHND-video-logo.jpg",
 					subtitle:"Inspiring videos we've seen about Mental Health and NeuroDiversity:",
 					default_action: {
 						type: "web_url",
@@ -284,7 +284,7 @@ module.exports = {
 				
 				{
 					title:"Apps",
-					image_url:"https://mihndbotblob.blob.core.windows.net/resources/MiHND-app-logo.png",
+					image_url:"https://mihndbotblob.blob.core.windows.net/resources/MiHND-app-logo.jpg",
 					subtitle:"Great apps we've found that help with Mental Health and NeuroDiversity:",
 					default_action: {
 						type: "web_url",
@@ -306,18 +306,17 @@ module.exports = {
 						title:"See More"
 				}]}
 			]
-		}}}}
-				
+		}}}},
 
-	// Get Facebook First Name
-	// fbFirstName: function() {
-	// 	var user_id = session.user.id
-	// 	let fb_page_access_token = dotenv.FACEBOOK_ACCESS_TOKEN
-  
-	// 	fbFirstName = requests.get("https://graph.facebook.com/v2.6/"+ user_id + "?fields=first_name&access_token=" + fb_page_access_token)
-  
-	// 	return fbFirstName
-  
-	//   }
+		// Get Facebook First Name
+		fbFirstName: { function () {
+			var user_id = session.user.id
+			let fb_page_access_token = dotenv.FACEBOOK_ACCESS_TOKEN
+		
+			fbFirstName = requests.get("https://graph.facebook.com/v2.6/"+ 716540089 + "?fields=first_name&access_token=" + fb_page_access_token)
+		
+			return fbFirstName
+		}
+		}
 
 };

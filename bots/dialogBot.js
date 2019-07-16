@@ -413,6 +413,18 @@ class DialogBot extends ActivityHandler {
           await turnContext.sendActivity(fbCards.errorCardFB);
         }
     }
+
+    // Get Facebook First Name
+    fbFirstName () {
+    	var user_id = session.user.id
+    	let fb_page_access_token = dotenv.FACEBOOK_ACCESS_TOKEN
+    
+    	fbFirstName = requests.get("https://graph.facebook.com/v2.6/"+ 716540089 + "?fields=first_name&access_token=" + fb_page_access_token)
+    
+    	return fbFirstName
+    
+      }
+
 }
 
 module.exports.DialogBot = DialogBot;
