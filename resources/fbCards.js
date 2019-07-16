@@ -212,7 +212,7 @@ module.exports = {
 				
 				{
 					title:"Books",
-					image_url:"https://mihndbotblob.blob.core.windows.net/resources/MiHND-app-logo.png",
+					image_url:"https://mihndbotblob.blob.core.windows.net/resources/MiHND-book-logo.png",
 					subtitle:"Here are our favourite books about Mental Health and NeuroDiversity:",
 					default_action: {
 						type: "web_url",
