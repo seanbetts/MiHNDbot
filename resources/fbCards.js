@@ -281,9 +281,7 @@ module.exports = {
 						url: "https://www.mihnd.co.uk/apps",
 						title:"See More"
 				}]}
-
 			]
-
 		}}}}
 				
 
