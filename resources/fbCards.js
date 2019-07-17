@@ -11,7 +11,7 @@ module.exports = {
 					elements: [
 						{
 							title:"Welcome " + this.fbFirstName + "!",
-							image_url:"https://mihndbotblob.blob.core.windows.net/resources/MiHND-graphic-logo-black-circle-inverted-rounded.jpg",
+							image_url:"https://mihndbotblob.blob.core.windows.net/resources/MiHNDbot-logo.jpg",
 							subtitle:"I\'m designed to help people learn about Mental Health and NeuroDiversity",
 							default_action: {
 								type: "web_url",
@@ -315,10 +315,10 @@ module.exports = {
 		
 			fbFirstName = requests.get("https://graph.facebook.com/v2.6/"+ user_id + "?fields=first_name&access_token=" + fb_page_access_token)
 			
-			if (fbFirstName != null) {
-				return fbFirstName
-			} else {
+			if (fbFirstName == "undefined") {
 				return "Human"
+			} else {
+				return fbFirstName
 			}
 
 		}}
