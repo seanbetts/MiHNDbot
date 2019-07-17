@@ -163,7 +163,7 @@ module.exports = {
 				image_aspect_ratio: "square",
 				elements: [
 				{
-					title:"I'm sorry <name>!",
+					title:"I'm sorry " + this.fbFirstName + "!",
 					image_url:"https://mihndbotblob.blob.core.windows.net/resources/MiHND-question-logo-black-circle-inverted-rounded.jpg",
 					subtitle:"I'm sorry, I can\'t answer that. Please check out our other content -> -> ->",
 					default_action: {
@@ -310,13 +310,17 @@ module.exports = {
 
 		// Get Facebook First Name
 		fbFirstName: { function () {
-			var user_id = session.user.id
+			var user_id = "716540089" // session.user.id
 			let fb_page_access_token = dotenv.FACEBOOK_ACCESS_TOKEN
 		
-			fbFirstName = requests.get("https://graph.facebook.com/v2.6/"+ 716540089 + "?fields=first_name&access_token=" + fb_page_access_token)
-		
-			return fbFirstName
-		}
-		}
+			fbFirstName = requests.get("https://graph.facebook.com/v2.6/"+ user_id + "?fields=first_name&access_token=" + fb_page_access_token)
+			
+			if (fbFirstName != null) {
+				return fbFirstName
+			} else {
+				return "Human"
+			}
+
+		}}
 
 };
