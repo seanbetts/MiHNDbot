@@ -10,7 +10,7 @@ module.exports = {
 					image_aspect_ratio: "square",
 					elements: [
 						{
-							title:"Welcome " + this.fbFirstName + "!",
+							title:"Welcome <name>!",
 							image_url:"https://mihndbotblob.blob.core.windows.net/resources/MiHNDbot-logo.jpg",
 							subtitle:"I\'m designed to help people learn about Mental Health and NeuroDiversity",
 							default_action: {
@@ -163,7 +163,7 @@ module.exports = {
 				image_aspect_ratio: "square",
 				elements: [
 				{
-					title:"I'm sorry " + this.fbFirstName + "!",
+					title:"I'm sorry <name>!",
 					image_url:"https://mihndbotblob.blob.core.windows.net/resources/MiHND-question-logo-black-circle-inverted-rounded.jpg",
 					subtitle:"I'm sorry, I can\'t answer that. Please check out our other content -> -> ->",
 					default_action: {
@@ -309,18 +309,17 @@ module.exports = {
 		}}}},
 
 		// Get Facebook First Name
-		fbFirstName: { function () {
-			var user_id = "716540089" // session.user.id
-			let fb_page_access_token = dotenv.FACEBOOK_ACCESS_TOKEN
+		// fbFirstName: { function () {
+		// 	var user_id = "716540089" // session.user.id
+		// 	let fb_page_access_token = dotenv.FACEBOOK_ACCESS_TOKEN
 		
-			fbFirstName = requests.get("https://graph.facebook.com/v2.6/"+ user_id + "?fields=first_name&access_token=" + fb_page_access_token)
+		// 	fbFirstName = requests.get("https://graph.facebook.com/v2.6/"+ user_id + "?fields=first_name&access_token=" + fb_page_access_token)
 			
-			if (fbFirstName == "undefined") {
-				return "Human"
-			} else {
-				return fbFirstName
-			}
-
-		}}
+		// 	if (fbFirstName === "undefined") {
+		// 		return "Human"
+		// 	} else {
+		// 		return fbFirstName
+		// 	}
+		// }}
 
 };

@@ -1,8 +1,8 @@
 // index.js is used to setup and configure your bot
 
 // Enable Application Insights
-// const appInsights = require('applicationinsights');
-// appInsights.setup('REMOVED_SECRET').start();
+const appInsights = require('applicationinsights');
+appInsights.setup('REMOVED_SECRET').start();
 
 // Import required pckages
 const path = require('path');

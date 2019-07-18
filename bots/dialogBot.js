@@ -6,6 +6,7 @@ const restify = require('restify');
 const WelcomeCard = require('../resources/welcomeCard.json');
 const quickRepliesOption = 'Quick Replies';
 const fbCards = require('../resources/fbCards.js');
+const teamsWelcomeCard = require('../resources/teamsWelcomeCard.json');
 
 // initialized to access values in .env file.
 var dotenv = require('dotenv');
@@ -223,6 +224,7 @@ class DialogBot extends ActivityHandler {
         if (postback.payload == "GET_STARTED") {
           this.logger.log('GET_STARTED received');
           await turnContext.sendActivity(fbCards.welcomeCardFB);
+          this.logger.log("Your fbFirstName is " + await this.fbFirstName() );
         } else {
         if (postback.payload == "GET_HELP") {
           this.logger.log('GET_HELP received');
@@ -415,15 +417,24 @@ class DialogBot extends ActivityHandler {
     }
 
     // Get Facebook First Name
-    fbFirstName () {
-    	var user_id = session.user.id
-    	let fb_page_access_token = dotenv.FACEBOOK_ACCESS_TOKEN
-    
-    	fbFirstName = requests.get("https://graph.facebook.com/v2.6/"+ 716540089 + "?fields=first_name&access_token=" + fb_page_access_token)
-    
-    	return fbFirstName
-    
+    async queryFB(id) {
+      const fb_page_access_token = dotenv.FACEBOOK_ACCESS_TOKEN
+      const response = await get("https://graph.facebook.com/v3.3/"+ id + "?fields=first_name&access_token=" + fb_page_access_token);
+      const json = await response.json();
+
+      return json.first_name
+    }
+
+    async fbFirstName() {
+      const fbUserID = 716540089 // session.user.id
+      
+      try {
+        let firstName = await queryFB(fbUserID);
+        this.logger.log(firstName);
+      } catch(e) {
+        this.logger.log("Error: " + err);
       }
+    }
 
 }
 
