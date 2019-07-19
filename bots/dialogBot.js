@@ -223,7 +223,7 @@ class DialogBot extends ActivityHandler {
 
         
 
-        let fbFetch = async function() {
+        let fbFetch = function() {
           // var fb_page_access_token = "REMOVED_SECRET"
           // var id = 716540089
 
