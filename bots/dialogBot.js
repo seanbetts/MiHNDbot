@@ -227,7 +227,7 @@ class DialogBot extends ActivityHandler {
           // var fb_page_access_token = "REMOVED_SECRET"
           // var id = 716540089
 
-          return fetch('https://graph.facebook.com/v3.3/716540089?fields=first_name&access_token=REMOVED_SECRET')
+          return await fetch('https://graph.facebook.com/v3.3/716540089?fields=first_name&access_token=REMOVED_SECRET')
             // .then(function(response) {
             //   return response.json();
             // })
