@@ -240,7 +240,7 @@ class DialogBot extends ActivityHandler {
         }
 
         var fbName = await fbFetch();
-        fbName = fbName.json();
+        fbName = JSON.stringify(fbName.first_name);
 
         if (postback.payload == "GET_STARTED") {
           this.logger.log('GET_STARTED received');
