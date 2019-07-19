@@ -221,23 +221,26 @@ class DialogBot extends ActivityHandler {
         this.logger.log('Facebook Postback message received.');
         //postBack handling logic
 
-        var fbName;
+        
 
-        let fbFetch = function() {
-          var fb_page_access_token = "REMOVED_SECRET"
-          var id = 716540089
+        let fbFetch = async function() {
+          // var fb_page_access_token = "REMOVED_SECRET"
+          // var id = 716540089
 
-          fetch('https://graph.facebook.com/v3.3/716540089?fields=first_name&access_token=REMOVED_SECRET')
-            .then(function(response) {
-              return response.json();
-            })
-            .then(function(myJson) {
-              var fbName = JSON.stringify(myJson.first_name);
-              console.log(fb_page_access_token);
-              console.log(fbName);
-              return fbName;
-            });
+          return fetch('https://graph.facebook.com/v3.3/716540089?fields=first_name&access_token=REMOVED_SECRET')
+            // .then(function(response) {
+            //   return response.json();
+            // })
+            // .then(function(myJson) {
+            //   var fbName = JSON.stringify(myJson.first_name);
+            //   console.log(fb_page_access_token);
+            //   console.log(fbName);
+            //   return fbName;
+            // });
         }
+
+        var fbName = await fbFetch();
+        console.log(fbName)
 
         if (postback.payload == "GET_STARTED") {
           this.logger.log('GET_STARTED received');
