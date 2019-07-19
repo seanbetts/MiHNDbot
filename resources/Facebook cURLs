@@ -77,3 +77,14 @@ curl -X POST -H "Content-Type: application/json" -d '{
     "payload":"GET_STARTED"
   }
 }' "https://graph.facebook.com/v2.6/me/messenger_profile?access_token=REMOVED_SECRET"
+
+
+//Whitelies Domains
+curl -X POST -H "Content-Type: application/json" -d '{
+  "whitelisted_domains":[
+    "https://www.mihnd.co.uk",
+    "https://ngrok.io",
+    "https://mihndbotdev.azurewebsites.net/api/messages",
+    "https://mihndbot.azurewebsites.net/api/messages"
+  ]
+}' "https://graph.facebook.com/v2.6/me/messenger_profile?access_token=REMOVED_SECRET" 
