@@ -2,7 +2,9 @@
 
 // Enable Application Insights
 const appInsights = require('applicationinsights');
-appInsights.setup('REMOVED_SECRET').start();
+appInsights.setup('REMOVED_SECRET')
+    .setUseDiskRetryCaching(true)
+    .start();
 
 // Import required pckages
 const path = require('path');
