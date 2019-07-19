@@ -242,7 +242,7 @@ class DialogBot extends ActivityHandler {
           this.logger.log('GET_STARTED received');
           await turnContext.sendActivity(fbCards.welcomeCardFB);
           fbFetch();
-          await turnContext.sendActivity("Hi " + this.fbName + "!");
+          await turnContext.sendActivity("Hi " + fbName + "!");
         } else {
         if (postback.payload == "GET_HELP") {
           this.logger.log('GET_HELP received');
