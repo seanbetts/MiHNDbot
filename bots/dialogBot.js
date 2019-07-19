@@ -235,6 +235,7 @@ class DialogBot extends ActivityHandler {
               var fbName = JSON.stringify(myJson.first_name);
               console.log(fb_page_access_token);
               console.log(fbName);
+              return fbName;
             });
         }
 
