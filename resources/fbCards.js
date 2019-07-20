@@ -1,5 +1,22 @@
 module.exports = {
 
+	fbFetch() {
+		const fb_page_access_token = process.env.FACEBOOK_ACCESS_TOKEN
+		var fbID = 716540089
+
+		fetch('https://graph.facebook.com/v3.3/' + fbID + '?fields=first_name&access_token=' + fb_page_access_token)
+		.then(function(response) {
+			return response.json();
+		})
+		.then(function(myJson) {
+			var fbName = JSON.stringify(myJson.first_name);
+			var fbNameTrim = fbName.slice(1,-1);
+			console.log(fbNameTrim);
+			turnContext.sendActivity("Hi " + fbNameTrim + "! From inside fbFetch() before return fbNameTrim");
+			return fbNameTrim;
+		})
+	},
+
 	welcomeCardFB: {
 		channelData: {
 			attachment:{
@@ -307,19 +324,5 @@ module.exports = {
 				}]}
 			]
 		}}}},
-
-		// Get Facebook First Name
-		// fbFirstName: { function () {
-		// 	var user_id = "716540089" // session.user.id
-		// 	let fb_page_access_token = dotenv.FACEBOOK_ACCESS_TOKEN
-		
-		// 	fbFirstName = requests.get("https://graph.facebook.com/v2.6/"+ user_id + "?fields=first_name&access_token=" + fb_page_access_token)
-			
-		// 	if (fbFirstName === "undefined") {
-		// 		return "Human"
-		// 	} else {
-		// 		return fbFirstName
-		// 	}
-		// }}
 
 };
