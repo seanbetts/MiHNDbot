@@ -5,6 +5,28 @@ logger = console;
 
 // Customisation code for Facebook Messenger
 
+// Function to fetch first name from Facebook
+const fbFetch = function() {
+    const fb_page_access_token = process.env.FACEBOOK_ACCESS_TOKEN;
+    var fbID = 716540089;
+    var fbNameTrim = "Human";
+
+    fetch('https://graph.facebook.com/v3.3/' + fbID + '?fields=first_name&access_token=' + fb_page_access_token)
+    .then(function(response) {
+        return response.json();
+    })
+    .then(function(myJson) {
+        var fbName = JSON.stringify(myJson.first_name);
+        var fbNameTrim = fbName.slice(1,-1);
+        console.log(fbNameTrim); // This successfully prints fbNameTrim to the console
+        turnContext.sendActivity("Hi " + fbNameTrim + "! From inside fbFetch() before return fbNameTrim"); // This is never processed or displayed in Messenger
+        // return fbNameTrim;
+    })
+    console.log(fbNameTrim + " 2"); // This successfully prints fbNameTrim to the console
+    return fbNameTrim;
+}
+
+
 // Process a Facebook payload from channel data, to handle optin events, postbacks and quick replies.
 const processFacebookPayload = async function (turnContext, data) {
     // At this point we know we are on Facebook channel, and can consume the Facebook custom payload present in channelData.
@@ -34,12 +56,12 @@ const onFacebookPostback = async function (turnContext, postback) {
 
     //postBack handling logic
 
-    var fbFirstName = await fbCards.fbFetch();
+    var fbFirstName = await this.fbFetch();
 
     if (postback.payload == "GET_STARTED") {
         // this.logger.log('GET_STARTED received');
         await turnContext.sendActivity(fbCards.welcomeCardFB);
-        await turnContext.sendActivity("Hi " + fbFirstName + "! From outside fbFetch() after return fbNameTrim");
+        await turnContext.sendActivity("Hi " + fbFirstName + "! From outside fbFetch() after return fbNameTrim"); // This is successfully processed and posted to Messenger
     } else {
     if (postback.payload == "GET_HELP") {
         // this.logger.log('GET_HELP received');
@@ -222,6 +244,7 @@ const onFacebookQuickReply = async function (turnContext, quickReply) {
 
 
 module.exports = {
+    fbFetch:fbFetch,
     processFacebookPayload:processFacebookPayload,
     onFacebookPostback:onFacebookPostback,
     onFacebookOptin:onFacebookOptin,

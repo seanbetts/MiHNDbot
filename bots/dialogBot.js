@@ -2,7 +2,7 @@ const { ActivityHandler, MemoryStorage } = require('botbuilder');
 const { CardFactory } = require('botbuilder-core');
 const { CosmosDbStorage } = require("botbuilder-azure");
 const { QnAMaker } = require('botbuilder-ai');
-const { fbFetch } = require('../resources/fbCards.js');
+const { fbFetch } = require('../bots/fbBot.js');
 
 const restify = require('restify');
 const WelcomeCard = require('../resources/welcomeCard.json');
@@ -27,13 +27,6 @@ var storage = new CosmosDbStorage({
 })
 
 class DialogBot extends ActivityHandler {
-
-    /**
-     * @param {ConversationState} conversationState
-     * @param {UserState} userState
-     * @param {Dialog} dialog
-     * @param {any} logger object for logging events, defaults to console if none is provided
-     */
 
     constructor(conversationState, userState, dialog, logger) {
         super();
@@ -99,9 +92,6 @@ class DialogBot extends ActivityHandler {
                     // map the prompts to the required format for quick_replies channelData
                     var qnaPromptsArray = qnaPrompts.map(obj =>{
                       return {content_type: "text", title: obj.displayText, payload: obj.displayText}
-
-                      // {turnContext: {activity: {text: obj.displayText}}}
-
                     });
 
                     let reply;
@@ -173,7 +163,7 @@ class DialogBot extends ActivityHandler {
             await next();
         });
 
-        
+
         this.onEvent(async (turnContext) => {
             this.logger.log('Processing an Event Activity.');
 
