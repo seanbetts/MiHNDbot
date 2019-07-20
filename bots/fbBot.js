@@ -95,6 +95,7 @@ const onFacebookPostback = async function (turnContext, postback) {
     } else {
     if (postback.payload == "WHAT_IS_NEURODIVERSITY") {
         // this.logger.log('WHAT_IS_NEURODIVERSITY received');
+
         // qnaMaker.getAnswers doesn't accept string input, so we need to adjust our turnContext
         // to match what it expects, which is a string in Activity.Text
         turnContext.activity.text = postback.payload;
@@ -162,26 +163,14 @@ const onFacebookPostback = async function (turnContext, postback) {
 }
 
 
-/**
- * Called when receiving a Facebook messaging_optin event.
- * Facebook Developer Reference: Optin
- * https://developers.facebook.com/docs/messenger-platform/reference/webhook-events/messaging_optins/
- * @param {Object} optin
- * @param {Object} turnContext
- */
+// Called when receiving a Facebook messaging_optin event. Facebook Developer Reference: Optin - https://developers.facebook.com/docs/messenger-platform/reference/webhook-events/messaging_optins/
 const onFacebookOptin = async function (turnContext, optin) {
     // this.logger.log('Optin message received.');
     // TODO: Your optin handling logic here...
 }
 
 
-/**
- * Called when receiving a Facebook quick reply.
- * Facebook Developer Reference: Quick reply
- * https://developers.facebook.com/docs/messenger-platform/send-messages/quick-replies/
- * @param {Object} quickReply
- * @param {Object} turnContext
- */
+// Called when receiving a Facebook quick reply. Facebook Developer Reference: Quick reply - https://developers.facebook.com/docs/messenger-platform/send-messages/quick-replies/
 const onFacebookQuickReply = async function (turnContext, quickReply) {
     // this.logger.log('Facebook QuickReply message received.');
 

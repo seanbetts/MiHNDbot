@@ -61,6 +61,7 @@ class DialogBot extends ActivityHandler {
         this.logger = logger;
         this.dialogState = this.conversationState.createProperty('DialogState');
 
+
         // If a new user is added to the conversation, send them a greeting message
         this.onMembersAdded(async (context, next) => {
             const membersAdded = context.activity.membersAdded;
@@ -74,6 +75,7 @@ class DialogBot extends ActivityHandler {
             // By calling next() you ensure that the next BotHandler is run.
             await next();
         });
+
 
         // When a user sends a message, perform a call to the QnA Maker service to retrieve matching Question and Answer pairs.
         this.onMessage(async (context, next) => {
@@ -171,6 +173,7 @@ class DialogBot extends ActivityHandler {
             await next();
         });
 
+        
         this.onEvent(async (turnContext) => {
             this.logger.log('Processing an Event Activity.');
 
@@ -185,260 +188,6 @@ class DialogBot extends ActivityHandler {
             await next();
         });
     }
-
-    /**
-     * Process a Facebook payload from channel data, to handle optin events, postbacks and quick replies.
-     * @param {Object} turnContext
-     * @param {Object} data
-     */
-
-    // async processFacebookPayload(turnContext, data) {
-    //     // At this point we know we are on Facebook channel, and can consume the Facebook custom payload present in channelData.
-    //     const facebookPayload = data;
-    //     if (facebookPayload) {
-    //         if (facebookPayload.postback) {
-    //             // Postback
-    //             await this.onFacebookPostback(turnContext, facebookPayload.postback);
-    //             return true;
-    //         } else if (facebookPayload.optin) {
-    //             // Optin
-    //             await this.onFacebookOptin(turnContext, facebookPayload.optin);
-    //             return true;
-    //         } else if (facebookPayload.message && facebookPayload.message.quick_reply) {
-    //             // Quick Reply
-    //             await this.onFacebookQuickReply(turnContext, facebookPayload.message.quick_reply);
-    //             return true;
-    //         }
-    //     }
-    //     return false;
-    // }
-
-    // /** 
-    //  * Called when receiving a Facebook messaging_postback event.
-    //  * Facebook Developer Reference: Postback
-    //  * https://developers.facebook.com/docs/messenger-platform/reference/webhook-events/messaging_postbacks/
-    //  * @param {Object} postback JSON object for postback payload.
-    //  * @param {Object} turnContext
-    //  */
-
-    // async onFacebookPostback(turnContext, postback) {
-    //     this.logger.log('Facebook Postback message received.');
-    //     //postBack handling logic
-
-    //     // function fbFetch() {
-    //     //   const fb_page_access_token = process.env.FACEBOOK_ACCESS_TOKEN
-    //     //   var fbID = 716540089
-
-    //     //   fetch('https://graph.facebook.com/v3.3/' + fbID + '?fields=first_name&access_token=' + fb_page_access_token)
-    //     //   .then(function(response) {
-    //     //     return response.json();
-    //     //   })
-    //     //   .then(function(myJson) {
-    //     //     var fbName = JSON.stringify(myJson.first_name);
-    //     //     var fbNameTrim = fbName.slice(1,-1);
-    //     //     console.log(fbNameTrim);
-    //     //     turnContext.sendActivity("Hi " + fbNameTrim + "! From inside fbFetch() before return fbNameTrim");
-    //     //     return fbNameTrim;
-    //     //   })
-    //     // }
-
-    //     var fbFirstName = await fbFetch();
-
-    //     if (postback.payload == "GET_STARTED") {
-    //       this.logger.log('GET_STARTED received');
-    //       await turnContext.sendActivity(fbCards.welcomeCardFB);
-    //       await turnContext.sendActivity("Hi " + fbFirstName + "! From outside fbFetch() after return fbNameTrim");
-    //     } else {
-    //     if (postback.payload == "GET_HELP") {
-    //       this.logger.log('GET_HELP received');
-    //       await turnContext.sendActivity(fbCards.helpCardFB);
-    //     } else {
-    //     if (postback.payload == "WHAT_IS_MENTAL_HEALTH") {
-    //       this.logger.log('WHAT_IS_MENTAL_HEALTH received');
-    //       // qnaMaker.getAnswers doesn't accept string input, so we need to adjust our turnContext
-    //       // to match what it expects, which is a string in Activity.Text
-    //       turnContext.activity.text = postback.payload;
-
-    //       // call the QnA
-    //       const qnaResults = await this.qnaMaker.getAnswers(turnContext);
-
-    //       // If an answer was received from QnA Maker, send the answer back to the user.
-    //       if (qnaResults[0]) {
-    //         const { answer, context: { prompts }} = qnaResults[0];
-
-		// 			// set a variable for the prompts array from QnA
-		// 			var qnaPrompts = null;
-		// 			if(qnaResults[0].context != null){
-		// 					qnaPrompts = qnaResults[0].context.prompts;
-		// 			}
-
-		// 			// map the prompts to the required format for quick_replies channelData
-		// 			var qnaPromptsArray = qnaPrompts.map(obj =>{
-		// 				return {content_type: "text", title: obj.displayText, payload: obj.displayText}
-		// 			});
-
-
-		// 				let reply;
-    //         if (prompts.length) {
-    //           const quickReply = {
-    //             channelData: {
-    //                 text: answer,
-    //                 quick_replies: qnaPromptsArray
-    //             }
-    //           }
-    //             reply = quickReply;
-    //           } else {
-    //             reply = {
-    //               channelData: {
-    //                 text: answer,
-    //               }
-    //             }
-    //           }
-    //           await turnContext.sendActivity(reply);
-
-    //       // If no answers were returned from QnA Maker, reply with help.
-    //       } else {
-    //         await turnContext.sendActivity('No QnA Maker answers were found.');
-    //       }
-    //     } else {
-    //     if (postback.payload == "WHAT_IS_NEURODIVERSITY") {
-    //       this.logger.log('WHAT_IS_NEURODIVERSITY received');
-    //       // qnaMaker.getAnswers doesn't accept string input, so we need to adjust our turnContext
-    //       // to match what it expects, which is a string in Activity.Text
-    //       turnContext.activity.text = postback.payload;
-
-    //       // call the QnA
-    //       const qnaResults = await this.qnaMaker.getAnswers(turnContext);
-
-    //       // If an answer was received from QnA Maker, send the answer back to the user.
-    //       if (qnaResults[0]) {
-    //         const { answer, context: { prompts }} = qnaResults[0];
-
-		// 				// set a variable for the prompts array from QnA
-		// 				var qnaPrompts = null;
-		// 				if(qnaResults[0].context != null){
-		// 						qnaPrompts = qnaResults[0].context.prompts;
-		// 				}
-
-		// 				// map the prompts to the required format for quick_replies channelData
-		// 				var qnaPromptsArray = qnaPrompts.map(obj =>{
-		// 					return {content_type: "text", title: obj.displayText, payload: obj.displayText}
-		// 				});
-
-    //         let reply;
-    //         if (prompts.length) {
-    //           const quickReply = {
-    //             channelData: {
-    //                 text: answer,
-    //                 quick_replies: qnaPromptsArray
-    //             }
-    //           }
-    //             reply = quickReply;
-    //           } else {
-    //             reply = {
-    //               channelData: {
-    //                 text: answer,
-    //               }
-    //             }
-    //           }
-    //           await turnContext.sendActivity(reply);
-
-    //       // If no answers were returned from QnA Maker, reply with help.
-    //       } else {
-    //         await turnContext.sendActivity(fbCards.errorCardFB);
-    //       }
-
-    //     } else {
-    //     if (postback.payload == "TEXT_SHOUT") {
-    //       this.logger.log('TEXT_SHOUT received');
-    //       await turnContext.sendActivity(fbCards.shoutCardFB);
-    //     } else {
-    //     if (postback.payload == "TEXT_SHOUT_NOW") {
-    //       this.logger.log('TEXT_SHOUT_NOW received');
-    //       await turnContext.sendActivity("To get help from Shout please text SHOUT to 85258");
-    //     } else {
-    //     if (postback.payload == "CALL_THE_NHS") {
-    //       this.logger.log('CALL_THE_NHS received');
-    //       await turnContext.sendActivity(fbCards.nhsCardFB);
-    //     } else {
-    //     if (postback.payload == "CALL_THE_SAMARITANS") {
-    //       this.logger.log('CALL_THE_SAMARITANS received');
-    //       await turnContext.sendActivity(fbCards.samaritansCardFB);
-    //     } else {
-    //       await turnContext.sendActivity('Facebook PostBack not defined...YET!');
-    //     }}}}}}}}
-    // }
-
-    
-    // /**
-    //  * Called when receiving a Facebook messaging_optin event.
-    //  * Facebook Developer Reference: Optin
-    //  * https://developers.facebook.com/docs/messenger-platform/reference/webhook-events/messaging_optins/
-    //  * @param {Object} optin
-    //  * @param {Object} turnContext
-    //  */
-    // async onFacebookOptin(turnContext, optin) {
-    //     this.logger.log('Optin message received.');
-    //     // TODO: Your optin handling logic here...
-    // }
-
-
-    // /**
-    //  * Called when receiving a Facebook quick reply.
-    //  * Facebook Developer Reference: Quick reply
-    //  * https://developers.facebook.com/docs/messenger-platform/send-messages/quick-replies/
-    //  * @param {Object} quickReply
-    //  * @param {Object} turnContext
-    //  */
-    // async onFacebookQuickReply(turnContext, quickReply) {
-    //     this.logger.log('Facebook QuickReply message received.');
-
-    //     // qnaMaker.getAnswers doesn't accept string input, so we need to adjust our turnContext
-    //     // to match what it expects, which is a string in Activity.Text
-    //     turnContext.activity.text = quickReply.payload;
-    //     this.logger.log('Set activity.text to ' + quickReply.payload);
-
-    //     // call the QnA
-    //     const qnaResults = await this.qnaMaker.getAnswers(turnContext);
-
-    //     // If an answer was received from QnA Maker, send the answer back to the user.
-    //     if (qnaResults[0]) {
-    //       const { answer, context: { prompts }} = qnaResults[0];
-
-    //       // set a variable for the prompts array from QnA
-		// 				var qnaPrompts = null;
-		// 				if(qnaResults[0].context != null){
-		// 						qnaPrompts = qnaResults[0].context.prompts;
-		// 				}
-
-		// 				// map the prompts to the required format for quick_replies channelData
-		// 				var qnaPromptsArray = qnaPrompts.map(obj =>{
-		// 					return {content_type: "text", title: obj.displayText, payload: obj.displayText}
-		// 				});
-
-    //         let reply;
-    //         if (prompts.length) {
-    //           const quickReply = {
-    //             channelData: {
-    //                 text: answer,
-    //                 quick_replies: qnaPromptsArray
-    //             }
-    //           }
-    //             reply = quickReply;
-    //           } else {
-    //             reply = {
-    //               channelData: {
-    //                 text: answer,
-    //               }
-    //             }
-    //           }
-    //           await turnContext.sendActivity(reply);
-
-    //     } else {
-    //       await turnContext.sendActivity(fbCards.errorCardFB);
-    //     }
-    // }
-
 }
 
 module.exports.DialogBot = DialogBot;
