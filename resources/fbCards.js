@@ -34,7 +34,7 @@ var fbFetch2 = async function() {
 	var fbNameTrim = await fbName.slice(1,-1);
 	console.log(fbNameTrim);
 
-	return await fbNameTrim;
+	return fbNameTrim;
 }
 
 var userName = fbFetch2();
