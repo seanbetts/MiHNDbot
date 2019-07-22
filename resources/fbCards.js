@@ -55,7 +55,7 @@ async function getFBName() {
 	return fbName;
 }
 
-var userName = getFBName.then(() => {return getFBName});
+var userName = getFBName().then(() => {return getFBName});
 
 var welcomeCardFB = {
 	channelData: {
