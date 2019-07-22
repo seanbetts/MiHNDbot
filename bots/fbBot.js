@@ -1,30 +1,6 @@
-const { DialogBot } = require('../bots/dialogBot');
-const fbCards = require('../resources/fbCards.js');
-
-logger = console;
+const fbCards = require('../resources/fbCards.js'); 
 
 // Customisation code for Facebook Messenger
-
-// Function to fetch first name from Facebook
-const fbFetch = function() {
-    const fb_page_access_token = process.env.FACEBOOK_ACCESS_TOKEN;
-    var fbID = 716540089;
-    var fbNameTrim = "Human";
-
-    fetch('https://graph.facebook.com/v3.3/' + fbID + '?fields=first_name&access_token=' + fb_page_access_token)
-    .then(function(response) {
-        return response.json();
-    })
-    .then(function(myJson) {
-        var fbName = JSON.stringify(myJson.first_name);
-        var fbNameTrim = fbName.slice(1,-1);
-        console.log(fbNameTrim); // This successfully prints fbNameTrim to the console
-        turnContext.sendActivity("Hi " + fbNameTrim + "! From inside fbFetch() before return fbNameTrim"); // This is never processed or displayed in Messenger
-        // return fbNameTrim;
-    })
-    console.log(fbNameTrim + " 2"); // This successfully prints fbNameTrim to the console
-    return fbNameTrim;
-}
 
 
 // Process a Facebook payload from channel data, to handle optin events, postbacks and quick replies.
@@ -34,7 +10,7 @@ const processFacebookPayload = async function (turnContext, data) {
     if (facebookPayload) {
         if (facebookPayload.postback) {
             // Postback
-            await this.onFacebookPostback(turnContext, facebookPayload.postback);
+            await this.onFacebookPostback(turnContext, facebookPayload.postback, facebookPayload.sender);
             return true;
         } else if (facebookPayload.optin) {
             // Optin
@@ -51,24 +27,19 @@ const processFacebookPayload = async function (turnContext, data) {
 
 
 // Called when receiving a Facebook messaging_postback event. Facebook Developer Reference: Postback - https://developers.facebook.com/docs/messenger-platform/reference/webhook-events/messaging_postbacks/
-const onFacebookPostback = async function (turnContext, postback) {
-    // this.logger.log('Facebook Postback message received.');
+const onFacebookPostback = async function (turnContext, postback, sender) {
+    console.log('Facebook Postback message received.');
+    var fbPSID = sender.id;
+    console.log('User PSID is ' + fbPSID);
 
-    //postBack handling logic
-
-    var fbFirstName = await this.fbFetch();
-
+    // PostBack handling logic
     if (postback.payload == "GET_STARTED") {
-        // this.logger.log('GET_STARTED received');
         await turnContext.sendActivity(fbCards.welcomeCardFB);
-        await turnContext.sendActivity("Hi " + fbFirstName + "! From outside fbFetch() after return fbNameTrim"); // This is successfully processed and posted to Messenger
     } else {
     if (postback.payload == "GET_HELP") {
-        // this.logger.log('GET_HELP received');
         await turnContext.sendActivity(fbCards.helpCardFB);
     } else {
     if (postback.payload == "WHAT_IS_MENTAL_HEALTH") {
-        // this.logger.log('WHAT_IS_MENTAL_HEALTH received');
         // qnaMaker.getAnswers doesn't accept string input, so we need to adjust our turnContext
         // to match what it expects, which is a string in Activity.Text
         turnContext.activity.text = postback.payload;
@@ -116,7 +87,6 @@ const onFacebookPostback = async function (turnContext, postback) {
         }
     } else {
     if (postback.payload == "WHAT_IS_NEURODIVERSITY") {
-        // this.logger.log('WHAT_IS_NEURODIVERSITY received');
 
         // qnaMaker.getAnswers doesn't accept string input, so we need to adjust our turnContext
         // to match what it expects, which is a string in Activity.Text
@@ -165,41 +135,38 @@ const onFacebookPostback = async function (turnContext, postback) {
 
     } else {
     if (postback.payload == "TEXT_SHOUT") {
-        // this.logger.log('TEXT_SHOUT received');
         await turnContext.sendActivity(fbCards.shoutCardFB);
     } else {
     if (postback.payload == "TEXT_SHOUT_NOW") {
-        // this.logger.log('TEXT_SHOUT_NOW received');
         await turnContext.sendActivity("To get help from Shout please text SHOUT to 85258");
     } else {
     if (postback.payload == "CALL_THE_NHS") {
-        // this.logger.log('CALL_THE_NHS received');
         await turnContext.sendActivity(fbCards.nhsCardFB);
     } else {
     if (postback.payload == "CALL_THE_SAMARITANS") {
-        // this.logger.log('CALL_THE_SAMARITANS received');
         await turnContext.sendActivity(fbCards.samaritansCardFB);
     } else {
         await turnContext.sendActivity('Facebook PostBack not defined...YET!');
     }}}}}}}}
-}
 
+    return fbPSID
+}
 
 // Called when receiving a Facebook messaging_optin event. Facebook Developer Reference: Optin - https://developers.facebook.com/docs/messenger-platform/reference/webhook-events/messaging_optins/
 const onFacebookOptin = async function (turnContext, optin) {
-    // this.logger.log('Optin message received.');
+    console.log('Optin message received.');
     // TODO: Your optin handling logic here...
 }
 
 
 // Called when receiving a Facebook quick reply. Facebook Developer Reference: Quick reply - https://developers.facebook.com/docs/messenger-platform/send-messages/quick-replies/
 const onFacebookQuickReply = async function (turnContext, quickReply) {
-    // this.logger.log('Facebook QuickReply message received.');
+    console.log('Facebook QuickReply message received.');
 
     // qnaMaker.getAnswers doesn't accept string input, so we need to adjust our turnContext
     // to match what it expects, which is a string in Activity.Text
     turnContext.activity.text = quickReply.payload;
-    // this.logger.log('Set activity.text to ' + quickReply.payload);
+    console.log('Set activity.text to ' + quickReply.payload);
 
     // call the QnA
     const qnaResults = await this.qnaMaker.getAnswers(turnContext);
@@ -244,7 +211,6 @@ const onFacebookQuickReply = async function (turnContext, quickReply) {
 
 
 module.exports = {
-    fbFetch:fbFetch,
     processFacebookPayload:processFacebookPayload,
     onFacebookPostback:onFacebookPostback,
     onFacebookOptin:onFacebookOptin,

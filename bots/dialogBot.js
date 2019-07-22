@@ -1,6 +1,6 @@
 const { ActivityHandler, MemoryStorage } = require('botbuilder');
 const { CardFactory } = require('botbuilder-core');
-const { CosmosDbStorage } = require("botbuilder-azure");
+const { CosmosDbStorage } = require('botbuilder-azure');
 const { QnAMaker } = require('botbuilder-ai');
 const { fbFetch } = require('../bots/fbBot.js');
 

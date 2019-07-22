@@ -1,6 +1,31 @@
-const { fbFetch } = require('../bots/fbBot.js');
+const fetch = require('node-fetch');
+const fbBot = require('../bots/fbBot.js');
 
 // Facebook Messenger rich media cards
+
+// Function to fetch first name from Facebook
+
+var fbFetch = function() {
+	const fb_page_access_token = process.env.FACEBOOK_ACCESS_TOKEN;
+	const fbID = 2826538590752448;
+
+	// Make a request for user first_name
+	fetch('https://graph.facebook.com/v3.3/' + fbID + '?fields=first_name&access_token=' + fb_page_access_token)
+
+		// Load the response as json
+		.then (function(response) {
+			return response.json();
+		})
+		// Transform the json to string and trim inverted commas
+		.then (function(user) {
+			var fbName = JSON.stringify(user.first_name);
+			var fbNameTrim = fbName.slice(1,-1);
+		})
+		Promise.resolve("Emotional Being");
+}
+
+var userName = fbFetch();
+
 var welcomeCardFB = {
 	channelData: {
 		attachment:{
@@ -11,7 +36,7 @@ var welcomeCardFB = {
 				image_aspect_ratio: "square",
 				elements: [
 					{
-						title:"Welcome " + fbFetch + "!",
+						title:"Hello " + userName + "!",
 						image_url:"https://mihndbotblob.blob.core.windows.net/resources/MiHNDbot-logo.jpg",
 						subtitle:"I\'m designed to help people learn about Mental Health and NeuroDiversity",
 						default_action: {
@@ -44,7 +69,7 @@ var helpCardFB = {
 				image_aspect_ratio: "square",
 				elements: [
 					{
-						title:"Everyone deserves help",
+						title:"Everyone deserves help " + userName,
 						image_url:"https://mihndbotblob.blob.core.windows.net/resources/MiHND-chat-logo-black-circle-inverted-rounded.jpg",
 						subtitle:"Being in a crisis can be very frightening, please get some help & support ASAP",
 						default_action: {
@@ -164,9 +189,9 @@ var samaritansCardFB = {
 			image_aspect_ratio: "square",
 			elements: [
 			{
-				title:"I'm sorry <name>!",
+				title:"I'm sorry " + userName + "!",
 				image_url:"https://mihndbotblob.blob.core.windows.net/resources/MiHND-question-logo-black-circle-inverted-rounded.jpg",
-				subtitle:"I'm sorry, I can\'t answer that. Please check out our other content -> -> ->",
+				subtitle:"I don\'t know the answer to that question. Please check out our other content -->",
 				default_action: {
 				type: "web_url",
 				url: "https://www.mihnd.co.uk",
