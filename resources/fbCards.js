@@ -5,7 +5,7 @@ const fbBot = require('../bots/fbBot.js');
 
 // Function to fetch first name from Facebook
 
-var fbFetch1 = function() {
+var fbFetch1 = function(fbPSID) {
 	const fb_page_access_token = process.env.FACEBOOK_ACCESS_TOKEN;
 	const fbID = 2826538590752448;
 
@@ -24,20 +24,37 @@ var fbFetch1 = function() {
 		})
 }
 
-var fbFetch2 = async function() {
+var fbFetch2 = async function(fbPSID) {
     const fb_page_access_token = process.env.FACEBOOK_ACCESS_TOKEN;
 	const fbID = 2826538590752448;
 
 	var fbData = await fetch ('https://graph.facebook.com/v3.3/' + fbID + '?fields=first_name&access_token=' + fb_page_access_token);
 	var fbResponse = await fbData.json();
-	var fbName = await JSON.stringify(fbResponse.first_name);
-	var fbNameTrim = await fbName.slice(1,-1);
-	console.log(fbNameTrim);
+	var fbJSONName = await JSON.stringify(fbResponse.first_name);
+	var fbJSONNameTrim = await fbJSONName.slice(1,-1);
+	var fbName = await fbJSONNameTrim;
+	console.log(fbName);
 
-	return fbNameTrim;
+	return fbName;
 }
 
-var userName = fbFetch2();
+async function getFBName(fbPSID) {
+	const fb_page_access_token = process.env.FACEBOOK_ACCESS_TOKEN;
+	const fbID = 2826538590752448;
+
+	try {
+		let response = await fetch ('https://graph.facebook.com/v3.3/' + fbID + '?fields=first_name&access_token=' + fb_page_access_token);
+		let user = await response.json();
+		let fbJSONName = await JSON.stringify(user.first_name);
+		let fbJSONNameTrim = await fbJSONName.slice(1,-1);
+		let fbName = await fbJSONNameTrim;
+	} catch(err) {
+		alert(err);
+	}
+	return fbName;
+}
+
+var userName = getFBName().then;
 
 var welcomeCardFB = {
 	channelData: {
