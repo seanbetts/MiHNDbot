@@ -38,7 +38,7 @@ var fbFetch2 = async function(fbPSID) {
 	return fbName;
 }
 
-async function getFBName(fbPSID) {
+async function getFBName() {
 	const fb_page_access_token = process.env.FACEBOOK_ACCESS_TOKEN;
 	const fbID = 2826538590752448;
 
@@ -99,7 +99,7 @@ var helpCardFB = {
 				image_aspect_ratio: "square",
 				elements: [
 					{
-						title:"Everyone deserves help " + userName,
+						title:"Everyone deserves help " + userName + ", we're here to help.",
 						image_url:"https://mihndbotblob.blob.core.windows.net/resources/MiHND-chat-logo-black-circle-inverted-rounded.jpg",
 						subtitle:"Being in a crisis can be very frightening, please get some help & support ASAP",
 						default_action: {
