@@ -5,7 +5,7 @@ const fbBot = require('../bots/fbBot.js');
 
 // Function to fetch first name from Facebook
 
-var fbFetch = function() {
+var fbFetch1 = function() {
 	const fb_page_access_token = process.env.FACEBOOK_ACCESS_TOKEN;
 	const fbID = 2826538590752448;
 
@@ -24,7 +24,20 @@ var fbFetch = function() {
 		})
 }
 
-var userName = fbFetch;
+var fbFetch2 = async function() {
+    const fb_page_access_token = process.env.FACEBOOK_ACCESS_TOKEN;
+	const fbID = 2826538590752448;
+
+	var fbData = await fetch ('https://graph.facebook.com/v3.3/' + fbID + '?fields=first_name&access_token=' + fb_page_access_token);
+	var fbResponse = await fbData.json();
+	var fbName = await JSON.stringify(fbResponse.first_name);
+	var fbNameTrim = await fbName.slice(1,-1);
+	console.log(fbNameTrim);
+
+	return await fbNameTrim;
+}
+
+var userName = fbFetch2();
 
 var welcomeCardFB = {
 	channelData: {
