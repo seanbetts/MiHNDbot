@@ -1,6 +1,10 @@
 const fetch = require('node-fetch');
 const fbBot = require('../bots/fbBot.js');
 
+// initialized to access values in .env file.
+var dotenv = require('dotenv');
+dotenv.config();
+
 // Facebook Messenger rich media cards
 
 // Function to fetch first name from Facebook
@@ -24,35 +28,34 @@ var fbFetch1 = function(fbPSID) {
 		})
 }
 
-var fbFetch2 = async function(fbPSID) {
-    const fb_page_access_token = process.env.FACEBOOK_ACCESS_TOKEN;
-	const fbID = 2826538590752448;
-
-	var fbData = await fetch ('https://graph.facebook.com/v3.3/' + fbID + '?fields=first_name&access_token=' + fb_page_access_token);
-	var fbResponse = await fbData.json();
-	var fbJSONName = await JSON.stringify(fbResponse.first_name);
-	var fbJSONNameTrim = await fbJSONName.slice(1,-1);
-	var fbName = await fbJSONNameTrim;
-	console.log(fbName);
-
-	return fbName;
-}
-
 async function getFBName() {
 	const fb_page_access_token = process.env.FACEBOOK_ACCESS_TOKEN;
 	const fbID = 2826538590752448;
 
 	try {
 		var response = await fetch ('https://graph.facebook.com/v3.3/' + fbID + '?fields=first_name&access_token=' + fb_page_access_token);
-		var user = await response.json();
-		var fbJSONName = await JSON.stringify(user.first_name);
-		var fbJSONNameTrim = await fbJSONName.slice(1,-1);
-		var fbName = await fbJSONNameTrim;
-	} catch(err) {
-		alert(err);
+		if (response.ok) {
+			var user = await response.json();
+			console.log(user); //Success as JSON object
+			var fbJSONName = await JSON.stringify(user.first_name);
+			console.log(fbJSONName); //Success as "Sean"
+			if (fbJSONName !== null || jbJSONName !== undefined) {
+				var fbJSONNameTrim = await fbJSONName.slice(1,-1);
+				console.log(fbJSONNameTrim); //Success as Sean
+				var fbName = await fbJSONNameTrim;
+				console.log(fbName); //Success as Sean
+			} else {
+				throw new Error('Facebook first_name not available.');
+			}
+		} else {
+			throw new Error('Facebook API call failed.');
+		}
+	} catch(error) {
+		console.log('ERROR - There has been a problem with your Facebook fetch operation: ' + error.message);
 		var fbName = "Emotional Being";
+	} finally {
+		return fbName;
 	}
-	return fbName;
 }
 
 var userName = getFBName().then((fbName) => {return fbName});
