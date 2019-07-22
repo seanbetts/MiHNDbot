@@ -16,12 +16,12 @@ var fbFetch = function() {
 		.then (function(response) {
 			return response.json();
 		})
+
 		// Transform the json to string and trim inverted commas
 		.then (function(user) {
 			var fbName = JSON.stringify(user.first_name);
 			var fbNameTrim = fbName.slice(1,-1);
 		})
-		Promise.resolve("Emotional Being");
 }
 
 var userName = fbFetch();
