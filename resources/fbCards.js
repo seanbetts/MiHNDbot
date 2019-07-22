@@ -43,18 +43,18 @@ async function getFBName(fbPSID) {
 	const fbID = 2826538590752448;
 
 	try {
-		let response = await fetch ('https://graph.facebook.com/v3.3/' + fbID + '?fields=first_name&access_token=' + fb_page_access_token);
-		let user = await response.json();
-		let fbJSONName = await JSON.stringify(user.first_name);
-		let fbJSONNameTrim = await fbJSONName.slice(1,-1);
-		let fbName = await fbJSONNameTrim;
+		var response = await fetch ('https://graph.facebook.com/v3.3/' + fbID + '?fields=first_name&access_token=' + fb_page_access_token);
+		var user = await response.json();
+		var fbJSONName = await JSON.stringify(user.first_name);
+		var fbJSONNameTrim = await fbJSONName.slice(1,-1);
+		var fbName = await fbJSONNameTrim;
 	} catch(err) {
 		alert(err);
 	}
 	return fbName;
 }
 
-var userName = getFBName().then;
+var userName = getFBName().then //(() => {console.log()});
 
 var welcomeCardFB = {
 	channelData: {
