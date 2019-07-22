@@ -24,7 +24,7 @@ var fbFetch = function() {
 		})
 }
 
-var userName = fbFetch();
+var userName = fbFetch;
 
 var welcomeCardFB = {
 	channelData: {
