@@ -54,7 +54,7 @@ async function getFBName(fbPSID) {
 	return fbName;
 }
 
-var userName = getFBName().then //(() => {console.log()});
+var userName = getFBName().then() //(() => {console.log()});
 
 var welcomeCardFB = {
 	channelData: {
