@@ -50,11 +50,12 @@ async function getFBName() {
 		var fbName = await fbJSONNameTrim;
 	} catch(err) {
 		alert(err);
+		var fbName = "Emotional Being";
 	}
 	return fbName;
 }
 
-var userName = getFBName().then() //(() => {console.log()});
+var userName = getFBName.then(() => {return getFBName});
 
 var welcomeCardFB = {
 	channelData: {
@@ -365,6 +366,7 @@ var samaritansCardFB = {
 	}}}}
 
 module.exports = {
+	getFBName:getFBName,
 	welcomeCardFB:welcomeCardFB,
 	helpCardFB:helpCardFB,
 	shoutCardFB:shoutCardFB,
