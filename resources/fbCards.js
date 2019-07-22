@@ -5,30 +5,11 @@ const fbBot = require('../bots/fbBot.js');
 var dotenv = require('dotenv');
 dotenv.config();
 
-// Facebook Messenger rich media cards
+// Function to get PSID from Facebook
+
 
 // Function to fetch first name from Facebook
-
-var fbFetch1 = function(fbPSID) {
-	const fb_page_access_token = process.env.FACEBOOK_ACCESS_TOKEN;
-	const fbID = 2826538590752448;
-
-	// Make a request for user first_name
-	fetch('https://graph.facebook.com/v3.3/' + fbID + '?fields=first_name&access_token=' + fb_page_access_token)
-
-		// Load the response as json
-		.then (function(response) {
-			return response.json();
-		})
-
-		// Transform the json to string and trim inverted commas
-		.then (function(user) {
-			var fbName = JSON.stringify(user.first_name);
-			var fbNameTrim = fbName.slice(1,-1);
-		})
-}
-
-async function getFBName() {
+var getFBName = async function () {
 	const fb_page_access_token = process.env.FACEBOOK_ACCESS_TOKEN;
 	const fbID = 2826538590752448;
 
@@ -53,13 +34,15 @@ async function getFBName() {
 	} catch(error) {
 		console.log('ERROR - There has been a problem with your Facebook fetch operation: ' + error.message);
 		var fbName = "Emotional Being";
+		console.log(fbName); //Success as Emotional Being
 	} finally {
 		return fbName;
 	}
 }
 
-var userName = getFBName().then((fbName) => {return fbName});
+var userName = getFBName();
 
+// Facebook Messenger rich media cards
 var welcomeCardFB = {
 	channelData: {
 		attachment:{

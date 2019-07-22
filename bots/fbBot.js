@@ -148,8 +148,6 @@ const onFacebookPostback = async function (turnContext, postback, sender) {
     } else {
         await turnContext.sendActivity('Facebook PostBack not defined...YET!');
     }}}}}}}}
-
-    return fbPSID
 }
 
 // Called when receiving a Facebook messaging_optin event. Facebook Developer Reference: Optin - https://developers.facebook.com/docs/messenger-platform/reference/webhook-events/messaging_optins/
