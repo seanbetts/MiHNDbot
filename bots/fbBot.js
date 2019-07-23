@@ -38,7 +38,8 @@ const onFacebookPostback = async function (turnContext, postback, sender) {
         await turnContext.sendActivity(welcomeCardFB);
     } else {
     if (postback.payload == "GET_HELP") {
-        await turnContext.sendActivity(fbCards.helpCardFB);
+        let helpCardFB = await fbCards.getHelpCardFB(fbPSID);
+        await turnContext.sendActivity(helpCardFB);
     } else {
     if (postback.payload == "WHAT_IS_MENTAL_HEALTH") {
         // qnaMaker.getAnswers doesn't accept string input, so we need to adjust our turnContext
@@ -131,7 +132,8 @@ const onFacebookPostback = async function (turnContext, postback, sender) {
 
         // If no answers were returned from QnA Maker, reply with help.
         } else {
-        await turnContext.sendActivity(fbCards.errorCardFB);
+        let errorCardFB = await fbCards.getErrorCardFB(fbPSID);
+        await turnContext.sendActivity(errorCardFB);
         }
 
     } else {
@@ -204,7 +206,8 @@ const onFacebookQuickReply = async function (turnContext, quickReply) {
             await turnContext.sendActivity(reply);
 
     } else {
-        await turnContext.sendActivity(fbCards.errorCardFB);
+        let errorCardFB = await fbCards.getErrorCardFB(fbPSID);
+        await turnContext.sendActivity(errorCardFB);
     }
 }
 

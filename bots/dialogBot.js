@@ -117,8 +117,8 @@ class DialogBot extends ActivityHandler {
 
                   // If no answers were returned from QnA Maker, reply with help.
                   } else {
-
-											await context.sendActivity(fbCards.errorCardFB);
+                    let errorCardFB = await fbCards.getErrorCardFB(fbPSID);
+                    await turnContext.sendActivity(errorCardFB);
                   }
 
                 } else {

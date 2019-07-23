@@ -5,9 +5,6 @@ const fbBot = require('../bots/fbBot.js');
 var dotenv = require('dotenv');
 dotenv.config();
 
-// Function to get PSID from Facebook
-
-
 // Function to fetch first name from Facebook
 var getFBName = async function (fbPSID) {
 	const fb_page_access_token = process.env.FACEBOOK_ACCESS_TOKEN;
@@ -40,6 +37,7 @@ var getFBName = async function (fbPSID) {
 	}
 }
 
+// Facebook Messenger rich media cards
 getWelcomeCardFB = async function(fbPSID) {
 	let userName = await getFBName(fbPSID);
 
@@ -79,41 +77,44 @@ getWelcomeCardFB = async function(fbPSID) {
 	return welcomeCardFB;
 }
 
-// Facebook Messenger rich media cards
+getHelpCardFB = async function(fbPSID) {
+	let userName = await getFBName(fbPSID);
 
+	var helpCardFB = {
+		channelData: {
+			attachment:{
+				type:"template",
+				payload: {
+					template_type:"generic",
+					sharable: true,
+					image_aspect_ratio: "square",
+					elements: [
+						{
+							title:"Everyone deserves help " + userName + ", we're here to help.",
+							image_url:"https://mihndbotblob.blob.core.windows.net/resources/MiHND-chat-logo-black-circle-inverted-rounded.jpg",
+							subtitle:"Being in a crisis can be very frightening, please get some help & support ASAP",
+							default_action: {
+								type: "web_url",
+								url: "https://www.mihnd.co.uk/crisis",
+								webview_height_ratio: "tall",
+							},
+							buttons: [
+								{
+									type:"postback",
+									title:"Text Shout",
+									payload:"TEXT_SHOUT"
+								},{
+									type:"postback",
+									title:"Call the NHS",
+									payload:"CALL_THE_NHS"
+								},{
+									type:"postback",
+									title:"Call The Samaritans",
+									payload:"CALL_THE_SAMARITANS"
+	}]}]}}}}
 
-var helpCardFB = {
-	channelData: {
-		attachment:{
-			type:"template",
-			payload: {
-				template_type:"generic",
-				sharable: true,
-				image_aspect_ratio: "square",
-				elements: [
-					{
-						title:"Everyone deserves help " + "<name>" + ", we're here to help.",
-						image_url:"https://mihndbotblob.blob.core.windows.net/resources/MiHND-chat-logo-black-circle-inverted-rounded.jpg",
-						subtitle:"Being in a crisis can be very frightening, please get some help & support ASAP",
-						default_action: {
-							type: "web_url",
-							url: "https://www.mihnd.co.uk/crisis",
-							webview_height_ratio: "tall",
-						},
-						buttons: [
-							{
-								type:"postback",
-								title:"Text Shout",
-								payload:"TEXT_SHOUT"
-							},{
-								type:"postback",
-								title:"Call the NHS",
-								payload:"CALL_THE_NHS"
-							},{
-								type:"postback",
-								title:"Call The Samaritans",
-								payload:"CALL_THE_SAMARITANS"
-}]}]}}}}
+	return helpCardFB;
+}
 
 var shoutCardFB = {
 	channelData: {
@@ -202,6 +203,9 @@ var samaritansCardFB = {
 					payload:"116123"
 	}]}]}}}}
 
+getErrorCardFB = async function(fbPSID) {
+	let userName = await getFBName(fbPSID);
+
 	var errorCardFB = {
 	channelData: {
 		attachment:{
@@ -212,7 +216,7 @@ var samaritansCardFB = {
 			image_aspect_ratio: "square",
 			elements: [
 			{
-				title:"I'm sorry " + "<name>"+ "!",
+				title:"I'm sorry " + userName + "!",
 				image_url:"https://mihndbotblob.blob.core.windows.net/resources/MiHND-question-logo-black-circle-inverted-rounded.jpg",
 				subtitle:"I don\'t know the answer to that question. Please check out our other content -->",
 				default_action: {
@@ -357,11 +361,14 @@ var samaritansCardFB = {
 		]
 	}}}}
 
+	return errorCardFB;
+}
+
 module.exports = {
 	getWelcomeCardFB:getWelcomeCardFB,
-	helpCardFB:helpCardFB,
+	getHelpCardFB:getHelpCardFB,
 	shoutCardFB:shoutCardFB,
 	nhsCardFB:nhsCardFB,
 	samaritansCardFB:samaritansCardFB,
-	errorCardFB:errorCardFB
+	getErrorCardFB:getErrorCardFB
 };
