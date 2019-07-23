@@ -92,7 +92,7 @@ var helpCardFB = {
 				image_aspect_ratio: "square",
 				elements: [
 					{
-						title:"Everyone deserves help " + userName + ", we're here to help.",
+						title:"Everyone deserves help " + "<name>" + ", we're here to help.",
 						image_url:"https://mihndbotblob.blob.core.windows.net/resources/MiHND-chat-logo-black-circle-inverted-rounded.jpg",
 						subtitle:"Being in a crisis can be very frightening, please get some help & support ASAP",
 						default_action: {
@@ -212,7 +212,7 @@ var samaritansCardFB = {
 			image_aspect_ratio: "square",
 			elements: [
 			{
-				title:"I'm sorry " + userName + "!",
+				title:"I'm sorry " + "<name>"+ "!",
 				image_url:"https://mihndbotblob.blob.core.windows.net/resources/MiHND-question-logo-black-circle-inverted-rounded.jpg",
 				subtitle:"I don\'t know the answer to that question. Please check out our other content -->",
 				default_action: {
