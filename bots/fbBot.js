@@ -25,11 +25,19 @@ const processFacebookPayload = async function (turnContext, data) {
     return false;
 }
 
+const fbPSID = async function (data) {
+    const facebookPayload = data;
+    if (facebookPayload.postback) {
+        let fbSender=facebookPayload.sender;
+        var fbPSID = fbSender.id;
+    }
+   return fbPSID;
+}
 
 // Called when receiving a Facebook messaging_postback event. Facebook Developer Reference: Postback - https://developers.facebook.com/docs/messenger-platform/reference/webhook-events/messaging_postbacks/
 const onFacebookPostback = async function (turnContext, postback, sender) {
     console.log('Facebook Postback message received.');
-    var fbPSID = sender.id;
+    var fbPSID = fbPSID(); //sender.id;
     console.log('User PSID is ' + fbPSID);
 
     // PostBack handling logic
