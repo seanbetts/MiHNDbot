@@ -9,9 +9,9 @@ dotenv.config();
 
 
 // Function to fetch first name from Facebook
-var getFBName = async function () {
+var getFBName = async function (fbPSID) {
 	const fb_page_access_token = process.env.FACEBOOK_ACCESS_TOKEN;
-	const fbID = 2826538590752448;
+	const fbID = fbPSID; // 2826538590752448;
 
 	try {
 		var response = await fetch ('https://graph.facebook.com/v3.3/' + fbID + '?fields=first_name&access_token=' + fb_page_access_token);
@@ -40,8 +40,8 @@ var getFBName = async function () {
 	}
 }
 
-getWelcomeCardFB = async function() {
-	let userName = await getFBName();
+getWelcomeCardFB = async function(fbPSID) {
+	let userName = await getFBName(fbPSID);
 
 	var welcomeCardFB = {
 		channelData: {
