@@ -40,7 +40,13 @@ var getFBName = async function () {
 	}
 }
 
-var userName = getFBName();
+var userName = (async function() {
+	let userName = await getFBName();
+	return userName;
+}())
+
+
+// getFBName().then((res) => {console.log(res)});
 
 // Facebook Messenger rich media cards
 var welcomeCardFB = {
