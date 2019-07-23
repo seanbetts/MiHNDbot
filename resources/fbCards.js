@@ -16,14 +16,14 @@ var getFBName = async function () {
 	try {
 		var response = await fetch ('https://graph.facebook.com/v3.3/' + fbID + '?fields=first_name&access_token=' + fb_page_access_token);
 		if (response.ok) {
-			var user = response.json();
+			var user = await response.json();
 			console.log(user); //Success as JSON object
-			var fbJSONName = JSON.stringify(user.first_name);
+			var fbJSONName = await JSON.stringify(user.first_name);
 			console.log(fbJSONName); //Success as "Sean"
 			if (fbJSONName !== null || jbJSONName !== undefined) {
-				var fbJSONNameTrim = fbJSONName.slice(1,-1);
+				var fbJSONNameTrim = await fbJSONName.slice(1,-1);
 				console.log(fbJSONNameTrim); //Success as Sean
-				var fbName = fbJSONNameTrim;
+				var fbName = await fbJSONNameTrim;
 				console.log(fbName); //Success as Sean
 			} else {
 				throw new Error('Facebook first_name not available.');
@@ -40,8 +40,8 @@ var getFBName = async function () {
 	}
 }
 
-var userName = (async function() {
-	let userName = await getFBName();
+var userName = (function() {
+	let userName = getFBName();
 	return userName;
 }())
 
