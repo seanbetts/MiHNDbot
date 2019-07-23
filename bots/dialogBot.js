@@ -78,8 +78,13 @@ class DialogBot extends ActivityHandler {
 
             // Show choices if the Facebook Payload from ChannelData is not handled
             if (!await fbBot.processFacebookPayload(context, context.activity.channelData)) {
-								// detect if Facebook Messenger is the channel being used
+                // detect if Facebook Messenger is the channel being used
+                const facebookPayload = context.activity.channelData;
+                let fbSender= facebookPayload.sender;
+                var fbPSID = fbSender;
+
                 if (context.activity.channelId == 'facebook') {
+                  
                   if (qnaResults[0]) {
                     const { answer, context: { prompts }} = qnaResults[0];
 

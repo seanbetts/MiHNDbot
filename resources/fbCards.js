@@ -90,7 +90,7 @@ getHelpCardFB = async function(fbPSID) {
 					image_aspect_ratio: "square",
 					elements: [
 						{
-							title:"Everyone deserves help " + userName + ", we're here to point you in the right direction.",
+							title:"Everyone deserves help " + userName + ", we're here to get you the right support.",
 							image_url:"https://mihndbotblob.blob.core.windows.net/resources/MiHND-chat-logo-black-circle-inverted-rounded.jpg",
 							subtitle:"Being in a crisis can be very frightening, please get some help & support ASAP",
 							default_action: {
