@@ -169,8 +169,6 @@ class DialogBot extends ActivityHandler {
 
             // Analyze Facebook payload from EventActivity.Value
             await fbBot.processFacebookPayload(turnContext, turnContext.activity.value);
-            
-          }
 
         });
 
