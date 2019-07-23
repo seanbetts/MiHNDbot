@@ -25,7 +25,7 @@ const processFacebookPayload = async function (turnContext, data) {
     return false;
 }
 
-const fbPSID = async function (data) {
+const fbPSID = function (data) {
     const facebookPayload = data;
     if (facebookPayload.postback) {
         let fbSender=facebookPayload.sender;
