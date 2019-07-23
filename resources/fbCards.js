@@ -40,47 +40,47 @@ var getFBName = async function () {
 	}
 }
 
-// var userName = (async function() {
-// 	let userName = await getFBName();
-// 	return userName;
-// }())
+getWelcomeCardFB = async function() {
+	let userName = await getFBName();
 
+	var welcomeCardFB = {
+		channelData: {
+			attachment:{
+				type:"template",
+				payload: {
+					template_type:"generic",
+					sharable: true,
+					image_aspect_ratio: "square",
+					elements: [
+						{
+							title:"Hello " + userName + "!",
+							image_url:"https://mihndbotblob.blob.core.windows.net/resources/MiHNDbot-logo.jpg",
+							subtitle:"I\'m designed to help people learn about Mental Health and NeuroDiversity",
+							default_action: {
+								type: "web_url",
+								url: "https://www.mihnd.co.uk",
+								webview_height_ratio: "tall",
+							},
+							buttons: [
+								{
+									type:"postback",
+									title:"Mental Health",
+									payload:"WHAT_IS_MENTAL_HEALTH"
+								},{
+									type:"postback",
+									title:"NeuroDiversity",
+									payload:"WHAT_IS_NEURODIVERSITY"
+								},{
+									type:"postback",
+									title:"Get Help",
+									payload:"GET_HELP"
+	}]}]}}}}
 
-getFBName().then((userName) => {
+	return welcomeCardFB;
+}
 
 // Facebook Messenger rich media cards
-var welcomeCardFB = {
-	channelData: {
-		attachment:{
-			type:"template",
-			payload: {
-				template_type:"generic",
-				sharable: true,
-				image_aspect_ratio: "square",
-				elements: [
-					{
-						title:"Hello " + userName + "!",
-						image_url:"https://mihndbotblob.blob.core.windows.net/resources/MiHNDbot-logo.jpg",
-						subtitle:"I\'m designed to help people learn about Mental Health and NeuroDiversity",
-						default_action: {
-							type: "web_url",
-							url: "https://www.mihnd.co.uk",
-							webview_height_ratio: "tall",
-						},
-						buttons: [
-							{
-								type:"postback",
-								title:"Mental Health",
-								payload:"WHAT_IS_MENTAL_HEALTH"
-							},{
-								type:"postback",
-								title:"NeuroDiversity",
-								payload:"WHAT_IS_NEURODIVERSITY"
-							},{
-								type:"postback",
-								title:"Get Help",
-								payload:"GET_HELP"
-}]}]}}}}
+
 
 var helpCardFB = {
 	channelData: {
@@ -356,11 +356,9 @@ var samaritansCardFB = {
 			}]}
 		]
 	}}}}
-});
 
 module.exports = {
-	getFBName:getFBName,
-	welcomeCardFB:welcomeCardFB,
+	getWelcomeCardFB:getWelcomeCardFB,
 	helpCardFB:helpCardFB,
 	shoutCardFB:shoutCardFB,
 	nhsCardFB:nhsCardFB,

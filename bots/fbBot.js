@@ -34,7 +34,8 @@ const onFacebookPostback = async function (turnContext, postback, sender) {
 
     // PostBack handling logic
     if (postback.payload == "GET_STARTED") {
-        await turnContext.sendActivity(fbCards.welcomeCardFB);
+        let welcomeCardFB = await fbCards.getWelcomeCardFB();
+        await turnContext.sendActivity(welcomeCardFB);
     } else {
     if (postback.payload == "GET_HELP") {
         await turnContext.sendActivity(fbCards.helpCardFB);
