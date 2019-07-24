@@ -3,3 +3,4 @@ lib
 .DS_Store
 ngrok
 .env
+.jshintrc

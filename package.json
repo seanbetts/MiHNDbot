@@ -29,6 +29,7 @@
         "botbuilder-teams": "^1.0.0",
         "botdispatch": "^1.4.7",
         "dotenv": "^7.0.0",
+        "jshint": "^2.10.2",
         "node-fetch": "^2.6.0",
         "querystringify": "^2.1.1",
         "replace": "~1.1.0",
