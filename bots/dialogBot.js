@@ -1,6 +1,7 @@
 const { ActivityHandler } = require('botbuilder');
 const { CardFactory } = require('botbuilder-core');
 const { CosmosDbStorage } = require('botbuilder-azure');
+const { BlobStorage } = require('botbuilder-azure');
 const { QnAMaker } = require('botbuilder-ai');
 
 const WelcomeCard = require('../resources/welcomeCard.json');
@@ -12,15 +13,18 @@ const fbBot = require('../bots/fbBot.js');
 var dotenv = require('dotenv');
 dotenv.config();
 
-// Add memory storage.
-// var storage = new MemoryStorage();
-
-// Create access to CosmosDb Storage - this replaces local Memory Storage.
-var storage = new CosmosDbStorage({
+// Create access to CosmosDb Storage
+var storageDB = new CosmosDbStorage({
     serviceEndpoint: process.env.DB_SERVICE_ENDPOINT,
     authKey: process.env.AUTH_KEY,
     databaseId: process.env.DATABASE,
     collectionId: process.env.COLLECTION
+});
+
+// Create access to Blob Storage
+var storageBlob = new BlobStorage({
+    containerName: process.env.BLOB_NAME,
+    storageAccountOrConnectionString: process.env.BLOB_STRING
 });
 
 var sendTyping = async function(context) {
@@ -76,6 +80,7 @@ class DialogBot extends ActivityHandler {
         this.onMessage(async (context, next) => {
             await sendTyping(context);
             this.logger.log('Processing a Message Activity');
+            await logMessageText(storageBlob, context);
 
             const qnaResults = await this.qnaMaker.getAnswers(context);
 
@@ -176,6 +181,47 @@ class DialogBot extends ActivityHandler {
             await this.userState.saveChanges(context, false);
             await next();
         });
+    }
+}
+
+// This function stores new user messages. Creates new messageLog if none exists.
+async function logMessageText(storageBlob, turnContext) {
+    let message = turnContext.activity.text;
+    // debugger;
+    try {
+        // Read from the storage.
+        let storeItems = await storageBlob.read(['messageLog']);
+        // Check the result.
+        var messageLog = storeItems['messageLog'];
+        if (typeof (messageLog) !== 'undefined') {
+            // The log exists so we can write to it.
+            storeItems['messageLog'].turnNumber++;
+            storeItems['messageLog'].messageList.push(message);
+            // Gather info for user message.
+            var storedString = storeItems.messageLog.messageList.toString();
+            var numStored = storeItems.messageLog.turnNumber;
+
+            try {
+                await storageBlob.write(storeItems);
+            } catch (err) {
+                console.log(`Write failed of messageLog: ${ err }`);
+            }
+        } else {
+            var turnNumber = 1;
+            channelID = turnContext.activity.channelId;
+            storeItems['messageLog'] = { 'channelID': channelID, messageList: [`${ message }`], 'eTag': '*', turnNumber };
+            // Gather info for user message.
+            var storedString = storeItems.messageLog.messageList.toString();
+            var numStored = storeItems.messageLog.turnNumber;
+
+            try {
+                await storageBlob.write(storeItems);
+            } catch (err) {
+                console.log(`Write failed: ${ err }`);
+            }
+        }
+    } catch (err) {
+        console.log(`Read rejected. ${ err }`);
     }
 }
 

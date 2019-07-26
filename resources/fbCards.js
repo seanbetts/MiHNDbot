@@ -25,7 +25,7 @@ var getFBName = async function(fbPSID) {
         }
     } catch (error) {
         console.log('ERROR - There has been a problem with your Facebook fetch operation: ' + error.message);
-        let fbName = 'Emotional Being';
+        var fbName = 'Emotional Being';
         return fbName;
     } finally {
         return fbName;
