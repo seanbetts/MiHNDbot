@@ -235,7 +235,7 @@ var getErrorCardFB = async function(fbPSID) {
                                 }] },
 
                         {
-                            title: 'Blog',
+                            title: '✏️ Blog',
                             image_url: 'https://mihndbotblob.blob.core.windows.net/resources/MiHND-blog-logo.jpg',
                             subtitle: 'Here are our most popular blog posts about Mental Health and NeuroDiversity:',
                             default_action: {
@@ -259,7 +259,7 @@ var getErrorCardFB = async function(fbPSID) {
                                 }] },
 
                         {
-                            title: 'Books',
+                            title: '📖 Books',
                             image_url: 'https://mihndbotblob.blob.core.windows.net/resources/MiHND-book-logo.jpg',
                             subtitle: 'Here are our favourite books about Mental Health and NeuroDiversity:',
                             default_action: {
@@ -283,7 +283,7 @@ var getErrorCardFB = async function(fbPSID) {
                                 }] },
 
                         {
-                            title: 'Podcasts',
+                            title: '🎧 Podcasts',
                             image_url: 'https://mihndbotblob.blob.core.windows.net/resources/MiHND-podcast-logo.jpg',
                             subtitle: 'Lots of fantastic Podcasts exploring Mental Health and NeuroDiversity below:',
                             default_action: {
@@ -307,7 +307,7 @@ var getErrorCardFB = async function(fbPSID) {
                                 }] },
 
                         {
-                            title: 'Videos',
+                            title: '📼 Videos',
                             image_url: 'https://mihndbotblob.blob.core.windows.net/resources/MiHND-video-logo.jpg',
                             subtitle: "Inspiring videos we've seen about Mental Health and NeuroDiversity:",
                             default_action: {
@@ -331,7 +331,7 @@ var getErrorCardFB = async function(fbPSID) {
                                 }] },
 
                         {
-                            title: 'Apps',
+                            title: '📱 Apps',
                             image_url: 'https://mihndbotblob.blob.core.windows.net/resources/MiHND-app-logo.jpg',
                             subtitle: "Great apps we've found that help with Mental Health and NeuroDiversity:",
                             default_action: {
