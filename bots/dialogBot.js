@@ -25,6 +25,13 @@ var storage = new CosmosDbStorage({
     collectionId: process.env.COLLECTION
 });
 
+var sendTyping = async function(context) {
+    await context.sendActivities([
+        { type: 'typing' },
+        { type: 'delay', value: 2000 }
+    ]);
+};
+
 class DialogBot extends ActivityHandler {
     constructor(conversationState, userState, dialog, logger) {
         super();
@@ -54,6 +61,7 @@ class DialogBot extends ActivityHandler {
 
         // If a new user is added to the conversation, send them a greeting message
         this.onMembersAdded(async (context, next) => {
+            await sendTyping(context);
             const membersAdded = context.activity.membersAdded;
             for (let cnt = 0; cnt < membersAdded.length; cnt++) {
                 if (membersAdded[cnt].id !== context.activity.recipient.id) {
@@ -68,6 +76,7 @@ class DialogBot extends ActivityHandler {
 
         // When a user sends a message, perform a call to the QnA Maker service to retrieve matching Question and Answer pairs.
         this.onMessage(async (context, next) => {
+            await sendTyping(context);
             this.logger.log('Processing a Message Activity');
 
             const qnaResults = await this.qnaMaker.getAnswers(context);
@@ -118,7 +127,6 @@ class DialogBot extends ActivityHandler {
                         await context.sendActivity(errorCardFB);
                     }
                 } else {
-                    // default to WebChat channel
                 // If an answer was received from QnA Maker, send the answer back to the user.
                     if (qnaResults[0]) {
                         const { answer, context: { prompts } } = qnaResults[0];
