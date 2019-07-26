@@ -3,9 +3,7 @@ const { CardFactory } = require('botbuilder-core');
 const { CosmosDbStorage } = require('botbuilder-azure');
 const { QnAMaker } = require('botbuilder-ai');
 
-// const restify = require('restify');
 const WelcomeCard = require('../resources/welcomeCard.json');
-// const quickRepliesOption = 'Quick Replies';
 const fbCards = require('../resources/fbCards.js');
 const fbBot = require('../bots/fbBot.js');
 // const teamsWelcomeCard = require('../resources/teamsWelcomeCard.json');

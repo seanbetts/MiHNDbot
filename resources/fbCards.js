@@ -1,5 +1,4 @@
 const fetch = require('node-fetch');
-// const fbBot = require('../bots/fbBot.js');
 
 // initialized to access values in .env file.
 var dotenv = require('dotenv');
@@ -27,6 +26,7 @@ var getFBName = async function(fbPSID) {
     } catch (error) {
         console.log('ERROR - There has been a problem with your Facebook fetch operation: ' + error.message);
         let fbName = 'Emotional Being';
+        return fbName;
     } finally {
         return fbName;
     }
