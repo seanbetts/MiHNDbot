@@ -1,0 +1,31 @@
+{
+    "contentType": "application/vnd.microsoft.card.hero",
+    "content": {
+        "title": "Welcome <name>!",
+        "subtitle": "I'm designed to help people learn about Mental Health and NeuroDiversity",
+        "text": "",
+        "images": [
+            {
+                "alt": "",
+                "url": "https://mihndbotblob.blob.core.windows.net/resources/MiHNDbot-logo.jpg"
+            }
+        ],
+        "buttons": [
+            {
+                "type": "messageBack",
+                "title": "Mental Health",
+                "value": "Mental Health"
+            },
+            {
+                "type": "messageBack",
+                "title": "NeuroDiversity",
+                "value": "NEURODIVERSITY"
+            },
+            {
+                "type": "messageBack",
+                "title": "Get Help",
+                "value": "GET_HELP"
+            }
+        ]
+    }
+}

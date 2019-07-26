@@ -1,0 +1,41 @@
+{
+    "$schema": "https://developer.microsoft.com/en-us/json-schemas/teams/v1.5/MicrosoftTeams.schema.json",
+    "manifestVersion": "1.5",
+    "version": "1",
+    "id": "61f26bce-58ff-4e26-8f71-8d2f61afcac2",
+    "packageName": "com.microsoft.teams.mihndbot",
+    "developer": {
+        "name": "MiHND Ltd",
+        "websiteUrl": "https://www.mihnd.co.uk",
+        "privacyUrl": "https://www.mihnd.co.uk/privacy-policy",
+        "termsOfUseUrl": "https://www.mihnd.co.uk/terms-of-service"
+    },
+    "icons": {
+        "color": "color.png",
+        "outline": "outline.png"
+    },
+    "name": {
+        "short": "MiHNDbot",
+        "full": "MiHNDbot to help people learn about Mental Health and NeuroDiversity"
+    },
+    "description": {
+        "short": "MiHNDbot helps people learn about Mental Health and NeuroDiversity",
+        "full": "MiHNDbot helps people learn about Mental Health and NeuroDiversity"
+    },
+    "accentColor": "#000000",
+    "bots": [
+        {
+            "botId": "d0136dc4-b343-4b08-a222-715a48244d7e",
+            "scopes": [
+                "team"
+            ],
+            "supportsFiles": false,
+            "isNotificationOnly": false
+        }
+    ],
+    "permissions": [
+        "identity",
+        "messageTeamMembers"
+    ],
+    "validDomains": []
+}
