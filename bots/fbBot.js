@@ -1,4 +1,11 @@
+const { QnAMaker } = require('botbuilder-ai');
 const fbCards = require('../resources/fbCards.js');
+
+var qnaMaker = new QnAMaker({
+    knowledgeBaseId: process.env.QnAKnowledgebaseId,
+    endpointKey: process.env.QnAAuthKey,
+    host: process.env.QnAEndpointHostName
+});
 
 // Customisation code for Facebook Messenger
 
@@ -17,7 +24,7 @@ const processFacebookPayload = async function(turnContext, data) {
             return true;
         } else if (facebookPayload.message && facebookPayload.message.quick_reply) {
             // Quick Reply
-            await this.onFacebookQuickReply(turnContext, facebookPayload.message.quick_reply);
+            await this.onFacebookQuickReply(turnContext, facebookPayload.message.quick_reply, facebookPayload.sender);
             return true;
         }
     }
@@ -28,7 +35,6 @@ const processFacebookPayload = async function(turnContext, data) {
 const onFacebookPostback = async function(turnContext, postback, sender) {
     console.log('Facebook Postback message received.');
     var fbPSID = sender.id;
-    console.log('User PSID is ' + fbPSID);
 
     // PostBack handling logic
     if (postback.payload === 'GET_STARTED') {
@@ -45,7 +51,7 @@ const onFacebookPostback = async function(turnContext, postback, sender) {
                 turnContext.activity.text = postback.payload;
 
                 // call the QnA
-                const qnaResults = await this.qnaMaker.getAnswers(turnContext);
+                const qnaResults = await qnaMaker.getAnswers(turnContext);
 
                 // If an answer was received from QnA Maker, send the answer back to the user.
                 if (qnaResults[0]) {
@@ -91,7 +97,7 @@ const onFacebookPostback = async function(turnContext, postback, sender) {
                     turnContext.activity.text = postback.payload;
 
                     // call the QnA
-                    const qnaResults = await this.qnaMaker.getAnswers(turnContext);
+                    const qnaResults = await qnaMaker.getAnswers(turnContext);
 
                     // If an answer was received from QnA Maker, send the answer back to the user.
                     if (qnaResults[0]) {
@@ -162,16 +168,16 @@ const onFacebookOptin = async function(turnContext, optin) {
 };
 
 // Called when receiving a Facebook quick reply. Facebook Developer Reference: Quick reply - https://developers.facebook.com/docs/messenger-platform/send-messages/quick-replies/
-const onFacebookQuickReply = async function(turnContext, quickReply) {
+const onFacebookQuickReply = async function(turnContext, quickReply, sender) {
     console.log('Facebook QuickReply message received.');
+    var fbPSID = sender.id;
 
     // qnaMaker.getAnswers doesn't accept string input, so we need to adjust our turnContext
     // to match what it expects, which is a string in Activity.Text
     turnContext.activity.text = quickReply.payload;
-    console.log('Set activity.text to ' + quickReply.payload);
 
     // call the QnA
-    const qnaResults = await this.qnaMaker.getAnswers(turnContext);
+    const qnaResults = await qnaMaker.getAnswers(turnContext);
 
     // If an answer was received from QnA Maker, send the answer back to the user.
     if (qnaResults[0]) {

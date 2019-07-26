@@ -1,5 +1,5 @@
 const fetch = require('node-fetch');
-const fbBot = require('../bots/fbBot.js');
+// const fbBot = require('../bots/fbBot.js');
 
 // initialized to access values in .env file.
 var dotenv = require('dotenv');
@@ -14,14 +14,10 @@ var getFBName = async function(fbPSID) {
         var response = await fetch('https://graph.facebook.com/v3.3/' + fbID + '?fields=first_name&access_token=' + fbPageAccessToken);
         if (response.ok) {
             var user = await response.json();
-            console.log(user); // Success as JSON object
             var fbJSONName = await JSON.stringify(user.first_name);
-            console.log(fbJSONName); // Success as "Sean"
-            if (fbJSONName !== null || jbJSONName !== undefined) {
+            if (fbJSONName !== null || fbJSONName !== undefined) {
                 var fbJSONNameTrim = await fbJSONName.slice(1, -1);
-                console.log(fbJSONNameTrim); // Success as Sean
                 var fbName = await fbJSONNameTrim;
-                console.log(fbName); // Success as Sean
             } else {
                 throw new Error('Facebook first_name not available.');
             }
@@ -30,15 +26,14 @@ var getFBName = async function(fbPSID) {
         }
     } catch (error) {
         console.log('ERROR - There has been a problem with your Facebook fetch operation: ' + error.message);
-        var fbName = 'Emotional Being';
-        console.log(fbName); // Success as Emotional Being
+        let fbName = 'Emotional Being';
     } finally {
         return fbName;
     }
 };
 
 // Facebook Messenger rich media cards
-getWelcomeCardFB = async function(fbPSID) {
+var getWelcomeCardFB = async function(fbPSID) {
     let userName = await getFBName(fbPSID);
 
     var welcomeCardFB = {
@@ -51,7 +46,7 @@ getWelcomeCardFB = async function(fbPSID) {
                     image_aspect_ratio: 'square',
                     elements: [
                         {
-                            title: '👋 Hello ' + userName + '! 👋',
+                            title: '👋 Hello ' + userName + '!',
                             image_url: 'https://mihndbotblob.blob.core.windows.net/resources/MiHNDbot-logo.jpg',
                             subtitle: "I'm designed to help people learn about Mental Health and NeuroDiversity",
                             default_action: {
@@ -77,7 +72,7 @@ getWelcomeCardFB = async function(fbPSID) {
     return welcomeCardFB;
 };
 
-getHelpCardFB = async function(fbPSID) {
+var getHelpCardFB = async function(fbPSID) {
     let userName = await getFBName(fbPSID);
 
     var helpCardFB = {
@@ -90,9 +85,9 @@ getHelpCardFB = async function(fbPSID) {
                     image_aspect_ratio: 'square',
                     elements: [
                         {
-                            title: 'Everyone deserves help ' + userName + ", we're here to get you the right support.",
+                            title: '🆘 Everyone deserves help ' + userName + ", we're here to get you the right support.",
                             image_url: 'https://mihndbotblob.blob.core.windows.net/resources/MiHND-chat-logo-black-circle-inverted-rounded.jpg',
-                            subtitle: '🆘 Being in a crisis can be very frightening, please get some help & support ASAP 🆘',
+                            subtitle: 'Being in a crisis can be very frightening, please get some help & support ASAP',
                             default_action: {
                                 type: 'web_url',
                                 url: 'https://www.mihnd.co.uk/crisis',
@@ -203,7 +198,7 @@ var samaritansCardFB = {
                                 payload: '116123'
                             }] }] } } } };
 
-getErrorCardFB = async function(fbPSID) {
+var getErrorCardFB = async function(fbPSID) {
     let userName = await getFBName(fbPSID);
 
     var errorCardFB = {
@@ -216,7 +211,7 @@ getErrorCardFB = async function(fbPSID) {
                     image_aspect_ratio: 'square',
                     elements: [
                         {
-                            title: "🤯 I'm sorry " + userName + '! 🤯',
+                            title: "🤯 I'm sorry " + userName + '!',
                             image_url: 'https://mihndbotblob.blob.core.windows.net/resources/MiHND-question-logo-black-circle-inverted-rounded.jpg',
                             subtitle: "I don't know the answer to that question. Please check out our other content -->",
                             default_action: {

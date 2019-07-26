@@ -1,15 +1,14 @@
-const { ActivityHandler, MemoryStorage } = require('botbuilder');
+const { ActivityHandler } = require('botbuilder');
 const { CardFactory } = require('botbuilder-core');
 const { CosmosDbStorage } = require('botbuilder-azure');
 const { QnAMaker } = require('botbuilder-ai');
-const { fbFetch } = require('../bots/fbBot.js');
 
-const restify = require('restify');
+// const restify = require('restify');
 const WelcomeCard = require('../resources/welcomeCard.json');
-const quickRepliesOption = 'Quick Replies';
+// const quickRepliesOption = 'Quick Replies';
 const fbCards = require('../resources/fbCards.js');
 const fbBot = require('../bots/fbBot.js');
-const teamsWelcomeCard = require('../resources/teamsWelcomeCard.json');
+// const teamsWelcomeCard = require('../resources/teamsWelcomeCard.json');
 
 // initialized to access values in .env file.
 var dotenv = require('dotenv');
@@ -76,11 +75,10 @@ class DialogBot extends ActivityHandler {
             // Show choices if the Facebook Payload from ChannelData is not handled
             if (!await fbBot.processFacebookPayload(context, context.activity.channelData)) {
                 // detect if Facebook Messenger is the channel being used
-                const facebookPayload = context.activity.channelData;
-                let fbSender = facebookPayload.sender;
-                var fbPSID = fbSender;
-
                 if (context.activity.channelId === 'facebook') {
+                    let facebookPayload = context.activity.channelData;
+                    let fbSender = facebookPayload.sender;
+                    var fbPSID = fbSender.id;
                     if (qnaResults[0]) {
                         const { answer, context: { prompts } } = qnaResults[0];
 
@@ -117,7 +115,7 @@ class DialogBot extends ActivityHandler {
                         // If no answers were returned from QnA Maker, reply with help.
                     } else {
                         let errorCardFB = await fbCards.getErrorCardFB(fbPSID);
-                        await turnContext.sendActivity(errorCardFB);
+                        await context.sendActivity(errorCardFB);
                     }
                 } else {
                     // default to WebChat channel
