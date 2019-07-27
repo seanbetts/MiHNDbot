@@ -27,6 +27,7 @@
         "botbuilder-dialogs": "~4.4.0",
         "botbuilder-teams": "^1.0.0",
         "botdispatch": "^1.4.7",
+        "botframework-config": "^4.5.3",
         "dotenv": "^7.0.0",
         "jshint": "^2.10.2",
         "node-fetch": "^2.6.0",

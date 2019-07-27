@@ -1,4 +1,16 @@
-// index.js is used to setup and configure your bot
+// Import required pckages
+const path = require('path');
+const restify = require('restify');
+
+// Import required bot services.
+const { BotFrameworkAdapter, MemoryStorage, ConversationState, UserState } = require('botbuilder');
+const { BotConfiguration } = require('botframework-config');
+
+// Import middleware for transcript logging
+const { TranscriptLoggerMiddleware } = require('botbuilder-core');
+
+// Import storage for transcript
+const { AzureBlobTranscriptStore } = require('botbuilder-azure');
 
 // Enable Application Insights
 const appInsights = require('applicationinsights');
@@ -6,26 +18,41 @@ appInsights.setup('REMOVED_SECRET')
     .setUseDiskRetryCaching(true)
     .start();
 
-// Import required pckages
-const path = require('path');
-const restify = require('restify');
-
-// Import required bot services. See https://aka.ms/bot-services to learn more about the different parts of a bot.
-const { BotFrameworkAdapter, MemoryStorage, ConversationState, UserState } = require('botbuilder');
-
 // This bot's main dialog.
 const { DialogBot } = require('./bots/dialogBot');
 // const { UserProfileDialog } = require('./dialogs/userProfileDialog');
 
-// Note: Ensure you have a .env file and include LuisAppId, LuisAPIKey and LuisAPIHostName.
+// Read botFilePath and botFileSecret from .env file
 const ENV_FILE = path.join(__dirname, '.env');
 require('dotenv').config({ path: ENV_FILE });
 
-// Create adapter.
-// See https://aka.ms/about-bot-adapter to learn more about adapters.
+// Get the .bot file path
+const BOT_FILE = path.join(__dirname, (process.env.botFilePath || ''));
+let botConfig;
+try {
+    // Read bot configuration from .bot file.
+    botConfig = BotConfiguration.loadSync(BOT_FILE, process.env.botFileSecret);
+} catch (err) {
+    console.error(`\nError reading bot file. Please ensure you have valid botFilePath and botFileSecret set for your environment.`);
+    process.exit();
+}
+
+// For local development configuration as defined in .bot file
+const DEV_ENVIRONMENT = 'development';
+
+// Name of Blob Type service within the .bot file
+const BLOB_CONFIGURATION = 'BlobStorage';
+
+// Define name of the endpoint configuration section from the .bot file
+const BOT_CONFIGURATION = (process.env.NODE_ENV || DEV_ENVIRONMENT);
+
+// Get bot endpoint configuration by service name - Bot configuration as defined in .bot file
+const endpointConfig = botConfig.findServiceByNameOrId(BOT_CONFIGURATION);
+
+// Create bot adapter
 const adapter = new BotFrameworkAdapter({
-    appId: process.env.MicrosoftAppId,
-    appPassword: process.env.MicrosoftAppPassword
+    appId: endpointConfig.appId || process.env.microsoftAppId,
+    appPassword: endpointConfig.appPassword || process.env.microsoftAppPassword
 });
 
 // Catch-all for errors.
@@ -39,6 +66,19 @@ adapter.onTurnError = async (context, error) => {
     // Clear out state
     await conversationState.delete(context);
 };
+
+// Get blob service configuration as defined in .bot file
+const blobStorageConfig = botConfig.findServiceByNameOrId(BLOB_CONFIGURATION);
+
+// The transcript store has methods for saving and retrieving bot conversation transcripts.
+// let transcriptStore = new AzureBlobTranscriptStore({
+//     storageAccountOrConnectionString: blobStorageConfig.connectionString,
+//     containerName: blobStorageConfig.container
+// });
+
+// Create the middleware layer responsible for logging incoming and outgoing activities into the transcript store.
+// var transcriptMiddleware = new TranscriptLoggerMiddleware(transcriptStore);
+// adapter.use(transcriptMiddleware);
 
 // Define state store for your bot.
 // See https://aka.ms/about-bot-state to learn more about bot state.
@@ -68,7 +108,7 @@ const logger = console;
 
 // Create the main dialog.
 // const dialog = new UserProfileDialog(userState, logger);
-const bot = new DialogBot(conversationState, userState, logger); // dialog
+const bot = new DialogBot(conversationState, userState, logger);
 
 // Create HTTP server
 let server = restify.createServer();

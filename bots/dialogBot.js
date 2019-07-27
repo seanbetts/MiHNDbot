@@ -4,6 +4,9 @@ const { CosmosDbStorage } = require('botbuilder-azure');
 const { BlobStorage } = require('botbuilder-azure');
 const { QnAMaker } = require('botbuilder-ai');
 
+const CONVERSATION_DATA_PROPERTY = 'conversationData';
+const USER_PROFILE_PROPERTY = 'userProfile';
+
 const WelcomeCard = require('../resources/welcomeCard.json');
 const fbCards = require('../resources/fbCards.js');
 const fbBot = require('../bots/fbBot.js');
@@ -37,6 +40,15 @@ var sendTyping = async function(context) {
 class DialogBot extends ActivityHandler {
     constructor(conversationState, userState, dialog, logger) {
         super();
+
+        // Create the state property accessors for the conversation data and user profile.
+        // this.conversationData = conversationState.createProperty(CONVERSATION_DATA_PROPERTY);
+        // this.userProfile = userState.createProperty(USER_PROFILE_PROPERTY);
+
+        // The state management objects for the conversation and user state.
+        // this.conversationState = conversationState;
+        // this.userState = userState;
+
         if (!conversationState) throw new Error('[DialogBot]: Missing parameter. conversationState is required');
         if (!userState) throw new Error('[DialogBot]: Missing parameter. userState is required');
         if (!dialog) throw new Error('[DialogBot]: Missing parameter. dialog is required');
