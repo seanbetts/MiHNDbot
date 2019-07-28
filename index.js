@@ -71,14 +71,14 @@ adapter.onTurnError = async (context, error) => {
 const blobStorageConfig = botConfig.findServiceByNameOrId(BLOB_CONFIGURATION);
 
 // The transcript store has methods for saving and retrieving bot conversation transcripts.
-// let transcriptStore = new AzureBlobTranscriptStore({
-//     storageAccountOrConnectionString: blobStorageConfig.connectionString,
-//     containerName: blobStorageConfig.container
-// });
+let transcriptStore = new AzureBlobTranscriptStore({
+    storageAccountOrConnectionString: blobStorageConfig.connectionString,
+    containerName: blobStorageConfig.container
+});
 
 // Create the middleware layer responsible for logging incoming and outgoing activities into the transcript store.
-// var transcriptMiddleware = new TranscriptLoggerMiddleware(transcriptStore);
-// adapter.use(transcriptMiddleware);
+var transcriptMiddleware = new TranscriptLoggerMiddleware(transcriptStore);
+adapter.use(transcriptMiddleware);
 
 // Define state store for your bot.
 // See https://aka.ms/about-bot-state to learn more about bot state.
@@ -108,7 +108,7 @@ const logger = console;
 
 // Create the main dialog.
 // const dialog = new UserProfileDialog(userState, logger);
-const bot = new DialogBot(conversationState, userState, logger);
+const bot = new DialogBot(conversationState, userState, logger, transcriptStore);
 
 // Create HTTP server
 let server = restify.createServer();
