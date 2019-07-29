@@ -1,7 +1,5 @@
 const { ActivityHandler, ActivityTypes } = require('botbuilder');
 const { CardFactory } = require('botbuilder-core');
-const { CosmosDbStorage } = require('botbuilder-azure');
-const { BlobStorage } = require('botbuilder-azure');
 const { QnAMaker } = require('botbuilder-ai');
 
 const CONVERSATION_DATA_PROPERTY = 'conversationData';
@@ -15,20 +13,6 @@ const fbBot = require('../bots/fbBot.js');
 // initialized to access values in .env file.
 var dotenv = require('dotenv');
 dotenv.config();
-
-// Create access to CosmosDb Storage
-var storageDB = new CosmosDbStorage({
-    serviceEndpoint: process.env.DB_SERVICE_ENDPOINT,
-    authKey: process.env.AUTH_KEY,
-    databaseId: process.env.DATABASE,
-    collectionId: process.env.COLLECTION
-});
-
-// Create access to Blob Storage
-var storageBlob = new BlobStorage({
-    containerName: process.env.BLOB_NAME,
-    storageAccountOrConnectionString: process.env.BLOB_STRING
-});
 
 var sendTyping = async function(context) {
     await context.sendActivities([
@@ -92,61 +76,51 @@ class DialogBot extends ActivityHandler {
         });
 
         this.onTurn(async (turnContext, next) => {
-            // See https://aka.ms/about-bot-activity-message to learn more about the message and other activity types.
-            // if (turnContext.activity.type === ActivityTypes.Message) {
-                if (turnContext.activity.text === '!history') {
-                    // Retrieve the activities from the Transcript (blob store) and send them over to the channel when a request to upload history arrives. This could be an event or a special message activity as above.
-                    // Create the connector client to send transcript activities
-                    let connector = turnContext.adapter.createConnectorClient(turnContext.activity.serviceUrl);
+            if (turnContext.activity.text === '!history') {
+                // Retrieve the activities from the Transcript (blob store) and send them over to the channel when a request to upload history arrives. This could be an event or a special message activity as above.
+                // Create the connector client to send transcript activities
+                let connector = turnContext.adapter.createConnectorClient(turnContext.activity.serviceUrl);
 
-                    // Get all the message type activities from the Transcript.
-                    let continuationToken = '';
-                    var count = 0;
+                // Get all the message type activities from the Transcript.
+                let continuationToken = '';
+                var count = 0;
 
-                    // WebChat and Emulator require modifying the activity.Id to display the same activity again within the same chat window
-                    let updateActivities = [ 'webchat', 'emulator', 'directline' ].includes(turnContext.activity.channelId);
-                    let incrementId = 0;
-                    if (updateActivities && turnContext.activity.id.includes('|')) {
-                        incrementId = parseInt(turnContext.activity.id.split('|')[1]) || 0;
-                    } do {
-                        // Transcript activities are retrieved in pages.  When the continuationToken is null, there are no more activities to be retireved for this conversation.
-                        var pagedTranscript = await this.transcriptStore.getTranscriptActivities(turnContext.activity.channelId, turnContext.activity.conversation.id, continuationToken);
-                        let activities = pagedTranscript.items.filter(item => item.type === ActivityTypes.Message);
+                // WebChat and Emulator require modifying the activity.Id to display the same activity again within the same chat window
+                let updateActivities = [ 'webchat', 'emulator', 'directline' ].includes(turnContext.activity.channelId);
+                let incrementId = 0;
+                if (updateActivities && turnContext.activity.id.includes('|')) {
+                    incrementId = parseInt(turnContext.activity.id.split('|')[1]) || 0;
+                } do {
+                    // Transcript activities are retrieved in pages.  When the continuationToken is null, there are no more activities to be retireved for this conversation.
+                    var pagedTranscript = await this.transcriptStore.getTranscriptActivities(turnContext.activity.channelId, turnContext.activity.conversation.id, continuationToken);
+                    let activities = pagedTranscript.items.filter(item => item.type === ActivityTypes.Message);
 
-                        if (updateActivities) {
-                            activities.forEach(function(a) {
-                                incrementId++;
-                                a.id = `${ turnContext.activity.conversation.id }|${ incrementId.toString().padStart(7, '0') }`;
-                                a.timestamp = new Date().toISOString();
-                                a.channelData = []; // WebChat uses ChannelData for id comparisons, so we clear it here
-                                a.replyToId = '';
-                            });
-                        }
-
-                        // DirectLine only allows the upload of at most 500 activities at a time. The limit of 1500 below is arbitrary and up to the Bot author to decide.
-                        count += activities.length;
-                        if (activities.length > 500 || count > 1500) {
-                            console.log('Attempt to upload too many activities'); // throw new InvalidOperationException
-                        }
-
-                        await connector.conversations.sendConversationHistory(turnContext.activity.conversation.id, { activities });
-                        continuationToken = pagedTranscript.continuationToken;
+                    if (updateActivities) {
+                        activities.forEach(function(a) {
+                            incrementId++;
+                            a.id = `${ turnContext.activity.conversation.id }|${ incrementId.toString().padStart(7, '0') }`;
+                            a.timestamp = new Date().toISOString();
+                            a.channelData = []; // WebChat uses ChannelData for id comparisons, so we clear it here
+                            a.replyToId = '';
+                        });
                     }
-                    while (continuationToken != null);
 
-                    console.log('Transcript sent');
-                } else {
-                    // Echo back to the user whatever they typed.
-                    console.log(`User sent: ${ turnContext.activity.text }\n`);
+                    // DirectLine only allows the upload of at most 500 activities at a time. The limit of 1500 below is arbitrary and up to the Bot author to decide.
+                    count += activities.length;
+                    if (activities.length > 500 || count > 1500) {
+                        console.log('Attempt to upload too many activities'); // throw new InvalidOperationException
+                    }
+
+                    await connector.conversations.sendConversationHistory(turnContext.activity.conversation.id, { activities });
+                    continuationToken = pagedTranscript.continuationToken;
                 }
-            // }
-            // else if (turnContext.activity.type === ActivityTypes.ConversationUpdate) {
-            //     // Send greeting when users are added to the conversation.
-            //     console.log('Welcome Message');
-            // } else {
-            //     // Generic message for all other activities
-            //     console.log(`[${ turnContext.activity.type } event detected]`);
-            // }
+                while (continuationToken != null);
+
+                console.log('Transcript sent');
+            } else {
+                // Echo back to the user whatever they typed.
+                console.log(`User sent: ${ turnContext.activity.text }\n`);
+            }
             await next();
         });
 
@@ -255,47 +229,6 @@ class DialogBot extends ActivityHandler {
             await this.userState.saveChanges(context, false);
             await next();
         });
-    }
-}
-
-// This function stores new user messages. Creates new messageLog if none exists.
-async function logMessageText(storageBlob, turnContext) {
-    let message = turnContext.activity.text;
-    // debugger;
-    try {
-        // Read from the storage.
-        let storeItems = await storageBlob.read(['messageLog']);
-        // Check the result.
-        var messageLog = storeItems['messageLog'];
-        if (typeof (messageLog) !== 'undefined') {
-            // The log exists so we can write to it.
-            storeItems['messageLog'].turnNumber++;
-            storeItems['messageLog'].messageList.push(message);
-            // Gather info for user message.
-            var storedString = storeItems.messageLog.messageList.toString();
-            var numStored = storeItems.messageLog.turnNumber;
-
-            try {
-                await storageBlob.write(storeItems);
-            } catch (err) {
-                console.log(`Write failed of messageLog: ${ err }`);
-            }
-        } else {
-            var turnNumber = 1;
-            channelID = turnContext.activity.channelId;
-            storeItems['messageLog'] = { 'channelID': channelID, messageList: [`${ message }`], 'eTag': '*', turnNumber };
-            // Gather info for user message.
-            var storedString = storeItems.messageLog.messageList.toString();
-            var numStored = storeItems.messageLog.turnNumber;
-
-            try {
-                await storageBlob.write(storeItems);
-            } catch (err) {
-                console.log(`Write failed: ${ err }`);
-            }
-        }
-    } catch (err) {
-        console.log(`Read rejected. ${ err }`);
     }
 }
 
