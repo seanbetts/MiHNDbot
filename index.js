@@ -51,8 +51,8 @@ const endpointConfig = botConfig.findServiceByNameOrId(BOT_CONFIGURATION);
 
 // Create bot adapter
 const adapter = new BotFrameworkAdapter({
-    appId: process.env.microsoftAppId,
-    appPassword: process.env.microsoftAppPassword
+    appId: process.env.microsoftAppId, // || endpointConfig.appId,
+    appPassword: process.env.microsoftAppPassword // || endpointConfig.appPassword
 });
 
 // Catch-all for errors.
