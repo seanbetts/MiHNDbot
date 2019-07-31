@@ -2,8 +2,8 @@ const { ActivityHandler, ActivityTypes } = require('botbuilder');
 const { CardFactory } = require('botbuilder-core');
 const { QnAMaker } = require('botbuilder-ai');
 
-const CONVERSATION_DATA_PROPERTY = 'conversationData';
-const USER_PROFILE_PROPERTY = 'userProfile';
+// const CONVERSATION_DATA_PROPERTY = 'conversationData';
+// const USER_PROFILE_PROPERTY = 'userProfile';
 
 const WelcomeCard = require('../resources/welcomeCard.json');
 const fbCards = require('../resources/fbCards.js');
@@ -58,7 +58,7 @@ class DialogBot extends ActivityHandler {
         this.dialogState = this.conversationState.createProperty('DialogState');
 
         // The transcript store will be queried to retrieve the transcript if the bot receives '!history' from a user.
-        this.transcriptStore = transcriptStore;
+        // this.transcriptStore = transcriptStore;
 
         // If a new user is added to the conversation, send them a greeting message
         this.onMembersAdded(async (context, next) => {

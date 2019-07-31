@@ -7,7 +7,7 @@ const { BotFrameworkAdapter, MemoryStorage, ConversationState, UserState } = req
 const { BotConfiguration } = require('botframework-config');
 
 // Import middleware for transcript logging
-const { TranscriptLoggerMiddleware } = require('botbuilder-core'); //ConsoleTranscriptLogger,
+const { TranscriptLoggerMiddleware } = require('botbuilder-core'); // ConsoleTranscriptLogger,
 
 // Import storage for transcript
 const { AzureBlobTranscriptStore } = require('botbuilder-azure');
@@ -44,7 +44,7 @@ const DEV_ENVIRONMENT = 'development';
 const BLOB_TRANSCRIPT_CONFIGURATION = 'BlobTranscriptStorage';
 
 // Name of Console Logs Blob Type service within the .bot file
-const BLOB_CONSOLE_LOGS_CONFIGURATION = 'BlobConsoleLogStorage';
+// const BLOB_CONSOLE_LOGS_CONFIGURATION = 'BlobConsoleLogStorage';
 
 // Define name of the endpoint configuration section from the .bot file
 const BOT_CONFIGURATION = (process.env.NODE_ENV || DEV_ENVIRONMENT);
