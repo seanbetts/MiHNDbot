@@ -20,7 +20,6 @@ appInsights.setup('REMOVED_SECRET')
 
 // This bot's main dialog.
 const { DialogBot } = require('./bots/dialogBot');
-// const { UserProfileDialog } = require('./dialogs/userProfileDialog');
 
 // Read botFilePath and botFileSecret from .env file
 const ENV_FILE = path.join(__dirname, '.env');
