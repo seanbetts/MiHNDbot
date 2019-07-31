@@ -57,6 +57,9 @@ class DialogBot extends ActivityHandler {
         this.logger = logger;
         this.dialogState = this.conversationState.createProperty('DialogState');
 
+        // The transcript store will be queried to retrieve the transcript if the bot receives '!history' from a user.
+        this.transcriptStore = transcriptStore;
+
         // If a new user is added to the conversation, send them a greeting message
         this.onMembersAdded(async (context, next) => {
             await sendTyping(context);
@@ -69,6 +72,55 @@ class DialogBot extends ActivityHandler {
             }
 
             // By calling next() you ensure that the next BotHandler is run.
+            await next();
+        });
+
+        this.onTurn(async (turnContext, next) => {
+            if (turnContext.activity.text === '!history') {
+                // Retrieve the activities from the Transcript (blob store) and send them over to the channel when a request to upload history arrives. This could be an event or a special message activity as above.
+                // Create the connector client to send transcript activities
+                let connector = turnContext.adapter.createConnectorClient(turnContext.activity.serviceUrl);
+
+                // Get all the message type activities from the Transcript.
+                let continuationToken = '';
+                var count = 0;
+
+                // WebChat and Emulator require modifying the activity.Id to display the same activity again within the same chat window
+                let updateActivities = [ 'webchat', 'emulator', 'directline' ].includes(turnContext.activity.channelId);
+                let incrementId = 0;
+                if (updateActivities && turnContext.activity.id.includes('|')) {
+                    incrementId = parseInt(turnContext.activity.id.split('|')[1]) || 0;
+                } do {
+                    // Transcript activities are retrieved in pages.  When the continuationToken is null, there are no more activities to be retireved for this conversation.
+                    var pagedTranscript = await this.transcriptStore.getTranscriptActivities(turnContext.activity.channelId, turnContext.activity.conversation.id, continuationToken);
+                    let activities = pagedTranscript.items.filter(item => item.type === ActivityTypes.Message);
+
+                    if (updateActivities) {
+                        activities.forEach(function(a) {
+                            incrementId++;
+                            a.id = `${ turnContext.activity.conversation.id }|${ incrementId.toString().padStart(7, '0') }`;
+                            a.timestamp = new Date().toISOString();
+                            a.channelData = []; // WebChat uses ChannelData for id comparisons, so we clear it here
+                            a.replyToId = '';
+                        });
+                    }
+
+                    // DirectLine only allows the upload of at most 500 activities at a time. The limit of 1500 below is arbitrary and up to the Bot author to decide.
+                    count += activities.length;
+                    if (activities.length > 500 || count > 1500) {
+                        console.log('Attempt to upload too many activities'); // throw new InvalidOperationException
+                    }
+
+                    await connector.conversations.sendConversationHistory(turnContext.activity.conversation.id, { activities });
+                    continuationToken = pagedTranscript.continuationToken;
+                }
+                while (continuationToken != null);
+
+                console.log('Transcript sent');
+            } else {
+                // Echo back to the user whatever they typed.
+                console.log(`User sent: ${ turnContext.activity.text }\n`);
+            }
             await next();
         });
 
