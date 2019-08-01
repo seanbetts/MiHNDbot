@@ -36,7 +36,7 @@ var getFBName = async function(fbPSID) {
 var getWelcomeCardFB = async function(fbPSID) {
     let userName = await getFBName(fbPSID);
 
-    var welcomeCardFB = {
+var welcomeCardFB = {
         channelData: {
             attachment: {
                 type: 'template',
