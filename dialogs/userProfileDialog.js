@@ -68,7 +68,7 @@ class UserProfileDialog extends ComponentDialog {
             this.summaryStep.bind(this),
             this.followUpDateStep.bind(this),
             this.followUpTimeStep.bind(this),
-            this.followUpConfirmationStep.bind(this),
+            this.followUpConfirmationStep.bind(this)
         ]));
 
         this.initialDialogId = WATERFALL_DIALOG;
@@ -94,7 +94,7 @@ class UserProfileDialog extends ComponentDialog {
     async nameStep(stepContext) {
         // WaterfallStep always finishes with the end of the Waterfall or with another dialog; here it is a Prompt Dialog.
         // Running a prompt here means the next WaterfallStep will be run when the users response is received.
-        return await stepContext.prompt(NAME_PROMPT, `Hi, I\'m MiHNDbot, \n \n I\'d like to help you manage your mental fitness. \n \n First off, what\'s your name?`);
+        return await stepContext.prompt(NAME_PROMPT, `Hi, I'm MiHNDbot, \n \n I'd like to help you manage your mental fitness. \n \n First off, what's your name?`);
     }
 
     async moodStep(stepContext) {
@@ -108,48 +108,53 @@ class UserProfileDialog extends ComponentDialog {
     async workStep(stepContext) {
         stepContext.values.mood = stepContext.result.value;
         if (stepContext.result.value === 'Great') {
-          return await stepContext.prompt(CHOICE_PROMPT, {
-              prompt: 'I\'m really glad to hear that! \n \n Ok, next question. Did you work today?',
-              choices: ChoiceFactory.toChoices(['Yes', 'No'])
-        })} else if (stepContext.result.value === 'Good') {
-          return await stepContext.prompt(CHOICE_PROMPT, {
-              prompt: 'I\'m glad to hear that. \n \n Ok, next question. Did you work today?',
-              choices: ChoiceFactory.toChoices(['Yes', 'No'])
-        })} else if (stepContext.result.value === 'OK') {
-          return await stepContext.prompt(CHOICE_PROMPT, {
-              prompt: 'Great! \n \n Ok, next question. Did you work today?',
-              choices: ChoiceFactory.toChoices(['Yes', 'No'])
-        })} else if (stepContext.result.value === 'Low') {
-          return await stepContext.prompt(CHOICE_PROMPT, {
-              prompt: 'I\'m sorry to hear that. \n \n Ok, next question. Did you work today?',
-              choices: ChoiceFactory.toChoices(['Yes', 'No'])
-        })} else if (stepContext.result.value === 'Hopeless') {
-          return await stepContext.prompt(CHOICE_PROMPT, {
-              prompt: 'I\'m really sorry to hear that. \n \n Remember, if you\'re in crisis you can text "HELP" at any time to find out how to get in touch with someone to speak to. \n \n Ok, next question. Did you work today?',
-              choices: ChoiceFactory.toChoices(['Yes', 'No'])
-        })} else {
+            return await stepContext.prompt(CHOICE_PROMPT, {
+                prompt: 'I\'m really glad to hear that! \n \n Ok, next question. Did you work today?',
+                choices: ChoiceFactory.toChoices(['Yes', 'No'])
+            });
+        } else if (stepContext.result.value === 'Good') {
+            return await stepContext.prompt(CHOICE_PROMPT, {
+                prompt: 'I\'m glad to hear that. \n \n Ok, next question. Did you work today?',
+                choices: ChoiceFactory.toChoices(['Yes', 'No'])
+            });
+        } else if (stepContext.result.value === 'OK') {
+            return await stepContext.prompt(CHOICE_PROMPT, {
+                prompt: 'Great! \n \n Ok, next question. Did you work today?',
+                choices: ChoiceFactory.toChoices(['Yes', 'No'])
+            });
+        } else if (stepContext.result.value === 'Low') {
+            return await stepContext.prompt(CHOICE_PROMPT, {
+                prompt: 'I\'m sorry to hear that. \n \n Ok, next question. Did you work today?',
+                choices: ChoiceFactory.toChoices(['Yes', 'No'])
+            });
+        } else if (stepContext.result.value === 'Hopeless') {
+            return await stepContext.prompt(CHOICE_PROMPT, {
+                prompt: 'I\'m really sorry to hear that. \n \n Remember, if you\'re in crisis you can text "HELP" at any time to find out how to get in touch with someone to speak to. \n \n Ok, next question. Did you work today?',
+                choices: ChoiceFactory.toChoices(['Yes', 'No'])
+            });
+        } else {
         }
     }
 
     async workSelectionStep(stepContext) {
         stepContext.values.work = stepContext.result.value;
-				if (stepContext.result.value === 'No') {
-          return await stepContext.prompt(CHOICE_PROMPT, {
-					    prompt: 'Thank you. \n \n Can you let me know why you didn\'t work today?',
-					    choices: ChoiceFactory.toChoices(['Weekend', 'Day off', 'Holiday', 'Sick Day'])
-        });
+        if (stepContext.result.value === 'No') {
+            return await stepContext.prompt(CHOICE_PROMPT, {
+                prompt: 'Thank you. \n \n Can you let me know why you didn\'t work today?',
+                choices: ChoiceFactory.toChoices(['Weekend', 'Day off', 'Holiday', 'Sick Day'])
+            });
         } else {
-          return await stepContext.beginDialog(WORK_BRANCH_DIALOG);
+            return await stepContext.beginDialog(WORK_BRANCH_DIALOG);
         }
     }
 
-		async foodStep(stepContext) {
-				stepContext.values.workStress = stepContext.result.value;
-				return await stepContext.prompt(CHOICE_PROMPT, {
-						prompt: 'Ok. How many meals have you eaten today?.',
-						choices: ChoiceFactory.toChoices(['No meals', '1 meal', '2 meals', '3 meals'])
-				});
-		}
+    async foodStep(stepContext) {
+        stepContext.values.workStress = stepContext.result.value;
+        return await stepContext.prompt(CHOICE_PROMPT, {
+            prompt: 'Ok. How many meals have you eaten today?.',
+            choices: ChoiceFactory.toChoices(['No meals', '1 meal', '2 meals', '3 meals'])
+        });
+    }
 
     async agitationStep(stepContext) {
         stepContext.values.food = stepContext.result.value;
@@ -162,9 +167,9 @@ class UserProfileDialog extends ComponentDialog {
     async agitationDealStep(stepContext) {
         stepContext.values.agitation = stepContext.result.value;
         if (stepContext.result.value === 'No') {
-          return await stepContext.next();
+            return await stepContext.next();
         } else {
-          return await stepContext.beginDialog(AGITATION_BRANCH_DIALOG);
+            return await stepContext.beginDialog(AGITATION_BRANCH_DIALOG);
         }
     }
 
@@ -179,9 +184,9 @@ class UserProfileDialog extends ComponentDialog {
     async anxietyDealStep(stepContext) {
         stepContext.values.anxiety = stepContext.result.value;
         if (stepContext.result.value === 'No') {
-          return await stepContext.next();
+            return await stepContext.next();
         } else {
-          return await stepContext.beginDialog(ANXIETY_BRANCH_DIALOG);
+            return await stepContext.beginDialog(ANXIETY_BRANCH_DIALOG);
         }
     }
 
@@ -196,9 +201,9 @@ class UserProfileDialog extends ComponentDialog {
     async lowMoodDealStep(stepContext) {
         stepContext.values.lowMood = stepContext.result.value;
         if (stepContext.result.value === 'No') {
-          return await stepContext.next();
+            return await stepContext.next();
         } else {
-          return await stepContext.beginDialog(LOW_MOOD_BRANCH_DIALOG);
+            return await stepContext.beginDialog(LOW_MOOD_BRANCH_DIALOG);
         }
     }
 
@@ -213,9 +218,9 @@ class UserProfileDialog extends ComponentDialog {
     async familyStressDealStep(stepContext) {
         stepContext.values.familyStress = stepContext.result.value;
         if (stepContext.result.value === 'No') {
-          return await stepContext.next();
+            return await stepContext.next();
         } else {
-          return await stepContext.beginDialog(FAMILY_STRESS_BRANCH_DIALOG);
+            return await stepContext.beginDialog(FAMILY_STRESS_BRANCH_DIALOG);
         }
     }
 
@@ -245,30 +250,31 @@ class UserProfileDialog extends ComponentDialog {
 
     async summaryStep(stepContext) {
         stepContext.values.exercise = stepContext.result.value;
-            const userProfile = await this.userProfile.get(stepContext.context, new UserProfile());
+        const userProfile = await this.userProfile.get(stepContext.context, new UserProfile());
 
-            userProfile.name = stepContext.values.name;
-            userProfile.mood = stepContext.values.mood;
-            userProfile.work = stepContext.values.work;
-            userProfile.workHours = stepContext.values.workHours;
-            userProfile.workStress = stepContext.values.workStress;
-            userProfile.food = stepContext.values.food;
-            userProfile.agitation = stepContext.values.agitation;
-            userProfile.agitationDeal = stepContext.values.agitationDeal;
-            userProfile.anxiety = stepContext.values.anxiety;
-            userProfile.anxietyDeal = stepContext.values.anxietyDeal;
-            userProfile.lowMood = stepContext.values.lowMood;
-            userProfile.lowMoodDeal = stepContext.values.lowMoodDeal;
-            userProfile.familyStress = stepContext.values.familyStress;
-            userProfile.familyStressDeal = stepContext.values.familyStressDeal;
-            userProfile.medication = stepContext.values.medication;
-            userProfile.sleep = stepContext.values.sleep;
-            userProfile.exercise = stepContext.values.exercise;
+        userProfile.name = stepContext.values.name;
+        userProfile.mood = stepContext.values.mood;
+        userProfile.work = stepContext.values.work;
+        userProfile.workHours = stepContext.values.workHours;
+        userProfile.workStress = stepContext.values.workStress;
+        userProfile.food = stepContext.values.food;
+        userProfile.agitation = stepContext.values.agitation;
+        userProfile.agitationDeal = stepContext.values.agitationDeal;
+        userProfile.anxiety = stepContext.values.anxiety;
+        userProfile.anxietyDeal = stepContext.values.anxietyDeal;
+        userProfile.lowMood = stepContext.values.lowMood;
+        userProfile.lowMoodDeal = stepContext.values.lowMoodDeal;
+        userProfile.familyStress = stepContext.values.familyStress;
+        userProfile.familyStressDeal = stepContext.values.familyStressDeal;
+        userProfile.medication = stepContext.values.medication;
+        userProfile.sleep = stepContext.values.sleep;
+        userProfile.exercise = stepContext.values.exercise;
 
-            let msg =   `Thank you for sharing ${userProfile.name}. Here\'s what I've learned from you today: \n Your mood has been ${ userProfile.mood } \n Work = ${ userProfile.work } \n You\'ve had ${ userProfile.food } \n Agitation = ${ userProfile.agitation } \n Anxiety = ${ userProfile.anxiety } \n Low Mood = ${ userProfile.lowMood } \n Family Stress = ${ userProfile.familyStress } \n Medication = ${ userProfile.medication } \n You had ${ userProfile.sleep } Sleep \n Your exercise was ${ userProfile.exercise }`;
+        // eslint-disable-next-line no-useless-escape
+        let msg = `Thank you for sharing ${ userProfile.name }. Here\'s what I've learned from you today: \n Your mood has been ${ userProfile.mood } \n Work = ${ userProfile.work } \n You\'ve had ${ userProfile.food } \n Agitation = ${ userProfile.agitation } \n Anxiety = ${ userProfile.anxiety } \n Low Mood = ${ userProfile.lowMood } \n Family Stress = ${ userProfile.familyStress } \n Medication = ${ userProfile.medication } \n You had ${ userProfile.sleep } Sleep \n Your exercise was ${ userProfile.exercise }`;
 
-            await stepContext.context.sendActivity(msg);
-            return await stepContext.next();
+        await stepContext.context.sendActivity(msg);
+        return await stepContext.next();
     }
 
     async followUpDateStep(stepContext) {
@@ -288,12 +294,12 @@ class UserProfileDialog extends ComponentDialog {
 
     async followUpConfirmationStep(stepContext) {
         stepContext.values.followUpTime = stepContext.result.value;
-            let msg = 'Ok! \n \n I\'ll check in with you ' + stepContext.values.followUpDate + ' in the ' + stepContext.values.followUpTime + '.' + '\n \n See you then';
+        let msg = 'Ok! \n \n I\'ll check in with you ' + stepContext.values.followUpDate + ' in the ' + stepContext.values.followUpTime + '.' + '\n \n See you then';
 
-            await stepContext.context.sendActivity(msg);
+        await stepContext.context.sendActivity(msg);
 
-    // WaterfallStep always finishes with the end of the Waterfall or with another dialog, here it is the end.
-    return await stepContext.endDialog();
+        // WaterfallStep always finishes with the end of the Waterfall or with another dialog, here it is the end.
+        return await stepContext.endDialog();
     }
 }
 

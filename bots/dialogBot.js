@@ -1,11 +1,11 @@
-const { ActivityHandler } = require('botbuilder');
+const { ActivityHandler, ActivityTypes } = require('botbuilder');
 const { CardFactory } = require('botbuilder-core');
-const { CosmosDbStorage } = require('botbuilder-azure');
 const { QnAMaker } = require('botbuilder-ai');
 
-// const restify = require('restify');
+// const CONVERSATION_DATA_PROPERTY = 'conversationData';
+// const USER_PROFILE_PROPERTY = 'userProfile';
+
 const WelcomeCard = require('../resources/welcomeCard.json');
-// const quickRepliesOption = 'Quick Replies';
 const fbCards = require('../resources/fbCards.js');
 const fbBot = require('../bots/fbBot.js');
 // const teamsWelcomeCard = require('../resources/teamsWelcomeCard.json');
@@ -13,17 +13,6 @@ const fbBot = require('../bots/fbBot.js');
 // initialized to access values in .env file.
 var dotenv = require('dotenv');
 dotenv.config();
-
-// Add memory storage.
-// var storage = new MemoryStorage();
-
-// Create access to CosmosDb Storage - this replaces local Memory Storage.
-var storage = new CosmosDbStorage({
-    serviceEndpoint: process.env.DB_SERVICE_ENDPOINT,
-    authKey: process.env.AUTH_KEY,
-    databaseId: process.env.DATABASE,
-    collectionId: process.env.COLLECTION
-});
 
 var sendTyping = async function(context) {
     await context.sendActivities([
@@ -35,6 +24,15 @@ var sendTyping = async function(context) {
 class DialogBot extends ActivityHandler {
     constructor(conversationState, userState, dialog, logger) {
         super();
+
+        // Create the state property accessors for the conversation data and user profile.
+        // this.conversationData = conversationState.createProperty(CONVERSATION_DATA_PROPERTY);
+        // this.userProfile = userState.createProperty(USER_PROFILE_PROPERTY);
+
+        // The state management objects for the conversation and user state.
+        // this.conversationState = conversationState;
+        // this.userState = userState;
+
         if (!conversationState) throw new Error('[DialogBot]: Missing parameter. conversationState is required');
         if (!userState) throw new Error('[DialogBot]: Missing parameter. userState is required');
         if (!dialog) throw new Error('[DialogBot]: Missing parameter. dialog is required');
@@ -77,7 +75,7 @@ class DialogBot extends ActivityHandler {
         // When a user sends a message, perform a call to the QnA Maker service to retrieve matching Question and Answer pairs.
         this.onMessage(async (context, next) => {
             await sendTyping(context);
-            this.logger.log('Processing a Message Activity');
+            console.log('Processing a Message Activity');
 
             const qnaResults = await this.qnaMaker.getAnswers(context);
 
@@ -166,7 +164,7 @@ class DialogBot extends ActivityHandler {
         });
 
         this.onEvent(async (turnContext) => {
-            this.logger.log('Processing an Event Activity.');
+            console.log('Processing an Event Activity.');
 
             // Analyze Facebook payload from EventActivity.Value
             await fbBot.processFacebookPayload(turnContext, turnContext.activity.value);

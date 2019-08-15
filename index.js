@@ -1,4 +1,16 @@
-// index.js is used to setup and configure your bot
+// Import required pckages
+const path = require('path');
+const restify = require('restify');
+
+// Import required bot services.
+const { BotFrameworkAdapter, MemoryStorage, ConversationState, UserState } = require('botbuilder');
+const { BotConfiguration } = require('botframework-config');
+
+// Import middleware for transcript logging
+const { TranscriptLoggerMiddleware } = require('botbuilder-core'); // ConsoleTranscriptLogger,
+
+// Import storage for transcript
+const { AzureBlobTranscriptStore } = require('botbuilder-azure');
 
 // Enable Application Insights
 const appInsights = require('applicationinsights');
@@ -6,26 +18,43 @@ appInsights.setup('REMOVED_SECRET')
     .setUseDiskRetryCaching(true)
     .start();
 
-// Import required pckages
-const path = require('path');
-const restify = require('restify');
-
-// Import required bot services. See https://aka.ms/bot-services to learn more about the different parts of a bot.
-const { BotFrameworkAdapter, MemoryStorage, ConversationState, UserState } = require('botbuilder');
-
 // This bot's main dialog.
 const { DialogBot } = require('./bots/dialogBot');
-// const { UserProfileDialog } = require('./dialogs/userProfileDialog');
 
-// Note: Ensure you have a .env file and include LuisAppId, LuisAPIKey and LuisAPIHostName.
+// Read botFilePath and botFileSecret from .env file
 const ENV_FILE = path.join(__dirname, '.env');
 require('dotenv').config({ path: ENV_FILE });
 
-// Create adapter.
-// See https://aka.ms/about-bot-adapter to learn more about adapters.
+// Get the .bot file path
+const BOT_FILE = path.join(__dirname, (process.env.botFilePath || ''));
+let botConfig;
+try {
+    // Read bot configuration from .bot file.
+    botConfig = BotConfiguration.loadSync(BOT_FILE, process.env.botFileSecret);
+} catch (err) {
+    console.error(`Error reading bot file. Please ensure you have valid botFilePath and botFileSecret set for your environment.`);
+    process.exit();
+}
+
+// For local development configuration as defined in .bot file
+const DEV_ENVIRONMENT = 'development';
+
+// Name of Transcript Blob Type service within the .bot file
+const BLOB_TRANSCRIPT_CONFIGURATION = 'BlobTranscriptStorage';
+
+// Name of Console Logs Blob Type service within the .bot file
+// const BLOB_CONSOLE_LOGS_CONFIGURATION = 'BlobConsoleLogStorage';
+
+// Define name of the endpoint configuration section from the .bot file
+const BOT_CONFIGURATION = (process.env.NODE_ENV || DEV_ENVIRONMENT);
+
+// Get bot endpoint configuration by service name - Bot configuration as defined in .bot file
+const endpointConfig = botConfig.findServiceByNameOrId(BOT_CONFIGURATION);
+
+// Create bot adapter
 const adapter = new BotFrameworkAdapter({
-    appId: process.env.MicrosoftAppId,
-    appPassword: process.env.MicrosoftAppPassword
+    appId: process.env.microsoftAppId, // || endpointConfig.appId,
+    appPassword: process.env.microsoftAppPassword // || endpointConfig.appPassword
 });
 
 // Catch-all for errors.
@@ -35,10 +64,34 @@ adapter.onTurnError = async (context, error) => {
     //       application insights.
     console.error(`\n [onTurnError]: ${ error }`);
     // Send a message to the user
-    await context.sendActivity(`Oops. Something went wrong! Please try asking me something else.`);
+    await context.sendActivity(`😬/nOops. Something went wrong! Please try asking me something else.`);
     // Clear out state
     await conversationState.delete(context);
 };
+
+// Get blob service configuration for transcripts and console logs as defined in .bot file
+const blobTranscriptStorageConfig = botConfig.findServiceByNameOrId(BLOB_TRANSCRIPT_CONFIGURATION);
+// const blobConsoleLogsStorageConfig = botConfig.findServiceByNameOrId(BLOB_CONSOLE_LOGS_CONFIGURATION);
+
+// The transcript store has methods for saving and retrieving bot conversation transcripts.
+let transcriptStore = new AzureBlobTranscriptStore({
+    storageAccountOrConnectionString: blobTranscriptStorageConfig.connectionString,
+    containerName: blobTranscriptStorageConfig.container
+});
+
+// Create the middleware layer responsible for logging incoming and outgoing activities into the transcript store.
+var transcriptMiddleware = new TranscriptLoggerMiddleware(transcriptStore);
+adapter.use(transcriptMiddleware);
+
+// The transcript store has methods for saving and retrieving bot console logs.
+// let consoleLogStore = new AzureBlobTranscriptStore({
+//     storageAccountOrConnectionString: blobConsoleLogsStorageConfig.connectionString,
+//     containerName: blobConsoleLogsStorageConfig.container
+// });
+
+// Create the middleware layer responsible for logging console messages in the transcript store
+// var consoleLogMiddleware = new ConsoleTranscriptLogger(consoleLogStore);
+// adapter.use(consoleLogMiddleware);
 
 // Define state store for your bot.
 // See https://aka.ms/about-bot-state to learn more about bot state.
@@ -68,7 +121,7 @@ const logger = console;
 
 // Create the main dialog.
 // const dialog = new UserProfileDialog(userState, logger);
-const bot = new DialogBot(conversationState, userState, logger); // dialog
+const bot = new DialogBot(conversationState, userState, logger, transcriptStore);
 
 // Create HTTP server
 let server = restify.createServer();

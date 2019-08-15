@@ -1,6 +1,3 @@
-// Copyright (c) Microsoft Corporation. All rights reserved.
-// Licensed under the MIT License.
-
 class UserProfile {
     constructor(name, mood, work, workHours, workStress, workStressDeal, food, agitation, agitationDeal, anxiety, anxietyDeal, lowMood, lowMoodDeal, familyStress, familyStressDeal, medication, sleep, exercise, followUpDate, followUpTime) {
         this.name = name;
