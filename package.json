@@ -20,7 +20,7 @@
         "@hapi/hoek": "^7.1.0",
         "@microsoft/recognizers-text-data-types-timex-expression": "1.1.4",
         "applicationinsights": "^1.4.0",
-        "botbuilder": "~4.4.0",
+        "botbuilder": "^4.5.3",
         "botbuilder-adapter-facebook": "^1.0.3",
         "botbuilder-ai": "~4.4.0",
         "botbuilder-azure": "^4.4.0",
