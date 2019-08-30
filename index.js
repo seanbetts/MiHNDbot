@@ -121,7 +121,7 @@ const logger = console;
 
 // Create the main dialog.
 // const dialog = new UserProfileDialog(userState, logger);
-const bot = new DialogBot(conversationState, userState, logger, transcriptStore);
+const bot = new DialogBot(conversationState, userState, logger);
 
 // Create HTTP server
 let server = restify.createServer();

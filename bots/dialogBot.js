@@ -22,7 +22,7 @@ var sendTyping = async function(context) {
 };
 
 class DialogBot extends ActivityHandler {
-    constructor(conversationState, userState, dialog, logger) {
+    constructor(conversationState, userState, logger) {
         super();
 
         // Create the state property accessors for the conversation data and user profile.
@@ -35,7 +35,7 @@ class DialogBot extends ActivityHandler {
 
         if (!conversationState) throw new Error('[DialogBot]: Missing parameter. conversationState is required');
         if (!userState) throw new Error('[DialogBot]: Missing parameter. userState is required');
-        if (!dialog) throw new Error('[DialogBot]: Missing parameter. dialog is required');
+        // if (!dialog) throw new Error('[DialogBot]: Missing parameter. dialog is required');
         if (!logger) {
             logger = console;
             logger.log('[DialogBot]: logger not passed in, defaulting to console');
@@ -53,7 +53,7 @@ class DialogBot extends ActivityHandler {
 
         this.conversationState = conversationState;
         this.userState = userState;
-        this.dialog = dialog;
+        // this.dialog = dialog;
         this.logger = logger;
         this.dialogState = this.conversationState.createProperty('DialogState');
 
