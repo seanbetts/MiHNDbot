@@ -1,3 +1,0 @@
-Utterance	Intents
-buenos dias	MiHNDbot, MiHNDbot-KB
-howdy	MiHNDbot, MiHNDbot-KB

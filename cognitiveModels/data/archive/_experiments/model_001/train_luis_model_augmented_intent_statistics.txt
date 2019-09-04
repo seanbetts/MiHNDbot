@@ -1,6 +1,0 @@
-No	Intent	Utterance Count	Utterance Average Length	Utterance Maximum Length	Utterance Minimum Length	Utterance Length StdDev
-0	Book_Flight	13	21.69231	44	3	14.51083
-1	MiHNDbot	16	6.25	11	2	2.90975
-2	MiHNDbot-KB	6827	22.96528	81	1	9.0083
-3	None	3	22	25	20	2.64575
- 	__ALL__	6859	22.92346	81	1	9.04508

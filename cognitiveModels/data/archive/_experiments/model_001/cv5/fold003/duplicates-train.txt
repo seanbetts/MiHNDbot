@@ -1,7 +1,0 @@
-Utterance	Intents
-buenos dias	MiHNDbot, MiHNDbot-KB
-sup	MiHNDbot, MiHNDbot-KB
-hi-ya	MiHNDbot, MiHNDbot-KB
-yo	MiHNDbot, MiHNDbot-KB
-welcome	MiHNDbot, MiHNDbot-KB
-howdy	MiHNDbot, MiHNDbot-KB
