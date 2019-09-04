@@ -7,7 +7,7 @@ const { BotFrameworkAdapter, MemoryStorage, ConversationState, UserState } = req
 const { BotConfiguration } = require('botframework-config');
 
 // Import middleware for transcript logging
-const { TranscriptLoggerMiddleware } = require('botbuilder-core'); // ConsoleTranscriptLogger,
+const { TranscriptLoggerMiddleware } = require('botbuilder-core');
 
 // Import storage for transcript
 const { AzureBlobTranscriptStore } = require('botbuilder-azure');
@@ -25,33 +25,13 @@ const { DialogBot } = require('./bots/dialogBot');
 const ENV_FILE = path.join(__dirname, '.env');
 require('dotenv').config({ path: ENV_FILE });
 
-// Get the .bot file path
-const BOT_FILE = path.join(__dirname, (process.env.botFilePath || ''));
-let botConfig;
-try {
-    // Read bot configuration from .bot file.
-    botConfig = BotConfiguration.loadSync(BOT_FILE, process.env.botFileSecret);
-} catch (err) {
-    console.error(`Error reading bot file. Please ensure you have valid botFilePath and botFileSecret set for your environment.`);
-    process.exit();
-}
-
-// For local development configuration as defined in .bot file
-const DEV_ENVIRONMENT = 'development';
-
 // Name of Transcript Blob Type service within the .bot file
 const BLOB_TRANSCRIPT_CONFIGURATION = 'BlobTranscriptStorage';
 
-// Define name of the endpoint configuration section from the .bot file
-const BOT_CONFIGURATION = (process.env.NODE_ENV || DEV_ENVIRONMENT);
-
-// Get bot endpoint configuration by service name - Bot configuration as defined in .bot file
-const endpointConfig = botConfig.findServiceByNameOrId(BOT_CONFIGURATION);
-
 // Create bot adapter
 const adapter = new BotFrameworkAdapter({
-    appId: process.env.microsoftAppId, // || endpointConfig.appId,
-    appPassword: process.env.microsoftAppPassword // || endpointConfig.appPassword
+    appId: process.env.microsoftAppId,
+    appPassword: process.env.microsoftAppPassword
 });
 
 // Catch-all for errors.
@@ -65,13 +45,10 @@ adapter.onTurnError = async (context, error) => {
     await conversationState.delete(context);
 };
 
-// Get blob service configuration for transcripts and console logs as defined in .bot file
-const blobTranscriptStorageConfig = botConfig.findServiceByNameOrId(BLOB_TRANSCRIPT_CONFIGURATION);
-
 // The transcript store has methods for saving and retrieving bot conversation transcripts.
 let transcriptStore = new AzureBlobTranscriptStore({
-    storageAccountOrConnectionString: blobTranscriptStorageConfig.connectionString,
-    containerName: blobTranscriptStorageConfig.container
+    storageAccountOrConnectionString: 'REMOVED_SECRET',
+    containerName: 'mihndbot-transcripts'
 });
 
 // Create the middleware layer responsible for logging incoming and outgoing activities into the transcript store.
