@@ -1,0 +1,128 @@
+{
+  "luis_schema_version": "3.2.0",
+  "versionId": "0.1",
+  "name": "MiHNDbot",
+  "desc": "To help people manage their mental fitness",
+  "culture": "en-us",
+  "tokenizerVersion": "1.0.0",
+  "intents": [
+    {
+      "name": "Hello"
+    },
+    {
+      "name": "None"
+    }
+  ],
+  "entities": [
+    {
+      "name": "Greeting",
+      "roles": []
+    }
+  ],
+  "composites": [],
+  "closedLists": [],
+  "patternAnyEntities": [],
+  "regex_entities": [],
+  "prebuiltEntities": [],
+  "model_features": [],
+  "regex_features": [],
+  "patterns": [],
+  "utterances": [
+    {
+      "text": "alright",
+      "intent": "Hello",
+      "entities": []
+    },
+    {
+      "text": "barking dogs are annoying",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "bonjour",
+      "intent": "Hello",
+      "entities": []
+    },
+    {
+      "text": "buenos dias",
+      "intent": "Hello",
+      "entities": []
+    },
+    {
+      "text": "good day",
+      "intent": "Hello",
+      "entities": []
+    },
+    {
+      "text": "greetings",
+      "intent": "Hello",
+      "entities": []
+    },
+    {
+      "text": "hello",
+      "intent": "Hello",
+      "entities": []
+    },
+    {
+      "text": "hey",
+      "intent": "Hello",
+      "entities": []
+    },
+    {
+      "text": "hi",
+      "intent": "Hello",
+      "entities": []
+    },
+    {
+      "text": "hi-ya",
+      "intent": "Hello",
+      "entities": []
+    },
+    {
+      "text": "how goes it",
+      "intent": "Hello",
+      "entities": []
+    },
+    {
+      "text": "howdy",
+      "intent": "Hello",
+      "entities": []
+    },
+    {
+      "text": "order a pizza for me",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "penguins in the ocean",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "sup",
+      "intent": "Hello",
+      "entities": []
+    },
+    {
+      "text": "wassup",
+      "intent": "Hello",
+      "entities": []
+    },
+    {
+      "text": "welcome",
+      "intent": "Hello",
+      "entities": []
+    },
+    {
+      "text": "what's up",
+      "intent": "Hello",
+      "entities": []
+    },
+    {
+      "text": "yo",
+      "intent": "Hello",
+      "entities": []
+    }
+  ],
+  "settings": []
+}

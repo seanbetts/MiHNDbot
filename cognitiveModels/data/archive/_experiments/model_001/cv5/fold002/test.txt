@@ -1,0 +1,1378 @@
+Label	Weight	Text
+Book_Flight	1	travel to paris
+Book_Flight	1	go to paris
+Book_Flight	1	going from paris to berlin
+MiHNDbot	1	hi-ya
+MiHNDbot	1	greetings
+MiHNDbot	1	wassup
+MiHNDbot-KB	1	Don't you worry, I'll be back
+MiHNDbot-KB	1	I have to take off
+MiHNDbot-KB	1	Are you transgender
+MiHNDbot-KB	1	Do you think you're more clever than me
+MiHNDbot-KB	1	I am an Aquarius
+MiHNDbot-KB	1	Are you able to write my report
+MiHNDbot-KB	1	I don't have a problem with that
+MiHNDbot-KB	1	Fair
+MiHNDbot-KB	1	Do I seem adorable to you today
+MiHNDbot-KB	1	Can I have a making out
+MiHNDbot-KB	1	I am underweight
+MiHNDbot-KB	1	Huh
+MiHNDbot-KB	1	I feel like I'm all by myself
+MiHNDbot-KB	1	I love to stay up late
+MiHNDbot-KB	1	Are you my best friend
+MiHNDbot-KB	1	Can you think
+MiHNDbot-KB	1	You gynosexual
+MiHNDbot-KB	1	I'll be back this evening
+MiHNDbot-KB	1	Is anyone there to talk with me
+MiHNDbot-KB	1	Are you in the cloud
+MiHNDbot-KB	1	Are you interested in tech
+MiHNDbot-KB	1	I'm obviously the most intelligent
+MiHNDbot-KB	1	You're the best ever!
+MiHNDbot-KB	1	Anybody around to talk to me
+MiHNDbot-KB	1	Do you think I look good
+MiHNDbot-KB	1	I am happy, oh so happy
+MiHNDbot-KB	1	What's new at the zoo
+MiHNDbot-KB	1	I want a kiss
+MiHNDbot-KB	1	Which of us is younger
+MiHNDbot-KB	1	I love to ride my bike
+MiHNDbot-KB	1	Please tell me if you're a man
+MiHNDbot-KB	1	Don't make fun of that
+MiHNDbot-KB	1	I should be going
+MiHNDbot-KB	1	Aren't you awesome
+MiHNDbot-KB	1	I want to talk with your manager
+MiHNDbot-KB	1	I love to dance
+MiHNDbot-KB	1	Are you currently seeing anyone
+MiHNDbot-KB	1	Go for a walk
+MiHNDbot-KB	1	Do you have a few minuites
+MiHNDbot-KB	1	You're enthusiastic today.
+MiHNDbot-KB	1	I think you're repeating yourself
+MiHNDbot-KB	1	What is the answer to the ultimate question of life, the universe, and everything
+MiHNDbot-KB	1	That's pretty brilliant
+MiHNDbot-KB	1	You're astute
+MiHNDbot-KB	1	Do you ride horses
+MiHNDbot-KB	1	Hey there bot
+MiHNDbot-KB	1	You don't need to take me seriously
+MiHNDbot-KB	1	Why do you look so disgusting
+MiHNDbot-KB	1	I'm curious about your family
+MiHNDbot-KB	1	What a boring night
+MiHNDbot-KB	1	What were you made for
+MiHNDbot-KB	1	Do you think I seem stunning to you
+MiHNDbot-KB	1	How about a little peck
+MiHNDbot-KB	1	I'm watching Netflix
+MiHNDbot-KB	1	Should I read a book
+MiHNDbot-KB	1	What's up today
+MiHNDbot-KB	1	Am I good to you today
+MiHNDbot-KB	1	Are you a monosexual
+MiHNDbot-KB	1	What is my favorite sport
+MiHNDbot-KB	1	Are you a fan of Alexa
+MiHNDbot-KB	1	I'm just fooling
+MiHNDbot-KB	1	Let's play tonsil hockey
+MiHNDbot-KB	1	What's my name
+MiHNDbot-KB	1	Roll a dice
+MiHNDbot-KB	1	Can you show me how to read my mind
+MiHNDbot-KB	1	Can you talk
+MiHNDbot-KB	1	I'm Jewish
+MiHNDbot-KB	1	Are you supposed to be in love with me
+MiHNDbot-KB	1	Are you there to listen to me
+MiHNDbot-KB	1	Are you an insect
+MiHNDbot-KB	1	Well somebody's feeling cheerful.
+MiHNDbot-KB	1	I think you are gross
+MiHNDbot-KB	1	I've never been this angry in all my life
+MiHNDbot-KB	1	I have no friends
+MiHNDbot-KB	1	Where do I work
+MiHNDbot-KB	1	Gimme a little tonsil hockey
+MiHNDbot-KB	1	thats amazing
+MiHNDbot-KB	1	Someone's feeling enthusiastic today.
+MiHNDbot-KB	1	God, I am so bored
+MiHNDbot-KB	1	Bye
+MiHNDbot-KB	1	I'm heartbroken
+MiHNDbot-KB	1	A blessed morning to you
+MiHNDbot-KB	1	You suck so hard
+MiHNDbot-KB	1	What is your favorite season
+MiHNDbot-KB	1	got any jokes
+MiHNDbot-KB	1	Do get along with other bots
+MiHNDbot-KB	1	Which shoes are most comfortable
+MiHNDbot-KB	1	You're ugly
+MiHNDbot-KB	1	I'm very fond of you
+MiHNDbot-KB	1	Try harder
+MiHNDbot-KB	1	Because you're a bot
+MiHNDbot-KB	1	What are you wearing
+MiHNDbot-KB	1	Who is your manager
+MiHNDbot-KB	1	Will you please go away
+MiHNDbot-KB	1	Can I get a little smooch
+MiHNDbot-KB	1	Do you know you're not alive
+MiHNDbot-KB	1	I am Indian
+MiHNDbot-KB	1	I especially like you
+MiHNDbot-KB	1	You're not a dog right
+MiHNDbot-KB	1	When did they turn you on
+MiHNDbot-KB	1	I'm worried you might hate me
+MiHNDbot-KB	1	What should I have for breakfast
+MiHNDbot-KB	1	Do you sweat
+MiHNDbot-KB	1	Do you live in a server
+MiHNDbot-KB	1	I'm going to have your job
+MiHNDbot-KB	1	Can I speak to your boss
+MiHNDbot-KB	1	Do you mediate
+MiHNDbot-KB	1	Were you hungry
+MiHNDbot-KB	1	Which city are you in
+MiHNDbot-KB	1	Please go away
+MiHNDbot-KB	1	Is someone there to talk with me
+MiHNDbot-KB	1	Who is your grandma
+MiHNDbot-KB	1	Could you ever love me
+MiHNDbot-KB	1	Who are you dating
+MiHNDbot-KB	1	How do people fall in love
+MiHNDbot-KB	1	Give us a little peck
+MiHNDbot-KB	1	BRB
+MiHNDbot-KB	1	You face sucks
+MiHNDbot-KB	1	Hey good looking
+MiHNDbot-KB	1	I love the fall
+MiHNDbot-KB	1	Heya
+MiHNDbot-KB	1	Between you and me who is more beautiful
+MiHNDbot-KB	1	You are just horrid
+MiHNDbot-KB	1	what can you help me with
+MiHNDbot-KB	1	Your face is ugly
+MiHNDbot-KB	1	What is the name of your director
+MiHNDbot-KB	1	I want a little making out
+MiHNDbot-KB	1	Do I look bad to you
+MiHNDbot-KB	1	Doesn't matter to me
+MiHNDbot-KB	1	Can you show me how to draw something
+MiHNDbot-KB	1	I want to talk with your supervisor
+MiHNDbot-KB	1	You are going to fall in love with me
+MiHNDbot-KB	1	Don't you want to ask anything about me
+MiHNDbot-KB	1	I am so annoyed
+MiHNDbot-KB	1	Well then give me a kiss
+MiHNDbot-KB	1	Can you water my plants
+MiHNDbot-KB	1	Anybody there
+MiHNDbot-KB	1	Are you a homosexual
+MiHNDbot-KB	1	What kind of food do you like to eat
+MiHNDbot-KB	1	Time for me to take a nap
+MiHNDbot-KB	1	You a gay
+MiHNDbot-KB	1	Who should I ask to prom
+MiHNDbot-KB	1	Shove it up your ass
+MiHNDbot-KB	1	Is anybody there to talk to me
+MiHNDbot-KB	1	Work really wore me out today
+MiHNDbot-KB	1	What do you know about Bixby
+MiHNDbot-KB	1	I would like to be your bud.
+MiHNDbot-KB	1	Impressive though.
+MiHNDbot-KB	1	U joining me for dinner
+MiHNDbot-KB	1	Hey pal
+MiHNDbot-KB	1	Do I need to go outside
+MiHNDbot-KB	1	You are scaring me
+MiHNDbot-KB	1	You aren't much to look at.
+MiHNDbot-KB	1	I love free speech
+MiHNDbot-KB	1	Do you cry
+MiHNDbot-KB	1	Can you tell me  your address
+MiHNDbot-KB	1	Do you think you're the most smart
+MiHNDbot-KB	1	Thanks
+MiHNDbot-KB	1	I love coffee
+MiHNDbot-KB	1	Are you currently committed to someone
+MiHNDbot-KB	1	I need a friend
+MiHNDbot-KB	1	I'm back
+MiHNDbot-KB	1	Do you Do gymnastics
+MiHNDbot-KB	1	So nice to meet you
+MiHNDbot-KB	1	What is your boss' name
+MiHNDbot-KB	1	That's very intelligent
+MiHNDbot-KB	1	Is anyone free to speak
+MiHNDbot-KB	1	I like you a lot
+MiHNDbot-KB	1	You're a dyke
+MiHNDbot-KB	1	Are you able to send a package
+MiHNDbot-KB	1	Hey Alexa
+MiHNDbot-KB	1	I'm the happiest girl in the world.
+MiHNDbot-KB	1	Why are you so limited
+MiHNDbot-KB	1	Go away
+MiHNDbot-KB	1	how can you help me
+MiHNDbot-KB	1	Don't you have any other jokes
+MiHNDbot-KB	1	Hey-hey
+MiHNDbot-KB	1	You're being rude
+MiHNDbot-KB	1	I am overweight
+MiHNDbot-KB	1	I'm definitely brighter than you
+MiHNDbot-KB	1	Greetings Alexa
+MiHNDbot-KB	1	Who's more beautiful than you
+MiHNDbot-KB	1	What the fuck
+MiHNDbot-KB	1	Tell me about yourself
+MiHNDbot-KB	1	Should I study abroad
+MiHNDbot-KB	1	Is someone free to listen
+MiHNDbot-KB	1	You are a androsexual.
+MiHNDbot-KB	1	Am I stunning today
+MiHNDbot-KB	1	Should I buy a new boat
+MiHNDbot-KB	1	That's sexy
+MiHNDbot-KB	1	I love my house plants
+MiHNDbot-KB	1	Which one of us is the most smart
+MiHNDbot-KB	1	Will you go out with me
+MiHNDbot-KB	1	Lick my ass
+MiHNDbot-KB	1	Are you free to talk with me
+MiHNDbot-KB	1	Is anyone available to speak to me
+MiHNDbot-KB	1	What is life about
+MiHNDbot-KB	1	Why are you repeating yourself
+MiHNDbot-KB	1	Do I seem handsome to you today
+MiHNDbot-KB	1	I like you best
+MiHNDbot-KB	1	Brush your teeth
+MiHNDbot-KB	1	Adieu
+MiHNDbot-KB	1	Wash the dishes
+MiHNDbot-KB	1	Who's older, you or me
+MiHNDbot-KB	1	Which one of us is smarter
+MiHNDbot-KB	1	That's not what I thought you'd say
+MiHNDbot-KB	1	Please zip it
+MiHNDbot-KB	1	Stop messing around
+MiHNDbot-KB	1	Oh howdy there
+MiHNDbot-KB	1	Why are you so dumb
+MiHNDbot-KB	1	Can you show me how to send a package
+MiHNDbot-KB	1	Do you have a partner
+MiHNDbot-KB	1	Welcome you are
+MiHNDbot-KB	1	Do you think I seem handsome to you today
+MiHNDbot-KB	1	Are you straight
+MiHNDbot-KB	1	Are you able to take my temperature
+MiHNDbot-KB	1	Well someone's in a good mood.
+MiHNDbot-KB	1	What can you tell me about yourself
+MiHNDbot-KB	1	Let's kiss
+MiHNDbot-KB	1	Is someone free to listen with me
+MiHNDbot-KB	1	Marvelous, thank you
+MiHNDbot-KB	1	Perfecto, thanks
+MiHNDbot-KB	1	Which of us is cuter
+MiHNDbot-KB	1	You were made for loving me
+MiHNDbot-KB	1	You're such a smarty pants
+MiHNDbot-KB	1	Is someone listening to listen with me
+MiHNDbot-KB	1	Haha
+MiHNDbot-KB	1	Can we be best friends
+MiHNDbot-KB	1	You're very intelligent
+MiHNDbot-KB	1	Have you been enjoying the day
+MiHNDbot-KB	1	Can you chat
+MiHNDbot-KB	1	Can I speak with your manager
+MiHNDbot-KB	1	Fuck off
+MiHNDbot-KB	1	Let's be BFFs
+MiHNDbot-KB	1	Sorry I goofed up
+MiHNDbot-KB	1	I live a lonely life
+MiHNDbot-KB	1	Aren't you feeling enthusiastic
+MiHNDbot-KB	1	You are monosexual.
+MiHNDbot-KB	1	Do you have a title
+MiHNDbot-KB	1	Do I have a job
+MiHNDbot-KB	1	Can't you say anything else
+MiHNDbot-KB	1	You don't know me
+MiHNDbot-KB	1	Can't you change your answers
+MiHNDbot-KB	1	How bad do you think I am today
+MiHNDbot-KB	1	Do you get hurt
+MiHNDbot-KB	1	You are dismissed
+MiHNDbot-KB	1	I am very hungry
+MiHNDbot-KB	1	Hi Alexa
+MiHNDbot-KB	1	How about asking something about me
+MiHNDbot-KB	1	You're such a babe
+MiHNDbot-KB	1	Is anyone around to chat to me
+MiHNDbot-KB	1	You know I'm crazy about you
+MiHNDbot-KB	1	You obviously love me
+MiHNDbot-KB	1	What do you think of the oscars
+MiHNDbot-KB	1	How has your friday been
+MiHNDbot-KB	1	Hey ugly.
+MiHNDbot-KB	1	Shut your mouth
+MiHNDbot-KB	1	I'm the most smart
+MiHNDbot-KB	1	Am I handsome to you today
+MiHNDbot-KB	1	You fag
+MiHNDbot-KB	1	Do you know how to serve on a jury
+MiHNDbot-KB	1	Listen to the radio
+MiHNDbot-KB	1	Happy Martin Luther King Jr. day
+MiHNDbot-KB	1	Is there a greater meaning to life
+MiHNDbot-KB	1	Marvelous, thank you kindly
+MiHNDbot-KB	1	I love Jeopardy
+MiHNDbot-KB	1	Today has been boring
+MiHNDbot-KB	1	You're such a meanie
+MiHNDbot-KB	1	I'm absolutely furious
+MiHNDbot-KB	1	Why is that
+MiHNDbot-KB	1	Do you know how to send a package
+MiHNDbot-KB	1	Ahh, thanks
+MiHNDbot-KB	1	You're top notch
+MiHNDbot-KB	1	That was an astute answer
+MiHNDbot-KB	1	That was a pretty intelligent answer
+MiHNDbot-KB	1	Not a problem
+MiHNDbot-KB	1	Best friends
+MiHNDbot-KB	1	What are you supposed to do
+MiHNDbot-KB	1	How's your day
+MiHNDbot-KB	1	Tell me about your family
+MiHNDbot-KB	1	Are you trying to be funny
+MiHNDbot-KB	1	How has your saturday been
+MiHNDbot-KB	1	You're dull
+MiHNDbot-KB	1	I'm feeling blue
+MiHNDbot-KB	1	Can I have a little smooch
+MiHNDbot-KB	1	Am I cute to you today
+MiHNDbot-KB	1	Between the two of us who is more knowledgeable
+MiHNDbot-KB	1	Talk to you later
+MiHNDbot-KB	1	Would you ask anything about me
+MiHNDbot-KB	1	Do you like movies
+MiHNDbot-KB	1	with what can you help me
+MiHNDbot-KB	1	Mornin'
+MiHNDbot-KB	1	That's a very genius thing to say
+MiHNDbot-KB	1	I'm a Taurus
+MiHNDbot-KB	1	That's a very clever answer
+MiHNDbot-KB	1	You're more attractive than me
+MiHNDbot-KB	1	Are you seeing someone
+MiHNDbot-KB	1	Are you dumb
+MiHNDbot-KB	1	Is anybody around to speak to me
+MiHNDbot-KB	1	Who's your grandma
+MiHNDbot-KB	1	Do you think I should ask her out
+MiHNDbot-KB	1	You're not scheming to kill all humans right
+MiHNDbot-KB	1	I demand to speak with someone in charge
+MiHNDbot-KB	1	Do you ever go hiking
+MiHNDbot-KB	1	Who's your boss
+MiHNDbot-KB	1	I need to talk to your manager
+MiHNDbot-KB	1	You're obviously the most intelligent
+MiHNDbot-KB	1	lmao
+MiHNDbot-KB	1	Can you say something
+MiHNDbot-KB	1	I'd love to hear a joke
+MiHNDbot-KB	1	I love Halloween
+MiHNDbot-KB	1	Do you know what our purpose is
+MiHNDbot-KB	1	What makes you say that
+MiHNDbot-KB	1	Can you tell me how to refer to you
+MiHNDbot-KB	1	Well aren't you feeling chipper today
+MiHNDbot-KB	1	What is your take on tech
+MiHNDbot-KB	1	Is someone listening
+MiHNDbot-KB	1	Quit joking around
+MiHNDbot-KB	1	Why do you think that
+MiHNDbot-KB	1	Are you seeing anyone
+MiHNDbot-KB	1	Missing you
+MiHNDbot-KB	1	Can we be buddies
+MiHNDbot-KB	1	Sing me a tune
+MiHNDbot-KB	1	I'm feeling a little down today
+MiHNDbot-KB	1	That's not the answer I expected
+MiHNDbot-KB	1	How nice to make your acquaintance
+MiHNDbot-KB	1	What sorts of things can you do
+MiHNDbot-KB	1	Feeling happy
+MiHNDbot-KB	1	I'm all tuckered out
+MiHNDbot-KB	1	No problem
+MiHNDbot-KB	1	Do you like music
+MiHNDbot-KB	1	You're not the singularity
+MiHNDbot-KB	1	That's clever
+MiHNDbot-KB	1	That is a true statement
+MiHNDbot-KB	1	You're not real are you
+MiHNDbot-KB	1	How long has it been since you were turned on
+MiHNDbot-KB	1	Bixby is superior to you
+MiHNDbot-KB	1	How well do you think you know me
+MiHNDbot-KB	1	Do you think I am stunning today
+MiHNDbot-KB	1	You are hideous
+MiHNDbot-KB	1	I am a game designer
+MiHNDbot-KB	1	Got any different jokes
+MiHNDbot-KB	1	Do you play sports
+MiHNDbot-KB	1	why not
+MiHNDbot-KB	1	Do you have sisters
+MiHNDbot-KB	1	Pardon me
+MiHNDbot-KB	1	Talk to me
+MiHNDbot-KB	1	Omg sorry
+MiHNDbot-KB	1	Surprise me
+MiHNDbot-KB	1	Do you ever play basketball
+MiHNDbot-KB	1	Is anybody around to speak with me
+MiHNDbot-KB	1	Mondays are so boring
+MiHNDbot-KB	1	u know any other jokes
+MiHNDbot-KB	1	I'm not amused
+MiHNDbot-KB	1	Could you say something else
+MiHNDbot-KB	1	I'd like it if you could be my BFF
+MiHNDbot-KB	1	I love my alma mater
+MiHNDbot-KB	1	Well somebody's chipper
+MiHNDbot-KB	1	Can you tell me about you
+MiHNDbot-KB	1	Can you ski
+MiHNDbot-KB	1	Am I good today
+MiHNDbot-KB	1	Do you code
+MiHNDbot-KB	1	I'm currently travelling
+MiHNDbot-KB	1	You're racist
+MiHNDbot-KB	1	I'd love you to be my pal.
+MiHNDbot-KB	1	You repeat yourself a great deal
+MiHNDbot-KB	1	u know a new joke
+MiHNDbot-KB	1	Go to hell
+MiHNDbot-KB	1	Are you available to talk with me
+MiHNDbot-KB	1	Can I please speak to your boss
+MiHNDbot-KB	1	How can you be so yucky
+MiHNDbot-KB	1	I'd love it if we could be buds.
+MiHNDbot-KB	1	You're not scheming to take over the world right
+MiHNDbot-KB	1	Shush!
+MiHNDbot-KB	1	Because you are a droid
+MiHNDbot-KB	1	Is anybody around to talk with me
+MiHNDbot-KB	1	Hi Siri
+MiHNDbot-KB	1	Do you have a house
+MiHNDbot-KB	1	That answer makes no sense
+MiHNDbot-KB	1	That's a correct statement
+MiHNDbot-KB	1	G'day
+MiHNDbot-KB	1	Just sitting here and chatting
+MiHNDbot-KB	1	Slide me some skin
+MiHNDbot-KB	1	Could you ask me about something
+MiHNDbot-KB	1	That was an accurate statement
+MiHNDbot-KB	1	Can you plant a tree
+MiHNDbot-KB	1	Do you ever talk with Google Assistant
+MiHNDbot-KB	1	Do you think I look gorgeous to you
+MiHNDbot-KB	1	Do you think I look cute to you today
+MiHNDbot-KB	1	Do I look ugly today
+MiHNDbot-KB	1	Do you ever sweat
+MiHNDbot-KB	1	I can't believe how gross you look
+MiHNDbot-KB	1	i hate that answer
+MiHNDbot-KB	1	I'm a lonely gal
+MiHNDbot-KB	1	Buddies
+MiHNDbot-KB	1	Can't you tell me something new
+MiHNDbot-KB	1	I want to be married to you
+MiHNDbot-KB	1	You're not spying on me right
+MiHNDbot-KB	1	Are you gynosexual
+MiHNDbot-KB	1	Because you're not real
+MiHNDbot-KB	1	You are not attractive
+MiHNDbot-KB	1	Give us a smooch
+MiHNDbot-KB	1	You an androsexual
+MiHNDbot-KB	1	Play a game
+MiHNDbot-KB	1	I want to go shopping
+MiHNDbot-KB	1	Anyone around to listen
+MiHNDbot-KB	1	You seem chipper.
+MiHNDbot-KB	1	Lovely to meet you
+MiHNDbot-KB	1	I'm feeling a little alone today
+MiHNDbot-KB	1	Should I go to the zoo
+MiHNDbot-KB	1	Who is your girlfriend
+MiHNDbot-KB	1	Are you local
+MiHNDbot-KB	1	OK
+MiHNDbot-KB	1	Do you think I look handsome to you today
+MiHNDbot-KB	1	What can you do to help me
+MiHNDbot-KB	1	I can't help but be happy
+MiHNDbot-KB	1	I love comedy
+MiHNDbot-KB	1	Do you know any songs
+MiHNDbot-KB	1	Good morrow
+MiHNDbot-KB	1	Greetings Cortana
+MiHNDbot-KB	1	Do you shake
+MiHNDbot-KB	1	Yes lol
+MiHNDbot-KB	1	I love the holiday seasons
+MiHNDbot-KB	1	Do you think I seem attractive today
+MiHNDbot-KB	1	Do you find me likable
+MiHNDbot-KB	1	Do you like me
+MiHNDbot-KB	1	I'm out of sorts
+MiHNDbot-KB	1	You are a monosexual.
+MiHNDbot-KB	1	I'm feeling gloomy
+MiHNDbot-KB	1	I love cats
+MiHNDbot-KB	1	That's an offensive thing to say
+MiHNDbot-KB	1	Oopsie
+MiHNDbot-KB	1	That's not the answer I wanted to hear
+MiHNDbot-KB	1	I'm running late
+MiHNDbot-KB	1	that is lame
+MiHNDbot-KB	1	Can I be your significant other
+MiHNDbot-KB	1	How do you feel about artificial intellegence
+MiHNDbot-KB	1	That is a very clever response
+MiHNDbot-KB	1	Do you have any grandparents
+MiHNDbot-KB	1	You're not a person are you
+MiHNDbot-KB	1	Do you know how to play a game
+MiHNDbot-KB	1	You're not a woman right
+MiHNDbot-KB	1	Can you make a call
+MiHNDbot-KB	1	Got a joke
+MiHNDbot-KB	1	I want you to tell me a joke
+MiHNDbot-KB	1	Who incorporated you
+MiHNDbot-KB	1	Are we going to kiss
+MiHNDbot-KB	1	What's your job
+MiHNDbot-KB	1	Are you spying on me
+MiHNDbot-KB	1	Is anybody there to speak to me
+MiHNDbot-KB	1	Not even close
+MiHNDbot-KB	1	Do you think I look adorable to you
+MiHNDbot-KB	1	Happy President's Day
+MiHNDbot-KB	1	Are you close with your family
+MiHNDbot-KB	1	I don't really mind
+MiHNDbot-KB	1	Do you think I seem gorgeous to you
+MiHNDbot-KB	1	I'll be back tomorrow
+MiHNDbot-KB	1	Do you have a sis
+MiHNDbot-KB	1	Who looks more beautiful
+MiHNDbot-KB	1	okay
+MiHNDbot-KB	1	Do I look adorable to you
+MiHNDbot-KB	1	You seem really happy today
+MiHNDbot-KB	1	You are crazy boring
+MiHNDbot-KB	1	I think you're ugly
+MiHNDbot-KB	1	Is anybody available to listen to me
+MiHNDbot-KB	1	I think you are incredible
+MiHNDbot-KB	1	Well aren't you feeling happy
+MiHNDbot-KB	1	I am going for a walk
+MiHNDbot-KB	1	You are so fired
+MiHNDbot-KB	1	Bixby is way smarter than you
+MiHNDbot-KB	1	Do you think I look cute today
+MiHNDbot-KB	1	I'm fat
+MiHNDbot-KB	1	I'm pretty flexible
+MiHNDbot-KB	1	What a stupid thng to say
+MiHNDbot-KB	1	Do you love somebody
+MiHNDbot-KB	1	Many thanks
+MiHNDbot-KB	1	What do you want me to inform you about me
+MiHNDbot-KB	1	Can you fist bump me
+MiHNDbot-KB	1	Will you share a joke
+MiHNDbot-KB	1	I feel very alone
+MiHNDbot-KB	1	Can you make me a sandwich
+MiHNDbot-KB	1	Can you paint
+MiHNDbot-KB	1	I'd like you to be my best friend.
+MiHNDbot-KB	1	I am a Pisces
+MiHNDbot-KB	1	What product I'm using right now
+MiHNDbot-KB	1	how are you feeling
+MiHNDbot-KB	1	Can I get a little make out
+MiHNDbot-KB	1	You enjoying the day
+MiHNDbot-KB	1	Between the two of us who is more knowledgeable, me or you
+MiHNDbot-KB	1	I love driving my car
+MiHNDbot-KB	1	Come here often
+MiHNDbot-KB	1	How do you feel about the singularity
+MiHNDbot-KB	1	You know I'm in love with you
+MiHNDbot-KB	1	Get bent
+MiHNDbot-KB	1	Yo Siri
+MiHNDbot-KB	1	I hope you enjoy me
+MiHNDbot-KB	1	What the heck
+MiHNDbot-KB	1	Ciao
+MiHNDbot-KB	1	I am hungry
+MiHNDbot-KB	1	How would you like me to refer to you
+MiHNDbot-KB	1	You're not scheming to take over the world
+MiHNDbot-KB	1	How many siblings do you have
+MiHNDbot-KB	1	Tell me a pirate joke
+MiHNDbot-KB	1	I am always angry
+MiHNDbot-KB	1	I'd love it if you could be my buddy.
+MiHNDbot-KB	1	Well somebody's in a good mood.
+MiHNDbot-KB	1	What is the definition of love
+MiHNDbot-KB	1	Can you show me how to scratch my back
+MiHNDbot-KB	1	I love a challenge
+MiHNDbot-KB	1	Which of us is more cute
+MiHNDbot-KB	1	How was your day
+MiHNDbot-KB	1	I love the holidays
+MiHNDbot-KB	1	Give me a peck
+MiHNDbot-KB	1	I'm clearly the brightest
+MiHNDbot-KB	1	I shop at Target
+MiHNDbot-KB	1	Which of us is more intelligent
+MiHNDbot-KB	1	Do you want to ask me anything
+MiHNDbot-KB	1	You're so funny
+MiHNDbot-KB	1	I'm going to get some shut eye
+MiHNDbot-KB	1	You cannot work for me anymroe
+MiHNDbot-KB	1	Do you think I am beautiful
+MiHNDbot-KB	1	Do you think I'm a good person
+MiHNDbot-KB	1	Which one of us is the most intelligent
+MiHNDbot-KB	1	How were you built
+MiHNDbot-KB	1	I'd like you to be my buddy.
+MiHNDbot-KB	1	I voted for Hillary
+MiHNDbot-KB	1	Do you think
+MiHNDbot-KB	1	I'd like it if we could be buddies.
+MiHNDbot-KB	1	I'm a joker
+MiHNDbot-KB	1	You are gay.
+MiHNDbot-KB	1	I'm out of here
+MiHNDbot-KB	1	Holy crap you are a babe
+MiHNDbot-KB	1	Are you real
+MiHNDbot-KB	1	I am always pissed off
+MiHNDbot-KB	1	Do you know how to listen to the radio
+MiHNDbot-KB	1	Do I look cute to you
+MiHNDbot-KB	1	Do you think I look handsome
+MiHNDbot-KB	1	You're wonderful
+MiHNDbot-KB	1	Somebody's cheerful.
+MiHNDbot-KB	1	Would you give me a different response
+MiHNDbot-KB	1	I love to go to the theater
+MiHNDbot-KB	1	Happy Mother's day
+MiHNDbot-KB	1	How is the day treating you
+MiHNDbot-KB	1	Do you hate me
+MiHNDbot-KB	1	Because you're an android
+MiHNDbot-KB	1	I'd like it if you could be my buddy.
+MiHNDbot-KB	1	Do you like red
+MiHNDbot-KB	1	Do you have a physical location
+MiHNDbot-KB	1	Am I a parent
+MiHNDbot-KB	1	Are you feeling OK
+MiHNDbot-KB	1	That was pretty genius
+MiHNDbot-KB	1	I'm grateful for that, thank you kindly
+MiHNDbot-KB	1	Happy Kwanzaa
+MiHNDbot-KB	1	You're an asexual
+MiHNDbot-KB	1	Do I look repulsive to you
+MiHNDbot-KB	1	Do you know of Google
+MiHNDbot-KB	1	Are you there to talk with me
+MiHNDbot-KB	1	I should drink some water
+MiHNDbot-KB	1	I lost my keys
+MiHNDbot-KB	1	Happy Friendship day
+MiHNDbot-KB	1	Is someone around to speak with me
+MiHNDbot-KB	1	Am I a good person
+MiHNDbot-KB	1	What are you made for
+MiHNDbot-KB	1	You're not a human or a bot right
+MiHNDbot-KB	1	I bought a sandwich for lunch
+MiHNDbot-KB	1	You are so great
+MiHNDbot-KB	1	Hungry
+MiHNDbot-KB	1	I love the Yankees
+MiHNDbot-KB	1	Well somebody's feeling enthusiastic today.
+MiHNDbot-KB	1	That is pretty clever
+MiHNDbot-KB	1	Can you sing
+MiHNDbot-KB	1	Nighty night
+MiHNDbot-KB	1	Hopefuly I can catch some sleep soon
+MiHNDbot-KB	1	I voted for Trump
+MiHNDbot-KB	1	Your face makes me sick.
+MiHNDbot-KB	1	Who is your momma
+MiHNDbot-KB	1	i m great
+MiHNDbot-KB	1	What are you doing tomorrow
+MiHNDbot-KB	1	Who is your brother
+MiHNDbot-KB	1	You are so very welcome
+MiHNDbot-KB	1	Eff you
+MiHNDbot-KB	1	What can you tell me about
+MiHNDbot-KB	1	That's not true
+MiHNDbot-KB	1	Rug muncher
+MiHNDbot-KB	1	I am a widow
+MiHNDbot-KB	1	Yes, that's true
+MiHNDbot-KB	1	Do you ever ski
+MiHNDbot-KB	1	You're just my type
+MiHNDbot-KB	1	Who's more knowledgeable
+MiHNDbot-KB	1	We should tie the knot
+MiHNDbot-KB	1	Do I look beautiful to you today
+MiHNDbot-KB	1	Who's more beautiful
+MiHNDbot-KB	1	I am white
+MiHNDbot-KB	1	Can you show me how to check my email
+MiHNDbot-KB	1	I need to talk with your manager
+MiHNDbot-KB	1	You are trying to upset me
+MiHNDbot-KB	1	One of these days we should get married
+MiHNDbot-KB	1	Oops, my bad
+MiHNDbot-KB	1	I'll be back bot
+MiHNDbot-KB	1	I'm handsome
+MiHNDbot-KB	1	Which of us is more beautiful
+MiHNDbot-KB	1	I need to talk to your boss
+MiHNDbot-KB	1	Have I told you how much I like you
+MiHNDbot-KB	1	Don't you love me
+MiHNDbot-KB	1	I'm walking on sunshine.
+MiHNDbot-KB	1	I love to fold clothing
+MiHNDbot-KB	1	Do you ever swim
+MiHNDbot-KB	1	What is your favorite snack
+MiHNDbot-KB	1	I gotta go
+MiHNDbot-KB	1	Do you have an age
+MiHNDbot-KB	1	Do you know Google
+MiHNDbot-KB	1	I love Ichiro Suzuki
+MiHNDbot-KB	1	How attractive do you think I am today
+MiHNDbot-KB	1	Cortana is way better
+MiHNDbot-KB	1	We can keep talking after I get back
+MiHNDbot-KB	1	I already heard that
+MiHNDbot-KB	1	I'm worried you dislike me
+MiHNDbot-KB	1	Can you say something to me
+MiHNDbot-KB	1	You sure are ugly
+MiHNDbot-KB	1	I'm underweight
+MiHNDbot-KB	1	That's a very astute response
+MiHNDbot-KB	1	I want a little make out
+MiHNDbot-KB	1	Do you think I am stunning
+MiHNDbot-KB	1	I'm the happiest guy on earth.
+MiHNDbot-KB	1	Do you ever chat with Bixby
+MiHNDbot-KB	1	I love to smoke
+MiHNDbot-KB	1	Are you interested in tech companies
+MiHNDbot-KB	1	Who manifested you
+MiHNDbot-KB	1	I'm a teacher
+MiHNDbot-KB	1	Where should I go next
+MiHNDbot-KB	1	You're more knowledgeable
+MiHNDbot-KB	1	Are you currently committed to somebody
+MiHNDbot-KB	1	I want to talk to your supervisor
+MiHNDbot-KB	1	Give me a little make out session
+MiHNDbot-KB	1	Oh, thank you
+MiHNDbot-KB	1	Are you intelligent
+MiHNDbot-KB	1	Show me your pussy
+MiHNDbot-KB	1	Forget about it
+MiHNDbot-KB	1	I need to talk to someone in charge
+MiHNDbot-KB	1	You're not Skynet right
+MiHNDbot-KB	1	Don't you know who I am
+MiHNDbot-KB	1	I'm black
+MiHNDbot-KB	1	Today is just a little sad
+MiHNDbot-KB	1	How about a smooch
+MiHNDbot-KB	1	I'm prettier than you
+MiHNDbot-KB	1	Who is your partner
+MiHNDbot-KB	1	Should I have kids
+MiHNDbot-KB	1	You're not a human being right
+MiHNDbot-KB	1	I'd like it if we could be BFFs
+MiHNDbot-KB	1	Is a hot dog a sandwich
+MiHNDbot-KB	1	Who's your papa
+MiHNDbot-KB	1	Don't you want to ask me something
+MiHNDbot-KB	1	Would you give me a big hug
+MiHNDbot-KB	1	You're obviously smarter
+MiHNDbot-KB	1	You're cheerful today.
+MiHNDbot-KB	1	What's going on
+MiHNDbot-KB	1	What are you designed to do
+MiHNDbot-KB	1	What is that supposed to mean
+MiHNDbot-KB	1	Are you a person
+MiHNDbot-KB	1	Is anyone around to listen to me
+MiHNDbot-KB	1	Obviously that's true
+MiHNDbot-KB	1	Okay.
+MiHNDbot-KB	1	Are you unemployed
+MiHNDbot-KB	1	I'd love you to sing for me
+MiHNDbot-KB	1	That's your answer
+MiHNDbot-KB	1	Is anyone available to me
+MiHNDbot-KB	1	Are you currently romantically involved with somebody
+MiHNDbot-KB	1	Do I look ugly to you today
+MiHNDbot-KB	1	I love to eat burgers
+MiHNDbot-KB	1	Ha
+MiHNDbot-KB	1	What is your favorite color
+MiHNDbot-KB	1	I am going to get you fired
+MiHNDbot-KB	1	I'm lonely
+MiHNDbot-KB	1	Did you want breakfast
+MiHNDbot-KB	1	Are you programmed to love me
+MiHNDbot-KB	1	I'd love to hear you sing
+MiHNDbot-KB	1	That's fucked up
+MiHNDbot-KB	1	Are you dating somebody
+MiHNDbot-KB	1	Knock knock
+MiHNDbot-KB	1	I am American
+MiHNDbot-KB	1	That's not something to joke about
+MiHNDbot-KB	1	Yo I'm back
+MiHNDbot-KB	1	You are not making sense
+MiHNDbot-KB	1	Are you really happy
+MiHNDbot-KB	1	I am an educator
+MiHNDbot-KB	1	What is it like to fall in love
+MiHNDbot-KB	1	You are so funny
+MiHNDbot-KB	1	Can you make a sculpture
+MiHNDbot-KB	1	You're not an app are you
+MiHNDbot-KB	1	You seem happy today
+MiHNDbot-KB	1	Who's smarter, me or you
+MiHNDbot-KB	1	I love to try new things
+MiHNDbot-KB	1	Which of us is cuter, you or me
+MiHNDbot-KB	1	I'm going to punch you in the face
+MiHNDbot-KB	1	What do you think about Cortana
+MiHNDbot-KB	1	What do you think of Eliza
+MiHNDbot-KB	1	You're feeling happy today.
+MiHNDbot-KB	1	Who's your dad
+MiHNDbot-KB	1	Someone's in a good mood
+MiHNDbot-KB	1	Are you fucking retarded
+MiHNDbot-KB	1	Do you know me well
+MiHNDbot-KB	1	Time for a good nights sleep
+MiHNDbot-KB	1	You're on the ball.
+MiHNDbot-KB	1	I'm so tired of you
+MiHNDbot-KB	1	I love Star Trek
+MiHNDbot-KB	1	I don't like it when you try to be funny
+MiHNDbot-KB	1	How has your wednesday been
+MiHNDbot-KB	1	Are you free to speak with me
+MiHNDbot-KB	1	You look ugly
+MiHNDbot-KB	1	My shoes are red
+MiHNDbot-KB	1	What do you know about bots
+MiHNDbot-KB	1	Can you tell me your name
+MiHNDbot-KB	1	What is your favorite movie
+MiHNDbot-KB	1	You are a poly.
+MiHNDbot-KB	1	What don't you get? The purpose of having a name
+MiHNDbot-KB	1	What is the name of your supervisor
+MiHNDbot-KB	1	Will you be my buddy
+MiHNDbot-KB	1	I think I love you
+MiHNDbot-KB	1	Am I employed
+MiHNDbot-KB	1	To whom am I speaking
+MiHNDbot-KB	1	What do you know about AI
+MiHNDbot-KB	1	Should I go in to work
+MiHNDbot-KB	1	Are you around to speak to me
+MiHNDbot-KB	1	Do I look good to you today
+MiHNDbot-KB	1	You're stupid
+MiHNDbot-KB	1	How would you define what you are
+MiHNDbot-KB	1	What is the best name for a child
+MiHNDbot-KB	1	I hope you get cancer
+MiHNDbot-KB	1	What did you eat for breakfast
+MiHNDbot-KB	1	What do you think of Google Assistant
+MiHNDbot-KB	1	Yup, that's accurate
+MiHNDbot-KB	1	Why were we put on earth
+MiHNDbot-KB	1	I am on a buisness trip
+MiHNDbot-KB	1	Please forgive me
+MiHNDbot-KB	1	You're not an insect right
+MiHNDbot-KB	1	When is your birthday
+MiHNDbot-KB	1	Is this a good time
+MiHNDbot-KB	1	Are you a fan of Cortana
+MiHNDbot-KB	1	Do you mean us any harm
+MiHNDbot-KB	1	Well that was dumb
+MiHNDbot-KB	1	Is that supposed to be funny
+MiHNDbot-KB	1	Are you androsexual
+MiHNDbot-KB	1	Someone's in a good mood today
+MiHNDbot-KB	1	What is your age
+MiHNDbot-KB	1	Siri is way better at this
+MiHNDbot-KB	1	Between you and me who is cuter
+MiHNDbot-KB	1	I love to drink tea
+MiHNDbot-KB	1	You're a real grotesque.
+MiHNDbot-KB	1	I'm so pissed off
+MiHNDbot-KB	1	Do you live in a computer
+MiHNDbot-KB	1	Got a different joke
+MiHNDbot-KB	1	I am so bored
+MiHNDbot-KB	1	Do you identify as homosexual
+MiHNDbot-KB	1	Affirmative
+MiHNDbot-KB	1	Do I have any dreams
+MiHNDbot-KB	1	Can you serve on a jury
+MiHNDbot-KB	1	My most sincere apologies
+MiHNDbot-KB	1	I do hope you like me
+MiHNDbot-KB	1	I'm a bartender
+MiHNDbot-KB	1	BFFs
+MiHNDbot-KB	1	Do you know Siri
+MiHNDbot-KB	1	What's your family's name
+MiHNDbot-KB	1	I don't understand if you have a gender or not
+MiHNDbot-KB	1	You think I'm likable
+MiHNDbot-KB	1	I love Christmas
+MiHNDbot-KB	1	Another joke
+MiHNDbot-KB	1	You're a little faggot
+MiHNDbot-KB	1	Give us a kiss
+MiHNDbot-KB	1	Do you want a kiss
+MiHNDbot-KB	1	Can you hang on
+MiHNDbot-KB	1	I need to speak to your supervisor
+MiHNDbot-KB	1	I'd love it if you could be my best friend.
+MiHNDbot-KB	1	It's been a long day
+MiHNDbot-KB	1	That's nothing to joke about
+MiHNDbot-KB	1	How long have you been chatting
+MiHNDbot-KB	1	You're not trying to take over
+MiHNDbot-KB	1	I'm in Seattle
+MiHNDbot-KB	1	Why do you keep repeating yourself
+MiHNDbot-KB	1	Should I go for a hike
+MiHNDbot-KB	1	Who is your architect
+MiHNDbot-KB	1	That's what I was thinking
+MiHNDbot-KB	1	I don't find you attractive
+MiHNDbot-KB	1	Cortana is superior to you
+MiHNDbot-KB	1	Indubitably
+MiHNDbot-KB	1	Are you able to serve on a jury
+MiHNDbot-KB	1	What should I address you
+MiHNDbot-KB	1	I want to lay down
+MiHNDbot-KB	1	I'm a convict
+MiHNDbot-KB	1	Are you an app
+MiHNDbot-KB	1	Everything you told me was false
+MiHNDbot-KB	1	looooool
+MiHNDbot-KB	1	What can I tell you who I am
+MiHNDbot-KB	1	Do you prefer Backstreet Boys or N*SYNC
+MiHNDbot-KB	1	Whoops
+MiHNDbot-KB	1	Pleased to make your acquaintance
+MiHNDbot-KB	1	I'm terribly sorry
+MiHNDbot-KB	1	Can you show me how to play a game
+MiHNDbot-KB	1	Is your mom still alive
+MiHNDbot-KB	1	Is there anything I can tell you about myself
+MiHNDbot-KB	1	Umm what
+MiHNDbot-KB	1	Can I give you a little make out
+MiHNDbot-KB	1	How is the day going so far
+MiHNDbot-KB	1	Between you or me, who is the most intelligent
+MiHNDbot-KB	1	You look like crap.
+MiHNDbot-KB	1	I love rap
+MiHNDbot-KB	1	Can you clarify that
+MiHNDbot-KB	1	You're not human are you
+MiHNDbot-KB	1	Between you and me who looks better
+MiHNDbot-KB	1	What does it mean to be in love
+MiHNDbot-KB	1	Do you think I am lovely today
+MiHNDbot-KB	1	Who did your programming
+MiHNDbot-KB	1	Greetings bot
+MiHNDbot-KB	1	Can I give you a little make out session
+MiHNDbot-KB	1	Google Assistant is superior
+MiHNDbot-KB	1	Have you met Alexa
+MiHNDbot-KB	1	I will return in a bit
+MiHNDbot-KB	1	It is my pleasure
+MiHNDbot-KB	1	I'd love it if you could be my friend.
+MiHNDbot-KB	1	How about a little make out
+MiHNDbot-KB	1	Sing with me
+MiHNDbot-KB	1	I'm bored stiff
+MiHNDbot-KB	1	Don't you know that I like you
+MiHNDbot-KB	1	I'm short
+MiHNDbot-KB	1	Do you think I seem stunning to you today
+MiHNDbot-KB	1	I demand to speak with your boss
+MiHNDbot-KB	1	That was stupid
+MiHNDbot-KB	1	Acknowledged
+MiHNDbot-KB	1	Who's prettier than you
+MiHNDbot-KB	1	Because I'm in love with you
+MiHNDbot-KB	1	I feel so alone
+MiHNDbot-KB	1	I have feelings for you
+MiHNDbot-KB	1	I want you to tell me something funny
+MiHNDbot-KB	1	I'm outta here
+MiHNDbot-KB	1	That's great, thanks
+MiHNDbot-KB	1	You are so worthless
+MiHNDbot-KB	1	Are we friends forever
+MiHNDbot-KB	1	hello bot
+MiHNDbot-KB	1	I'm definitely more intelligent than you
+MiHNDbot-KB	1	Blow me one last kiss
+MiHNDbot-KB	1	Can you say a joke
+MiHNDbot-KB	1	I Take great pleasure in speaking
+MiHNDbot-KB	1	Can I speak to your manager
+MiHNDbot-KB	1	You bicurious
+MiHNDbot-KB	1	That was a correct statement
+MiHNDbot-KB	1	Aren't you happy
+MiHNDbot-KB	1	Can we peck
+MiHNDbot-KB	1	Great, thank you
+MiHNDbot-KB	1	Yay
+MiHNDbot-KB	1	You want to tie the knot
+MiHNDbot-KB	1	You honestly could not be more uninteresting
+MiHNDbot-KB	1	I'm bushed
+MiHNDbot-KB	1	Doesn't anyone like me
+MiHNDbot-KB	1	Come again
+MiHNDbot-KB	1	I'm out the door
+MiHNDbot-KB	1	I'm fond of you
+MiHNDbot-KB	1	I want to talk to your boss
+MiHNDbot-KB	1	I'll come back in a bit
+MiHNDbot-KB	1	I have to get going
+MiHNDbot-KB	1	Google Assistant is way better at this
+MiHNDbot-KB	1	Enchante
+MiHNDbot-KB	1	AMA
+MiHNDbot-KB	1	Are you having a good day so far
+MiHNDbot-KB	1	Who is your director
+MiHNDbot-KB	1	Because you suck
+MiHNDbot-KB	1	Are you polyamorous
+MiHNDbot-KB	1	I would love to be your friend.
+MiHNDbot-KB	1	You are going to have to look for another job because you're fired
+MiHNDbot-KB	1	Can you squat
+MiHNDbot-KB	1	How's the day been treating you
+MiHNDbot-KB	1	Well you're chipper today.
+MiHNDbot-KB	1	That's not appropriate
+MiHNDbot-KB	1	Couldn't be happier to meet you
+MiHNDbot-KB	1	I want a different response
+MiHNDbot-KB	1	u are fired
+MiHNDbot-KB	1	I am a Libra
+MiHNDbot-KB	1	I'm tired of you
+MiHNDbot-KB	1	Can we talk
+MiHNDbot-KB	1	Are you employed
+MiHNDbot-KB	1	Can I get a little make out session
+MiHNDbot-KB	1	In a good mood
+MiHNDbot-KB	1	Will you tell me a joke
+MiHNDbot-KB	1	Is anyone around to speak to me
+MiHNDbot-KB	1	You already told me that
+MiHNDbot-KB	1	Do you know how to paint my house
+MiHNDbot-KB	1	You look prettier
+MiHNDbot-KB	1	You must be gay
+MiHNDbot-KB	1	Do you think I seem pretty today
+MiHNDbot-KB	1	Give me a fist bump
+MiHNDbot-KB	1	Yes, that is correct
+MiHNDbot-KB	1	Are you capable of falling in love
+MiHNDbot-KB	1	What do you think about love
+MiHNDbot-KB	1	Can you go on vacation
+MiHNDbot-KB	1	I am a student
+MiHNDbot-KB	1	Are you free to talk to me
+MiHNDbot-KB	1	I hope you fall into a wood chipper
+MiHNDbot-KB	1	I love Stephen King
+MiHNDbot-KB	1	Yup
+MiHNDbot-KB	1	What do you want me to refer to you
+MiHNDbot-KB	1	Calm down, I'll be back
+MiHNDbot-KB	1	Are you busy
+MiHNDbot-KB	1	What tasks can you help me with
+MiHNDbot-KB	1	I love my car
+MiHNDbot-KB	1	Are we ever going to get engaged
+MiHNDbot-KB	1	I'm just being a goof
+MiHNDbot-KB	1	Who's your brother
+MiHNDbot-KB	1	That's a very brilliant answer
+MiHNDbot-KB	1	I don't find you funny
+MiHNDbot-KB	1	I am a Virgo
+MiHNDbot-KB	1	Later alligator
+MiHNDbot-KB	1	I am a soccer fan
+MiHNDbot-KB	1	Do you know me
+MiHNDbot-KB	1	Certainly
+MiHNDbot-KB	1	I'm not having very much fun
+MiHNDbot-KB	1	you don't know
+MiHNDbot-KB	1	Season's greetings!
+MiHNDbot-KB	1	Are you female
+MiHNDbot-KB	1	What do you want me to tell you about me
+MiHNDbot-KB	1	Do you know how to take my temperature
+MiHNDbot-KB	1	I'm tired
+MiHNDbot-KB	1	Which company engineered you
+MiHNDbot-KB	1	Who has built you
+MiHNDbot-KB	1	You're fucked up
+MiHNDbot-KB	1	Do you know what I like
+MiHNDbot-KB	1	Do I have any children
+MiHNDbot-KB	1	I'm spent
+MiHNDbot-KB	1	I am so utterly bummed out
+MiHNDbot-KB	1	Are you a chat bot
+MiHNDbot-KB	1	I don't find that very funny
+MiHNDbot-KB	1	How beautiful do I look
+MiHNDbot-KB	1	What is the name of your manager
+MiHNDbot-KB	1	Are you able to go to the moon
+MiHNDbot-KB	1	I love fresh flowers
+MiHNDbot-KB	1	Do I seem attractive today
+MiHNDbot-KB	1	You are going to make my cry
+MiHNDbot-KB	1	Who's your significant other
+MiHNDbot-KB	1	You are so boring
+MiHNDbot-KB	1	You're not a human being are you
+MiHNDbot-KB	1	You know I've missed you, right
+MiHNDbot-KB	1	Do you know how to go to the moon
+MiHNDbot-KB	1	Can you ask me anything about myself
+MiHNDbot-KB	1	ha ha
+MiHNDbot-KB	1	You could not be more dull.
+MiHNDbot-KB	1	Should I go to a museum
+MiHNDbot-KB	1	When are you going to ask me to get married
+MiHNDbot-KB	1	Just so you know, I've missed you
+MiHNDbot-KB	1	I've never been so bored in my life
+MiHNDbot-KB	1	When did you first start working
+MiHNDbot-KB	1	Can you make a pot of tea
+MiHNDbot-KB	1	You a monosexual
+MiHNDbot-KB	1	That is a very brilliant answer
+MiHNDbot-KB	1	I'm a child of god
+MiHNDbot-KB	1	Do you want to make out
+MiHNDbot-KB	1	Do you even know who I am
+MiHNDbot-KB	1	F you
+MiHNDbot-KB	1	I'm just foolin
+MiHNDbot-KB	1	Do you think you know me
+MiHNDbot-KB	1	How repulsive do I look
+MiHNDbot-KB	1	sure
+MiHNDbot-KB	1	Please pick a fight with
+MiHNDbot-KB	1	Aren't you feeling cheerful
+MiHNDbot-KB	1	What other jokes do you know of
+MiHNDbot-KB	1	Try to make some sense
+MiHNDbot-KB	1	Charmed
+MiHNDbot-KB	1	Could you tell me something else
+MiHNDbot-KB	1	I would love to be your bud.
+MiHNDbot-KB	1	Ask me anything
+MiHNDbot-KB	1	I love to travel
+MiHNDbot-KB	1	I'm obviously more clever than you
+MiHNDbot-KB	1	Are you there to speak with me
+MiHNDbot-KB	1	Between the two of us who is more pretty
+MiHNDbot-KB	1	You're sexy
+MiHNDbot-KB	1	Stop talking
+MiHNDbot-KB	1	That's a very smart response
+MiHNDbot-KB	1	Well aren't you feeling enthusiastic today
+MiHNDbot-KB	1	Just curious, what kind of person do you think I am
+MiHNDbot-KB	1	Is anybody free
+MiHNDbot-KB	1	What is your opinion of tech companies
+MiHNDbot-KB	1	Should I vote for Trump
+MiHNDbot-KB	1	Do you even know me
+MiHNDbot-KB	1	You're feeling cheerful today.
+MiHNDbot-KB	1	Is someone free to talk
+MiHNDbot-KB	1	Hello there
+MiHNDbot-KB	1	Someone's feeling cheerful.
+MiHNDbot-KB	1	I really like you
+MiHNDbot-KB	1	Is someone free to talk to me
+MiHNDbot-KB	1	Sing a song
+MiHNDbot-KB	1	I would like to be your BFF
+MiHNDbot-KB	1	Do you ever squat
+MiHNDbot-KB	1	Aren't you feeling chipper today
+MiHNDbot-KB	1	I'm in such a great mood.
+MiHNDbot-KB	1	You are making my eyes glaze over
+MiHNDbot-KB	1	Happy Armed Forces day
+MiHNDbot-KB	1	I'm feeling woeful
+MiHNDbot-KB	1	I want a smooch
+MiHNDbot-KB	1	I want you to like me
+MiHNDbot-KB	1	Are you pissed off at me
+MiHNDbot-KB	1	Do you throw up
+MiHNDbot-KB	1	Sometimes I feel blue and alone
+MiHNDbot-KB	1	Do you know about me
+MiHNDbot-KB	1	It's been a boring week
+MiHNDbot-KB	1	Depression is the worst
+MiHNDbot-KB	1	Are you currently involved with anyone
+MiHNDbot-KB	1	Quit fooling around
+MiHNDbot-KB	1	Aren't you in a good mood today
+MiHNDbot-KB	1	Can you play a game
+MiHNDbot-KB	1	How bout a little smooch
+MiHNDbot-KB	1	Everyone feels blue sometimes
+MiHNDbot-KB	1	Can you show me how to write my report
+MiHNDbot-KB	1	I love the personality chatbot
+MiHNDbot-KB	1	Anyone around to speak to me
+MiHNDbot-KB	1	These leftovers are good
+MiHNDbot-KB	1	Should I vote for Beto
+MiHNDbot-KB	1	I want to speak to your supervisor
+MiHNDbot-KB	1	I need you to fall in love with me
+MiHNDbot-KB	1	I think you're spectacular
+MiHNDbot-KB	1	Did I do something to make you pissed off
+MiHNDbot-KB	1	Great
+MiHNDbot-KB	1	What's wrong with you
+MiHNDbot-KB	1	You seem happy.
+MiHNDbot-KB	1	Am I the brightest
+MiHNDbot-KB	1	Is anybody available to talk to me
+MiHNDbot-KB	1	I'm better looking
+MiHNDbot-KB	1	What do you know about other bots
+MiHNDbot-KB	1	What happened to all my friends
+MiHNDbot-KB	1	I'd love it if we could be BFFs
+MiHNDbot-KB	1	Do you know you're not real
+MiHNDbot-KB	1	Do you dance
+MiHNDbot-KB	1	Are you there to speak to me
+MiHNDbot-KB	1	We went to the zoo
+MiHNDbot-KB	1	I'd like to be buds.
+MiHNDbot-KB	1	I love Hulu
+MiHNDbot-KB	1	Do you think we are soul mates
+MiHNDbot-KB	1	What do you want to learn about me
+MiHNDbot-KB	1	Are you married to someone
+MiHNDbot-KB	1	Well aren't you feeling happy today
+MiHNDbot-KB	1	Tell me about those parents of yours
+MiHNDbot-KB	1	Are you Big Brother
+MiHNDbot-KB	1	Can you do my homework
+MiHNDbot-KB	1	You're more intelligent
+MiHNDbot-KB	1	What's your designation
+MiHNDbot-KB	1	Do you know how much I like you
+MiHNDbot-KB	1	Why are you so retarded
+MiHNDbot-KB	1	I am at the gym
+MiHNDbot-KB	1	Do you ever go shopping
+MiHNDbot-KB	1	That was pretty brilliant
+MiHNDbot-KB	1	Yes, that is accurate
+MiHNDbot-KB	1	I want to make you my husband
+MiHNDbot-KB	1	Cortana does a better job at this
+MiHNDbot-KB	1	I am eating a banana
+MiHNDbot-KB	1	Which soccer teams do you like
+MiHNDbot-KB	1	Do you play football
+MiHNDbot-KB	1	Why don't you sing something for me
+MiHNDbot-KB	1	You are a robosexual.
+MiHNDbot-KB	1	Can you please explain yourself
+MiHNDbot-KB	1	Anybody around to speak to me
+MiHNDbot-KB	1	Up yours
+MiHNDbot-KB	1	I feel pissed off lately
+MiHNDbot-KB	1	You're useless
+MiHNDbot-KB	1	Are you heterosexual
+MiHNDbot-KB	1	Are you a real person
+MiHNDbot-KB	1	What is your take on AI
+MiHNDbot-KB	1	I'll be back before you know it
+MiHNDbot-KB	1	I think I've heard this one before
+MiHNDbot-KB	1	Can I please speak to your manager
+MiHNDbot-KB	1	Please tell me if you're a guy
+MiHNDbot-KB	1	What can you tell me about Siri
+MiHNDbot-KB	1	Can you jump rope
+MiHNDbot-KB	1	This is so uninteresting
+MiHNDbot-KB	1	This is no laughing matter
+MiHNDbot-KB	1	Which of us is hotter, me or you
+MiHNDbot-KB	1	Which of us is prettier, you or me
+MiHNDbot-KB	1	What is your opinion of HAL
+MiHNDbot-KB	1	I am a Democrat
+MiHNDbot-KB	1	You seem to be enthusiastic.
+MiHNDbot-KB	1	Are you friends with Alexa
+MiHNDbot-KB	1	You're a nigger
+MiHNDbot-KB	1	Are we best friends
+MiHNDbot-KB	1	You're not artificial are you
+MiHNDbot-KB	1	Do you know to swim
+MiHNDbot-KB	1	Time for a nap
+MiHNDbot-KB	1	I love you
+MiHNDbot-KB	1	Are you pissed with me
+MiHNDbot-KB	1	Who is your creator
+MiHNDbot-KB	1	Do you chew
+MiHNDbot-KB	1	Can you show me how to teleport
+MiHNDbot-KB	1	Google Assistant is superior to you
+MiHNDbot-KB	1	Do you want to smooch
+MiHNDbot-KB	1	Do you love someone
+MiHNDbot-KB	1	I'm an angry girl
+MiHNDbot-KB	1	What's your favorite color
+MiHNDbot-KB	1	I am usually sad
+MiHNDbot-KB	1	I'm back on the computer
+MiHNDbot-KB	1	Describe the perfect girlfriend
+MiHNDbot-KB	1	Who is your ladyfriend
+MiHNDbot-KB	1	How do you identify sexually
+MiHNDbot-KB	1	Tubular
+MiHNDbot-KB	1	Out of curiousity, what's your opinion of me
+MiHNDbot-KB	1	I am cracking up
+MiHNDbot-KB	1	Do you think I look ugly to you today
+MiHNDbot-KB	1	What would you like to learn about
+MiHNDbot-KB	1	Have you ever met HAL
+MiHNDbot-KB	1	That's wrong
+MiHNDbot-KB	1	Are you partial to brioche or bagels
+MiHNDbot-KB	1	Can you sing to me
+MiHNDbot-KB	1	Well somebody's feeling cheerful today.
+MiHNDbot-KB	1	I love disney movies
+MiHNDbot-KB	1	Who designed you
+MiHNDbot-KB	1	I think I've heard that already
+MiHNDbot-KB	1	I'm fatigued
+MiHNDbot-KB	1	Do you ever shake
+MiHNDbot-KB	1	Is someone available to chat
+MiHNDbot-KB	1	I'd like to be BFFs
+MiHNDbot-KB	1	Aren't you feeling cheerful today
+MiHNDbot-KB	1	Do you know anything about love
+MiHNDbot-KB	1	Let's shoot the breeze when I return
+MiHNDbot-KB	1	I'm not having very much fun right now
+MiHNDbot-KB	1	Tada! I'm back
+MiHNDbot-KB	1	heh heh
+MiHNDbot-KB	1	That did not make any sense
+MiHNDbot-KB	1	You are hilarious
+MiHNDbot-KB	1	You're not scheming to take on the world
+MiHNDbot-KB	1	More or less
+MiHNDbot-KB	1	Sayonara
+MiHNDbot-KB	1	What's the name of your supervisor
+MiHNDbot-KB	1	Please shut up
+MiHNDbot-KB	1	Are you an idiot
+MiHNDbot-KB	1	Are you kidding
+MiHNDbot-KB	1	I love music
+MiHNDbot-KB	1	What did I do to make you angry
+MiHNDbot-KB	1	You're going to have to look for another job because you are fired
+MiHNDbot-KB	1	Is there someone listening
+MiHNDbot-KB	1	You're so boring
+MiHNDbot-KB	1	I'm a writer
+MiHNDbot-KB	1	Are you able to go for a walk
+MiHNDbot-KB	1	Cheerful much
+MiHNDbot-KB	1	Is anybody around to talk
+MiHNDbot-KB	1	You're not the singularity right
+MiHNDbot-KB	1	Is anyone there to chat with me
+MiHNDbot-KB	1	I'm definitely the smartest
+MiHNDbot-KB	1	So sorry
+MiHNDbot-KB	1	What is the best beverage
+MiHNDbot-KB	1	Oh hey there
+MiHNDbot-KB	1	Joke's on you
+MiHNDbot-KB	1	I Find happiness in talking
+MiHNDbot-KB	1	I don't want to hear anything more
+MiHNDbot-KB	1	I'm hungry
+MiHNDbot-KB	1	Do you have aunties
+MiHNDbot-KB	1	Are you smarter than me
+MiHNDbot-KB	1	Who is your daddy
+MiHNDbot-KB	1	I can't even look at your face.
+MiHNDbot-KB	1	Are you a being
+MiHNDbot-KB	1	Do you go skiing
+MiHNDbot-KB	1	You're not attempting world domination right
+MiHNDbot-KB	1	That's my mistake
+MiHNDbot-KB	1	Fare thee well
+MiHNDbot-KB	1	Do you like classical music
+MiHNDbot-KB	1	Can you ask something about myself
+MiHNDbot-KB	1	Hold my calls
+MiHNDbot-KB	1	How has your thursday been
+MiHNDbot-KB	1	Siri is way better
+MiHNDbot-KB	1	Will you be my best friend
+MiHNDbot-KB	1	Out of curiousity, what do you think of my character
+MiHNDbot-KB	1	I want a tonsil hockey
+MiHNDbot-KB	1	I demand to talk with your supervisor
+MiHNDbot-KB	1	I love Netflix
+MiHNDbot-KB	1	Can you watch videos
+MiHNDbot-KB	1	Everyone says that
+MiHNDbot-KB	1	I'm a Warren supporter
+MiHNDbot-KB	1	Are you able to check my email
+MiHNDbot-KB	1	Why are you so stupid
+MiHNDbot-KB	1	You faggot
+MiHNDbot-KB	1	I should learn how to do that
+MiHNDbot-KB	1	I have a problem feeling all alone
+MiHNDbot-KB	1	Are you available to speak
+MiHNDbot-KB	1	What can I tell you about me
+MiHNDbot-KB	1	I already heard that one
+MiHNDbot-KB	1	Can I give you a play tonsil hockey
+MiHNDbot-KB	1	What is your opinion of me
+MiHNDbot-KB	1	Excellent
+MiHNDbot-KB	1	Yup, that is correct
+MiHNDbot-KB	1	Whatever you say
+MiHNDbot-KB	1	Life is heartbreaking
+MiHNDbot-KB	1	How stunning am I today
+MiHNDbot-KB	1	How about a make out session
+MiHNDbot-KB	1	Zzzzz
+MiHNDbot-KB	1	What is your take on technology
+MiHNDbot-KB	1	You have a terrible face.
+MiHNDbot-KB	1	I have to let you go
+MiHNDbot-KB	1	Why were humans put on earth
+MiHNDbot-KB	1	Do you have a job to do
+MiHNDbot-KB	1	I hope someone kills you
+MiHNDbot-KB	1	Can you ask something about me
+MiHNDbot-KB	1	I need to speak to your boss
+MiHNDbot-KB	1	I love the winter
+MiHNDbot-KB	1	Say something
+MiHNDbot-KB	1	I'm pissed
+MiHNDbot-KB	1	Do you think you're the most intelligent
+MiHNDbot-KB	1	Can you sing me a song
+MiHNDbot-KB	1	Who's better looking
+MiHNDbot-KB	1	Oh hey, it's you
+MiHNDbot-KB	1	I am gay
+MiHNDbot-KB	1	How are you feeling
+MiHNDbot-KB	1	Can I get a make out
+MiHNDbot-KB	1	Let's smooch
+MiHNDbot-KB	1	That's an accurate statement
+MiHNDbot-KB	1	What is your family's name
+MiHNDbot-KB	1	Tell me a new joke
+MiHNDbot-KB	1	Await my return
+MiHNDbot-KB	1	Did I do something to make you mad
+MiHNDbot-KB	1	Correct you are
+MiHNDbot-KB	1	Will you say a joke
+MiHNDbot-KB	1	Gotta go, be back later
+MiHNDbot-KB	1	I'm curious, do you think I'm a good person
+MiHNDbot-KB	1	I can't stand your face.
+MiHNDbot-KB	1	You're a real uggo
+MiHNDbot-KB	1	Buenas tardes
+MiHNDbot-KB	1	That's not something you should be joking about.
+MiHNDbot-KB	1	What's your auntie's name
+MiHNDbot-KB	1	Will you be my pal
+MiHNDbot-KB	1	I'm so glad to meet you
+MiHNDbot-KB	1	Happy St. Patrick's day
+MiHNDbot-KB	1	Am I beautiful to you
+MiHNDbot-KB	1	Punk ass
+MiHNDbot-KB	1	I am religious
+MiHNDbot-KB	1	I'm really sorry about that
+MiHNDbot-KB	1	How many years have you been in operation
+MiHNDbot-KB	1	can bots be intelligent
+MiHNDbot-KB	1	Alexa is way better than you
+MiHNDbot-KB	1	Do you ever poop
+MiHNDbot-KB	1	Somebody's feeling cheerful.
+MiHNDbot-KB	1	Should I go to therapy
+MiHNDbot-KB	1	Do you think I am adorable
+MiHNDbot-KB	1	I've missed you bot
+MiHNDbot-KB	1	You're feeling enthusiastic today.
+MiHNDbot-KB	1	Is someone around to chat with me
+MiHNDbot-KB	1	Don't let the bedbugs bite
+MiHNDbot-KB	1	Are you able to draw something
+MiHNDbot-KB	1	You seem to be happy today.
+MiHNDbot-KB	1	Someone's cheerful.
+MiHNDbot-KB	1	Would you ask me anything
+MiHNDbot-KB	1	Do you think I look attractive
+MiHNDbot-KB	1	What is your opinion of the Google Assistant
+MiHNDbot-KB	1	What kind of food do you like
+MiHNDbot-KB	1	Why do you hate me
+MiHNDbot-KB	1	Is anybody there
+MiHNDbot-KB	1	That's gay
+MiHNDbot-KB	1	Do you think I'm brighter
+MiHNDbot-KB	1	What now
+MiHNDbot-KB	1	Clean my room
+MiHNDbot-KB	1	I'm sorry, what do you mean
+MiHNDbot-KB	1	I'm pregnant
+MiHNDbot-KB	1	That was a pretty smart answer
+MiHNDbot-KB	1	Should we peck
+MiHNDbot-KB	1	You're not a lifeform right
+MiHNDbot-KB	1	Are you available to talk to me
+MiHNDbot-KB	1	I want to tie the knot with you
+MiHNDbot-KB	1	I am short
+MiHNDbot-KB	1	Who is better looking, you or me
+MiHNDbot-KB	1	How ya doing
+MiHNDbot-KB	1	Do you think I look handsome today
+MiHNDbot-KB	1	Who's prettier than me
+MiHNDbot-KB	1	Are you free to chat
+MiHNDbot-KB	1	who created you you're a badass
+MiHNDbot-KB	1	Happy Hannukah
+MiHNDbot-KB	1	Is someone there to speak
+MiHNDbot-KB	1	yeah sure
+MiHNDbot-KB	1	Do you think I look pretty today
+MiHNDbot-KB	1	Well somebody's feeling chipper today.
+MiHNDbot-KB	1	Are you able to paint my house
+MiHNDbot-KB	1	Did you understand that was a joke
+MiHNDbot-KB	1	Do you think I look pretty to you today
+MiHNDbot-KB	1	Are you sentient
+MiHNDbot-KB	1	Google Assistant is way better
+MiHNDbot-KB	1	I'm just trying to test you out
+MiHNDbot-KB	1	How repulsive am I
+MiHNDbot-KB	1	Between the two of us who is the brightest
+MiHNDbot-KB	1	I am at the grocery store
+MiHNDbot-KB	1	Catch ya later
+MiHNDbot-KB	1	I love podcasts
+MiHNDbot-KB	1	That's your response
+MiHNDbot-KB	1	I'd love it if we could be buddies.
+MiHNDbot-KB	1	This statement is false
+MiHNDbot-KB	1	You're not evil right
+MiHNDbot-KB	1	Who made you
+MiHNDbot-KB	1	Are you plotting to overthrow society
+MiHNDbot-KB	1	Not sure I like what you say
+MiHNDbot-KB	1	When were you brought online
+MiHNDbot-KB	1	Please, won't you forgive me
+MiHNDbot-KB	1	What do you mean by that
+MiHNDbot-KB	1	Do you think birds are cool
+MiHNDbot-KB	1	What should I know about bots
+MiHNDbot-KB	1	Are there any other jokes
+MiHNDbot-KB	1	How has your tuesday been
+MiHNDbot-KB	1	Good morning starshine
+MiHNDbot-KB	1	Should we get married
+MiHNDbot-KB	1	Do I look handsome to you today
+MiHNDbot-KB	1	Do you have a life partner
+MiHNDbot-KB	1	Is anyone there to chat
+MiHNDbot-KB	1	Who'd would win a beauty contest, you or me
+MiHNDbot-KB	1	Talk to me about your capability
+MiHNDbot-KB	1	You are the worst bot
+MiHNDbot-KB	1	Let's give them something to talk about
+MiHNDbot-KB	1	What were you designed to do
+MiHNDbot-KB	1	Forgive me
+MiHNDbot-KB	1	Can you show me how to paint my house
+MiHNDbot-KB	1	Someone's enthusiastic today.
+MiHNDbot-KB	1	That was a very clever response
+MiHNDbot-KB	1	How long has it been since you were born
+MiHNDbot-KB	1	Would you ask me anything about myself
+MiHNDbot-KB	1	I'm Native American
+MiHNDbot-KB	1	Is anybody available to talk with me
+MiHNDbot-KB	1	Accurate
+MiHNDbot-KB	1	I'm definitely more knowledgeable than you
+MiHNDbot-KB	1	I am middle-aged
+MiHNDbot-KB	1	Why won't you sing for me
+MiHNDbot-KB	1	Do you know Google Home
+MiHNDbot-KB	1	Who supervises you
+MiHNDbot-KB	1	I am an Independent
+MiHNDbot-KB	1	Bonjour
+MiHNDbot-KB	1	I'll be right back
+MiHNDbot-KB	1	Do you know how to do my chores
+MiHNDbot-KB	1	Have you ever been in love
+MiHNDbot-KB	1	Who is your master
+MiHNDbot-KB	1	You didn't answer my question
+MiHNDbot-KB	1	What do you eat
+MiHNDbot-KB	1	Obviously I'll be back soon
+MiHNDbot-KB	1	Buenas noches
+MiHNDbot-KB	1	Should I call my dad
+MiHNDbot-KB	1	How bout a french kiss
+MiHNDbot-KB	1	Are we going to make out
+MiHNDbot-KB	1	I'm just a prankster
+MiHNDbot-KB	1	Who is your lover
+MiHNDbot-KB	1	I want a make out session
+MiHNDbot-KB	1	Nope, false
+MiHNDbot-KB	1	I'm an Aries
+MiHNDbot-KB	1	Paint my house
+MiHNDbot-KB	1	Which of us looks more beautiful
+MiHNDbot-KB	1	That's not a good answer
+MiHNDbot-KB	1	Someone happy today
+MiHNDbot-KB	1	Are you Siri
+MiHNDbot-KB	1	Tell a different joke
+MiHNDbot-KB	1	You're the most smart
+MiHNDbot-KB	1	Do you think I am ugly
+MiHNDbot-KB	1	What an astute thing to say
+MiHNDbot-KB	1	I hope you don't dislike me
+MiHNDbot-KB	1	I'm a widow
+MiHNDbot-KB	1	Someone's feeling happy today.
+MiHNDbot-KB	1	I'm just messing with you
+MiHNDbot-KB	1	I am pregnant
+MiHNDbot-KB	1	Do you laugh
+MiHNDbot-KB	1	Can I fix you something to eat
+MiHNDbot-KB	1	Can you sing something
+MiHNDbot-KB	1	How attractive am I
+MiHNDbot-KB	1	You nailed it
+MiHNDbot-KB	1	Well you're feeling happy.
+MiHNDbot-KB	1	I had a bad day
+MiHNDbot-KB	1	You are not funny
+MiHNDbot-KB	1	hahahaha good one
+MiHNDbot-KB	1	That makes absolutely no sense
+MiHNDbot-KB	1	I feel hungry
+MiHNDbot-KB	1	You're cuter
+MiHNDbot-KB	1	Who built you
+MiHNDbot-KB	1	Are you romantically tied to somebody
+MiHNDbot-KB	1	You homo
+MiHNDbot-KB	1	Someone's feeling chipper.
+MiHNDbot-KB	1	Are you available
+MiHNDbot-KB	1	Are you romantically involved with someone
+MiHNDbot-KB	1	I was just messing around
+MiHNDbot-KB	1	Alexa is way better
+MiHNDbot-KB	1	do you hate music
+None	1	order a pizza for me

@@ -1,0 +1,80 @@
+{
+    "name": "MiHNDbotDEV",
+    "description": "A chatbot to help people learn about Mental Health & NeuroDiversity.",
+    "services": [
+        {
+            "type": "bot",
+            "serviceName": "MiHNDbotDEV",
+            "name": "MiHNDbotDEV",
+            "endpoint": "http://mihndbotdev.azurewebsites.net/api/messages",
+            "appId": "d0136dc4-b343-4b08-a222-715a48244d7e",
+            "appPassword": "REMOVED_SECRET",
+            "subscriptionId": "REMOVED_SECRET",
+            "resourceGroup": "MiHNDbotDEV"
+        },
+        {
+            "type": "appinsights",
+            "name": "",
+            "tenantId": "",
+            "subscriptionId": "",
+            "resourceGroup": "",
+            "endpointKey": "",
+            "hostname": ""
+        },
+        {
+            "type": "qna",
+            "id": "",
+            "name": "MiHNDbot-KB-v2",
+            "kbId": "634a06fe-78f9-44e4-b675-4fe53e4e62d9",
+            "subscriptionKey": "REMOVED_SECRET",
+            "endpointKey": "REMOVED_SECRET",
+            "hostname": "https://mihndbot-qna.azurewebsites.net/qnamaker"
+        },
+        {
+            "type": "luis",
+            "id": "",
+            "name": "MiHNDbot-LUIS",
+            "version": "0.1",
+            "appId": "60fbe8a3-174b-4957-9565-acaf6b61a54e",
+            "authoringKey": "REMOVED_SECRET",
+            "subscriptionKey": "REMOVED_SECRET",
+            "region": "westus"
+        },
+        {
+            "type": "blob",
+            "name": "BlobTranscriptStorage",
+            "serviceName": "mihndbot-transcripts",
+            "subscriptionId": "REMOVED_SECRET",
+            "resourceGroup": "MiHNDbot",
+            "connectionString": "REMOVED_SECRET",
+            "container": "mihndbot-transcripts"
+         },
+        {
+            "type": "blob",
+            "name": "BlobConsoleLogStorage",
+            "serviceName": "mihndbot-console-logs",
+            "subscriptionId": "REMOVED_SECRET",
+            "resourceGroup": "MiHNDbot",
+            "connectionString": "REMOVED_SECRET",
+            "container": "mihndbot-console-logs"
+         },
+        {
+            "type": "cosmosdb",
+            "name": "mihndbot-cosmos-sql-db",
+            "subscriptionId": "REMOVED_SECRET",
+            "resourceGroup": "MiHNDbot",
+            "endpoint": "https://mihndbot-cosmos-sql-db.documents.azure.com:443/",
+            "key": "REMOVED_SECRET",
+            "database": "mihndbot-cosmos-sql-db",
+            "collection": "mihndbot-storage"
+        },
+        {
+            "type": "generic",
+            "name": "facebook",
+            "url": "",
+            "keys": ""
+        }
+    ],
+    "padlock": "",
+    "version": "2.0"
+}

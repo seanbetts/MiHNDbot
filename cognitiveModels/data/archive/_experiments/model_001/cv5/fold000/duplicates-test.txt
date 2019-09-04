@@ -1,0 +1,2 @@
+Utterance	Intents
+sup	MiHNDbot, MiHNDbot-KB
