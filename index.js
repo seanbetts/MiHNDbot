@@ -25,9 +25,6 @@ const { DialogBot } = require('./bots/dialogBot');
 const ENV_FILE = path.join(__dirname, '.env');
 require('dotenv').config({ path: ENV_FILE });
 
-// Name of Transcript Blob Type service within the .bot file
-const BLOB_TRANSCRIPT_CONFIGURATION = 'BlobTranscriptStorage';
-
 // Create bot adapter
 const adapter = new BotFrameworkAdapter({
     appId: process.env.microsoftAppId,
