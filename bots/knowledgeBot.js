@@ -5,22 +5,22 @@ const { BlobStorage } = require('botbuilder-azure');
 
 const WelcomeCard = require('../resources/welcomeCard.json');
 const fbCards = require('../resources/fbCards.js');
-const fbBot = require('../bots/fbBot.js');
+const fbBot = require('./fbBot.js');
 // const teamsWelcomeCard = require('../resources/teamsWelcomeCard.json');
 
 // initialized to access values in .env file.
 var dotenv = require('dotenv');
 dotenv.config();
 
-class DialogBot extends ActivityHandler {
+class KnowledgeBot extends ActivityHandler {
     constructor(conversationState, userState, logger) {
         super();
 
-        if (!conversationState) throw new Error('[DialogBot]: Missing parameter. conversationState is required');
-        if (!userState) throw new Error('[DialogBot]: Missing parameter. userState is required');
+        if (!conversationState) throw new Error('[KnowledgeBot]: Missing parameter. conversationState is required');
+        if (!userState) throw new Error('[KnowledgeBot]: Missing parameter. userState is required');
         if (!logger) {
             logger = console;
-            logger.log('[DialogBot]: logger not passed in, defaulting to console');
+            logger.log('[KnowledgeBot]: logger not passed in, defaulting to console');
         }
 
         try {
@@ -171,5 +171,5 @@ var sendTyping = async function(context) {
 };
 
 module.exports = {
-    DialogBot: DialogBot
+    KnowledgeBot: KnowledgeBot
 };

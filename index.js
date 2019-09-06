@@ -18,7 +18,7 @@ appInsights.setup('REMOVED_SECRET')
     .start();
 
 // This bot's main dialog.
-const { DialogBot } = require('./bots/dialogBot');
+const { KnowledgeBot } = require('./bots/knowledgeBot');
 
 // Read botFilePath and botFileSecret from .env file
 const ENV_FILE = path.join(__dirname, '.env');
@@ -67,7 +67,7 @@ const logger = console;
 
 // Create the main dialog.
 // const dialog = new UserProfileDialog(userState, logger);
-const bot = new DialogBot(conversationState, userState, logger);
+const bot = new KnowledgeBot(conversationState, userState, logger); //add dialog
 
 // Create HTTP server
 let server = restify.createServer();
