@@ -3,14 +3,13 @@ const path = require('path');
 const restify = require('restify');
 
 // Import required bot services.
-const { BotFrameworkAdapter, MemoryStorage, ConversationState, UserState } = require('botbuilder');
-const { BotConfiguration } = require('botframework-config');
+const { BotFrameworkAdapter, ConversationState, UserState } = require('botbuilder');
 
 // Import middleware for transcript logging
 const { TranscriptLoggerMiddleware } = require('botbuilder-core');
 
 // Import storage for transcript
-const { AzureBlobTranscriptStore } = require('botbuilder-azure');
+const { AzureBlobTranscriptStore, BlobStorage } = require('botbuilder-azure');
 
 // Enable Application Insights
 const appInsights = require('applicationinsights');
@@ -37,15 +36,15 @@ adapter.onTurnError = async (context, error) => {
     // NOTE: In production environment, you should consider logging this to Azure application insights.
     console.error(`\n [onTurnError]: ${ error }`);
     // Send a message to the user
-    await context.sendActivity(`😬/nOops. Something went wrong! Please try asking me something else.`);
+    await context.sendActivity(`😬 Oops. Something went wrong! Please try asking me something else.`);
     // Clear out state
     await conversationState.delete(context);
 };
 
 // The transcript store has methods for saving and retrieving bot conversation transcripts.
 let transcriptStore = new AzureBlobTranscriptStore({
-    storageAccountOrConnectionString: 'REMOVED_SECRET',
-    containerName: 'mihndbot-transcripts'
+    storageAccountOrConnectionString: process.env.BLOB_STRING,
+    containerName: process.env.BLOB_TRANSCRIPTS_NAME
 });
 
 // Create the middleware layer responsible for logging incoming and outgoing activities into the transcript store.
@@ -54,11 +53,14 @@ adapter.use(transcriptMiddleware);
 
 // Define state store for your bot.
 // See https://aka.ms/about-bot-state to learn more about bot state.
-const memoryStorage = new MemoryStorage();
+const stateStorage = new BlobStorage({
+    storageAccountOrConnectionString: process.env.BLOB_STRING,
+    containerName: process.env.BLOB_STATE_NAME
+});
 
 // Create conversation and user state with in-memory storage provider.
-const conversationState = new ConversationState(memoryStorage);
-const userState = new UserState(memoryStorage);
+const conversationState = new ConversationState(stateStorage);
+const userState = new UserState(stateStorage);
 
 // Pass in a logger to the bot. For this sample, the logger is the console, but alternatives such as Application Insights and Event Hub exist for storing the logs of the bot.
 const logger = console;
