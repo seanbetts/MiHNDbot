@@ -12,30 +12,9 @@ const fbBot = require('../bots/fbBot.js');
 var dotenv = require('dotenv');
 dotenv.config();
 
-// The accessor names for the conversation data and user profile state property accessors.
-const CONVERSATION_DATA_PROPERTY = 'conversationData';
-const USER_PROFILE_PROPERTY = 'userProfile';
-
-// Create the typing gif
-var sendTyping = async function(context) {
-    await context.sendActivities([
-        { type: 'typing' },
-        { type: 'delay', value: 2000 }
-    ]);
-};
-
-const stateStorage = new BlobStorage({
-    storageAccountOrConnectionString: process.env.BLOB_STRING,
-    containerName: process.env.BLOB_STATE_NAME
-});
-
 class DialogBot extends ActivityHandler {
     constructor(conversationState, userState, logger) {
         super();
-
-        // Create the state property accessors for the conversation data and user profile.
-        this.conversationData = conversationState.createProperty(CONVERSATION_DATA_PROPERTY);
-        this.userProfile = userState.createProperty(USER_PROFILE_PROPERTY);
 
         if (!conversationState) throw new Error('[DialogBot]: Missing parameter. conversationState is required');
         if (!userState) throw new Error('[DialogBot]: Missing parameter. userState is required');
@@ -67,7 +46,6 @@ class DialogBot extends ActivityHandler {
                 if (membersAdded[cnt].id !== context.activity.recipient.id) {
                     const welcomeCard = CardFactory.adaptiveCard(WelcomeCard);
                     await context.sendActivity({ attachments: [welcomeCard] });
-                    await logMessageText(stateStorage, context);
                 }
             }
 
@@ -121,13 +99,11 @@ class DialogBot extends ActivityHandler {
                         }
 
                         await context.sendActivity(reply);
-                        await logMessageText(stateStorage, context);
 
                     // If no answers were returned from QnA Maker, reply with help.
                     } else {
                         let errorCardFB = await fbCards.getErrorCardFB(fbPSID);
                         await context.sendActivity(errorCardFB);
-                        await logMessageText(stateStorage, context);
                     }
                 } else {
                 // If an answer was received from QnA Maker, send the answer back to the user.
@@ -156,12 +132,10 @@ class DialogBot extends ActivityHandler {
                         }
 
                         await context.sendActivity(reply);
-                        await logMessageText(stateStorage, context);
 
                         // If no answers were returned from QnA Maker, reply with help.
                     } else {
                         await context.sendActivity('I\'m sorry, I don\'t have an answer for that. Please ask me something else, such as: \n\n "What Is Mental Health?" \n\n "What Is NeuroDiversity" \n\n "Help"');
-                        await logMessageText(stateStorage, context);
                     }
                 }
             }
@@ -177,61 +151,25 @@ class DialogBot extends ActivityHandler {
             await fbBot.processFacebookPayload(turnContext, turnContext.activity.value);
         });
 
-        // this.onDialog(async (context, next) => {
-        //     // Save any state changes. The load happened during the execution of the Dialog.
-        //     await this.conversationState.saveChanges(context, false);
-        //     await this.userState.saveChanges(context, false);
-        //     await next();
-        // });
+        this.onDialog(async (context, next) => {
+            // Save any state changes. The load happened during the execution of the Dialog.
+            await this.conversationState.saveChanges(context, false);
+            await this.userState.saveChanges(context, false);
+
+            // By calling next() you ensure that the next BotHandler is run.
+            await next();
+        });
     }
 }
 
-// This function stores new user messages. Creates new utterance log if none exists.
-logMessageText = async function (storage, turnContext) {
-    let utterance = turnContext.activity.text;
-    // debugger;
-    try {
-        // Read from the storage.
-        let storeItems = await storage.read(["UtteranceLogJS"])
-        // Check the result.
-        var UtteranceLogJS = storeItems["UtteranceLogJS"];
-        if (typeof (UtteranceLogJS) != 'undefined') {
-            // The log exists so we can write to it.
-            storeItems["UtteranceLogJS"].turnNumber++;
-            storeItems["UtteranceLogJS"].UtteranceList.push(utterance);
-            // Gather info for user message.
-            var storedString = storeItems.UtteranceLogJS.UtteranceList.toString();
-            var numStored = storeItems.UtteranceLogJS.turnNumber;
-
-            try {
-                await storage.write(storeItems)
-                console.log(`${numStored}: The list is now: ${storedString}`);
-            } catch (err) {
-                console.log(`Write failed of UtteranceLogJS: ${err}`);
-            }
-        }
-        else{
-            console.log(`Creating and saving new utterance log`);
-            var turnNumber = 1;
-            storeItems["UtteranceLogJS"] = { UtteranceList: [`${utterance}`], "eTag": "*", turnNumber }
-            // Gather info for user message.
-            var storedString = storeItems.UtteranceLogJS.UtteranceList.toString();
-            var numStored = storeItems.UtteranceLogJS.turnNumber;
-
-            try {
-                await storage.write(storeItems)
-                console.log(`${numStored}: The list is now: ${storedString}`);
-            } catch (err) {
-                console.log(`Write failed: ${err}`);
-            }
-        }
-    }
-    catch (err){
-        console.log(`Read rejected. ${err}`);
-    }
-}
+// Create the typing gif
+var sendTyping = async function(context) {
+    await context.sendActivities([
+        { type: 'typing' },
+        { type: 'delay', value: 2000 }
+    ]);
+};
 
 module.exports = {
-    DialogBot: DialogBot,
-    logMessageText: logMessageText
+    DialogBot: DialogBot
 };

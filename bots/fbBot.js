@@ -1,62 +1,11 @@
 const { QnAMaker } = require('botbuilder-ai');
 const fbCards = require('../resources/fbCards.js');
-const { BlobStorage } = require('botbuilder-azure');
 
 var qnaMaker = new QnAMaker({
     knowledgeBaseId: process.env.QnAKnowledgebaseId,
     endpointKey: process.env.QnAAuthKey,
     host: process.env.QnAEndpointHostName
 });
-
-const stateStorage = new BlobStorage({
-    storageAccountOrConnectionString: process.env.BLOB_STRING,
-    containerName: process.env.BLOB_STATE_NAME
-});
-
-// This function stores new user messages. Creates new utterance log if none exists.
-logMessageText = async function (storage, turnContext) {
-    let utterance = turnContext.activity.text;
-    // debugger;
-    try {
-        // Read from the storage.
-        let storeItems = await storage.read(["UtteranceLogJS"])
-        // Check the result.
-        var UtteranceLogJS = storeItems["UtteranceLogJS"];
-        if (typeof (UtteranceLogJS) != 'undefined') {
-            // The log exists so we can write to it.
-            storeItems["UtteranceLogJS"].turnNumber++;
-            storeItems["UtteranceLogJS"].UtteranceList.push(utterance);
-            // Gather info for user message.
-            var storedString = storeItems.UtteranceLogJS.UtteranceList.toString();
-            var numStored = storeItems.UtteranceLogJS.turnNumber;
-
-            try {
-                await storage.write(storeItems)
-                console.log(`${numStored}: The list is now: ${storedString}`);
-            } catch (err) {
-                console.log(`Write failed of UtteranceLogJS: ${err}`);
-            }
-        }
-        else{
-            console.log(`Creating and saving new utterance log`);
-            var turnNumber = 1;
-            storeItems["UtteranceLogJS"] = { UtteranceList: [`${utterance}`], "eTag": "*", turnNumber }
-            // Gather info for user message.
-            var storedString = storeItems.UtteranceLogJS.UtteranceList.toString();
-            var numStored = storeItems.UtteranceLogJS.turnNumber;
-
-            try {
-                await storage.write(storeItems)
-                console.log(`${numStored}: The list is now: ${storedString}`);
-            } catch (err) {
-                console.log(`Write failed: ${err}`);
-            }
-        }
-    }
-    catch (err){
-        console.log(`Read rejected. ${err}`);
-    }
-}
 
 // Customisation code for Facebook Messenger
 
@@ -91,12 +40,10 @@ const onFacebookPostback = async function(turnContext, postback, sender) {
     if (postback.payload === 'GET_STARTED') {
         let welcomeCardFB = await fbCards.getWelcomeCardFB(fbPSID);
         await turnContext.sendActivity(welcomeCardFB);
-        await logMessageText(stateStorage, turnContext);
     } else {
         if (postback.payload === 'GET_HELP') {
             let helpCardFB = await fbCards.getHelpCardFB(fbPSID);
             await turnContext.sendActivity(helpCardFB);
-            await logMessageText(stateStorage, turnContext);
         } else {
             if (postback.payload === 'WHAT_IS_MENTAL_HEALTH') {
                 // qnaMaker.getAnswers doesn't accept string input, so we need to adjust our turnContext
@@ -138,12 +85,10 @@ const onFacebookPostback = async function(turnContext, postback, sender) {
                         };
                     }
                     await turnContext.sendActivity(reply);
-                    await logMessageText(stateStorage, turnContext);
 
                     // If no answers were returned from QnA Maker, reply with help.
                 } else {
                     await turnContext.sendActivity('No QnA Maker answers were found.');
-                    await logMessageText(stateStorage, turnContext);
                 }
             } else {
                 if (postback.payload === 'WHAT_IS_NEURODIVERSITY') {
@@ -186,33 +131,26 @@ const onFacebookPostback = async function(turnContext, postback, sender) {
                             };
                         }
                         await turnContext.sendActivity(reply);
-                        await logMessageText(stateStorage, turnContext);
 
                         // If no answers were returned from QnA Maker, reply with help.
                     } else {
                         let errorCardFB = await fbCards.getErrorCardFB(fbPSID);
                         await turnContext.sendActivity(errorCardFB);
-                        await logMessageText(stateStorage, turnContext);
                     }
                 } else {
                     if (postback.payload === 'TEXT_SHOUT') {
                         await turnContext.sendActivity(fbCards.shoutCardFB);
-                        await logMessageText(stateStorage, turnContext);
                     } else {
                         if (postback.payload === 'TEXT_SHOUT_NOW') {
                             await turnContext.sendActivity('To get help from Shout please text SHOUT to 85258');
-                            await logMessageText(stateStorage, turnContext);
                         } else {
                             if (postback.payload === 'CALL_THE_NHS') {
                                 await turnContext.sendActivity(fbCards.nhsCardFB);
-                                await logMessageText(stateStorage, turnContext);
                             } else {
                                 if (postback.payload === 'CALL_THE_SAMARITANS') {
                                     await turnContext.sendActivity(fbCards.samaritansCardFB);
-                                    await logMessageText(stateStorage, turnContext);
                                 } else {
                                     await turnContext.sendActivity('Facebook PostBack not defined...YET!');
-                                    await logMessageText(stateStorage, turnContext);
                                 }
                             }
                         }
@@ -273,11 +211,9 @@ const onFacebookQuickReply = async function(turnContext, quickReply, sender) {
             };
         }
         await turnContext.sendActivity(reply);
-        await logMessageText(stateStorage, turnContext);
     } else {
         let errorCardFB = await fbCards.getErrorCardFB(fbPSID);
         await turnContext.sendActivity(errorCardFB);
-        await logMessageText(stateStorage, turnContext);
     }
 };
 
