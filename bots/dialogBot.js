@@ -1,0 +1,52 @@
+const { ActivityHandler } = require('botbuilder');
+
+class DialogBot extends ActivityHandler {
+
+    constructor(conversationState, userState, dialog, logger) {
+        super();
+        if (!conversationState) throw new Error('[DialogBot]: Missing parameter. conversationState is required');
+        if (!userState) throw new Error('[DialogBot]: Missing parameter. userState is required');
+        if (!dialog) throw new Error('[DialogBot]: Missing parameter. dialog is required');
+        if (!logger) {
+            logger = console;
+            logger.log('[DialogBot]: logger not passed in, defaulting to console');
+        }
+
+        // The state management objects for the conversation and user state.
+        this.conversationState = conversationState;
+        this.userState = userState;
+        this.dialog = dialog;
+        this.logger = logger;
+        this.dialogState = this.conversationState.createProperty('DialogState');
+
+        this.onMessage(async (context, next) => {
+            await sendTyping(context);
+            this.logger.log('Running dialog with Message Activity.');
+
+            // Run the Dialog with the new message Activity.
+            await this.dialog.run(context, this.dialogState);
+
+            // By calling next() you ensure that the next BotHandler is run.
+            await next();
+        });
+
+        this.onDialog(async (context, next) => {
+            // Save any state changes. The load happened during the execution of the Dialog.
+            await this.conversationState.saveChanges(context, false);
+            await this.userState.saveChanges(context, false);
+
+            // By calling next() you ensure that the next BotHandler is run.
+            await next();
+        });
+    }
+}
+
+// Create the typing gif
+var sendTyping = async function(context) {
+    await context.sendActivities([
+        { type: 'typing' },
+        { type: 'delay', value: 2000 }
+    ]);
+};
+
+module.exports.DialogBot = DialogBot;

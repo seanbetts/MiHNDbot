@@ -18,7 +18,8 @@ appInsights.setup('REMOVED_SECRET')
     .start();
 
 // This bot's main dialog.
-const { KnowledgeBot } = require('./bots/knowledgeBot');
+// const { KnowledgeBot } = require('./bots/knowledgeBot');
+const { WelcomeBot } = require('./bots/welcomeBot');
 
 // Read botFilePath and botFileSecret from .env file
 const ENV_FILE = path.join(__dirname, '.env');
@@ -29,17 +30,6 @@ const adapter = new BotFrameworkAdapter({
     appId: process.env.microsoftAppId,
     appPassword: process.env.microsoftAppPassword
 });
-
-// Catch-all for errors.
-adapter.onTurnError = async (context, error) => {
-    // This check writes out errors to console log
-    // NOTE: In production environment, you should consider logging this to Azure application insights.
-    console.error(`\n [onTurnError]: ${ error }`);
-    // Send a message to the user
-    await context.sendActivity(`😬 Oops. Something went wrong! Please try asking me something else.`);
-    // Clear out state
-    await conversationState.delete(context);
-};
 
 // The transcript store has methods for saving and retrieving bot conversation transcripts.
 let transcriptStore = new AzureBlobTranscriptStore({
@@ -58,7 +48,7 @@ const stateStorage = new BlobStorage({
     containerName: process.env.BLOB_STATE_NAME
 });
 
-// Create conversation and user state with in-memory storage provider.
+// Create conversation and user state with state storage provider.
 const conversationState = new ConversationState(stateStorage);
 const userState = new UserState(stateStorage);
 
@@ -66,8 +56,24 @@ const userState = new UserState(stateStorage);
 const logger = console;
 
 // Create the main dialog.
-// const dialog = new UserProfileDialog(userState, logger);
-const bot = new KnowledgeBot(conversationState, userState, logger); //add dialog
+const dialog = new dialogController(userState, logger);
+// const bot = new KnowledgeBot(conversationState, userState, logger); //add dialog
+const bot = new WelcomeBot(conversationState, userState, logger, dialog);
+
+// Catch-all for errors.
+adapter.onTurnError = async (context, error) => {
+    // This check writes out errors to console log
+    // NOTE: In production environment, you should consider logging this to Azure application insights.
+    console.error(`\n [onTurnError]: ${ error }`);
+    // Send a message to the user
+    await context.sendActivity(`😬 Oops. Something went wrong! Please try asking me something else.`);
+    // Clear out state
+    // await conversationState.delete(context);
+    await conversationState.load(context);
+    await conversationState.clear(context);
+    // Save state changes.
+    await conversationState.saveChanges(context);
+};
 
 // Create HTTP server
 let server = restify.createServer();
