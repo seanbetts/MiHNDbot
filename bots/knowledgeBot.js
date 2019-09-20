@@ -159,6 +159,14 @@ class KnowledgeBot extends ActivityHandler {
             // By calling next() you ensure that the next BotHandler is run.
             await next();
         });
+        
+      this.onTurn( async (context, next) => {
+        const serviceUrl = "https://facebook.botframework.com";
+        if (context.activity.channelId === 'facebook') {
+            MicrosoftAppCredentials.trustServiceUrl(serviceUrl)
+        }
+        await next();
+      })    
     }
 }
 
