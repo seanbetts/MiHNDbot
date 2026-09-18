@@ -76,3 +76,36 @@ To learn more about deploying a bot to Azure, see [Deploy your bot to Azure](htt
 - [Channels and Bot Connector Service](https://docs.microsoft.com/en-us/azure/bot-service/bot-concepts?view=azure-bot-service-4.0)
 - [Restify](https://www.npmjs.com/package/restify)
 - [dotenv](https://www.npmjs.com/package/dotenv)
+
+## Local configuration and archived history
+
+This is a historical project. Its original credentials have been removed from
+Git history. Running it requires your own service resources and configuration;
+the original integrations and dependencies may need updating.
+
+Copy the configuration examples before supplying your own values:
+
+```sh
+cp .env.example .env
+cp MiHNDbot.bot.example MiHNDbot.bot
+cp cognitiveModels/MiHNDbotDispatch.dispatch.example cognitiveModels/MiHNDbotDispatch.dispatch
+```
+
+Fill in the blank environment variables and bot/dispatch service credentials,
+IDs and endpoints for your own resources. The actual configuration files are
+ignored by Git; only the examples belong in source control. Keep `botFileSecret`
+blank for an unencrypted bot file. Application Insights is optional and is
+enabled only when `APPINSIGHTS_INSTRUMENTATIONKEY` is set.
+
+Historical request examples use `REMOVED_SECRET` placeholders. Supply a private
+Facebook access token through your environment when adapting those examples.
+Never commit populated tokens, keys, passwords or connection strings.
+
+Before pushing changes, scan the full history with Gitleaks:
+
+```sh
+gitleaks git --log-opts="--all --full-history" --redact
+```
+
+If you have a clone from before the credential cleanup, make a fresh clone.
+Merging or pushing old history can restore the removed credentials.
