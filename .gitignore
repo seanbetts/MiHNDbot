@@ -5,3 +5,11 @@ ngrok
 .env
 .jshintrc
 MiHNDbot.bot
+
+# Private local configuration
+.env.*
+!.env.example
+cognitiveModels/*.dispatch
+*.pfx
+*.p12
+*.key
