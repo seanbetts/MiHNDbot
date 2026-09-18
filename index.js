@@ -13,9 +13,7 @@ const { AzureBlobTranscriptStore, BlobStorage } = require('botbuilder-azure');
 
 // Enable Application Insights
 const appInsights = require('applicationinsights');
-appInsights.setup('REMOVED_SECRET')
-    .setUseDiskRetryCaching(true)
-    .start();
+
 
 // This bot's main dialog.
 const { KnowledgeBot } = require('./bots/knowledgeBot');
@@ -23,6 +21,12 @@ const { KnowledgeBot } = require('./bots/knowledgeBot');
 // Read botFilePath and botFileSecret from .env file
 const ENV_FILE = path.join(__dirname, '.env');
 require('dotenv').config({ path: ENV_FILE });
+
+if (process.env.APPINSIGHTS_INSTRUMENTATIONKEY) {
+    appInsights.setup(process.env.APPINSIGHTS_INSTRUMENTATIONKEY)
+        .setUseDiskRetryCaching(true)
+        .start();
+}
 
 // Create bot adapter
 const adapter = new BotFrameworkAdapter({
