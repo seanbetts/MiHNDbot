@@ -1,0 +1,48 @@
+{
+  "authoringRegion": "westus",
+  "hierarchical": true,
+  "useAllTrainingData": false,
+  "dontReviseUtterance": false,
+  "copyLuisData": true,
+  "services": [
+    {
+      "intentName": "Book_Flight",
+      "appId": "",
+      "authoringKey": "",
+      "version": "0.1",
+      "region": "westus",
+      "type": "luis",
+      "name": "FlightBooking",
+      "id": "1"
+    },
+    {
+      "intentName": "MiHNDbot",
+      "appId": "",
+      "authoringKey": "",
+      "version": "0.1",
+      "region": "westus",
+      "type": "luis",
+      "name": "MiHNDbot",
+      "id": "2"
+    },
+    {
+      "intentName": "MiHNDbot-KB",
+      "kbId": "",
+      "subscriptionKey": "",
+      "type": "qna",
+      "name": "MiHNDbot-KB",
+      "id": "3"
+    }
+  ],
+  "serviceIds": [
+    "1",
+    "2",
+    "3"
+  ],
+  "appId": "",
+  "authoringKey": "",
+  "version": "Dispatch",
+  "region": "westus",
+  "type": "dispatch",
+  "name": "MiHNDbotDispatch"
+}
