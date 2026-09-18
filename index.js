@@ -14,9 +14,7 @@ const { AzureBlobTranscriptStore } = require('botbuilder-azure');
 
 // Enable Application Insights
 const appInsights = require('applicationinsights');
-appInsights.setup('REMOVED_SECRET')
-    .setUseDiskRetryCaching(true)
-    .start();
+
 
 // This bot's main dialog.
 const { DialogBot } = require('./bots/dialogBot');
@@ -24,6 +22,12 @@ const { DialogBot } = require('./bots/dialogBot');
 // Read botFilePath and botFileSecret from .env file
 const ENV_FILE = path.join(__dirname, '.env');
 require('dotenv').config({ path: ENV_FILE });
+
+if (process.env.APPINSIGHTS_INSTRUMENTATIONKEY) {
+    appInsights.setup(process.env.APPINSIGHTS_INSTRUMENTATIONKEY)
+        .setUseDiskRetryCaching(true)
+        .start();
+}
 
 // Get the .bot file path
 const BOT_FILE = path.join(__dirname, (process.env.botFilePath || ''));
