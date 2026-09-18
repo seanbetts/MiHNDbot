@@ -1,0 +1,80 @@
+{
+  "name": "MiHNDbot",
+  "description": "A chatbot to help people learn about Mental Health & NeuroDiversity.",
+  "services": [
+    {
+      "type": "bot",
+      "serviceName": "MiHNDbot",
+      "name": "MiHNDbot",
+      "endpoint": "",
+      "appId": "",
+      "appPassword": "",
+      "subscriptionId": "",
+      "resourceGroup": ""
+    },
+    {
+      "type": "appinsights",
+      "name": "",
+      "tenantId": "",
+      "subscriptionId": "",
+      "resourceGroup": "",
+      "endpointKey": "",
+      "hostname": ""
+    },
+    {
+      "type": "qna",
+      "id": "",
+      "name": "MiHNDbot-KB-v2",
+      "kbId": "",
+      "subscriptionKey": "",
+      "endpointKey": "",
+      "hostname": ""
+    },
+    {
+      "type": "luis",
+      "id": "",
+      "name": "MiHNDbot-LUIS",
+      "version": "0.1",
+      "appId": "",
+      "authoringKey": "",
+      "subscriptionKey": "",
+      "region": "westus"
+    },
+    {
+      "type": "blob",
+      "name": "BlobTranscriptStorage",
+      "serviceName": "mihndbot-transcripts",
+      "subscriptionId": "",
+      "resourceGroup": "",
+      "connectionString": "",
+      "container": "mihndbot-transcripts"
+    },
+    {
+      "type": "blob",
+      "name": "BlobConsoleLogStorage",
+      "serviceName": "mihndbot-console-logs",
+      "subscriptionId": "",
+      "resourceGroup": "",
+      "connectionString": "",
+      "container": "mihndbot-console-logs"
+    },
+    {
+      "type": "cosmosdb",
+      "name": "mihndbot-cosmos-sql-db",
+      "subscriptionId": "",
+      "resourceGroup": "",
+      "endpoint": "",
+      "key": "",
+      "database": "mihndbot-cosmos-sql-db",
+      "collection": "mihndbot-storage"
+    },
+    {
+      "type": "generic",
+      "name": "facebook",
+      "url": "",
+      "keys": ""
+    }
+  ],
+  "padlock": "",
+  "version": "2.0"
+}
