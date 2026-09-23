@@ -22,7 +22,7 @@
         "applicationinsights": "^1.4.0",
         "botbuilder": "~4.4.0",
         "botbuilder-adapter-facebook": "^1.0.3",
-        "botbuilder-ai": "~4.4.0",
+        "botbuilder-ai": "~4.23.3",
         "botbuilder-azure": "^4.4.0",
         "botbuilder-dialogs": "~4.4.0",
         "botbuilder-teams": "^1.0.0",
